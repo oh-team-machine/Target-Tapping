@@ -1,0 +1,10 @@
+Content\Sprites\Up Right Arrow.xnb
+Content\Sprites\Down Arrow.xnb
+Content\Sprites\Down Left Arrow.xnb
+Content\Sprites\Down Right Arrow.xnb
+Content\Sprites\Left Arrow.xnb
+Content\Sprites\Right Arrow.xnb
+Content\Sprites\Up Arrow.xnb
+Content\Sprites\Up Left Arrow.xnb
+Content\Sprites\Left Foot.xnb
+Content\Sprites\Right Foot.xnb

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Sprites\Up Right Arrow.png</Source>
+      <Name>Sprites\Up Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Right Arrow.xnb</Output>
+      <Time>2011-09-30T15:14:39.2006969-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Down Arrow.png</Source>
+      <Name>Sprites\Down Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0329227-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Down Left Arrow.png</Source>
+      <Name>Sprites\Down Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Left Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0339228-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Down Right Arrow.png</Source>
+      <Name>Sprites\Down Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Right Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0469235-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Left Arrow.png</Source>
+      <Name>Sprites\Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Left Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0479236-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Right Arrow.png</Source>
+      <Name>Sprites\Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Right Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0489236-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Up Arrow.png</Source>
+      <Name>Sprites\Up Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0499237-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Up Left Arrow.png</Source>
+      <Name>Sprites\Up Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Left Arrow.xnb</Output>
+      <Time>2011-09-30T11:39:13.0499237-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Left Foot.png</Source>
+      <Name>Sprites\Left Foot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Left Foot.xnb</Output>
+      <Time>2011-10-05T15:39:53.616088-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Right Foot.png</Source>
+      <Name>Sprites\Right Foot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Right Foot.xnb</Output>
+      <Time>2011-10-05T15:39:53.6350891-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Footprint Cursor.png</Source>
+      <Name>Sprites\Footprint Cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Footprint Cursor.xnb</Output>
+      <Time>2011-10-12T13:16:10.8528202-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Start Button.png</Source>
+      <Name>Sprites\Start Button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Start Button.xnb</Output>
+      <Time>2011-10-17T11:54:01.436368-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Down Arrow.png</Source>
+      <Name>Sprites\Active Down Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.7748963-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Down Left Arrow.png</Source>
+      <Name>Sprites\Active Down Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Left Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.7888971-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Down Right Arrow.png</Source>
+      <Name>Sprites\Active Down Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Right Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.7928973-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Left Arrow.png</Source>
+      <Name>Sprites\Active Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Left Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.7938974-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Right Arrow.png</Source>
+      <Name>Sprites\Active Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Right Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.7948975-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Up Arrow.png</Source>
+      <Name>Sprites\Active Up Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.8058981-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Up Left Arrow.png</Source>
+      <Name>Sprites\Active Up Left Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Left Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.8078982-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Active Up Right Arrow.png</Source>
+      <Name>Sprites\Active Up Right Arrow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Right Arrow.xnb</Output>
+      <Time>2011-10-18T09:47:23.8088983-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Wood Floor.jpg</Source>
+      <Name>Sprites\Wood Floor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Wood Floor.xnb</Output>
+      <Time>2011-10-18T11:45:29.0921533-06:00</Time>
+    </Item>
+    <Item>
+      <Source>StepperFont.spritefont</Source>
+      <Name>StepperFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\StepperFont.xnb</Output>
+      <Time>2011-10-20T15:16:15.1422428-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-04-13T13:53:44.2370505-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

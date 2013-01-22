@@ -1,0 +1,38 @@
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Down Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Up Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Left Foot.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Right Foot.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\AHSGame.exe.config
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\AHSGame.exe
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\AHSGame.pdb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\GameLibrary.dll
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\MultiTracker.dll
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\NatNetML.dll
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\GameLibrary.pdb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\GameLibrary.xml
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\MultiTracker.pdb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\AHSGame.Setup.resources
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\AHSGame.exe
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\obj\x86\Release\AHSGame.pdb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Footprint Cursor.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Start Button.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Down Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Left Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Active Up Right Arrow.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\Sprites\Wood Floor.xnb
+C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Step Master\Step Master\AHSGame\bin\x86\Release\Content\StepperFont.xnb

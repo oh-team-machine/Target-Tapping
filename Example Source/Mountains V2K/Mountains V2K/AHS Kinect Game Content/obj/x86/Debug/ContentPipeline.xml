@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>GUI\CancelButton.png</Source>
+      <Name>GUI\CancelButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\CancelButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8068413-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ExitButton.png</Source>
+      <Name>GUI\ExitButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ExitButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8228422-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ListBG.png</Source>
+      <Name>GUI\ListBG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ListBG.xnb</Output>
+      <Time>2013-01-10T12:14:57.8248424-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\MenuBackground.png</Source>
+      <Name>GUI\MenuBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\MenuBackground.xnb</Output>
+      <Time>2013-01-10T12:14:57.8278425-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\OptionsButton.png</Source>
+      <Name>GUI\OptionsButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\OptionsButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8288426-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\PatientButton.png</Source>
+      <Name>GUI\PatientButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\PatientButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8298426-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ReplayButton.png</Source>
+      <Name>GUI\ReplayButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ReplayButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8308427-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\SelectButton.png</Source>
+      <Name>GUI\SelectButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\SelectButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8318428-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\LLButton.png</Source>
+      <Name>GUI\LLButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\LLButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8258424-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\LRButton.png</Source>
+      <Name>GUI\LRButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\LRButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8268425-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ULButton.png</Source>
+      <Name>GUI\ULButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ULButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8328428-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\URButton.png</Source>
+      <Name>GUI\URButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\URButton.xnb</Output>
+      <Time>2013-01-10T12:14:57.8338429-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\airport.png</Source>
+      <Name>Sprites\airport</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\airport.xnb</Output>
+      <Time>2013-01-10T12:17:41.4066191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\biplaneLeft.png</Source>
+      <Name>Sprites\biplaneLeft</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\biplaneLeft.xnb</Output>
+      <Time>2013-01-10T12:17:41.4066191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\biplaneRight.png</Source>
+      <Name>Sprites\biplaneRight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\biplaneRight.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\cursor.png</Source>
+      <Name>Sprites\cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\cursor.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Explosion.png</Source>
+      <Name>Sprites\Explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Explosion.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain.png</Source>
+      <Name>Sprites\Mountain</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain10%.png</Source>
+      <Name>Sprites\Mountain10%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain10%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain20%.png</Source>
+      <Name>Sprites\Mountain20%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain20%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain30%.png</Source>
+      <Name>Sprites\Mountain30%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain30%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain40%.png</Source>
+      <Name>Sprites\Mountain40%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain40%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4166191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain50%.png</Source>
+      <Name>Sprites\Mountain50%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain50%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4266191-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain60%.png</Source>
+      <Name>Sprites\Mountain60%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain60%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4276192-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain70%.png</Source>
+      <Name>Sprites\Mountain70%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain70%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4376192-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain80%.png</Source>
+      <Name>Sprites\Mountain80%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain80%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4376192-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mountain90%.png</Source>
+      <Name>Sprites\Mountain90%</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain90%.xnb</Output>
+      <Time>2013-01-10T12:17:41.4376192-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\MountainBackground.png</Source>
+      <Name>Sprites\MountainBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\MountainBackground.xnb</Output>
+      <Time>2013-01-10T12:17:41.4376192-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Font.xnb</Output>
+      <Time>2013-01-10T12:14:57.835843-07:00</Time>
+    </Item>
+    <Item>
+      <Source>WinFont.spritefont</Source>
+      <Name>WinFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\WinFont.xnb</Output>
+      <Time>2013-01-10T12:14:57.836843-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\plane.wav</Source>
+      <Name>Sound\plane</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sound\plane.xnb</Output>
+      <Time>2013-01-10T12:17:15.6045834-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\vehicleExplosion.wav</Source>
+      <Name>Sound\vehicleExplosion</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sound\vehicleExplosion.xnb</Output>
+      <Time>2013-01-10T12:17:15.6045834-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Left Hand.png</Source>
+      <Name>Sprites\Left Hand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Left Hand.xnb</Output>
+      <Time>2013-01-10T12:36:45.0685161-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Right Hand.png</Source>
+      <Name>Sprites\Right Hand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Right Hand.xnb</Output>
+      <Time>2013-01-10T12:36:45.0985161-07:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game Content\</RootDirectory>
+      <LoggerRootDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-04-13T13:53:44.2370505-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

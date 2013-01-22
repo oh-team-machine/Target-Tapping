@@ -1,0 +1,44 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\CancelButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ExitButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ListBG.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\MenuBackground.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\OptionsButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\PatientButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ReplayButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\SelectButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\LLButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\LRButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\ULButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\GUI\URButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\airport.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\biplaneLeft.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\biplaneRight.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\cursor.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Explosion.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain10%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain20%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain30%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain40%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain50%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain60%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain70%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain80%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Mountain90%.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\MountainBackground.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Font.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\WinFont.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sound\plane.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sound\vehicleExplosion.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Mountains V2K.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Mountains V2K.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Windows7.Multitouch.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.xml
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Mountains V2K.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Mountains V2K.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Left Hand.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Content\Sprites\Right Hand.xnb

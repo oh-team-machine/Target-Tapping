@@ -1,0 +1,10 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Debug\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Debug\GameLibrary.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\Mountains.AddPatientForm.resources
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\Mountains.PatientDatabase.resources
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Debug\GameLibrary.pdb

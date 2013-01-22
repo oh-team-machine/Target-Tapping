@@ -1,0 +1,34 @@
+Content\GUI\CancelButton.xnb
+Content\GUI\ExitButton.xnb
+Content\GUI\ListBG.xnb
+Content\GUI\MenuBackground.xnb
+Content\GUI\OptionsButton.xnb
+Content\GUI\PatientButton.xnb
+Content\GUI\ReplayButton.xnb
+Content\GUI\SelectButton.xnb
+Content\GUI\LLButton.xnb
+Content\GUI\LRButton.xnb
+Content\GUI\ULButton.xnb
+Content\GUI\URButton.xnb
+Content\Sprites\airport.xnb
+Content\Sprites\biplaneLeft.xnb
+Content\Sprites\biplaneRight.xnb
+Content\Sprites\cursor.xnb
+Content\Sprites\Explosion.xnb
+Content\Sprites\Mountain.xnb
+Content\Sprites\Mountain10%.xnb
+Content\Sprites\Mountain20%.xnb
+Content\Sprites\Mountain30%.xnb
+Content\Sprites\Mountain40%.xnb
+Content\Sprites\Mountain50%.xnb
+Content\Sprites\Mountain60%.xnb
+Content\Sprites\Mountain70%.xnb
+Content\Sprites\Mountain80%.xnb
+Content\Sprites\Mountain90%.xnb
+Content\Sprites\MountainBackground.xnb
+Content\Font.xnb
+Content\WinFont.xnb
+Content\Sound\plane.xnb
+Content\Sound\vehicleExplosion.xnb
+Content\Sprites\Left Hand.xnb
+Content\Sprites\Right Hand.xnb

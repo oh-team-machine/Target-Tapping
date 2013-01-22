@@ -1,0 +1,10 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Stunt Plane V2.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Stunt Plane V2.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\Windows7.Multitouch.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\bin\x86\Debug\GameLibrary.xml
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Stunt Plane V2.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Mountains V2K\Mountains V2K\AHS Kinect Game\obj\x86\Debug\Stunt Plane V2.pdb

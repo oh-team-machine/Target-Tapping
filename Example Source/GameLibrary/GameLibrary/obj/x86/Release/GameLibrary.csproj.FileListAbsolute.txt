@@ -1,0 +1,15 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GenerateResource.read.1.tlog
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GenerateResource.write.1.tlog
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GameLibrary.pdb
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GameLibrary.AddPatientForm.resources
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\obj\x86\Release\GameLibrary.PatientDatabase.resources
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.dll.config
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\System.Data.SQLite.dll
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\System.Data.SQLite.pdb
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\Microsoft.Kinect.dll
+C:\Users\AMMI_ADMIN\Documents\Visual Studio 2010\Projects\GameLibrary\GameLibrary\bin\x86\Release\Microsoft.Kinect.xml

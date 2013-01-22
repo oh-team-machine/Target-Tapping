@@ -1,0 +1,16 @@
+Content\Font.xnb
+Content\GUI\CancelButton.xnb
+Content\GUI\ExitButton.xnb
+Content\GUI\ListBG.xnb
+Content\GUI\MenuBackground.xnb
+Content\GUI\OptionsButton.xnb
+Content\GUI\PatientButton.xnb
+Content\GUI\SelectButton.xnb
+Content\Sprites\Hammer.xnb
+Content\Sprites\HammerStrike.xnb
+Content\Sprites\Mole.xnb
+Content\Sprites\WackedMole.xnb
+Content\Sprites\WhackAMoleBackground.xnb
+Content\Sound\hammerHit.xnb
+Content\Sound\molePop.xnb
+Content\WinFont.xnb

@@ -1,0 +1,712 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:GameLibrary.PatientDatabase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            If the folder or file don't exist, creates them.
+            </summary>
+            <param name="game">The foldername of the database</param>
+            <param name="fileName">The filename of the database</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.IsReady">
+            <summary>
+            Returns true if a patient has been chosen, false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.readPatientList">
+            <summary>
+            Reads in the list of patients from the database
+            </summary>
+            <returns>A string list of the patients names</returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.AddPatient(System.String)">
+            <summary>
+            Adds a patient to the database
+            </summary>
+            <param name="patientName">Patient name to be added</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.deletePatient">
+            <summary>
+            Deletes a patient from the database
+            Returns true if the patient is deleted
+            Returns false if the patient is not deleted
+            Returns false if the patient is not in the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.SaveSessionData(System.Collections.Generic.List{System.String})">
+            <summary>
+            Saves data from the session to the patients file.
+            Overwrites the existing file if it exists.
+            Creates the file if it does not exist.
+            </summary>
+            <param name="datum">The string list representing the data to write</param>
+        </member>
+        <member name="F:GameLibrary.PatientDatabase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GameLibrary.AddPatientForm">
+            <summary>
+            Windows form that allows for a patient to be added to the patient
+            database.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.#ctor(GameLibrary.PatientDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.cancelButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.addPatientButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:GameLibrary.AddPatientForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GameLibrary.State">
+            <summary>
+            Enum for the state of the Screen, currently either Visible or Hidden.
+            </summary>
+        </member>
+        <member name="F:GameLibrary.State.Visible">
+            <summary>
+            Marks the screen as visible, allowing it to be updated and drawn.
+            </summary>
+        </member>
+        <member name="F:GameLibrary.State.Hidden">
+            <summary>
+            Marks the screen as hidden, disallowing it to be updated and drawn.
+            </summary>
+        </member>
+        <member name="T:GameLibrary.Screen">
+            <summary>
+            This clss represents a screen. It has methods for Initialization, loading and unloading
+            content, updating, drawing, and handling input. It requires a ScreenManager to look after
+            it and to call its functions. Anything that should be drawn to the screen in XNA should
+            reside in one screen or another.
+            
+            This class is an interface.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Screen.Initialize">
+            <summary>
+            Allows the game to perform any initialization it needs to before starting to run.
+            This is where it can query for any required services and load any non-graphic
+            related content.  Calling base.Initialize will enumerate through any components
+            and initialize them as well.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Screen.LoadContent">
+            <summary>
+            LoadContent will be called once per game and is the place to load
+            all of your content.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Screen.UnloadContent">
+            <summary>
+            UnloadContent will be called once per game and is the place to unload
+            all content.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Screen.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            Allows the game to run logic such as updating the world,
+            checking for collisions, gathering input, and playing audio.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+        </member>
+        <member name="M:GameLibrary.Screen.Draw(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Matrix)">
+            <summary>
+            This is called when the game should draw itself.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+            <param name="transform">A matrix representing the screen transformation for scaling and drawing purposes.</param>
+        </member>
+        <member name="M:GameLibrary.Screen.HandleInput(Microsoft.Xna.Framework.GameTime,GameLibrary.InputManager)">
+            <summary>
+            Allows the screen to accept and handle input.
+            </summary>
+            <param name="gameTime">Provides a snapshot of timing values.</param>
+            <param name="input">The input manager that handles the different hardware inputs.</param>
+        </member>
+        <member name="P:GameLibrary.Screen.ScreenState">
+            <summary>
+            The current state of the screen. One of the enum State.
+            </summary>
+        </member>
+        <member name="P:GameLibrary.Screen.ScreenManager">
+            <summary>
+            The screen manager that owns this screen.
+            </summary>
+        </member>
+        <member name="T:GameLibrary.ScreenManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.#ctor(Microsoft.Xna.Framework.Game)">
+            <summary>
+            
+            </summary>
+            <param name="game"></param>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.LoadContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.UnloadContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.AddScreen(GameLibrary.Screen,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="screen"></param>
+            <param name="isInitialized"></param>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.RemoveScreen(GameLibrary.Screen)">
+            <summary>
+            
+            </summary>
+            <param name="screen"></param>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.Exit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.ScaleXPosition(System.Single)">
+            <summary>
+            Takes a hardcoded X position and returns a scaled position based on screen size and preffered screen size.
+            </summary>
+            <param name="position">The unscaled X position</param>
+            <returns>the scaled X position</returns>
+        </member>
+        <member name="M:GameLibrary.ScreenManager.ScaleYPosition(System.Single)">
+            <summary>
+            Takes a hardcoded Y position and returns a scaled position based on screen size and preffered screen size.
+            </summary>
+            <param name="position">The unscaled Y position</param>
+            <returns>The scaled Y position</returns>
+        </member>
+        <member name="P:GameLibrary.ScreenManager.Input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GameLibrary.ScreenManager.SpriteBatch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GameLibrary.Collisions">
+            <summary>
+            This class handles all types of per pixel collisions for 2D objects.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Collisions.PerPixelCollisionWithMouse(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color[],Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            This is a per pixel collision detection algorithom that tracks collisions between
+            the mouse and any arbitrary 2D sprite
+            </summary>
+            <param name="rectA"> Rectangle the sprite is in.</param>
+            <param name="colA">Colour array of the sprite</param>
+            <param name="state">The current mouse state</param>
+            <returns>bool stating if a collision occured</returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.CollisionWithMouse(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            This is a collision detection algorithom that tracks collisions between
+            the mouse and any arbitrary 2D sprite
+            </summary>
+            <param name="rect"> Rectangle the sprite is in.</param>
+            <param name="state">The current mouse state</param>
+            <returns>bool stating if a collision occured</returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.PerPixelCollision(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Rectangle,System.UInt32[],System.UInt32[])">
+            <summary>
+            Per pixel collision detection.
+            </summary>
+            <param name="rectA">Rectangle of first object</param>
+            <param name="rectB">Rectangle of second object</param>
+            <param name="colA">Color array of first object as uint</param>
+            <param name="colB">Color array of second object as uint</param>
+            <returns>bool stating if a collision occured</returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.PerPixelCollisionWithRotationScale(Microsoft.Xna.Framework.Matrix,System.Int32,System.Int32,System.UInt32[],Microsoft.Xna.Framework.Matrix,System.Int32,System.Int32,System.UInt32[])">
+            <summary>
+            Determines if there is overlap of the non-transparent pixels between two
+            sprites regardless of rotation or scale.
+            </summary>
+            <param name="transformA">World transform of the first sprite.</param>
+            <param name="widthA">Width of the first sprite's texture.</param>
+            <param name="heightA">Height of the first sprite's texture.</param>
+            <param name="dataA">Pixel color data of the first sprite.</param>
+            <param name="transformB">World transform of the second sprite.</param>
+            <param name="widthB">Width of the second sprite's texture.</param>
+            <param name="heightB">Height of the second sprite's texture.</param>
+            <param name="dataB">Pixel color data of the second sprite.</param>
+            <returns>True if non-transparent pixels overlap; false otherwise</returns>
+        </member>
+        <member name="T:GameLibrary.UI.Button">
+            <summary>
+            A clickable element. Only responds to clicks that happen inside of its constraints. Customizeable size and icon.
+            
+            This class takes care of all initialization, updates and drawing of this object.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.Button.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Rectangle)">
+            <summary>
+            
+            </summary>
+            <param name="icon"></param>
+            <param name="rect"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Button.Update(Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Button.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Button.IsClicked">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GameLibrary.UI.Button.Rect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GameLibrary.Model.Loger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Model.Loger.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:GameLibrary.Model.Loger.WriteLog(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:GameLibrary.Model.Loger.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GameLibrary.Database">
+            <summary>
+            This class allowys you to link to and access an SQLite database.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Database.#ctor(System.String)">
+            <summary>
+            Single Param Constructor for specifying the DB file.
+            </summary>
+            <param name="inputFile">The File containing the DB</param>
+        </member>
+        <member name="M:GameLibrary.Database.ExecuteQuerry(System.String)">
+            <summary>
+            Allows the programmer to run a select against the Database.
+            </summary>
+            <param name="sql">The SQL to run</param>
+            <returns>A DataTable containing the result set.</returns>
+        </member>
+        <member name="M:GameLibrary.Database.ExecuteStatement(System.String)">
+            <summary>
+            Allows the programmer to interact with the database for purposes other than a query.
+            </summary>
+            <param name="sql">The SQL to be run.</param>
+            <returns>An Integer containing the number of rows updated.</returns>
+        </member>
+        <member name="M:GameLibrary.Database.Insert(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Allows the programmer to easily insert into the DB
+            </summary>
+            <param name="tableName">The table into which we insert the data.</param>
+            <param name="data">A dictionary containing the column names and data for the insert.</param>
+            <returns>A boolean true or false to signify success or failure.</returns>
+        </member>
+        <member name="M:GameLibrary.Database.Select(System.String,System.String)">
+            <summary>
+            Allows the programmer to easily select rows in the DB.
+            </summary>
+            <param name="selectStatement">What to select.</param>
+            <param name="table">The table from which to select.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Database.Select(System.String,System.String,System.String)">
+            <summary>
+            Allows the programmer to easily select rows in the DB with a condition.
+            </summary>
+            <param name="selectStatement">What to select.</param>
+            <param name="table">The table from which to select.</param>
+            <param name="where">The where clause for the update statement.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Database.Update(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Allows the programmer to easily update rows in the DB.
+            </summary>
+            <param name="tableName">The table to update.</param>
+            <param name="data">A dictionary containing Column names and their new values.</param>
+            <param name="where">The where clause for the update statement.</param>
+        </member>
+        <member name="M:GameLibrary.Database.Delete(System.String,System.String)">
+            <summary>
+            Allows the programmer to easily delete rows from the DB.
+            </summary>
+            <param name="tableName">The table from which to delete.</param>
+            <param name="where">The where clause for the delete.</param>
+        </member>
+        <member name="M:GameLibrary.Database.ClearTable(System.String)">
+            <summary>
+            Allows the user to easily clear all data from a specific table.
+            </summary>
+            <param name="table">The name of the table to clear.</param>
+            <returns>A boolean true or false to signify success or failure.</returns>
+        </member>
+        <member name="M:GameLibrary.Database.ClearDB">
+            <summary>
+            Allows the programmer to easily delete all data from the DB.
+            </summary>
+            <returns>A boolean true or false to signify success or failure.</returns>
+        </member>
+        <member name="T:GameLibrary.ListOperations">
+            <summary>
+            This class enables various functions for lists of objects.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ListOperations.ShuffleList``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Randomly shuffles a list of objects, much like shuffling a deck of cards.
+            </summary>
+            <param name="listToShuffle">The list of objects to be shuffled</param>
+            <param name="shuffles">The number of times to shuffle the list</param>
+            <returns></returns>
+        </member>
+        <member name="T:GameLibrary.UI.NumericUpDown">
+            
+        </member>
+        <member name="M:GameLibrary.UI.NumericUpDown.#ctor(Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,System.Int32,System.Single,Microsoft.Xna.Framework.Graphics.SpriteFont,System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="background"></param>
+            <param name="position"></param>
+            <param name="alignment"></param>
+            <param name="width"></param>
+            <param name="font"></param>
+            <param name="Increment"></param>
+            <param name="Value"></param>
+            <param name="Maximum"></param>
+            <param name="Minimum"></param>
+        </member>
+        <member name="M:GameLibrary.UI.NumericUpDown.Update(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+            <param name="mouseState"></param>
+        </member>
+        <member name="M:GameLibrary.UI.NumericUpDown.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="P:GameLibrary.UI.NumericUpDown.Increment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GameLibrary.UI.NumericUpDown.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GameLibrary.UI.NumericUpDown.Maximum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:GameLibrary.UI.NumericUpDown.Minimum">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GameLibrary.UI.Label">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GameLibrary.UI.Label.LEFT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GameLibrary.UI.Label.CENTER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GameLibrary.UI.Label.RIGHT">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.Label.#ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Int32,System.Single,Microsoft.Xna.Framework.Graphics.SpriteFont)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+            <param name="position"></param>
+            <param name="alignment"></param>
+            <param name="width"></param>
+            <param name="font"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Label.WordWrap(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Label.CharWrap(System.String,System.Text.StringBuilder,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="word"></param>
+            <param name="sb"></param>
+            <param name="lineWidth"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Label.SetText(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:GameLibrary.UI.Label.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="P:GameLibrary.UI.Label.Alignment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GameLibrary.InputManager">
+            <summary>
+            This class manages Mouse and Keyboard input for XNA games.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.InputManager.#ctor">
+            <summary>
+            The constructor for the InputManager class. Initializes a new mouse and keyboard state.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.InputManager.Update">
+            <summary>
+            Updates the moust and keyboard state with GetState()
+            </summary>
+        </member>
+        <member name="P:GameLibrary.InputManager.MouseState">
+            <summary>
+            The current MouseState
+            </summary>
+        </member>
+        <member name="P:GameLibrary.InputManager.KeyState">
+            <summary>
+            The current KeyboardState
+            </summary>
+        </member>
+        <member name="T:GameLibrary.User32">
+            <summary>
+            This allows the program to run in a predefined location, instead
+            of the primary monitor.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.User32.SetWindowPos(System.UInt32,System.UInt32,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            Sets the position of a window.
+            </summary>
+            <param name="hWnd">The window Handle</param>
+            <param name="level">The depth of the window</param>
+            <param name="X">The x co-ordinate of the window</param>
+            <param name="Y">The y co-ordinate of the window</param>
+            <param name="W">The width of the window</param>
+            <param name="H">The height of the window</param>
+            <param name="flags">Any flags for the window</param>
+        </member>
+        <member name="M:GameLibrary.User32.FindWindow(System.String,System.String)">
+            <summary>
+            This function returns the IntPtr to the window handle for the given window.
+            </summary>
+            <param name="lpClassName">The class of window</param>
+            <param name="lpWindowName">The name of the window</param>
+            <returns>IntPtr to the window handle</returns>
+        </member>
+        <member name="M:GameLibrary.User32.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            Sets the designated window to be the foreground window.
+            </summary>
+            <param name="hWnd">IntPtr to the window.</param>
+            <returns>True if the window is found, false otherwise.</returns>
+        </member>
+        <member name="T:GameLibrary.HelpfulMethods">
+            <summary>
+            Helpful methods for various tasks.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.HelpfulMethods.SendExit">
+            <summary>
+            Sends the exit command to the calling program. Used to
+            pause motion tracking.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.HelpfulMethods.CalculateTime(System.Single)">
+            <summary>
+            Takes a millisecond representation of time and returns the
+            value as minutes and seconds. [0] is minutes, [1] is seconds.
+            </summary>
+            <param name="time">Millisecond time value to convert</param>
+            <returns>A list with two elements [0]minutes, [1]seconds.</returns>
+        </member>
+        <member name="M:GameLibrary.HelpfulMethods.FormatTime(System.Single)">
+            <summary>
+            Function that prints a millisecond time in time format
+            hh:mm:ss.ss.
+            </summary>
+            <param name="timeInMilli">float value representing time</param>
+            <returns>String formatted as hh:mm:ss.ss</returns>
+        </member>
+        <member name="T:GameLibrary.UI.List">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.List.#ctor(System.Collections.Generic.List{System.String},System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Graphics.SpriteFont)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.List.#ctor(System.Collections.Generic.List{System.String},System.Int32,System.Int32,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Graphics.SpriteFont,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.List.initializeRectList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.List.initializeDrawList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.UI.List.Update(Microsoft.Xna.Framework.GameTime,Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            
+            </summary>
+            <param name="gameTime"></param>
+            <param name="mouseState"></param>
+        </member>
+        <member name="M:GameLibrary.UI.List.Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch)">
+            <summary>
+            
+            </summary>
+            <param name="spriteBatch"></param>
+        </member>
+        <member name="M:GameLibrary.UI.List.SelectedIndex">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.UI.List.SelectedElement">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wack-A-Mole V4", "Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4.csproj", "{1CBF5273-980F-4CAB-9D79-86402949F53A}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Wack-A-Mole V4Content", "Wack-A-Mole V4\Wack-A-Mole V4Content\Wack-A-Mole V4Content.contentproj", "{1B6E1C96-5CB1-4017-BF00-FCBD4AE9FBBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CBF5273-980F-4CAB-9D79-86402949F53A}.Debug|x86.ActiveCfg = Debug|x86
+		{1CBF5273-980F-4CAB-9D79-86402949F53A}.Debug|x86.Build.0 = Debug|x86
+		{1CBF5273-980F-4CAB-9D79-86402949F53A}.Release|x86.ActiveCfg = Release|x86
+		{1CBF5273-980F-4CAB-9D79-86402949F53A}.Release|x86.Build.0 = Release|x86
+		{1B6E1C96-5CB1-4017-BF00-FCBD4AE9FBBD}.Debug|x86.ActiveCfg = Debug|x86
+		{1B6E1C96-5CB1-4017-BF00-FCBD4AE9FBBD}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

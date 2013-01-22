@@ -1,0 +1,39 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\CancelButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ExitButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ListBG.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\MenuBackground.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\OptionsButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\PatientButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ReplayButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\SelectButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\Left Hand.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\Right Hand.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\background.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\cursor.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\foreground.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\middleground.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\plane.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringBack.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringBackCleared.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringFront.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringFrontCleared.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\LLButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\LRButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ULButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\URButton.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Font.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\WinFont.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sound\plane.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sound\ringDoDoDo.xnb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Stunt Plane V2.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Stunt Plane V2.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\GameLibrary.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Microsoft.Kinect.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Windows7.Multitouch.dll
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\GameLibrary.pdb
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\GameLibrary.xml
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Microsoft.Kinect.xml
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Release\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Release\Stunt Plane V2.exe
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Release\Stunt Plane V2.pdb

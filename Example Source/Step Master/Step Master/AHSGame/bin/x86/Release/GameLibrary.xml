@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:GameLibrary.AddPatientForm">
+            <summary>
+            Windows form that allows for a patient to be added to the patient
+            database.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.#ctor(GameLibrary.PatientDatabase)">
+            <summary>
+            
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.cancelButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.addPatientButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:GameLibrary.AddPatientForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GameLibrary.AddPatientForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:GameLibrary.PatientDatabase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:GameLibrary.PatientDatabase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            If the folder or file don't exist, creates them.
+            </summary>
+            <param name="game">The foldername of the database</param>
+            <param name="_fileName">The filename of the database</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.isReady">
+            <summary>
+            Returns true if a patient has been chosen, false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.readPatientList">
+            <summary>
+            Reads in the list of patients from the database
+            </summary>
+            <returns>A string list of the patients names</returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.addPatient(System.String)">
+            <summary>
+            Adds a patient to the database
+            </summary>
+            <param name="_patientName">Patient name to be added</param>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.deletePatient">
+            <summary>
+            Deletes a patient from the database
+            Returns true if the patient is deleted
+            Returns false if the patient is not deleted
+            Returns false if the patient is not in the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.PatientDatabase.saveSessionData(System.Collections.Generic.List{System.String})">
+            <summary>
+            Saves data from the session to the patients file.
+            Overwrites the existing file if it exists.
+            Creates the file if it does not exist.
+            </summary>
+            <param name="_data">The string list representing the data to write</param>
+        </member>
+        <member name="T:GameLibrary.User32">
+            <summary>
+            This allows the program to run in a predefined location, instead
+            of the primary monitor.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.User32.SetWindowPos(System.UInt32,System.UInt32,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="Hwnd"></param>
+            <param name="Level"></param>
+            <param name="X"></param>
+            <param name="Y"></param>
+            <param name="W"></param>
+            <param name="H"></param>
+            <param name="Flags"></param>
+        </member>
+        <member name="M:GameLibrary.User32.FindWindow(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="lpClassName"></param>
+            <param name="lpWindowName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.User32.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            Sets the designated window to be the foreground window.
+            </summary>
+            <param name="hWnd">IntPtr to the window.</param>
+            <returns>True if the window is found, false otherwise.</returns>
+        </member>
+        <member name="T:GameLibrary.Helpful_Methods">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Helpful_Methods.sendExit">
+            <summary>
+            Sends the exit command to the calling program. Used to
+            pause motion tracking.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Helpful_Methods.calculateTime(System.Single)">
+            <summary>
+            Takes a millisecond representation of time and returns the
+            value as minutes and seconds. [0] is minutes, [1] is seconds.
+            </summary>
+            <param name="time">Millisecond time value to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Helpful_Methods.formatTime(System.Single)">
+            <summary>
+            Function that prints a millisecond time in time format
+            hh:mm:ss.ss.
+            </summary>
+            <param name="timeInMilli">float value representing time</param>
+            <returns>String formatted as hh:mm:ss.ss</returns>
+        </member>
+        <member name="T:GameLibrary.Collisions">
+            <summary>
+            This class handles all types of collisions for 2D objects.
+            </summary>
+        </member>
+        <member name="M:GameLibrary.Collisions.perPixelCollisionWithMouse(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color[],Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            This is a per pixel collision detection algorithom that tracks collisions between
+            the mouse and any arbitrary 2D sprite
+            </summary>
+            <param name="recA"> Rectangle the sprite is in.</param>
+            <param name="colA">Colour array of the sprite</param>
+            <param name="state">The current mouse state</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.collisionWithMouse(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Input.MouseState)">
+            <summary>
+            This is a collision detection algorithom that tracks collisions between
+            the mouse and any arbitrary 2D sprite
+            </summary>
+            <param name="recA"> Rectangle the sprite is in.</param>
+            <param name="state">The current mouse state</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.perPixelCollision(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Rectangle,System.UInt32[],System.UInt32[])">
+            <summary>
+            Per pixel collision detection.
+            </summary>
+            <param name="recA">Rectangle of first object</param>
+            <param name="recB">Rectangle of second object</param>
+            <param name="colA">Color array of first object as uint</param>
+            <param name="colB">Color array of second object as uint</param>
+            <returns></returns>
+        </member>
+        <member name="M:GameLibrary.Collisions.perPixelCollisionWithRotationScale(Microsoft.Xna.Framework.Matrix,System.Int32,System.Int32,System.UInt32[],Microsoft.Xna.Framework.Matrix,System.Int32,System.Int32,System.UInt32[])">
+            <summary>
+            Determines if there is overlap of the non-transparent pixels between two
+            sprites regardless of rotation or scale.
+            </summary>
+            <param name="transformA">World transform of the first sprite.</param>
+            <param name="widthA">Width of the first sprite's texture.</param>
+            <param name="heightA">Height of the first sprite's texture.</param>
+            <param name="dataA">Pixel color data of the first sprite.</param>
+            <param name="transformB">World transform of the second sprite.</param>
+            <param name="widthB">Width of the second sprite's texture.</param>
+            <param name="heightB">Height of the second sprite's texture.</param>
+            <param name="dataB">Pixel color data of the second sprite.</param>
+            <returns>True if non-transparent pixels overlap; false otherwise</returns>
+        </member>
+        <member name="T:GameLibrary.ListOperations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:GameLibrary.ListOperations.shuffleList``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="listToShuffle"></param>
+            <param name="shuffles"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

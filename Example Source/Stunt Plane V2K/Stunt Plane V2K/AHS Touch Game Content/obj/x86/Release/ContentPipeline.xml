@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>GUI\CancelButton.png</Source>
+      <Name>GUI\CancelButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\CancelButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6192299-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ExitButton.png</Source>
+      <Name>GUI\ExitButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ExitButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6332307-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ListBG.png</Source>
+      <Name>GUI\ListBG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ListBG.xnb</Output>
+      <Time>2012-08-23T13:31:11.6342308-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\MenuBackground.png</Source>
+      <Name>GUI\MenuBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\MenuBackground.xnb</Output>
+      <Time>2012-08-23T13:31:11.6422312-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\OptionsButton.png</Source>
+      <Name>GUI\OptionsButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\OptionsButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.655232-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\PatientButton.png</Source>
+      <Name>GUI\PatientButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\PatientButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6572321-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ReplayButton.png</Source>
+      <Name>GUI\ReplayButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ReplayButton.xnb</Output>
+      <Time>2012-09-27T10:02:15.3864811-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\SelectButton.png</Source>
+      <Name>GUI\SelectButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\SelectButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6652326-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Left Hand.png</Source>
+      <Name>Sprites\Left Hand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\Left Hand.xnb</Output>
+      <Time>2012-12-03T18:48:19.5106538-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Right Hand.png</Source>
+      <Name>Sprites\Right Hand</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\Right Hand.xnb</Output>
+      <Time>2012-12-03T18:48:19.5106538-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\background.png</Source>
+      <Name>Sprites\background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\background.xnb</Output>
+      <Time>2012-10-05T13:43:52.4189916-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\cursor.png</Source>
+      <Name>Sprites\cursor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\cursor.xnb</Output>
+      <Time>2012-10-05T13:43:52.4359926-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\foreground.png</Source>
+      <Name>Sprites\foreground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\foreground.xnb</Output>
+      <Time>2012-10-05T13:43:52.4509934-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\middleground.png</Source>
+      <Name>Sprites\middleground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\middleground.xnb</Output>
+      <Time>2012-10-05T13:43:52.4529935-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\plane.png</Source>
+      <Name>Sprites\plane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\plane.xnb</Output>
+      <Time>2012-10-05T13:43:52.4539936-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ringBack.png</Source>
+      <Name>Sprites\ringBack</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringBack.xnb</Output>
+      <Time>2012-10-05T13:43:52.4559937-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ringBackCleared.png</Source>
+      <Name>Sprites\ringBackCleared</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringBackCleared.xnb</Output>
+      <Time>2012-10-05T13:43:52.4569938-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ringFront.png</Source>
+      <Name>Sprites\ringFront</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringFront.xnb</Output>
+      <Time>2012-10-05T13:43:52.4579938-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\ringFrontCleared.png</Source>
+      <Name>Sprites\ringFrontCleared</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sprites\ringFrontCleared.xnb</Output>
+      <Time>2012-10-05T13:43:52.4599939-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\LLButton.png</Source>
+      <Name>GUI\LLButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\LLButton.xnb</Output>
+      <Time>2012-12-03T18:49:13.8687851-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\LRButton.png</Source>
+      <Name>GUI\LRButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\LRButton.xnb</Output>
+      <Time>2012-12-03T18:49:13.8687851-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ULButton.png</Source>
+      <Name>GUI\ULButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\ULButton.xnb</Output>
+      <Time>2012-12-03T18:49:13.8687851-07:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\URButton.png</Source>
+      <Name>GUI\URButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\GUI\URButton.xnb</Output>
+      <Time>2012-12-03T18:49:13.8687851-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Font.xnb</Output>
+      <Time>2012-09-20T12:18:25.5043139-06:00</Time>
+    </Item>
+    <Item>
+      <Source>WinFont.spritefont</Source>
+      <Name>WinFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\WinFont.xnb</Output>
+      <Time>2012-09-20T12:19:53.7903635-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\plane.wav</Source>
+      <Name>Sound\plane</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sound\plane.xnb</Output>
+      <Time>2012-10-05T13:43:33.2588957-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\ringDoDoDo.wav</Source>
+      <Name>Sound\ringDoDoDo</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\Sound\ringDoDoDo.xnb</Output>
+      <Time>2012-10-05T13:43:33.2728965-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game Content\</RootDirectory>
+      <LoggerRootDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game Content\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-04-13T13:53:44.2370505-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

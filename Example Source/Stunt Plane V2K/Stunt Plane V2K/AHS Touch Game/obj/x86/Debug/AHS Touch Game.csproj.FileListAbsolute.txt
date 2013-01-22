@@ -1,0 +1,2 @@
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ammi_admin\documents\visual studio 2010\Projects\Stunt Plane V2K\Stunt Plane V2K\AHS Touch Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

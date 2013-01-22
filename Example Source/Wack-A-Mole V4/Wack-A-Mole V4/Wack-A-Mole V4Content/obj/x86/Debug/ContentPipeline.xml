@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Font.spritefont</Source>
+      <Name>Font</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\ammi_admin\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Font.xnb</Output>
+      <Time>2012-09-20T12:18:25.5043139-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\CancelButton.png</Source>
+      <Name>GUI\CancelButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\CancelButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6192299-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ExitButton.png</Source>
+      <Name>GUI\ExitButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\ExitButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6332307-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\ListBG.png</Source>
+      <Name>GUI\ListBG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\ListBG.xnb</Output>
+      <Time>2012-08-23T13:31:11.6342308-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\MenuBackground.png</Source>
+      <Name>GUI\MenuBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\MenuBackground.xnb</Output>
+      <Time>2012-08-23T13:31:11.6422312-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\OptionsButton.png</Source>
+      <Name>GUI\OptionsButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\OptionsButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.655232-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\PatientButton.png</Source>
+      <Name>GUI\PatientButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\PatientButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6572321-06:00</Time>
+    </Item>
+    <Item>
+      <Source>GUI\SelectButton.png</Source>
+      <Name>GUI\SelectButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\GUI\SelectButton.xnb</Output>
+      <Time>2012-08-23T13:31:11.6652326-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Hammer.png</Source>
+      <Name>Sprites\Hammer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sprites\Hammer.xnb</Output>
+      <Time>2012-08-23T13:41:22.810188-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\HammerStrike.png</Source>
+      <Name>Sprites\HammerStrike</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sprites\HammerStrike.xnb</Output>
+      <Time>2012-08-23T13:41:22.8631911-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Mole.png</Source>
+      <Name>Sprites\Mole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sprites\Mole.xnb</Output>
+      <Time>2012-08-23T13:41:22.8741917-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\WackedMole.png</Source>
+      <Name>Sprites\WackedMole</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sprites\WackedMole.xnb</Output>
+      <Time>2012-08-23T13:41:22.8881925-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\WhackAMoleBackground.png</Source>
+      <Name>Sprites\WhackAMoleBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sprites\WhackAMoleBackground.xnb</Output>
+      <Time>2012-08-30T11:05:52.8064931-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\hammerHit.wav</Source>
+      <Name>Sound\hammerHit</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sound\hammerHit.xnb</Output>
+      <Time>2012-08-23T13:41:22.8121882-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Sound\molePop.wav</Source>
+      <Name>Sound\molePop</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\Sound\molePop.xnb</Output>
+      <Time>2012-08-31T13:47:42.5084826-06:00</Time>
+    </Item>
+    <Item>
+      <Source>WinFont.spritefont</Source>
+      <Name>WinFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\WinFont.xnb</Output>
+      <Time>2012-09-20T12:19:53.7903635-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\AMMI_ADMIN\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-06:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-04-13T13:53:44.2370505-06:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
