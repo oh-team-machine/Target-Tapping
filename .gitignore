@@ -1,0 +1,13 @@
+# File manager junk
+.DS_Store
+[Tt]humbs.db
+
+# C# junk.
+[Oo]bj
+[Bb]in
+*.user
+*.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
