@@ -1,4 +1,4 @@
 pre-project
 ===========
 
-We ain't even got no project yet, y'all.
+We Are Currently Working On The Project Plan.
