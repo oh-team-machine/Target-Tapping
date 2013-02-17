@@ -2,12 +2,12 @@
 .DS_Store
 [Tt]humbs.db
 
-# C# junk.
-[Oo]bj
-[Bb]in
+# C#/Visual Studio junk.
+[Oo]bj/
+[Bb]in/
 *.user
 *.suo
-*.[Cc]ache
+*.[Cc]ache/
 *.bak
 *.ncb
 *.log 
