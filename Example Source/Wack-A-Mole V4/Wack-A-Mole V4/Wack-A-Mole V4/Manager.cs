@@ -4,13 +4,22 @@ using System.Linq;
 using System.Text;
 using GameLibrary;
 
+// Anotated by Eddie.
+
 namespace Wack_A_Mole_V4
 {
     /// <summary>
-    /// 
+    /// A ScreenManager subclass that also doubles as a data class.
+    /// The data that would be interesting for the therapist.
+    /// Poor separation of concerns but whatever.
     /// </summary>
     class Manager : GameLibrary.ScreenManager
     {
+
+	// NOTE: The following are automatic properties.
+	// See example 6 on this page:
+        // http://www.dotnetperls.com/property
+
         /// <summary>
         /// 
         /// </summary>

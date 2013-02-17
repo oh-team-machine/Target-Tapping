@@ -1,1 +1,0 @@
-c:\users\ammi_admin\documents\visual studio 2010\Projects\Wack-A-Mole V4\Wack-A-Mole V4\Wack-A-Mole V4Content\obj\x86\Debug\ResolveAssemblyReference.cache

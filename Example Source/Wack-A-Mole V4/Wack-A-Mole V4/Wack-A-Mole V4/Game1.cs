@@ -13,13 +13,17 @@ using System.Runtime.InteropServices;
 using GameLibrary;
 using Wack_A_Mole_V4.Screens;
 
+// Note: Annotated by Eddie.
+
 namespace Wack_A_Mole_V4
 {
     /// <summary>
-    /// This is the main type for your game
+    /// This is the main Game subclass. Sets up the content directory, among
+    /// other things.
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+	// Instantiate a new ScreenManager with its weird extra data.
         private Manager manager;
 
         private GraphicsDeviceManager graphics;
@@ -29,6 +33,7 @@ namespace Wack_A_Mole_V4
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+	    // Set the maximum resolution of the device. 
             graphics.PreferredBackBufferWidth = 1920;
             graphics.PreferredBackBufferHeight = 1080;
 

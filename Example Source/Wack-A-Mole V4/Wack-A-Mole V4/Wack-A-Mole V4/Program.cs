@@ -1,7 +1,10 @@
 using System;
 
+// Annotated by Eddie.
+
 namespace Wack_A_Mole_V4
 {
+// I don't know why this is define is here...
 #if WINDOWS || XBOX
     static class Program
     {
