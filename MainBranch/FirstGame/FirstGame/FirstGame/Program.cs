@@ -5,7 +5,6 @@ namespace FirstGame
 #if WINDOWS || XBOX
     static class Program
     {
-        //Hi Pat was here!
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
