@@ -26,6 +26,7 @@ namespace FirstGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            this.IsMouseVisible = true;
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace FirstGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            myTexture = Content.Load<Texture2D>("hockey-puck");
+            myTexture = Content.Load<Texture2D>("Sprites/hockey-puck");
             // TODO: use this.Content to load your game content here
         }
 
