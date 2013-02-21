@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypingMenus", "PrototypingMenus\PrototypingMenus\PrototypingMenus.csproj", "{93598F51-44F4-4358-9815-52DA48D63981}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PrototypingMenusContent", "PrototypingMenus\PrototypingMenusContent\PrototypingMenusContent.contentproj", "{00AA4AB3-D03D-45B7-B0AA-26DD43A89BEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93598F51-44F4-4358-9815-52DA48D63981}.Debug|x86.ActiveCfg = Debug|x86
+		{93598F51-44F4-4358-9815-52DA48D63981}.Debug|x86.Build.0 = Debug|x86
+		{93598F51-44F4-4358-9815-52DA48D63981}.Release|x86.ActiveCfg = Release|x86
+		{93598F51-44F4-4358-9815-52DA48D63981}.Release|x86.Build.0 = Release|x86
+		{00AA4AB3-D03D-45B7-B0AA-26DD43A89BEB}.Debug|x86.ActiveCfg = Debug|x86
+		{00AA4AB3-D03D-45B7-B0AA-26DD43A89BEB}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
