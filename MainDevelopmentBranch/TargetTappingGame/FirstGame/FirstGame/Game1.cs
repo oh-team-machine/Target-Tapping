@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using FirstGame.Front_end;
 
 namespace FirstGame
 {
@@ -18,15 +19,38 @@ namespace FirstGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D myTexture;
-        Vector2 spritePosition = Vector2.Zero;
-        Vector2 spriteSpeed = new Vector2(500f, 270f);
 
+        enum GameState
+        {
+            HomeScreen,
+            NewLevelScreen,
+            LoadLevelScreen,
+            LevelEditor,
+            PatientGame,
+        }
+        GameState CurrentGameState = GameState.HomeScreen;
+
+        Texture2D myTopHeaderBkGround;
+        Vector2 myTopHeaderPosition = Vector2.Zero; //example code
+        Texture2D myTitle, myNewLevelTitle;
+        Vector2 myTitlePosition = (new Vector2(300, 0));
+        Vector2 myNewLevelTitlePosition = (new Vector2(300, 0));
+        Vector2 myCancelButtonPosition = (new Vector2(0, 0));
+        
+        
+        int screenWidth = 1280, screenHeight = 720;
+        cButton btnNew, btnLoad, btnExit;
+        cButton120x50 btnCancel;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
+
+            graphics.PreferredBackBufferWidth = screenWidth; //currently set to 720P for laptop support, will change to 1080P
+            graphics.PreferredBackBufferHeight = screenHeight;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
 
         }
 
@@ -51,8 +75,21 @@ namespace FirstGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            myTexture = Content.Load<Texture2D>("Sprites/hockey-puck");
+            // myTexture = Content.Load<Texture2D>("Sprites/hockey-puck"); //example code
             // TODO: use this.Content to load your game content here
+            myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
+            myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
+            btnNew = new cButton(Content.Load<Texture2D>("GUI/newButton"), graphics.GraphicsDevice);
+            btnNew.setPosition(new Vector2(340, 200 ));
+            btnLoad = new cButton(Content.Load<Texture2D>("GUI/loadButton"), graphics.GraphicsDevice);
+            btnLoad.setPosition(new Vector2(340, 350));
+            btnExit = new cButton(Content.Load<Texture2D>("GUI/exitButton"), graphics.GraphicsDevice);
+            btnExit.setPosition(new Vector2(340, 500));
+            btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);
+            myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
+
+
+            //graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -71,52 +108,53 @@ namespace FirstGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            MouseState mouse = Mouse.GetState();
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            switch (CurrentGameState)
+            {
+                case GameState.HomeScreen:
+                    if (btnNew.isClicked == true)
+                    {
+                        CurrentGameState = GameState.NewLevelScreen;
+                    }
+                    if (btnLoad.isClicked == true)
+                    {
+                        CurrentGameState = GameState.LoadLevelScreen;
+                    }
+                    if (btnExit.isClicked == true)
+                    {
+                        this.Exit();
+                    }
+                    btnNew.Update(mouse);
+                    btnLoad.Update(mouse);
+                    btnExit.Update(mouse);
+                    break;
+                case GameState.NewLevelScreen:
+                    if (btnCancel.isClicked == true)
+                    {
+                        CurrentGameState = GameState.HomeScreen;
+                    }
+                    btnCancel.Update(mouse);
+                    break;
+                case GameState.LoadLevelScreen:
+
+                    break;
+                case GameState.LevelEditor:
+
+                    break;
+                case GameState.PatientGame:
+
+                    break;
+
+            }
             // TODO: Add your update logic here
-            UpdateSprite(gameTime);
+           // UpdateSprite(gameTime); //example code
             base.Update(gameTime);
         }
-        void UpdateSprite(GameTime gameTime)
-        {
-            // Move the sprite by speed, scaled by elapsed time.
-            spritePosition +=
-                spriteSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            int MaxX =
-                graphics.GraphicsDevice.Viewport.Width - myTexture.Width;
-            int MinX = 0;
-            int MaxY =
-                graphics.GraphicsDevice.Viewport.Height - myTexture.Height;
-            int MinY = 0;
-
-            // Check for bounce.
-            if (spritePosition.X > MaxX)
-            {
-                spriteSpeed.X *= -1;
-                spritePosition.X = MaxX;
-            }
-
-            else if (spritePosition.X < MinX)
-            {
-                spriteSpeed.X *= -1;
-                spritePosition.X = MinX;
-            }
-
-            if (spritePosition.Y > MaxY)
-            {
-                spriteSpeed.Y *= -1;
-                spritePosition.Y = MaxY;
-            }
-
-            else if (spritePosition.Y < MinY)
-            {
-                spriteSpeed.Y *= -1;
-                spritePosition.Y = MinY;
-            }
-        }
+        
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -124,11 +162,37 @@ namespace FirstGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
-            spriteBatch.Draw(myTexture, spritePosition, Color.White);
+            //spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+            spriteBatch.Begin();
+            spriteBatch.Draw(myTopHeaderBkGround, myTopHeaderPosition, Color.White); //example code
+            switch (CurrentGameState)
+            {
+                case GameState.HomeScreen:
+                    btnNew.Draw(spriteBatch);
+                    btnLoad.Draw(spriteBatch);
+                    btnExit.Draw(spriteBatch);
+                    spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
+
+                    break;
+                case GameState.NewLevelScreen:
+                    btnCancel.Draw(spriteBatch);
+                    spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
+                    break;
+                case GameState.LoadLevelScreen:
+
+                    break;
+                case GameState.LevelEditor:
+
+                    break;
+                case GameState.PatientGame:
+
+                    break;
+
+            }
+
             spriteBatch.End();
 
 
