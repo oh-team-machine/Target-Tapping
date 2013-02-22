@@ -7,3 +7,5 @@ Content\GUI\targetTappingGame.xnb
 Content\GUI\cancel.xnb
 Content\GUI\newLevel.xnb
 Content\GUI\createButton.xnb
+Content\GUI\name.xnb
+Content\GUI\description.xnb
