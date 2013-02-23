@@ -48,7 +48,8 @@ namespace FirstGame
         //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
         cButton120x50 btnCancel, btnCreate, btnOpen;
-        cButton55x55 btnHome, btnMenu, btnHoldTime, btnMultiple, btnPlay, btnRedo, btnUndo, btnUpTime;
+        cButton120x55 btnUpTime, btnHoldTime;
+        cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
         
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -116,21 +117,29 @@ namespace FirstGame
 
             //Level Editor Elements
             btnHome = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/homeButton"), graphics.GraphicsDevice);
-            btnHome.setPosition(new Vector2(0, 0));
+            btnHome.setPosition(new Vector2(30, 30));
             btnMenu = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/menuButton"), graphics.GraphicsDevice);
-            btnMenu.setPosition(new Vector2(55, 0));
-            btnHoldTime = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/holdTimeButton"), graphics.GraphicsDevice);
-            btnHoldTime.setPosition(new Vector2(495, 0));
+            btnMenu.setPosition(new Vector2(95, 30));
+            btnHoldTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/holdTimeButton"), graphics.GraphicsDevice);
+            btnHoldTime.setPosition(new Vector2(680, 30));
             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-            btnMultiple.setPosition(new Vector2(275, 0));
+            btnMultiple.setPosition(new Vector2(355, 30));
             btnPlay = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/playButton"), graphics.GraphicsDevice);
-            btnPlay.setPosition(new Vector2(220, 0));
+            btnPlay.setPosition(new Vector2(290, 30));
             btnRedo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/redoButton"), graphics.GraphicsDevice);
-            btnRedo.setPosition(new Vector2(165, 0));
+            btnRedo.setPosition(new Vector2(215, 30));
             btnUndo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/undoButton"), graphics.GraphicsDevice);
-            btnUndo.setPosition(new Vector2(110, 0));
-            btnUpTime = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/upTimeButton"), graphics.GraphicsDevice);
-            btnUpTime.setPosition(new Vector2(440, 0));
+            btnUndo.setPosition(new Vector2(160, 30));
+            btnUpTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/upTimeButton"), graphics.GraphicsDevice);
+            btnUpTime.setPosition(new Vector2(420, 30));
+            btnMoreUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
+            btnMoreUp.setPosition(new Vector2(560, 30));
+            btnMoreHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
+            btnMoreHold.setPosition(new Vector2(800, 30));
+            btnLessUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
+            btnLessUp.setPosition(new Vector2(615, 30));
+            btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
+            btnLessHold.setPosition(new Vector2(855, 30));
         }
 
         /// <summary>
@@ -209,6 +218,8 @@ namespace FirstGame
                 case GameState.LevelEditor:
                     if (btnHome.isClicked == true)
                     {
+                        CurrentGameState = GameState.HomeScreen;
+
                         //Call A Method Defined In Another Class
                     }
                     if (btnMenu.isClicked == true)
@@ -225,18 +236,19 @@ namespace FirstGame
                         {
                             multiState = false;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-                            btnMultiple.setPosition(new Vector2(275, 0));
+                            btnMultiple.setPosition(new Vector2(355, 30));
                         }
                         else
                         {
                             multiState = true;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
-                            btnMultiple.setPosition(new Vector2(275, 0));
+                            btnMultiple.setPosition(new Vector2(355, 30));
                         }
                         //Call A Method Defined In Another Class
                     }
                     if (btnPlay.isClicked == true)
                     {
+                        CurrentGameState = GameState.PatientGame; 
                         //Call A Method Defined In Another Class
                     }
                     if (btnRedo.isClicked == true)
@@ -251,6 +263,22 @@ namespace FirstGame
                     {
                         //Call A Method Defined In Another Class
                     }
+                    if (btnMoreUp.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnLessUp.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnMoreHold.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnLessHold.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
                     btnHome.Update(mouse);
                     btnMenu.Update(mouse);
                     btnHoldTime.Update(mouse);
@@ -259,6 +287,10 @@ namespace FirstGame
                     btnRedo.Update(mouse);
                     btnUndo.Update(mouse);
                     btnUpTime.Update(mouse);
+                    btnMoreHold.Update(mouse);
+                    btnMoreUp.Update(mouse);
+                    btnLessHold.Update(mouse);
+                    btnLessUp.Update(mouse);
                     break;
 
                     //update if playing PATIENT GAME
@@ -316,6 +348,10 @@ namespace FirstGame
                     btnRedo.Draw(spriteBatch);
                     btnUndo.Draw(spriteBatch);
                     btnUpTime.Draw(spriteBatch);
+                    btnMoreUp.Draw(spriteBatch);
+                    btnMoreHold.Draw(spriteBatch);
+                    btnLessUp.Draw(spriteBatch);
+                    btnLessHold.Draw(spriteBatch);
                     break;
                 case GameState.PatientGame:
 
