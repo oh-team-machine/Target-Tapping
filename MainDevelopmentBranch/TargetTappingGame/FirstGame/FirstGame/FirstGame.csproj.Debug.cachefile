@@ -11,8 +11,8 @@ Content\GUI\name.xnb
 Content\GUI\description.xnb
 Content\GUI\loadGameTitle.xnb
 Content\GUI\openButton.xnb
-Content\LevelEditorGUI\homeButton.xnb
 Content\LevelEditorGUI\menuButton.xnb
+Content\LevelEditorGUI\homeButton.xnb
 Content\LevelEditorGUI\undoButton.xnb
 Content\LevelEditorGUI\redoButton.xnb
 Content\LevelEditorGUI\playButton.xnb
