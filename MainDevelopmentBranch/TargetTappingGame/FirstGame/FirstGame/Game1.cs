@@ -121,7 +121,7 @@ namespace FirstGame
             btnMenu = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/menuButton"), graphics.GraphicsDevice);
             btnMenu.setPosition(new Vector2(95, 30));
             btnHoldTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/holdTimeButton"), graphics.GraphicsDevice);
-            btnHoldTime.setPosition(new Vector2(680, 30));
+            btnHoldTime.setPosition(new Vector2(700, 30));
             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
             btnMultiple.setPosition(new Vector2(355, 30));
             btnPlay = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/playButton"), graphics.GraphicsDevice);
@@ -131,15 +131,15 @@ namespace FirstGame
             btnUndo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/undoButton"), graphics.GraphicsDevice);
             btnUndo.setPosition(new Vector2(160, 30));
             btnUpTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/upTimeButton"), graphics.GraphicsDevice);
-            btnUpTime.setPosition(new Vector2(420, 30));
+            btnUpTime.setPosition(new Vector2(440, 30));
             btnMoreUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
             btnMoreUp.setPosition(new Vector2(560, 30));
             btnMoreHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
-            btnMoreHold.setPosition(new Vector2(800, 30));
+            btnMoreHold.setPosition(new Vector2(820, 30));
             btnLessUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
             btnLessUp.setPosition(new Vector2(615, 30));
             btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
-            btnLessHold.setPosition(new Vector2(855, 30));
+            btnLessHold.setPosition(new Vector2(875, 30));
         }
 
         /// <summary>
