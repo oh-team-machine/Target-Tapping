@@ -221,17 +221,19 @@ namespace FirstGame
                     }
                     if (btnMultiple.isClicked == true)
                     {
-                        if (multiState)
+                        if (multiState == true)
                         {
                             multiState = false;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
                             btnMultiple.setPosition(new Vector2(275, 0));
+                            btnMultiple.Update(mouse);
                         }
-                        else
+                        else if (multiState == false)
                         {
                             multiState = true;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
                             btnMultiple.setPosition(new Vector2(275, 0));
+                            btnMultiple.Update(mouse);
                         }
                         //Call A Method Defined In Another Class
                     }
