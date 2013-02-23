@@ -9,3 +9,14 @@ Content\GUI\newLevel.xnb
 Content\GUI\createButton.xnb
 Content\GUI\name.xnb
 Content\GUI\description.xnb
+Content\GUI\loadGameTitle.xnb
+Content\GUI\openButton.xnb
+Content\LevelEditorGUI\homeButton.xnb
+Content\LevelEditorGUI\menuButton.xnb
+Content\LevelEditorGUI\undoButton.xnb
+Content\LevelEditorGUI\redoButton.xnb
+Content\LevelEditorGUI\playButton.xnb
+Content\LevelEditorGUI\holdTimeButton.xnb
+Content\LevelEditorGUI\upTimeButton.xnb
+Content\LevelEditorGUI\multipleToggleOn.xnb
+Content\LevelEditorGUI\multipleToggleOff.xnb

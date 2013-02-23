@@ -75,7 +75,8 @@
     <Compile Include="Back end\Shape Properties.cs" />
     <Compile Include="Front end\cButton.cs" />
     <Compile Include="Front end\cButton120x50.cs" />
-    <Compile Include="Front end\HomeMenu.cs" />
+    <Compile Include="Front end\cButton55x55.cs" />
+    <Compile Include="Front end\levelEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

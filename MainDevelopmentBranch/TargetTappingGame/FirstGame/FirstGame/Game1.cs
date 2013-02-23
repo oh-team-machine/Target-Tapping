@@ -13,13 +13,17 @@ using FirstGame.Front_end;
 namespace FirstGame
 {
     /// <summary>
-    /// This is the main type for your game
+    /// This is the main type for your game. 
+    /// We may want to keep all GUI in here and define classes and methods to act
+    /// upon those GUI elements elsewhere. This way we can change the entire GUI
+    /// within one file. Which we will need to do to adapt to the final screen size.
+    /// We will not use 1920x1080 until the end to help in laptop coding.
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        int screenWidth = 1280, screenHeight = 720;
         enum GameState
         {
             HomeScreen,
@@ -29,18 +33,24 @@ namespace FirstGame
             PatientGame,
         }
         GameState CurrentGameState = GameState.HomeScreen;
-
+        bool multiState = false;
+        //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
-        Texture2D myTitle, myNewLevelTitle;
+        Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle;
+        Vector2 myNewLevelPosition = (new Vector2(450, 0));
+        Vector2 myLoadLevelTitlePosition = (new Vector2(520, 0));
+        Vector2 myNamePosition = (new Vector2(0, 130));
+        Vector2 myDescriptionPosition = (new Vector2(0, 200));
         Vector2 myTitlePosition = (new Vector2(300, 0));
-        Vector2 myNewLevelTitlePosition = (new Vector2(300, 0));
+        Vector2 myNewLevelTitlePosition = (new Vector2(500, 0));
         Vector2 myCancelButtonPosition = (new Vector2(0, 0));
-        
-        
-        int screenWidth = 1280, screenHeight = 720;
+        //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
-        cButton120x50 btnCancel;
+        cButton120x50 btnCancel, btnCreate, btnOpen;
+        cButton55x55 btnHome, btnMenu, btnHoldTime, btnMultiple, btnPlay, btnRedo, btnUndo, btnUpTime;
+        
+        //CREATE GAME CONSTRUCTOR//
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,6 +81,7 @@ namespace FirstGame
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
+        //LOAD CONTENT HERE//
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -78,6 +89,8 @@ namespace FirstGame
             // myTexture = Content.Load<Texture2D>("Sprites/hockey-puck"); //example code
             // TODO: use this.Content to load your game content here
             myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
+            
+            //Home Screen Elements
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
             btnNew = new cButton(Content.Load<Texture2D>("GUI/newButton"), graphics.GraphicsDevice);
             btnNew.setPosition(new Vector2(340, 200 ));
@@ -85,11 +98,39 @@ namespace FirstGame
             btnLoad.setPosition(new Vector2(340, 350));
             btnExit = new cButton(Content.Load<Texture2D>("GUI/exitButton"), graphics.GraphicsDevice);
             btnExit.setPosition(new Vector2(340, 500));
+            
+            //NewLevel Screen Elements
             btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);
             myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
+            myNewLevel = Content.Load<Texture2D>("GUI/newLevel");
+            btnCreate = new cButton120x50(Content.Load<Texture2D>("GUI/createButton"), graphics.GraphicsDevice);
+            btnCreate.setPosition(new Vector2(1160, 0));
+            myName = Content.Load<Texture2D>("GUI/name");
+            myDescription = Content.Load<Texture2D>("GUI/description");
 
+            //LoadGame Screen Elements
+            //btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);// Place Holder
+            myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
+            btnOpen = new cButton120x50(Content.Load<Texture2D>("GUI/openButton"), graphics.GraphicsDevice);
+            btnOpen.setPosition(new Vector2(1160, 0));
 
-            //graphics.ApplyChanges();
+            //Level Editor Elements
+            btnHome = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/homeButton"), graphics.GraphicsDevice);
+            btnHome.setPosition(new Vector2(0, 0));
+            btnMenu = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/menuButton"), graphics.GraphicsDevice);
+            btnMenu.setPosition(new Vector2(55, 0));
+            btnHoldTime = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/holdTimeButton"), graphics.GraphicsDevice);
+            btnHoldTime.setPosition(new Vector2(495, 0));
+            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
+            btnMultiple.setPosition(new Vector2(275, 0));
+            btnPlay = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/playButton"), graphics.GraphicsDevice);
+            btnPlay.setPosition(new Vector2(220, 0));
+            btnRedo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/redoButton"), graphics.GraphicsDevice);
+            btnRedo.setPosition(new Vector2(165, 0));
+            btnUndo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/undoButton"), graphics.GraphicsDevice);
+            btnUndo.setPosition(new Vector2(110, 0));
+            btnUpTime = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/upTimeButton"), graphics.GraphicsDevice);
+            btnUpTime.setPosition(new Vector2(440, 0));
         }
 
         /// <summary>
@@ -106,6 +147,7 @@ namespace FirstGame
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        //UPDATE GAME HERE//
         protected override void Update(GameTime gameTime)
         {
             MouseState mouse = Mouse.GetState();
@@ -115,6 +157,7 @@ namespace FirstGame
 
             switch (CurrentGameState)
             {
+                    //update if in HOME SCREEN
                 case GameState.HomeScreen:
                     if (btnNew.isClicked == true)
                     {
@@ -132,19 +175,93 @@ namespace FirstGame
                     btnLoad.Update(mouse);
                     btnExit.Update(mouse);
                     break;
+
+                    //update if in NEWLEVEL SCREEN
                 case GameState.NewLevelScreen:
                     if (btnCancel.isClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
                     }
+                    if (btnCreate.isClicked == true)
+                    {
+                        CurrentGameState = GameState.LevelEditor;
+                    }
                     btnCancel.Update(mouse);
+                    btnCreate.Update(mouse);
+
                     break;
+
+                    //update if in LOAD LEVEL SCREEN
                 case GameState.LoadLevelScreen:
-
+                    if (btnCancel.isClicked == true)
+                    {
+                        CurrentGameState = GameState.HomeScreen;
+                    }
+                    if (btnOpen.isClicked == true)
+                    {
+                        CurrentGameState = GameState.LevelEditor;
+                    }
+                    btnCancel.Update(mouse);
+                    btnOpen.Update(mouse);
                     break;
+
+                    //update if in LEVEL EDITIOR SCREEN
                 case GameState.LevelEditor:
-
+                    if (btnHome.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnMenu.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnHoldTime.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnMultiple.isClicked == true)
+                    {
+                        if (multiState)
+                        {
+                            multiState = false;
+                            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
+                            btnMultiple.setPosition(new Vector2(275, 0));
+                        }
+                        else
+                        {
+                            multiState = true;
+                            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
+                            btnMultiple.setPosition(new Vector2(275, 0));
+                        }
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnPlay.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnRedo.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnUndo.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    if (btnUpTime.isClicked == true)
+                    {
+                        //Call A Method Defined In Another Class
+                    }
+                    btnHome.Update(mouse);
+                    btnMenu.Update(mouse);
+                    btnHoldTime.Update(mouse);
+                    btnMultiple.Update(mouse);
+                    btnPlay.Update(mouse);
+                    btnRedo.Update(mouse);
+                    btnUndo.Update(mouse);
+                    btnUpTime.Update(mouse);
                     break;
+
+                    //update if playing PATIENT GAME
                 case GameState.PatientGame:
 
                     break;
@@ -157,10 +274,11 @@ namespace FirstGame
         
 
         /// <summary>
-        /// This is called when the game should draw itself.
+        /// This is called when the game should DRAW itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        //DRAW GAME HERE//
+        protected override void Draw(GameTime gameTime) 
         {
             GraphicsDevice.Clear(Color.White);
 
@@ -170,22 +288,34 @@ namespace FirstGame
             spriteBatch.Draw(myTopHeaderBkGround, myTopHeaderPosition, Color.White); //example code
             switch (CurrentGameState)
             {
-                case GameState.HomeScreen:
+                case GameState.HomeScreen: //Draw all elements for Home Screen
                     btnNew.Draw(spriteBatch);
                     btnLoad.Draw(spriteBatch);
                     btnExit.Draw(spriteBatch);
                     spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
 
                     break;
-                case GameState.NewLevelScreen:
+                case GameState.NewLevelScreen: //Draw all elements for NewLevel Screen
                     btnCancel.Draw(spriteBatch);
+                    btnCreate.Draw(spriteBatch);
                     spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
+                    spriteBatch.Draw(myName, myNamePosition, Color.White);
+                    spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
                     break;
-                case GameState.LoadLevelScreen:
-
+                case GameState.LoadLevelScreen: //Draw all elements for Loadlevel Screen
+                    btnCancel.Draw(spriteBatch);
+                    btnOpen.Draw(spriteBatch);
+                    spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
                     break;
                 case GameState.LevelEditor:
-
+                    btnHome.Draw(spriteBatch);
+                    btnMenu.Draw(spriteBatch);
+                    btnHoldTime.Draw(spriteBatch);
+                    btnMultiple.Draw(spriteBatch);
+                    btnPlay.Draw(spriteBatch);
+                    btnRedo.Draw(spriteBatch);
+                    btnUndo.Draw(spriteBatch);
+                    btnUpTime.Draw(spriteBatch);
                     break;
                 case GameState.PatientGame:
 
