@@ -236,23 +236,16 @@ namespace FirstGame
                         {
                             multiState = false;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-<<<<<<< HEAD
-                            btnMultiple.setPosition(new Vector2(275, 0));
+                             btnMultiple.setPosition(new Vector2(355, 30));
                             btnMultiple.Update(mouse);
-=======
-                            btnMultiple.setPosition(new Vector2(355, 30));
->>>>>>> origin/Shawn's_DevBranch
                         }
                         else if (multiState == false)
                         {
                             multiState = true;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
-<<<<<<< HEAD
-                            btnMultiple.setPosition(new Vector2(275, 0));
-                            btnMultiple.Update(mouse);
-=======
                             btnMultiple.setPosition(new Vector2(355, 30));
->>>>>>> origin/Shawn's_DevBranch
+                            btnMultiple.Update(mouse);
+
                         }
                         //Call A Method Defined In Another Class
                     }
