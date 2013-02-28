@@ -57,8 +57,14 @@ namespace FirstGame
         cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
         cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1;
         Texture2D myOSKBackground;
-        Vector2 myOSKBackgroundPosition = (new Vector2(400, 518));
-
+        Vector2 myOSKBackgroundPosition = (new Vector2(390, 510));
+        SpriteFont font;
+        String nameOfTherapist;
+        String descriptionByTherapist;
+        Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
+        Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
+        bool nameHighlight = true;
+        cButton60x25 clearNameButton, clearDescriptionButton;
         
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -99,7 +105,10 @@ namespace FirstGame
             // myTexture = Content.Load<Texture2D>("Sprites/hockey-puck"); //example code
             // TODO: use this.Content to load your game content here
             myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
-            
+            font = Content.Load<SpriteFont>("font");
+            nameOfTherapist = "Enter Your Name Here";
+            descriptionByTherapist = "Enter Your Description Here";
+
             //Home Screen Elements
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
             btnNew = new cButton(Content.Load<Texture2D>("GUI/newButton"), graphics.GraphicsDevice);
@@ -116,6 +125,10 @@ namespace FirstGame
             btnCreate = new cButton120x50(Content.Load<Texture2D>("GUI/createButton"), graphics.GraphicsDevice);
             btnCreate.setPosition(new Vector2(1160, 0));
             myName = Content.Load<Texture2D>("GUI/name");
+            clearNameButton = new cButton60x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearNameButton.setPosition(new Vector2(200, 130));
+            clearDescriptionButton = new cButton60x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearDescriptionButton.setPosition(new Vector2(200, 200));
             myDescription = Content.Load<Texture2D>("GUI/description");
             myOSKBackground = Content.Load<Texture2D>("OSK/keyboardBackground");
             float keyStartingX = 401F;
@@ -269,8 +282,18 @@ namespace FirstGame
                     {
                         CurrentGameState = GameState.LevelEditor;
                     }
+                    if (clearNameButton.isClicked == true)
+                    {
+                        nameHighlight = true;
+                    }
+                    if (clearDescriptionButton.isClicked == true)
+                    {
+                        nameHighlight = false;
+                    }
                     btnCancel.Update(mouse);
                     btnCreate.Update(mouse);
+                    clearNameButton.Update(mouse);
+                    clearDescriptionButton.Update(mouse);
                     a.Update(mouse);
                     b.Update(mouse);
                     c.Update(mouse);
@@ -464,7 +487,11 @@ namespace FirstGame
                 case GameState.NewLevelScreen: //Draw all elements for NewLevel Screen
                     btnCancel.Draw(spriteBatch);
                     btnCreate.Draw(spriteBatch);
+                    clearDescriptionButton.Draw(spriteBatch);
+                    clearNameButton.Draw(spriteBatch);
                     spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
+                    spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition , Color.Black);
+                    spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.Black);
                     spriteBatch.Draw(myName, myNamePosition, Color.White);
                     spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
                     spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
