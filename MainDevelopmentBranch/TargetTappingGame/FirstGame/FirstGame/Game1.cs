@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using FirstGame.Front_end;
+using System.Diagnostics;
+using System.IO;
 
 namespace FirstGame
 {
@@ -23,7 +25,9 @@ namespace FirstGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Vector2 originForRotation;
         int screenWidth = 1280, screenHeight = 720;
+        float rotationAngle = 4.71238898F;
         enum GameState
         {
             HomeScreen,
@@ -37,19 +41,22 @@ namespace FirstGame
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
-        Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle;
-        Vector2 myNewLevelPosition = (new Vector2(450, 0));
-        Vector2 myLoadLevelTitlePosition = (new Vector2(520, 0));
+        Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid;
+        Vector2 myNewLevelPosition = (new Vector2(300, 0));
+        Vector2 myLoadLevelTitlePosition = (new Vector2(330, 0));
         Vector2 myNamePosition = (new Vector2(0, 130));
         Vector2 myDescriptionPosition = (new Vector2(0, 200));
-        Vector2 myTitlePosition = (new Vector2(300, 0));
-        Vector2 myNewLevelTitlePosition = (new Vector2(500, 0));
+        Vector2 myTitlePosition = (new Vector2(250, 0));
+        Vector2 myNewLevelTitlePosition = (new Vector2(330, 0));
         Vector2 myCancelButtonPosition = (new Vector2(0, 0));
+        Vector2 myGridPosition = (new Vector2(0, 110));
         //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
         cButton120x50 btnCancel, btnCreate, btnOpen;
         cButton120x55 btnUpTime, btnHoldTime;
         cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
+        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+
         
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -108,6 +115,9 @@ namespace FirstGame
             btnCreate.setPosition(new Vector2(1160, 0));
             myName = Content.Load<Texture2D>("GUI/name");
             myDescription = Content.Load<Texture2D>("GUI/description");
+            
+            //on skreen keyboard
+            //Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.System) + Path.DirectorySeparatorChar + "osk.exe");
 
             //LoadGame Screen Elements
             //btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);// Place Holder
@@ -140,6 +150,10 @@ namespace FirstGame
             btnLessUp.setPosition(new Vector2(615, 30));
             btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
             btnLessHold.setPosition(new Vector2(875, 30));
+<<<<<<< HEAD
+=======
+            myGrid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+>>>>>>> origin/master
         }
 
         /// <summary>
@@ -355,6 +369,9 @@ namespace FirstGame
                     btnMoreHold.Draw(spriteBatch);
                     btnLessUp.Draw(spriteBatch);
                     btnLessHold.Draw(spriteBatch);
+                    originForRotation.X = 960;//myGrid.Width / 2;
+                    originForRotation.Y = 485;//(myGrid.Height + 110) / 2;
+                    spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
                     break;
                 case GameState.PatientGame:
 

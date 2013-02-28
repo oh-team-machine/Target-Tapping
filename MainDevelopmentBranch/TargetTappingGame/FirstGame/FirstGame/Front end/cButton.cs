@@ -23,7 +23,7 @@ namespace FirstGame.Front_end
             texture = newTexture;
             //ScreenW = 800, ScreenH = 600
             //ImgW = 100, ImgH = 20
-            size = new Vector2(/*graphics.Viewport.Width*/ 600, 150);
+            size = new Vector2(/*graphics.Viewport.Width*/ 600, 100);
 
         }
 
