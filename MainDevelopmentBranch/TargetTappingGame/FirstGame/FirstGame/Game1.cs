@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using FirstGame.Front_end;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 
 namespace FirstGame
 {
@@ -55,7 +56,7 @@ namespace FirstGame
         cButton120x50 btnCancel, btnCreate, btnOpen;
         cButton120x55 btnUpTime, btnHoldTime;
         cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
-        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1;
+        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
         Texture2D myOSKBackground;
         Vector2 myOSKBackgroundPosition = (new Vector2(390, 510));
         SpriteFont font;
@@ -191,6 +192,8 @@ namespace FirstGame
             space2.setPosition(new Vector2(keyStartingX + 250, keyStartingY + 150));
             delete1 = new cButton48x48(Content.Load<Texture2D>("OSK/deleteButton"), graphics.GraphicsDevice);
             delete1.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 100));
+            clear = new cButton48x48(Content.Load<Texture2D>("OSK/clear"), graphics.GraphicsDevice);
+            clear.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 150));
 
             //on skreen keyboard
             //Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.System) + Path.DirectorySeparatorChar + "osk.exe");
@@ -289,6 +292,183 @@ namespace FirstGame
                     if (clearDescriptionButton.isClicked == true)
                     {
                         nameHighlight = false;
+                        
+                    }
+//////////////////////keyboard input////////////////////////////////////////////////////////////
+                    if (a.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "a"; }
+                        a.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (b.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "b"; }
+                        b.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (c.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "c"; }
+                        c.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (d.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "d"; }
+                        d.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (e.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "e"; }
+                        e.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (f.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "f"; }
+                        f.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (g.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "g"; }
+                        g.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (h.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "h"; }
+                        h.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (i.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "i"; }
+                        i.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (j.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "j"; }
+                        j.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (k.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "k"; }
+                        k.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (l.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "l"; }
+                        l.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (m.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "m"; }
+                        m.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (n.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "n"; }
+                        n.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (o.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "o"; }
+                        o.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (p.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "p"; }
+                        p.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (q.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "q"; }
+                        q.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (r.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "r"; }
+                        r.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (s.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "s"; }
+                        s.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (t.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "t"; }
+                        t.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (u.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "u"; }
+                        u.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (v.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "v"; }
+                        v.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (w.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "w"; }
+                        w.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (x.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "x"; }
+                        x.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (y.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "y"; }
+                        y.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (z.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "z"; }
+                        z.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (space1.isClicked == true || space2.isClicked)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "_"; }
+                        space1.isClicked = false;
+                        space2.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (delete1.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = nameOfTherapist.Remove((nameOfTherapist.Length)-1); }
+                        delete1.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (clear.isClicked == true)
+                    {
+                        if (nameHighlight == true) { nameOfTherapist = ""; }
+                        clear.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     btnCancel.Update(mouse);
                     btnCreate.Update(mouse);
@@ -323,6 +503,7 @@ namespace FirstGame
                     space1.Update(mouse);
                     space2.Update(mouse);
                     delete1.Update(mouse);
+                    clear.Update(mouse);
                     break;
 
                     //update if in LOAD LEVEL SCREEN
@@ -366,6 +547,7 @@ namespace FirstGame
                     space1.Update(mouse);
                     space2.Update(mouse);
                     delete1.Update(mouse);
+                    clear.Update(mouse);
                     break;
 
                     //update if in LEVEL EDITIOR SCREEN
@@ -524,6 +706,7 @@ namespace FirstGame
                     space1.Draw(spriteBatch);
                     space2.Draw(spriteBatch);
                     delete1.Draw(spriteBatch);
+                    clear.Draw(spriteBatch);
                     break;
                 case GameState.LoadLevelScreen: //Draw all elements for Loadlevel Screen
                     btnCancel.Draw(spriteBatch);
@@ -559,6 +742,7 @@ namespace FirstGame
                     space1.Draw(spriteBatch);
                     space2.Draw(spriteBatch);
                     delete1.Draw(spriteBatch);
+                    clear.Draw(spriteBatch);
                     break;
                 case GameState.LevelEditor:
                     btnHome.Draw(spriteBatch);
