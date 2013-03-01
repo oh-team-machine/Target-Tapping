@@ -286,9 +286,7 @@ namespace FirstGame
                     {
                         this.Exit();
                     }
-                    btnNew.Update(mouse);
-                    btnLoad.Update(mouse);
-                    btnExit.Update(mouse);
+                    UpdateHomeScreen(gameTime, mouse);
                     break;
 
                     //update if in NEWLEVEL SCREEN
@@ -307,10 +305,9 @@ namespace FirstGame
                     }
                     if (clearDescriptionButton.isClicked == true)
                     {
-                        nameHighlight = false;
-                        
+                        nameHighlight = false;  
                     }
-//////////////////////keyboard input////////////////////////////////////////////////////////////
+                    //////////////////////keyboard input////////////////////////////////////////////////////////////
                     if (a.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "a"; }
@@ -515,42 +512,7 @@ namespace FirstGame
                         clear.isClicked = false;
                         Thread.Sleep(50);
                     }
-                    btnCancel.Update(mouse);
-                    btnCreate.Update(mouse);
-                    clearNameButton.Update(mouse);
-                    clearDescriptionButton.Update(mouse);
-                    a.Update(mouse);
-                    b.Update(mouse);
-                    c.Update(mouse);
-                    d.Update(mouse);
-                    e.Update(mouse);
-                    f.Update(mouse);
-                    g.Update(mouse);
-                    h.Update(mouse);
-                    i.Update(mouse);
-                    j.Update(mouse);
-                    k.Update(mouse);
-                    l.Update(mouse);
-                    m.Update(mouse);
-                    n.Update(mouse);
-                    o.Update(mouse);
-                    p.Update(mouse);
-                    q.Update(mouse);
-                    r.Update(mouse);
-                    s.Update(mouse);
-                    t.Update(mouse);
-                    u.Update(mouse);
-                    v.Update(mouse);
-                    w.Update(mouse);
-                    x.Update(mouse);
-                    y.Update(mouse);
-                    z.Update(mouse);
-                    space1.Update(mouse);
-                    space2.Update(mouse);
-                    delete1.Update(mouse);
-                    clear.Update(mouse);
-                    delName.Update(mouse);
-                    delDesc.Update(mouse);
+                    UpdateNewLevelScreen(gameTime, mouse);
                     break;
 
                     //update if in LOAD LEVEL SCREEN
@@ -739,38 +701,7 @@ namespace FirstGame
                         clear.isClicked = false;
                         Thread.Sleep(50);
                     }
-                    btnCancel.Update(mouse);
-                    btnOpen.Update(mouse);
-                    a.Update(mouse);
-                    b.Update(mouse);
-                    c.Update(mouse);
-                    d.Update(mouse);
-                    e.Update(mouse);
-                    f.Update(mouse);
-                    g.Update(mouse);
-                    h.Update(mouse);
-                    i.Update(mouse);
-                    j.Update(mouse);
-                    k.Update(mouse);
-                    l.Update(mouse);
-                    m.Update(mouse);
-                    n.Update(mouse);
-                    o.Update(mouse);
-                    p.Update(mouse);
-                    q.Update(mouse);
-                    r.Update(mouse);
-                    s.Update(mouse);
-                    t.Update(mouse);
-                    u.Update(mouse);
-                    v.Update(mouse);
-                    w.Update(mouse);
-                    x.Update(mouse);
-                    y.Update(mouse);
-                    z.Update(mouse);
-                    space1.Update(mouse);
-                    space2.Update(mouse);
-                    delete1.Update(mouse);
-                    clear.Update(mouse);
+                    UpdateLoadLevelScreen(gameTime, mouse);
                     break;
 
                     //update if in LEVEL EDITIOR SCREEN
@@ -844,18 +775,8 @@ namespace FirstGame
                     {
                         //Call A Method Defined In Another Class
                     }
-                    btnHome.Update(mouse);
-                    btnMenu.Update(mouse);
-                    btnHoldTime.Update(mouse);
-                    btnMultiple.Update(mouse);
-                    btnPlay.Update(mouse);
-                    btnRedo.Update(mouse);
-                    btnUndo.Update(mouse);
-                    btnUpTime.Update(mouse);
-                    btnMoreHold.Update(mouse);
-                    btnMoreUp.Update(mouse);
-                    btnLessHold.Update(mouse);
-                    btnLessUp.Update(mouse);
+
+                    UpdateLevelEditorScreen(gameTime, mouse);
                     break;
 
                     //update if playing PATIENT GAME
@@ -886,119 +807,18 @@ namespace FirstGame
             switch (CurrentGameState)
             {
                 case GameState.HomeScreen: //Draw all elements for Home Screen
-                    btnNew.Draw(spriteBatch);
-                    btnLoad.Draw(spriteBatch);
-                    btnExit.Draw(spriteBatch);
-                    spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
-
+                    DrawHomeScreen(gameTime, spriteBatch);
                     break;
                 case GameState.NewLevelScreen: //Draw all elements for NewLevel Screen
-                    btnCancel.Draw(spriteBatch);
-                    btnCreate.Draw(spriteBatch);
-                    spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
-                    clearDescriptionButton.Draw(spriteBatch);
-                    clearNameButton.Draw(spriteBatch);
-                    spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
-                    if (nameHighlight == true) {spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.Black);}
-                    else { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.DarkGray); }
-
-                    if (nameHighlight == false) { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.Black); }
-                    else { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.DarkGray); }
-
-                    spriteBatch.Draw(myName, myNamePosition, Color.White);
-                    spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
-                    spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-                    delName.Draw(spriteBatch);
-                    delDesc.Draw(spriteBatch);
-                    a.Draw(spriteBatch);
-                    b.Draw(spriteBatch);
-                    c.Draw(spriteBatch);
-                    d.Draw(spriteBatch);
-                    e.Draw(spriteBatch);
-                    f.Draw(spriteBatch);
-                    g.Draw(spriteBatch);
-                    h.Draw(spriteBatch);
-                    i.Draw(spriteBatch);
-                    j.Draw(spriteBatch);
-                    k.Draw(spriteBatch);
-                    l.Draw(spriteBatch);
-                    m.Draw(spriteBatch);
-                    n.Draw(spriteBatch);
-                    o.Draw(spriteBatch);
-                    p.Draw(spriteBatch);
-                    q.Draw(spriteBatch);
-                    r.Draw(spriteBatch);
-                    s.Draw(spriteBatch);
-                    t.Draw(spriteBatch);
-                    u.Draw(spriteBatch);
-                    v.Draw(spriteBatch);
-                    w.Draw(spriteBatch);
-                    x.Draw(spriteBatch);
-                    y.Draw(spriteBatch);
-                    z.Draw(spriteBatch);
-                    space1.Draw(spriteBatch);
-                    space2.Draw(spriteBatch);
-                    delete1.Draw(spriteBatch);
-                    clear.Draw(spriteBatch);
+                    DrawNewLayoutScreen(gameTime, spriteBatch);
                     break;
                 case GameState.LoadLevelScreen: //Draw all elements for Loadlevel Screen
-                    btnCancel.Draw(spriteBatch);
-                    btnOpen.Draw(spriteBatch);
-                    spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
-                     spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-                     spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
-                     spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
-                     spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
-                    a.Draw(spriteBatch);
-                    b.Draw(spriteBatch);
-                    c.Draw(spriteBatch);
-                    d.Draw(spriteBatch);
-                    e.Draw(spriteBatch);
-                    f.Draw(spriteBatch);
-                    g.Draw(spriteBatch);
-                    h.Draw(spriteBatch);
-                    i.Draw(spriteBatch);
-                    j.Draw(spriteBatch);
-                    k.Draw(spriteBatch);
-                    l.Draw(spriteBatch);
-                    m.Draw(spriteBatch);
-                    n.Draw(spriteBatch);
-                    o.Draw(spriteBatch);
-                    p.Draw(spriteBatch);
-                    q.Draw(spriteBatch);
-                    r.Draw(spriteBatch);
-                    s.Draw(spriteBatch);
-                    t.Draw(spriteBatch);
-                    u.Draw(spriteBatch);
-                    v.Draw(spriteBatch);
-                    w.Draw(spriteBatch);
-                    x.Draw(spriteBatch);
-                    y.Draw(spriteBatch);
-                    z.Draw(spriteBatch);
-                    space1.Draw(spriteBatch);
-                    space2.Draw(spriteBatch);
-                    delete1.Draw(spriteBatch);
-                    clear.Draw(spriteBatch);
+                    DrawLoadLayoutScreen(gameTime, spriteBatch);
                     break;
                 case GameState.LevelEditor:
-                    btnHome.Draw(spriteBatch);
-                    btnMenu.Draw(spriteBatch);
-                    btnHoldTime.Draw(spriteBatch);
-                    btnMultiple.Draw(spriteBatch);
-                    btnPlay.Draw(spriteBatch);
-                    btnRedo.Draw(spriteBatch);
-                    btnUndo.Draw(spriteBatch);
-                    btnUpTime.Draw(spriteBatch);
-                    btnMoreUp.Draw(spriteBatch);
-                    btnMoreHold.Draw(spriteBatch);
-                    btnLessUp.Draw(spriteBatch);
-                    btnLessHold.Draw(spriteBatch);
-                    originForRotation.X = 960;//myGrid.Width / 2;
-                    originForRotation.Y = 485;//(myGrid.Height + 110) / 2;
-                    spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+                    DrawLevelEdtorScreen(gameTime, spriteBatch);
                     break;
                 case GameState.PatientGame:
-
                     break;
 
             }
@@ -1007,6 +827,230 @@ namespace FirstGame
 
 
             base.Draw(gameTime);
+        }
+
+        //helper methods below///////////////////////////////////////////
+        void DrawLevelEdtorScreen(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            btnHome.Draw(spriteBatch);
+            btnMenu.Draw(spriteBatch);
+            btnHoldTime.Draw(spriteBatch);
+            btnMultiple.Draw(spriteBatch);
+            btnPlay.Draw(spriteBatch);
+            btnRedo.Draw(spriteBatch);
+            btnUndo.Draw(spriteBatch);
+            btnUpTime.Draw(spriteBatch);
+            btnMoreUp.Draw(spriteBatch);
+            btnMoreHold.Draw(spriteBatch);
+            btnLessUp.Draw(spriteBatch);
+            btnLessHold.Draw(spriteBatch);
+            originForRotation.X = 960;//myGrid.Width / 2;
+            originForRotation.Y = 485;//(myGrid.Height + 110) / 2;
+            spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+        }
+
+        void DrawHomeScreen (GameTime gameTime, SpriteBatch spriteBatch) {
+            btnNew.Draw(spriteBatch);
+            btnLoad.Draw(spriteBatch);
+            btnExit.Draw(spriteBatch);
+            spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
+        
+        }
+        void DrawNewLayoutScreen(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            btnCancel.Draw(spriteBatch);
+            btnCreate.Draw(spriteBatch);
+            spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
+            clearDescriptionButton.Draw(spriteBatch);
+            clearNameButton.Draw(spriteBatch);
+            spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
+            if (nameHighlight == true) { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.Black); }
+            else { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.DarkGray); }
+
+            if (nameHighlight == false) { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.Black); }
+            else { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.DarkGray); }
+
+            spriteBatch.Draw(myName, myNamePosition, Color.White);
+            spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
+            spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
+            delName.Draw(spriteBatch);
+            delDesc.Draw(spriteBatch);
+            a.Draw(spriteBatch);
+            b.Draw(spriteBatch);
+            c.Draw(spriteBatch);
+            d.Draw(spriteBatch);
+            e.Draw(spriteBatch);
+            f.Draw(spriteBatch);
+            g.Draw(spriteBatch);
+            h.Draw(spriteBatch);
+            i.Draw(spriteBatch);
+            j.Draw(spriteBatch);
+            k.Draw(spriteBatch);
+            l.Draw(spriteBatch);
+            m.Draw(spriteBatch);
+            n.Draw(spriteBatch);
+            o.Draw(spriteBatch);
+            p.Draw(spriteBatch);
+            q.Draw(spriteBatch);
+            r.Draw(spriteBatch);
+            s.Draw(spriteBatch);
+            t.Draw(spriteBatch);
+            u.Draw(spriteBatch);
+            v.Draw(spriteBatch);
+            w.Draw(spriteBatch);
+            x.Draw(spriteBatch);
+            y.Draw(spriteBatch);
+            z.Draw(spriteBatch);
+            space1.Draw(spriteBatch);
+            space2.Draw(spriteBatch);
+            delete1.Draw(spriteBatch);
+            clear.Draw(spriteBatch);
+
+        }
+        void DrawLoadLayoutScreen(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            btnCancel.Draw(spriteBatch);
+            btnOpen.Draw(spriteBatch);
+            spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
+            spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
+            spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
+            spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
+            spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
+            a.Draw(spriteBatch);
+            b.Draw(spriteBatch);
+            c.Draw(spriteBatch);
+            d.Draw(spriteBatch);
+            e.Draw(spriteBatch);
+            f.Draw(spriteBatch);
+            g.Draw(spriteBatch);
+            h.Draw(spriteBatch);
+            i.Draw(spriteBatch);
+            j.Draw(spriteBatch);
+            k.Draw(spriteBatch);
+            l.Draw(spriteBatch);
+            m.Draw(spriteBatch);
+            n.Draw(spriteBatch);
+            o.Draw(spriteBatch);
+            p.Draw(spriteBatch);
+            q.Draw(spriteBatch);
+            r.Draw(spriteBatch);
+            s.Draw(spriteBatch);
+            t.Draw(spriteBatch);
+            u.Draw(spriteBatch);
+            v.Draw(spriteBatch);
+            w.Draw(spriteBatch);
+            x.Draw(spriteBatch);
+            y.Draw(spriteBatch);
+            z.Draw(spriteBatch);
+            space1.Draw(spriteBatch);
+            space2.Draw(spriteBatch);
+            delete1.Draw(spriteBatch);
+            clear.Draw(spriteBatch);
+
+        }
+
+        void UpdateHomeScreen(GameTime gameTime, MouseState mouse)
+        {
+            btnNew.Update(mouse);
+            btnLoad.Update(mouse);
+            btnExit.Update(mouse);
+        }
+
+        void UpdateLevelEditorScreen(GameTime gameTime, MouseState mouse)
+        {
+            //update level editior
+            btnHome.Update(mouse);
+            btnMenu.Update(mouse);
+            btnHoldTime.Update(mouse);
+            btnMultiple.Update(mouse);
+            btnPlay.Update(mouse);
+            btnRedo.Update(mouse);
+            btnUndo.Update(mouse);
+            btnUpTime.Update(mouse);
+            btnMoreHold.Update(mouse);
+            btnMoreUp.Update(mouse);
+            btnLessHold.Update(mouse);
+            btnLessUp.Update(mouse);
+            //end of update level editor
+        }
+
+        void UpdateLoadLevelScreen(GameTime gameTime, MouseState mouse)
+        {
+            // update load screen
+            btnCancel.Update(mouse);
+            btnOpen.Update(mouse);
+            a.Update(mouse);
+            b.Update(mouse);
+            c.Update(mouse);
+            d.Update(mouse);
+            e.Update(mouse);
+            f.Update(mouse);
+            g.Update(mouse);
+            h.Update(mouse);
+            i.Update(mouse);
+            j.Update(mouse);
+            k.Update(mouse);
+            l.Update(mouse);
+            m.Update(mouse);
+            n.Update(mouse);
+            o.Update(mouse);
+            p.Update(mouse);
+            q.Update(mouse);
+            r.Update(mouse);
+            s.Update(mouse);
+            t.Update(mouse);
+            u.Update(mouse);
+            v.Update(mouse);
+            w.Update(mouse);
+            x.Update(mouse);
+            y.Update(mouse);
+            z.Update(mouse);
+            space1.Update(mouse);
+            space2.Update(mouse);
+            delete1.Update(mouse);
+            clear.Update(mouse);
+            // end of update load screen
+        }
+
+        void UpdateNewLevelScreen(GameTime gameTime, MouseState mouse)
+        {
+            
+            btnCancel.Update(mouse);
+            btnCreate.Update(mouse);
+            clearNameButton.Update(mouse);
+            clearDescriptionButton.Update(mouse);
+            a.Update(mouse);
+            b.Update(mouse);
+            c.Update(mouse);
+            d.Update(mouse);
+            e.Update(mouse);
+            f.Update(mouse);
+            g.Update(mouse);
+            h.Update(mouse);
+            i.Update(mouse);
+            j.Update(mouse);
+            k.Update(mouse);
+            l.Update(mouse);
+            m.Update(mouse);
+            n.Update(mouse);
+            o.Update(mouse);
+            p.Update(mouse);
+            q.Update(mouse);
+            r.Update(mouse);
+            s.Update(mouse);
+            t.Update(mouse);
+            u.Update(mouse);
+            v.Update(mouse);
+            w.Update(mouse);
+            x.Update(mouse);
+            y.Update(mouse);
+            z.Update(mouse);
+            space1.Update(mouse);
+            space2.Update(mouse);
+            delete1.Update(mouse);
+            clear.Update(mouse);
+            delName.Update(mouse);
+            delDesc.Update(mouse);
         }
     }
 }
