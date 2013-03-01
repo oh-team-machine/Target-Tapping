@@ -298,162 +298,189 @@ namespace FirstGame
                     if (a.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "a"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "a"; }
                         a.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (b.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "b"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "b"; }
                         b.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (c.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "c"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "c"; }
                         c.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (d.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "d"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "d"; }
                         d.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (e.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "e"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "e"; }
                         e.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (f.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "f"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "f"; }
                         f.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (g.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "g"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "g"; }
                         g.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (h.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "h"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "h"; }
                         h.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (i.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "i"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "i"; }
                         i.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (j.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "j"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "j"; }
                         j.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (k.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "k"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "k"; }
                         k.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (l.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "l"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "l"; }
                         l.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (m.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "m"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "m"; }
                         m.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (n.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "n"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "n"; }
                         n.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (o.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "o"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "o"; }
                         o.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (p.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "p"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "p"; }
                         p.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (q.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "q"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "q"; }
                         q.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (r.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "r"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "r"; }
                         r.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (s.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "s"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "s"; }
                         s.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (t.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "t"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "t"; }
                         t.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (u.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "u"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "u"; }
                         u.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (v.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "v"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "v"; }
                         v.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (w.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "w"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "w"; }
                         w.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (x.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "x"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "x"; }
                         x.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (y.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "y"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "y"; }
                         y.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (z.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "z"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "z"; }
                         z.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (space1.isClicked == true || space2.isClicked)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "_"; }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "_"; }
                         space1.isClicked = false;
                         space2.isClicked = false;
                         Thread.Sleep(50);
@@ -461,12 +488,14 @@ namespace FirstGame
                     if (delete1.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist.Remove((nameOfTherapist.Length)-1); }
+                        if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist.Remove((descriptionByTherapist.Length) - 1); }
                         delete1.isClicked = false;
                         Thread.Sleep(50);
                     }
                     if (clear.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = ""; }
+                        if (nameHighlight == false) { descriptionByTherapist = ""; }
                         clear.isClicked = false;
                         Thread.Sleep(50);
                     }
