@@ -70,9 +70,10 @@ namespace FirstGame
         Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
         Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
         bool nameHighlight = true;
-        cButton250x25 clearNameButton, clearDescriptionButton;
+        cButton500x25 clearNameButton, clearDescriptionButton;
         String searchQuery;
         Vector2 searchQueryPosition = (new Vector2(200, 90));
+        cButton25x25 delName, delDesc, delSearch;
 
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -114,9 +115,9 @@ namespace FirstGame
             // TODO: use this.Content to load your game content here
             myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
             font = Content.Load<SpriteFont>("font");
-            nameOfTherapist = "Enter Your Name Here... (CLR This)";
-            descriptionByTherapist = "Enter Your Description Here... (CLR This)";
-            searchQuery = "Search... (CLR This)";
+            nameOfTherapist = "Enter Your Name Here...";
+            descriptionByTherapist = "Enter Your Description Here...";
+            searchQuery = "Search...";
             textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
 
             //Home Screen Elements
@@ -129,16 +130,20 @@ namespace FirstGame
             btnExit.setPosition(new Vector2(340, 500));
             
             //NewLevel Screen Elements
+            delDesc = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
+            delDesc.setPosition(new Vector2(500, 200));
+            delName = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
+            delName.setPosition(new Vector2(500, 130));
             btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);
             myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
             myNewLevel = Content.Load<Texture2D>("GUI/newLevel");
             btnCreate = new cButton120x50(Content.Load<Texture2D>("GUI/createButton"), graphics.GraphicsDevice);
             btnCreate.setPosition(new Vector2(1160, 0));
             myName = Content.Load<Texture2D>("GUI/name");
-            clearNameButton = new cButton250x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
-            clearNameButton.setPosition(new Vector2(200, 130));
-            clearDescriptionButton = new cButton250x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
-            clearDescriptionButton.setPosition(new Vector2(200, 200));
+            clearNameButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearNameButton.setPosition(new Vector2(0, 130));
+            clearDescriptionButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearDescriptionButton.setPosition(new Vector2(0, 200));
             myDescription = Content.Load<Texture2D>("GUI/description");
             myOSKBackground = Content.Load<Texture2D>("OSK/keyboardBackground");
             float keyStartingX = 401F;
@@ -544,6 +549,8 @@ namespace FirstGame
                     space2.Update(mouse);
                     delete1.Update(mouse);
                     clear.Update(mouse);
+                    delName.Update(mouse);
+                    delDesc.Update(mouse);
                     break;
 
                     //update if in LOAD LEVEL SCREEN
@@ -892,13 +899,17 @@ namespace FirstGame
                     clearDescriptionButton.Draw(spriteBatch);
                     clearNameButton.Draw(spriteBatch);
                     spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
-                    spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition , Color.Black);
-                    spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.Black);
+                    if (nameHighlight == true) {spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.Black);}
+                    else { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.DarkGray); }
+
+                    if (nameHighlight == false) { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.Black); }
+                    else { spriteBatch.DrawString(font, descriptionByTherapist, descriptionByTherapistPosition, Color.DarkGray); }
+
                     spriteBatch.Draw(myName, myNamePosition, Color.White);
                     spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
                     spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-                    
-                    
+                    delName.Draw(spriteBatch);
+                    delDesc.Draw(spriteBatch);
                     a.Draw(spriteBatch);
                     b.Draw(spriteBatch);
                     c.Draw(spriteBatch);
