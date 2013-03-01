@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FirstGame.Front_end
 {
-    class cButton60x25
+    class cButton250x25
     {
         Texture2D texture;
         Vector2 position;
@@ -18,12 +18,12 @@ namespace FirstGame.Front_end
 
         public Vector2 size;
 
-        public cButton60x25(Texture2D newTexture, GraphicsDevice graphics)
+        public cButton250x25(Texture2D newTexture, GraphicsDevice graphics)
         {
             texture = newTexture;
             //ScreenW = 800, ScreenH = 600
             //ImgW = 100, ImgH = 20
-            size = new Vector2(60, 25);
+            size = new Vector2(250, 25);
 
         }
 

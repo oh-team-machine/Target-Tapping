@@ -26,7 +26,7 @@ namespace FirstGame.Front_end
             size = new Vector2(55, 55);
 
         }
-
+        public bool lastMouseState;
         bool down;
         public bool isClicked;
         public void Update(MouseState mouse)
@@ -36,11 +36,19 @@ namespace FirstGame.Front_end
 
             if (mouseRectangle.Intersects(rectangle))
             {
-                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
+                if (mouse.LeftButton == ButtonState.Pressed && lastMouseState == false)
+                {
+                    if (mouse.LeftButton == ButtonState.Pressed)
+                    {
+                        isClicked = true;
+                        lastMouseState = true;
+                    }
+                }
             }
             else
             {
                 isClicked=false;
+                lastMouseState = false;
             }
             
         }

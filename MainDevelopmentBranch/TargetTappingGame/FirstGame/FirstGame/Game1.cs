@@ -42,7 +42,12 @@ namespace FirstGame
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
-        Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid;
+        Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid, textBackgorund, magnifyGlass, listBackground;
+        Vector2 magnifyGlassPosition = (new Vector2(175, 85));
+        Vector2 lisBackgroundPosition = (new Vector2(350, 150));
+        Vector2 nameBackgroundPosition = (new Vector2(200, 130));
+        Vector2 descriptionBackgroundPosition = (new Vector2(200, 200));
+        Vector2 searchBackground = (new Vector2(200, 85));
         Vector2 myNewLevelPosition = (new Vector2(300, 0));
         Vector2 myLoadLevelTitlePosition = (new Vector2(330, 0));
         Vector2 myNamePosition = (new Vector2(0, 130));
@@ -65,8 +70,10 @@ namespace FirstGame
         Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
         Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
         bool nameHighlight = true;
-        cButton60x25 clearNameButton, clearDescriptionButton;
-        
+        cButton250x25 clearNameButton, clearDescriptionButton;
+        String searchQuery;
+        Vector2 searchQueryPosition = (new Vector2(200, 90));
+
         //CREATE GAME CONSTRUCTOR//
         public Game1()
         {
@@ -107,8 +114,10 @@ namespace FirstGame
             // TODO: use this.Content to load your game content here
             myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
             font = Content.Load<SpriteFont>("font");
-            nameOfTherapist = "Enter Your Name Here";
-            descriptionByTherapist = "Enter Your Description Here";
+            nameOfTherapist = "Enter Your Name Here... (CLR This)";
+            descriptionByTherapist = "Enter Your Description Here... (CLR This)";
+            searchQuery = "Search... (CLR This)";
+            textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
 
             //Home Screen Elements
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
@@ -126,9 +135,9 @@ namespace FirstGame
             btnCreate = new cButton120x50(Content.Load<Texture2D>("GUI/createButton"), graphics.GraphicsDevice);
             btnCreate.setPosition(new Vector2(1160, 0));
             myName = Content.Load<Texture2D>("GUI/name");
-            clearNameButton = new cButton60x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearNameButton = new cButton250x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
             clearNameButton.setPosition(new Vector2(200, 130));
-            clearDescriptionButton = new cButton60x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearDescriptionButton = new cButton250x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
             clearDescriptionButton.setPosition(new Vector2(200, 200));
             myDescription = Content.Load<Texture2D>("GUI/description");
             myOSKBackground = Content.Load<Texture2D>("OSK/keyboardBackground");
@@ -200,6 +209,8 @@ namespace FirstGame
 
             //LoadGame Screen Elements
             //btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);// Place Holder
+            magnifyGlass = Content.Load<Texture2D>("GUI/magnifyGlass");
+            listBackground = Content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
             btnOpen = new cButton120x50(Content.Load<Texture2D>("GUI/openButton"), graphics.GraphicsDevice);
             btnOpen.setPosition(new Vector2(1160, 0));
@@ -545,6 +556,182 @@ namespace FirstGame
                     {
                         CurrentGameState = GameState.LevelEditor;
                     }
+                    //////////////////////keyboard input////////////////////////////////////////////////////////////
+                    if (a.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "a";
+                        a.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (b.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "b";
+                        b.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (c.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "c";
+                        c.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (d.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "d";
+                        d.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (e.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "e";
+                        e.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (f.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "f";
+                        f.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (g.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "g";
+                        g.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (h.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "h";
+                        h.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (i.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "i";
+                        i.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (j.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "j";
+                        j.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (k.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "k";
+                        k.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (l.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "l";
+                        l.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (m.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "m";
+                        m.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (n.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "n";
+                        n.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (o.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "o";
+                        o.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (p.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "p";
+                        p.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (q.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "q";
+                        q.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (r.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "r";
+                        r.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (s.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "s";
+                        s.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (t.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "t";
+                        t.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (u.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "u";
+                        u.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (v.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "v";
+                        v.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (w.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "w";
+                        w.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (x.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "x";
+                        x.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (y.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "y";
+                        y.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (z.isClicked == true)
+                    {
+                        searchQuery = searchQuery + "z";
+                        z.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (space1.isClicked == true || space2.isClicked)
+                    {
+                        searchQuery = searchQuery + "_";
+                        space1.isClicked = false;
+                        space2.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (delete1.isClicked == true)
+                    {
+                        searchQuery = searchQuery.Remove((searchQuery.Length) - 1);
+                        delete1.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (clear.isClicked == true)
+                    {
+                        searchQuery = "";
+                        clear.isClicked = false;
+                        Thread.Sleep(50);
+                    }
                     btnCancel.Update(mouse);
                     btnOpen.Update(mouse);
                     a.Update(mouse);
@@ -601,8 +788,10 @@ namespace FirstGame
                         {
                             multiState = false;
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-                             btnMultiple.setPosition(new Vector2(355, 30));
+                            btnMultiple.setPosition(new Vector2(355, 30));
                             btnMultiple.Update(mouse);
+                            btnMultiple.isClicked = false;
+                            Thread.Sleep(50);
                         }
                         else if (multiState == false)
                         {
@@ -610,7 +799,8 @@ namespace FirstGame
                             btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
                             btnMultiple.setPosition(new Vector2(355, 30));
                             btnMultiple.Update(mouse);
-
+                            btnMultiple.isClicked = false;
+                            Thread.Sleep(50);
                         }
                         //Call A Method Defined In Another Class
                     }
@@ -698,6 +888,7 @@ namespace FirstGame
                 case GameState.NewLevelScreen: //Draw all elements for NewLevel Screen
                     btnCancel.Draw(spriteBatch);
                     btnCreate.Draw(spriteBatch);
+                    spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
                     clearDescriptionButton.Draw(spriteBatch);
                     clearNameButton.Draw(spriteBatch);
                     spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
@@ -706,6 +897,8 @@ namespace FirstGame
                     spriteBatch.Draw(myName, myNamePosition, Color.White);
                     spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
                     spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
+                    
+                    
                     a.Draw(spriteBatch);
                     b.Draw(spriteBatch);
                     c.Draw(spriteBatch);
@@ -742,6 +935,9 @@ namespace FirstGame
                     btnOpen.Draw(spriteBatch);
                     spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
                      spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
+                     spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
+                     spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
+                     spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
                     a.Draw(spriteBatch);
                     b.Draw(spriteBatch);
                     c.Draw(spriteBatch);

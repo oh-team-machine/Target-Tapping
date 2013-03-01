@@ -55,3 +55,6 @@ Content\OSK\deleteButton.xnb
 Content\font.xnb
 Content\GUI\nothing.xnb
 Content\OSK\clear.xnb
+Content\GUI\textBackground.xnb
+Content\GUI\magnifyGlass.xnb
+Content\GUI\listBackground.xnb

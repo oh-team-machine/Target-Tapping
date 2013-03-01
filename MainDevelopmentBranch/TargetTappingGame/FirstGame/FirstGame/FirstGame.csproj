@@ -81,7 +81,7 @@
     <Compile Include="Front end\cButton55x55.cs" />
     <Compile Include="Front end\cButton120x55.cs" />
     <Compile Include="Front end\cButton48x48.cs" />
-    <Compile Include="Front end\cButton60x25.cs" />
+    <Compile Include="Front end\cButton250x25.cs" />
     <Compile Include="Front end\levelEditor.cs" />
     <Compile Include="Front end\newLayoutNaming.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
