@@ -40,6 +40,7 @@ namespace FirstGame
         GameState CurrentGameState = GameState.HomeScreen;
         bool multiState = false;
         //Initializing Graphical Elements
+    
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
         Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid, textBackgorund, magnifyGlass, listBackground;
@@ -58,7 +59,7 @@ namespace FirstGame
         Vector2 myGridPosition = (new Vector2(0, 110));
         //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
-        cButton120x50 btnCancel, btnCreate, btnOpen;
+        cButton120x50 btnCancel, btnCreate, btnOpen, btnBack;
         cButton120x55 btnUpTime, btnHoldTime;
         cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
         cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
@@ -70,11 +71,16 @@ namespace FirstGame
         Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
         Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
         bool nameHighlight = true;
-        cButton500x25 clearNameButton, clearDescriptionButton;
+        cButton500x25 clearNameButton, clearDescriptionButton, clearSearchButton;
         String searchQuery;
         Vector2 searchQueryPosition = (new Vector2(200, 90));
-        cButton25x25 delName, delDesc, delSearch;
-
+        cButton25x25 delName, delDesc, delSearch, goSearch;
+        bool loadKeyBoard = false;
+        
+        int intUpTime, intHoldTime;
+        Vector2 intUpTimePosition = (new Vector2(520, 45));
+        Vector2 intHoldTimePosition = (new Vector2(785, 45));
+    
         //CREATE GAME CONSTRUCTOR//
         public Game1()
         {
@@ -119,6 +125,8 @@ namespace FirstGame
             descriptionByTherapist = "Enter Your Description Here...";
             searchQuery = "Search...";
             textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
+            intUpTime = 5;
+            intHoldTime = 1;
 
             //Home Screen Elements
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
@@ -209,16 +217,18 @@ namespace FirstGame
             clear = new cButton48x48(Content.Load<Texture2D>("OSK/clear"), graphics.GraphicsDevice);
             clear.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 150));
 
-            //on skreen keyboard
-            //Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.System) + Path.DirectorySeparatorChar + "osk.exe");
-
             //LoadGame Screen Elements
-            //btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);// Place Holder
             magnifyGlass = Content.Load<Texture2D>("GUI/magnifyGlass");
             listBackground = Content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
             btnOpen = new cButton120x50(Content.Load<Texture2D>("GUI/openButton"), graphics.GraphicsDevice);
             btnOpen.setPosition(new Vector2(1160, 0));
+            delSearch = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
+            delSearch.setPosition(new Vector2(400, 85));
+            goSearch = new cButton25x25(Content.Load<Texture2D>("Gui/go"), graphics.GraphicsDevice);
+            goSearch.setPosition(new Vector2(425, 85));
+            clearSearchButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
+            clearSearchButton.setPosition(new Vector2(175, 85));
 
             //Level Editor Elements
             btnHome = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/homeButton"), graphics.GraphicsDevice);
@@ -246,6 +256,10 @@ namespace FirstGame
             btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
             btnLessHold.setPosition(new Vector2(875, 30));
             myGrid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+
+            //game play elements
+            btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
+            btnBack.setPosition(new Vector2(0, 0));
         }
 
         /// <summary>
@@ -307,7 +321,6 @@ namespace FirstGame
                     {
                         nameHighlight = false;  
                     }
-                    //////////////////////keyboard input////////////////////////////////////////////////////////////
                     if (a.isClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "a"; }
@@ -512,11 +525,25 @@ namespace FirstGame
                         clear.isClicked = false;
                         Thread.Sleep(50);
                     }
+                    if (delName.isClicked == true)
+                    {
+                        nameHighlight = true;
+                        nameOfTherapist = "";
+                    }
+                    if (delDesc.isClicked == true)
+                    {
+                        nameHighlight = false;
+                        descriptionByTherapist = "";
+                    }
                     UpdateNewLevelScreen(gameTime, mouse);
                     break;
 
                     //update if in LOAD LEVEL SCREEN
                 case GameState.LoadLevelScreen:
+                    if (goSearch.isClicked == true)
+                    {
+
+                    }
                     if (btnCancel.isClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
@@ -525,7 +552,16 @@ namespace FirstGame
                     {
                         CurrentGameState = GameState.LevelEditor;
                     }
-                    //////////////////////keyboard input////////////////////////////////////////////////////////////
+                    if (delSearch.isClicked == true)
+                    {
+                        searchQuery = "";
+                    }
+                    if (clearSearchButton.isClicked == true)
+                    {
+                        if (loadKeyBoard == false) { loadKeyBoard = true; } //else { loadKeyBoard = false; }
+                        clearSearchButton.isClicked = false;
+                        Thread.Sleep(50);
+                    }
                     if (a.isClicked == true)
                     {
                         searchQuery = searchQuery + "a";
@@ -709,7 +745,6 @@ namespace FirstGame
                     if (btnHome.isClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
-
                         //Call A Method Defined In Another Class
                     }
                     if (btnMenu.isClicked == true)
@@ -761,18 +796,30 @@ namespace FirstGame
                     }
                     if (btnMoreUp.isClicked == true)
                     {
+                        intUpTime++;
+                        btnMoreUp.isClicked = false;
+                        Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
                     if (btnLessUp.isClicked == true)
                     {
+                        intUpTime--;
+                        btnLessUp.isClicked = false;
+                        Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
                     if (btnMoreHold.isClicked == true)
                     {
+                        intHoldTime++;
+                        btnMoreHold.isClicked = false;
+                        Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
                     if (btnLessHold.isClicked == true)
                     {
+                        intHoldTime--;
+                        btnLessHold.isClicked = false;
+                        Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
 
@@ -781,9 +828,15 @@ namespace FirstGame
 
                     //update if playing PATIENT GAME
                 case GameState.PatientGame:
-
+                    if (btnBack.isClicked == true)
+                    {
+                        btnBack.isClicked = false;
+                        CurrentGameState = GameState.LevelEditor;
+                        Thread.Sleep(50);
+                        btnBack.Update(mouse);
+                    }
+                    UpdateGameScreen(gameTime, mouse);
                     break;
-
             }
             // TODO: Add your update logic here
            // UpdateSprite(gameTime); //example code
@@ -799,7 +852,6 @@ namespace FirstGame
         protected override void Draw(GameTime gameTime) 
         {
             GraphicsDevice.Clear(Color.White);
-
             // TODO: Add your drawing code here
             //spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
             spriteBatch.Begin();
@@ -819,17 +871,15 @@ namespace FirstGame
                     DrawLevelEdtorScreen(gameTime, spriteBatch);
                     break;
                 case GameState.PatientGame:
+                    DrawGameScreen(gameTime, spriteBatch);
                     break;
 
             }
-
             spriteBatch.End();
-
-
             base.Draw(gameTime);
         }
 
-        //helper methods below///////////////////////////////////////////
+        ///////////////////////////////////////////helper methods below/////////////////////////////////////////////////////
         void DrawLevelEdtorScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
             btnHome.Draw(spriteBatch);
@@ -847,6 +897,12 @@ namespace FirstGame
             originForRotation.X = 960;//myGrid.Width / 2;
             originForRotation.Y = 485;//(myGrid.Height + 110) / 2;
             spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+            spriteBatch.DrawString(font, intHoldTime.ToString(), intHoldTimePosition, Color.Black);
+            spriteBatch.DrawString(font, intUpTime.ToString(), intUpTimePosition, Color.Black);
+        }
+        void DrawGameScreen(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            btnBack.Draw(spriteBatch);
         }
 
         void DrawHomeScreen (GameTime gameTime, SpriteBatch spriteBatch) {
@@ -912,40 +968,53 @@ namespace FirstGame
             btnCancel.Draw(spriteBatch);
             btnOpen.Draw(spriteBatch);
             spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
-            spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-            spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
+            goSearch.Draw(spriteBatch);
+
+            if (loadKeyBoard == false) 
+            { 
+                spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.White); 
+            }else
+            {
+                spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
+            }
             spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
             spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
-            a.Draw(spriteBatch);
-            b.Draw(spriteBatch);
-            c.Draw(spriteBatch);
-            d.Draw(spriteBatch);
-            e.Draw(spriteBatch);
-            f.Draw(spriteBatch);
-            g.Draw(spriteBatch);
-            h.Draw(spriteBatch);
-            i.Draw(spriteBatch);
-            j.Draw(spriteBatch);
-            k.Draw(spriteBatch);
-            l.Draw(spriteBatch);
-            m.Draw(spriteBatch);
-            n.Draw(spriteBatch);
-            o.Draw(spriteBatch);
-            p.Draw(spriteBatch);
-            q.Draw(spriteBatch);
-            r.Draw(spriteBatch);
-            s.Draw(spriteBatch);
-            t.Draw(spriteBatch);
-            u.Draw(spriteBatch);
-            v.Draw(spriteBatch);
-            w.Draw(spriteBatch);
-            x.Draw(spriteBatch);
-            y.Draw(spriteBatch);
-            z.Draw(spriteBatch);
-            space1.Draw(spriteBatch);
-            space2.Draw(spriteBatch);
-            delete1.Draw(spriteBatch);
-            clear.Draw(spriteBatch);
+            delSearch.Draw(spriteBatch);
+
+            if (loadKeyBoard == true)
+            {
+                spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
+                a.Draw(spriteBatch);
+                b.Draw(spriteBatch);
+                c.Draw(spriteBatch);
+                d.Draw(spriteBatch);
+                e.Draw(spriteBatch);
+                f.Draw(spriteBatch);
+                g.Draw(spriteBatch);
+                h.Draw(spriteBatch);
+                i.Draw(spriteBatch);
+                j.Draw(spriteBatch);
+                k.Draw(spriteBatch);
+                l.Draw(spriteBatch);
+                m.Draw(spriteBatch);
+                n.Draw(spriteBatch);
+                o.Draw(spriteBatch);
+                p.Draw(spriteBatch);
+                q.Draw(spriteBatch);
+                r.Draw(spriteBatch);
+                s.Draw(spriteBatch);
+                t.Draw(spriteBatch);
+                u.Draw(spriteBatch);
+                v.Draw(spriteBatch);
+                w.Draw(spriteBatch);
+                x.Draw(spriteBatch);
+                y.Draw(spriteBatch);
+                z.Draw(spriteBatch);
+                space1.Draw(spriteBatch);
+                space2.Draw(spriteBatch);
+                delete1.Draw(spriteBatch);
+                clear.Draw(spriteBatch);
+            }
 
         }
 
@@ -954,6 +1023,10 @@ namespace FirstGame
             btnNew.Update(mouse);
             btnLoad.Update(mouse);
             btnExit.Update(mouse);
+        }
+        void UpdateGameScreen(GameTime gameTime, MouseState mouse)
+        {
+            btnBack.Update(mouse);
         }
 
         void UpdateLevelEditorScreen(GameTime gameTime, MouseState mouse)
@@ -972,6 +1045,7 @@ namespace FirstGame
             btnLessHold.Update(mouse);
             btnLessUp.Update(mouse);
             //end of update level editor
+            
         }
 
         void UpdateLoadLevelScreen(GameTime gameTime, MouseState mouse)
@@ -979,36 +1053,42 @@ namespace FirstGame
             // update load screen
             btnCancel.Update(mouse);
             btnOpen.Update(mouse);
-            a.Update(mouse);
-            b.Update(mouse);
-            c.Update(mouse);
-            d.Update(mouse);
-            e.Update(mouse);
-            f.Update(mouse);
-            g.Update(mouse);
-            h.Update(mouse);
-            i.Update(mouse);
-            j.Update(mouse);
-            k.Update(mouse);
-            l.Update(mouse);
-            m.Update(mouse);
-            n.Update(mouse);
-            o.Update(mouse);
-            p.Update(mouse);
-            q.Update(mouse);
-            r.Update(mouse);
-            s.Update(mouse);
-            t.Update(mouse);
-            u.Update(mouse);
-            v.Update(mouse);
-            w.Update(mouse);
-            x.Update(mouse);
-            y.Update(mouse);
-            z.Update(mouse);
-            space1.Update(mouse);
-            space2.Update(mouse);
-            delete1.Update(mouse);
-            clear.Update(mouse);
+            delSearch.Update(mouse);
+            clearSearchButton.Update(mouse);
+            goSearch.Update(mouse);
+            if (loadKeyBoard == true)
+            {
+                a.Update(mouse);
+                b.Update(mouse);
+                c.Update(mouse);
+                d.Update(mouse);
+                e.Update(mouse);
+                f.Update(mouse);
+                g.Update(mouse);
+                h.Update(mouse);
+                i.Update(mouse);
+                j.Update(mouse);
+                k.Update(mouse);
+                l.Update(mouse);
+                m.Update(mouse);
+                n.Update(mouse);
+                o.Update(mouse);
+                p.Update(mouse);
+                q.Update(mouse);
+                r.Update(mouse);
+                s.Update(mouse);
+                t.Update(mouse);
+                u.Update(mouse);
+                v.Update(mouse);
+                w.Update(mouse);
+                x.Update(mouse);
+                y.Update(mouse);
+                z.Update(mouse);
+                space1.Update(mouse);
+                space2.Update(mouse);
+                delete1.Update(mouse);
+                clear.Update(mouse);
+            }
             // end of update load screen
         }
 

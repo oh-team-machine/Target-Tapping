@@ -38,12 +38,12 @@ namespace FirstGame.Front_end
             {
                 if (mouse.LeftButton == ButtonState.Pressed && lastMouseState == false)
                 {
-                    if (mouse.LeftButton == ButtonState.Pressed)
-                    {
+                    
                         isClicked = true;
                         lastMouseState = true;
-                    }
+                    
                 }
+                
             }
             else
             {
