@@ -75,7 +75,10 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Back end\Shape Properties.cs" />
+    <Compile Include="Back end\createShape.cs" />
+    <Compile Include="Back end\drawShape.cs" />
+    <Compile Include="Back end\levelLoad.cs" />
+    <Compile Include="Back end\saveLevel.cs" />
     <Compile Include="Front end\cButton.cs" />
     <Compile Include="Front end\cButton120x50.cs" />
     <Compile Include="Front end\cButton55x55.cs" />
