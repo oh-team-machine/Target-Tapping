@@ -42,6 +42,8 @@ namespace FirstGame
         bool multiState = false;
         bool levelEditorMenuON = false;
         bool pauseMenuON = false;
+        bool shapePalletVisible = true;
+        bool sizeChoosing = false;
 
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
@@ -79,6 +81,14 @@ namespace FirstGame
         Texture2D pauseMenuBackground, pauseMenuTitle;
         Vector2 pauseMenuBackgroundPosition = (new Vector2(600, 300));
         Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
+        //Shape Pallet
+        int shapePalletX = 0, shapePalletY = 110;
+        Texture2D shapePalletBackground, chooseSize;
+        Vector2 shapePalletBackgroundPosition, chooseSizePosition;
+        cButton120x50 btnHidePallet, btnAddLetter, btnAddNumber, btnAddShape;
+        cButton120x50 sizeTiny, sizeSmall, sizeMedium, sizeLarge, sizeXLarge;
+        cButton100x100 btnThumbSquare, btnThumbCircle, btnThumbStar, btnThumbTriangle;
+        
 
         //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
@@ -283,6 +293,38 @@ namespace FirstGame
             btnLemClear.setPosition(new Vector2(630, 520));
             btnLemExit = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/exitButtonGraphic"), graphics.GraphicsDevice);
             btnLemExit.setPosition(new Vector2(630, 575));
+            //Shape Pallet
+            shapePalletBackground = Content.Load<Texture2D>("ShapePallet/shapePalletBackground");
+            shapePalletBackgroundPosition = (new Vector2(shapePalletX, shapePalletY));
+            btnHidePallet = new cButton120x50(Content.Load<Texture2D>("ShapePallet/hidePallet"), graphics.GraphicsDevice);
+            btnHidePallet.setPosition(new Vector2(shapePalletX+5, shapePalletY));
+            btnThumbCircle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoCircle"), graphics.GraphicsDevice);
+            btnThumbCircle.setPosition(new Vector2(shapePalletX + 5, shapePalletY+50));
+            btnThumbSquare = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoSquare"), graphics.GraphicsDevice);
+            btnThumbSquare.setPosition(new Vector2(shapePalletX + 5, shapePalletY+150));
+            btnThumbStar= new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoStar"), graphics.GraphicsDevice);
+            btnThumbStar.setPosition(new Vector2(shapePalletX + 5, shapePalletY+250));
+            btnThumbTriangle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoTriangle"), graphics.GraphicsDevice);
+            btnThumbTriangle.setPosition(new Vector2(shapePalletX + 5, shapePalletY+350));
+            btnAddLetter = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addLetter"), graphics.GraphicsDevice);
+            btnAddLetter.setPosition(new Vector2(shapePalletX + 5, shapePalletY+450));
+            btnAddNumber = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addNumber"), graphics.GraphicsDevice);
+            btnAddNumber.setPosition(new Vector2(shapePalletX + 5, shapePalletY+500));
+            btnAddShape = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addShape"), graphics.GraphicsDevice);
+            btnAddShape.setPosition(new Vector2(shapePalletX + 5, shapePalletY+500));
+            chooseSize = Content.Load<Texture2D>("ShapePallet/chooseSize");
+            chooseSizePosition = (new Vector2(shapePalletX+10, shapePalletY+10));
+            sizeTiny = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeTiny"), graphics.GraphicsDevice);
+            sizeTiny.setPosition(new Vector2(shapePalletX + 5, shapePalletY+60));
+            sizeSmall = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeSmall"), graphics.GraphicsDevice);
+            sizeSmall.setPosition(new Vector2(shapePalletX + 5, shapePalletY+110));
+            sizeMedium = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeMedium"), graphics.GraphicsDevice);
+            sizeMedium.setPosition(new Vector2(shapePalletX + 5, shapePalletY+160));
+            sizeLarge = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeLarge"), graphics.GraphicsDevice);
+            sizeLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+210));
+            sizeXLarge = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeXLarge"), graphics.GraphicsDevice);
+            sizeXLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+260));
+
 
             //game play elements - these elements make up the patient game play screen.
             btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
@@ -992,6 +1034,30 @@ namespace FirstGame
                 btnLemLoad.Draw(spriteBatch);
                 btnLemSave.Draw(spriteBatch);
             }
+            if (shapePalletVisible)
+            {
+                spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
+                btnHidePallet.Draw(spriteBatch);
+                btnThumbTriangle.Draw(spriteBatch);
+                btnThumbStar.Draw(spriteBatch);
+                btnThumbSquare.Draw(spriteBatch);
+                btnThumbCircle.Draw(spriteBatch);
+                btnAddLetter.Draw(spriteBatch);
+                btnAddNumber.Draw(spriteBatch);
+                if (false) { 
+                    btnAddShape.Draw(spriteBatch);
+                }
+            }
+            if (sizeChoosing)
+            {
+                spriteBatch.Draw(chooseSize, chooseSizePosition, Color.White);
+                sizeTiny.Draw(spriteBatch);
+                sizeSmall.Draw(spriteBatch);
+                sizeMedium.Draw(spriteBatch);
+                sizeLarge.Draw(spriteBatch);
+                sizeXLarge.Draw(spriteBatch);
+            }
+
         }
         void DrawGameScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -1157,6 +1223,27 @@ namespace FirstGame
             btnLemExit.Update(mouse);
             btnLemClear.Update(mouse);
             btnLemBack.Update(mouse);
+            //
+
+            btnHidePallet.Update(mouse);
+            btnThumbTriangle.Update(mouse);
+            btnThumbStar.Update(mouse);
+            btnThumbSquare.Update(mouse);
+            btnThumbCircle.Update(mouse);
+            btnAddLetter.Update(mouse);
+            btnAddNumber.Update(mouse);
+            if (false)
+            {
+                btnAddShape.Update(mouse);
+            }
+            if (sizeChoosing)
+            {
+                sizeTiny.Update(mouse);
+                sizeSmall.Update(mouse);
+                sizeMedium.Update(mouse);
+                sizeLarge.Update(mouse);
+                sizeXLarge.Update(mouse);
+            }
             
         }
 
