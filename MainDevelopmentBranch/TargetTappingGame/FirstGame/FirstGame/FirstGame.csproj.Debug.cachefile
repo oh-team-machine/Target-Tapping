@@ -68,3 +68,9 @@ Content\LevelEditorMenu\loadButtonGraphic.xnb
 Content\LevelEditorMenu\backButtonGraphic.xnb
 Content\LevelEditorMenu\clearButtonGraphic.xnb
 Content\LevelEditorMenu\exitButtonGraphic.xnb
+Content\GamePauseMenu\menuBackground.xnb
+Content\GamePauseMenu\pauseMenuGraphic.xnb
+Content\GamePauseMenu\continueButtonGraphic.xnb
+Content\GamePauseMenu\restartButtonGraphic.xnb
+Content\GamePauseMenu\changeLevelButtonGraphic.xnb
+Content\GamePauseMenu\editButtonGraphic.xnb

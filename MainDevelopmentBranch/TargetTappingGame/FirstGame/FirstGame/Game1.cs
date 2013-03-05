@@ -41,6 +41,7 @@ namespace FirstGame
         GameState CurrentGameState = GameState.HomeScreen;
         bool multiState = false;
         bool levelEditorMenuON = false;
+        bool pauseMenuON = false;
 
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
@@ -73,8 +74,11 @@ namespace FirstGame
         Vector2 searchQueryPosition = (new Vector2(200, 90));
         bool loadKeyBoard = false;
         Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
-        Vector2 levelEditorMenuBackgroundPosition = (new Vector2(300, 300));
-        Vector2 levelEditorMenuGraphicPosition = (new Vector2(310, 310));
+        Vector2 levelEditorMenuBackgroundPosition = (new Vector2(600, 300));
+        Vector2 levelEditorMenuGraphicPosition = (new Vector2(630, 300));
+        Texture2D pauseMenuBackground, pauseMenuTitle;
+        Vector2 pauseMenuBackgroundPosition = (new Vector2(600, 300));
+        Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
 
         //Initialize Button Elements (There are different Sizes of Buttons)
         cButton btnNew, btnLoad, btnExit;
@@ -88,6 +92,7 @@ namespace FirstGame
         Vector2 intUpTimePosition = (new Vector2(520, 45));
         Vector2 intHoldTimePosition = (new Vector2(785, 45));
         cButton120x50 btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
+        cButton120x50 btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
     
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -267,21 +272,31 @@ namespace FirstGame
             myGrid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
             levelEditorMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = Content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
-            //Vector2 levelEditorMenuGraphicPosition = (new Vector2(310, 310));
+            //Vector2 levelEditorMenuGraphicPosition = (new Vector2(630, 300));
             btnLemBack = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/backButtonGraphic"),graphics.GraphicsDevice);
-            btnLemBack.setPosition(new Vector2(310, 365));
+            btnLemBack.setPosition(new Vector2(630, 355));
             btnLemSave = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/saveButtonGraphic"), graphics.GraphicsDevice);
-            btnLemSave.setPosition(new Vector2(310, 420));
+            btnLemSave.setPosition(new Vector2(630, 410));
             btnLemLoad = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/loadButtonGraphic"), graphics.GraphicsDevice);
-            btnLemLoad.setPosition(new Vector2(310, 465));
+            btnLemLoad.setPosition(new Vector2(630, 465));
             btnLemClear = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/clearButtonGraphic"), graphics.GraphicsDevice);
-            btnLemClear.setPosition(new Vector2(310, 530));
+            btnLemClear.setPosition(new Vector2(630, 520));
             btnLemExit = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/exitButtonGraphic"), graphics.GraphicsDevice);
-            btnLemExit.setPosition(new Vector2(310, 585));
+            btnLemExit.setPosition(new Vector2(630, 575));
 
             //game play elements - these elements make up the patient game play screen.
             btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
             btnBack.setPosition(new Vector2(0, 0));
+            pauseMenuBackground = Content.Load<Texture2D>("GamePauseMenu/menuBackground");
+            pauseMenuTitle = Content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
+            btnPauseContinue = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/continueButtonGraphic"), graphics.GraphicsDevice);
+            btnPauseContinue.setPosition(new Vector2(630, 355));
+            btnPauseEdit = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/editButtonGraphic"), graphics.GraphicsDevice);
+            btnPauseEdit.setPosition(new Vector2(630, 410));
+            btnPauseLoad = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/changeLevelButtonGraphic"), graphics.GraphicsDevice);
+            btnPauseLoad.setPosition(new Vector2(630, 465));
+            btnPauseRestart = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/restartButtonGraphic"), graphics.GraphicsDevice);
+            btnPauseRestart.setPosition(new Vector2(630, 520));
         }
 
         /// <summary>
@@ -772,7 +787,16 @@ namespace FirstGame
                     }
                     if (btnMenu.isClicked == true)
                     {
-                        levelEditorMenuON = true;
+                        if (levelEditorMenuON == true)
+                        {
+                            levelEditorMenuON = false;
+                        }else
+                        {
+                            levelEditorMenuON = true;
+                        }
+                        btnMenu.Update(mouse);
+                        btnMenu.isClicked = false;
+                        Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
                     if (btnHoldTime.isClicked == true)
@@ -846,6 +870,23 @@ namespace FirstGame
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
+                    if (btnLemBack.isClicked == true) {
+                        levelEditorMenuON = false;
+                    }
+                    if (btnLemSave.isClicked == true) {
+                        levelEditorMenuON = false;
+                    }
+                    if (btnLemLoad.isClicked == true) {
+                        levelEditorMenuON = false;
+                        CurrentGameState = GameState.LoadLevelScreen;
+                    }
+                    if (btnLemClear.isClicked == true) {
+                        levelEditorMenuON = false;
+                    }
+                    if (btnLemExit.isClicked == true) {
+                        levelEditorMenuON = false;
+                        this.Exit();
+                    }
 
                     UpdateLevelEditorScreen(gameTime, mouse);
                     break;
@@ -855,9 +896,27 @@ namespace FirstGame
                     if (btnBack.isClicked == true)
                     {
                         btnBack.isClicked = false;
-                        CurrentGameState = GameState.LevelEditor;
+                        pauseMenuON = true;
                         Thread.Sleep(50);
                         btnBack.Update(mouse);
+                    }
+                    if (btnPauseContinue.isClicked == true)
+                    {
+                        pauseMenuON = false;
+                    }
+                    if (btnPauseEdit.isClicked == true)
+                    {
+                        pauseMenuON = false;
+                        CurrentGameState = GameState.LevelEditor;
+                    }
+                    if (btnPauseLoad.isClicked == true)
+                    {
+                        pauseMenuON = false;
+                        CurrentGameState = GameState.LoadLevelScreen;
+                    }
+                    if (btnPauseRestart.isClicked == true)
+                    {
+                        pauseMenuON = false;
                     }
                     UpdateGameScreen(gameTime, mouse);
                     break;
@@ -937,6 +996,16 @@ namespace FirstGame
         void DrawGameScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
             btnBack.Draw(spriteBatch);
+            if (pauseMenuON)
+            {
+                spriteBatch.Draw(pauseMenuBackground, pauseMenuBackgroundPosition, Color.White);
+                spriteBatch.Draw(pauseMenuTitle, pauseMenuGraphicPosition, Color.White);
+                btnPauseRestart.Draw(spriteBatch);
+                btnPauseLoad.Draw(spriteBatch);
+                btnPauseEdit.Draw(spriteBatch);
+                btnPauseContinue.Draw(spriteBatch);
+                
+            }
         }
 
         void DrawHomeScreen (GameTime gameTime, SpriteBatch spriteBatch) {
@@ -1061,6 +1130,10 @@ namespace FirstGame
         void UpdateGameScreen(GameTime gameTime, MouseState mouse)
         {
             btnBack.Update(mouse);
+            btnPauseContinue.Update(mouse);
+            btnPauseEdit.Update(mouse);
+            btnPauseLoad.Update(mouse);
+            btnPauseRestart.Update(mouse);
         }
 
         void UpdateLevelEditorScreen(GameTime gameTime, MouseState mouse)

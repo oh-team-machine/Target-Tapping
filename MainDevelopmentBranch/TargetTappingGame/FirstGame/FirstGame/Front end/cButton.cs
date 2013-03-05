@@ -29,6 +29,7 @@ namespace FirstGame.Front_end
 
         bool down;
         public bool isClicked;
+        public bool lastMouseState;
         public void Update(MouseState mouse)
         {
             rectangle = new Rectangle((int)position.X, (int)position.Y, (int)size.X, (int)size.Y);
@@ -36,11 +37,16 @@ namespace FirstGame.Front_end
 
             if (mouseRectangle.Intersects(rectangle))
             {
-                if (mouse.LeftButton == ButtonState.Pressed) isClicked = true;
+                if (mouse.LeftButton == ButtonState.Pressed && lastMouseState == false)
+                {
+                    lastMouseState = true;
+                    isClicked = true;
+                }
             }
             else
             {
                 isClicked=false;
+                lastMouseState = false;
             }
             
         }
