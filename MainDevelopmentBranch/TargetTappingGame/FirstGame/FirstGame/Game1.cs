@@ -44,6 +44,7 @@ namespace FirstGame
         bool pauseMenuON = false;
         bool shapePalletVisible = true;
         bool sizeChoosing = false;
+        bool colorChoosing = false;
 
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
@@ -83,11 +84,13 @@ namespace FirstGame
         Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
         //Shape Pallet
         int shapePalletX = 0, shapePalletY = 110;
-        Texture2D shapePalletBackground, chooseSize;
-        Vector2 shapePalletBackgroundPosition, chooseSizePosition;
+        Texture2D shapePalletBackground, chooseSize, chooseColor;
+        Vector2 shapePalletBackgroundPosition, chooseSizePosition, chooseColorPosition;
         cButton120x50 btnHidePallet, btnAddLetter, btnAddNumber, btnAddShape;
         cButton120x50 sizeTiny, sizeSmall, sizeMedium, sizeLarge, sizeXLarge;
         cButton100x100 btnThumbSquare, btnThumbCircle, btnThumbStar, btnThumbTriangle;
+        cButton48x48 colorGreenBtn, colorGreyBtn, colorDarkGreyBtn, colorBlueBtn, colorBlackBtn, colorRedBtn, colorOrangeBtn;
+        cButton48x48 colorYellowBtn, colorLightBlueBtn, colorDarkBlueBtn, colorPinkBtn, colorLightGreen;
         
 
         //Initialize Button Elements (There are different Sizes of Buttons)
@@ -324,6 +327,32 @@ namespace FirstGame
             sizeLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+210));
             sizeXLarge = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeXLarge"), graphics.GraphicsDevice);
             sizeXLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+260));
+            chooseColor = Content.Load<Texture2D>("ShapePallet/chooseColor");
+            chooseColorPosition = (new Vector2(shapePalletX + 10, shapePalletY + 10));
+            colorBlackBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/blackColor"), graphics.GraphicsDevice);
+            colorBlackBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 40));
+            colorBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/blueColor"), graphics.GraphicsDevice);
+            colorBlueBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 40));
+            colorDarkBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/darkBlueColor"), graphics.GraphicsDevice);
+            colorDarkBlueBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 90));
+            colorDarkGreyBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/darkGreyColor"), graphics.GraphicsDevice);
+            colorDarkGreyBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 90));
+            colorGreenBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/greenColor"), graphics.GraphicsDevice);
+            colorGreenBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 140));
+            colorGreyBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/greyColor"), graphics.GraphicsDevice);
+            colorGreyBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 140));
+            colorLightBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/lightBlueColor"), graphics.GraphicsDevice);
+            colorLightBlueBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 190));
+            colorLightGreen = new cButton48x48(Content.Load<Texture2D>("ShapePallet/lightGreenColor"), graphics.GraphicsDevice);
+            colorLightGreen.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 190));
+            colorOrangeBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/orangeColor"), graphics.GraphicsDevice);
+            colorOrangeBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 240));
+            colorPinkBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/pinkColor"), graphics.GraphicsDevice);
+            colorPinkBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 240));
+            colorRedBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/redColor"), graphics.GraphicsDevice);
+            colorRedBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 290));
+            colorYellowBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/yellowColor"), graphics.GraphicsDevice);
+            colorYellowBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 290));
 
 
             //game play elements - these elements make up the patient game play screen.
@@ -929,7 +958,86 @@ namespace FirstGame
                         levelEditorMenuON = false;
                         this.Exit();
                     }
+                    if (btnAddLetter.isClicked == true)
+                    {
 
+                    }
+                    if (btnAddNumber.isClicked == true)
+                    {
+
+                    }
+                    if (btnAddShape.isClicked == true)
+                    {
+
+                    }
+                    if (btnHidePallet.isClicked == true)
+                    {
+
+                    }
+                    if (btnThumbCircle.isClicked == true)
+                    {
+
+                    }
+                    if (btnThumbSquare.isClicked == true)
+                    {
+
+                    }
+                    if (btnThumbStar.isClicked == true)
+                    {
+
+                    }
+                    if (btnThumbTriangle.isClicked == true)
+                    {
+
+                    }
+                    if (colorBlackBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorBlueBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorDarkBlueBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorDarkGreyBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorGreenBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorGreyBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorLightBlueBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorLightGreen.isClicked == true)
+                    {
+
+                    }
+                    if (colorOrangeBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorPinkBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorRedBtn.isClicked == true)
+                    {
+
+                    }
+                    if (colorYellowBtn.isClicked == true)
+                    {
+
+                    }
                     UpdateLevelEditorScreen(gameTime, mouse);
                     break;
 
@@ -1056,6 +1164,21 @@ namespace FirstGame
                 sizeMedium.Draw(spriteBatch);
                 sizeLarge.Draw(spriteBatch);
                 sizeXLarge.Draw(spriteBatch);
+            }
+            if (colorChoosing)
+            {
+                colorBlackBtn.Draw(spriteBatch);
+                colorBlueBtn.Draw(spriteBatch);
+                colorDarkBlueBtn.Draw(spriteBatch);
+                colorDarkGreyBtn.Draw(spriteBatch);
+                colorGreenBtn.Draw(spriteBatch);
+                colorGreyBtn.Draw(spriteBatch);
+                colorLightBlueBtn.Draw(spriteBatch);
+                colorLightGreen.Draw(spriteBatch);
+                colorOrangeBtn.Draw(spriteBatch);
+                colorPinkBtn.Draw(spriteBatch);
+                colorRedBtn.Draw(spriteBatch);
+                colorYellowBtn.Draw(spriteBatch);
             }
 
         }
@@ -1244,7 +1367,21 @@ namespace FirstGame
                 sizeLarge.Update(mouse);
                 sizeXLarge.Update(mouse);
             }
-            
+            if (colorChoosing)
+            {
+                colorBlackBtn.Update(mouse);
+                colorBlueBtn.Update(mouse);
+                colorDarkBlueBtn.Update(mouse);
+                colorDarkGreyBtn.Update(mouse);
+                colorGreenBtn.Update(mouse);
+                colorGreyBtn.Update(mouse);
+                colorLightBlueBtn.Update(mouse);
+                colorLightGreen.Update(mouse);
+                colorOrangeBtn.Update(mouse);
+                colorPinkBtn.Update(mouse);
+                colorRedBtn.Update(mouse);
+                colorYellowBtn.Update(mouse);
+            }
         }
 
         void UpdateLoadLevelScreen(GameTime gameTime, MouseState mouse)
