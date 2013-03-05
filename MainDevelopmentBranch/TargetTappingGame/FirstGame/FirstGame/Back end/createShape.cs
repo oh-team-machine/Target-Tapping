@@ -23,7 +23,7 @@ namespace FirstGame.Back_end
         int[][] position;
          
 
-
+        /*
 
         //Constructor for this class
         public createShape(string shapePassedIn, int colorPassedIn, int sizePassedIn, bool multiselectPassedIn, Array )
@@ -35,6 +35,7 @@ namespace FirstGame.Back_end
             
 
         }
+        */
 
 
         //Methods for this class, such as getters and setters, etc...

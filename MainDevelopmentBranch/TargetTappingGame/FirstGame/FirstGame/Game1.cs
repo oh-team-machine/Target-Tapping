@@ -26,9 +26,10 @@ namespace FirstGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Vector2 originForRotation;
+        //The screen size will change to 1080P at the end
         int screenWidth = 1280, screenHeight = 720;
-        float rotationAngle = 4.71238898F;
+
+        //These are the different game state screens
         enum GameState
         {
             HomeScreen,
@@ -39,8 +40,9 @@ namespace FirstGame
         }
         GameState CurrentGameState = GameState.HomeScreen;
         bool multiState = false;
+        bool levelEditorMenuON = false;
+
         //Initializing Graphical Elements
-    
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
         Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid, textBackgorund, magnifyGlass, listBackground;
@@ -57,12 +59,8 @@ namespace FirstGame
         Vector2 myNewLevelTitlePosition = (new Vector2(330, 0));
         Vector2 myCancelButtonPosition = (new Vector2(0, 0));
         Vector2 myGridPosition = (new Vector2(0, 110));
-        //Initialize Button Elements (There are different Sizes of Buttons)
-        cButton btnNew, btnLoad, btnExit;
-        cButton120x50 btnCancel, btnCreate, btnOpen, btnBack;
-        cButton120x55 btnUpTime, btnHoldTime;
-        cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
-        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
+        Vector2 originForRotation;
+        float rotationAngle = 4.71238898F;
         Texture2D myOSKBackground;
         Vector2 myOSKBackgroundPosition = (new Vector2(390, 510));
         SpriteFont font;
@@ -71,15 +69,25 @@ namespace FirstGame
         Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
         Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
         bool nameHighlight = true;
-        cButton500x25 clearNameButton, clearDescriptionButton, clearSearchButton;
         String searchQuery;
         Vector2 searchQueryPosition = (new Vector2(200, 90));
-        cButton25x25 delName, delDesc, delSearch, goSearch;
         bool loadKeyBoard = false;
-        
+        Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
+        Vector2 levelEditorMenuBackgroundPosition = (new Vector2(300, 300));
+        Vector2 levelEditorMenuGraphicPosition = (new Vector2(310, 310));
+
+        //Initialize Button Elements (There are different Sizes of Buttons)
+        cButton btnNew, btnLoad, btnExit;
+        cButton120x50 btnCancel, btnCreate, btnOpen, btnBack;
+        cButton120x55 btnUpTime, btnHoldTime;
+        cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
+        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
+        cButton500x25 clearNameButton, clearDescriptionButton, clearSearchButton;
+        cButton25x25 delName, delDesc, delSearch, goSearch;
         int intUpTime, intHoldTime;
         Vector2 intUpTimePosition = (new Vector2(520, 45));
         Vector2 intHoldTimePosition = (new Vector2(785, 45));
+        cButton120x50 btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
     
         //CREATE GAME CONSTRUCTOR//
         public Game1()
@@ -117,8 +125,9 @@ namespace FirstGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            // myTexture = Content.Load<Texture2D>("Sprites/hockey-puck"); //example code
             // TODO: use this.Content to load your game content here
+          
+            //Data Types for holding information
             myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
             font = Content.Load<SpriteFont>("font");
             nameOfTherapist = "Enter Your Name Here...";
@@ -128,7 +137,7 @@ namespace FirstGame
             intUpTime = 5;
             intHoldTime = 1;
 
-            //Home Screen Elements
+            //Home Screen Elements - these graphics and buttons make up the home screen
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
             btnNew = new cButton(Content.Load<Texture2D>("GUI/newButton"), graphics.GraphicsDevice);
             btnNew.setPosition(new Vector2(340, 200 ));
@@ -137,7 +146,7 @@ namespace FirstGame
             btnExit = new cButton(Content.Load<Texture2D>("GUI/exitButton"), graphics.GraphicsDevice);
             btnExit.setPosition(new Vector2(340, 500));
             
-            //NewLevel Screen Elements
+            //NewLevel Screen Elements - these graphics and buttons make up the create a new level screen, OSK defined here..
             delDesc = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
             delDesc.setPosition(new Vector2(500, 200));
             delName = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
@@ -217,7 +226,7 @@ namespace FirstGame
             clear = new cButton48x48(Content.Load<Texture2D>("OSK/clear"), graphics.GraphicsDevice);
             clear.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 150));
 
-            //LoadGame Screen Elements
+            //LoadGame Screen Elements - these buttons and graphics make up the load screen, OSK is defined above
             magnifyGlass = Content.Load<Texture2D>("GUI/magnifyGlass");
             listBackground = Content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
@@ -230,7 +239,7 @@ namespace FirstGame
             clearSearchButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
             clearSearchButton.setPosition(new Vector2(175, 85));
 
-            //Level Editor Elements
+            //Level Editor Elements - these buttons and graphics make up the level editor screen.
             btnHome = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/homeButton"), graphics.GraphicsDevice);
             btnHome.setPosition(new Vector2(30, 30));
             btnMenu = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/menuButton"), graphics.GraphicsDevice);
@@ -256,8 +265,21 @@ namespace FirstGame
             btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
             btnLessHold.setPosition(new Vector2(875, 30));
             myGrid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+            levelEditorMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
+            levelEditorMenuTitle = Content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
+            //Vector2 levelEditorMenuGraphicPosition = (new Vector2(310, 310));
+            btnLemBack = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/backButtonGraphic"),graphics.GraphicsDevice);
+            btnLemBack.setPosition(new Vector2(310, 365));
+            btnLemSave = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/saveButtonGraphic"), graphics.GraphicsDevice);
+            btnLemSave.setPosition(new Vector2(310, 420));
+            btnLemLoad = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/loadButtonGraphic"), graphics.GraphicsDevice);
+            btnLemLoad.setPosition(new Vector2(310, 465));
+            btnLemClear = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/clearButtonGraphic"), graphics.GraphicsDevice);
+            btnLemClear.setPosition(new Vector2(310, 530));
+            btnLemExit = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/exitButtonGraphic"), graphics.GraphicsDevice);
+            btnLemExit.setPosition(new Vector2(310, 585));
 
-            //game play elements
+            //game play elements - these elements make up the patient game play screen.
             btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
             btnBack.setPosition(new Vector2(0, 0));
         }
@@ -268,6 +290,7 @@ namespace FirstGame
         /// </summary>
         protected override void UnloadContent()
         {
+            //NOT CURRENTLY USED
             // TODO: Unload any non ContentManager content here
         }
 
@@ -749,6 +772,7 @@ namespace FirstGame
                     }
                     if (btnMenu.isClicked == true)
                     {
+                        levelEditorMenuON = true;
                         //Call A Method Defined In Another Class
                     }
                     if (btnHoldTime.isClicked == true)
@@ -899,6 +923,16 @@ namespace FirstGame
             spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
             spriteBatch.DrawString(font, intHoldTime.ToString(), intHoldTimePosition, Color.Black);
             spriteBatch.DrawString(font, intUpTime.ToString(), intUpTimePosition, Color.Black);
+            if (levelEditorMenuON)
+            {
+                spriteBatch.Draw(levelEditorMenuBackground, levelEditorMenuBackgroundPosition, Color.White);
+                spriteBatch.Draw(levelEditorMenuTitle, levelEditorMenuGraphicPosition, Color.White);
+                btnLemBack.Draw(spriteBatch);
+                btnLemClear.Draw(spriteBatch);
+                btnLemExit.Draw(spriteBatch);
+                btnLemLoad.Draw(spriteBatch);
+                btnLemSave.Draw(spriteBatch);
+            }
         }
         void DrawGameScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -1045,6 +1079,11 @@ namespace FirstGame
             btnLessHold.Update(mouse);
             btnLessUp.Update(mouse);
             //end of update level editor
+            btnLemSave.Update(mouse);
+            btnLemLoad.Update(mouse);
+            btnLemExit.Update(mouse);
+            btnLemClear.Update(mouse);
+            btnLemBack.Update(mouse);
             
         }
 
