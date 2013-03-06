@@ -45,6 +45,9 @@ namespace FirstGame
         bool shapePalletVisible = true;
         bool sizeChoosing = false;
         bool colorChoosing = false;
+        bool showingShapes = true;
+        bool showingNumbers = false;
+        bool showingAlpha = false;
 
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
@@ -972,71 +975,163 @@ namespace FirstGame
                     }
                     if (btnHidePallet.isClicked == true)
                     {
+                        if (shapePalletVisible){shapePalletVisible = false;}
+                        else { shapePalletVisible = true; }
+                        btnHidePallet.isClicked = false;
+                        Thread.Sleep(50);
 
                     }
                     if (btnThumbCircle.isClicked == true)
                     {
-
+                        showingShapes = false;
+                        sizeChoosing = true;
+                        btnThumbCircle.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnThumbSquare.isClicked == true)
                     {
-
+                        showingShapes = false;
+                        sizeChoosing = true;
+                        btnThumbSquare.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnThumbStar.isClicked == true)
                     {
-
+                        showingShapes = false;
+                        sizeChoosing = true;
+                        btnThumbStar.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnThumbTriangle.isClicked == true)
                     {
-
+                        showingShapes = false;
+                        sizeChoosing = true;
+                        btnThumbTriangle.isClicked = false;
+                        Thread.Sleep(50);
+                    }
+                    if (sizeTiny.isClicked == true)
+                    {
+                        showingShapes = false;
+                        sizeChoosing = false;
+                        colorChoosing = true;
+                        sizeTiny.isClicked = false;
+                        Thread.Sleep(1500);
+                    }
+                    if (sizeSmall.isClicked == true)
+                    {
+                        showingShapes = false;
+                        sizeChoosing = false;
+                        colorChoosing = true;
+                        sizeSmall.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (sizeMedium.isClicked == true)
+                    {
+                        showingShapes = false;
+                        sizeChoosing = false;
+                        colorChoosing = true;
+                        sizeMedium.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (sizeLarge.isClicked == true)
+                    {
+                        showingShapes = false;
+                        sizeChoosing = false;
+                        colorChoosing = true;
+                        sizeLarge.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (sizeXLarge.isClicked == true)
+                    {
+                        showingShapes = false;
+                        sizeChoosing = false;
+                        colorChoosing = true;
+                        sizeXLarge.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorBlackBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorBlackBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorBlueBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorBlueBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorDarkBlueBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorDarkBlueBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorDarkGreyBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorDarkGreyBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorGreenBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorGreenBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorGreyBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorGreyBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorLightBlueBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorLightBlueBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorLightGreen.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorLightGreen.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorOrangeBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorOrangeBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorPinkBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorPinkBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorRedBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorRedBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     if (colorYellowBtn.isClicked == true)
                     {
-
+                        colorChoosing = false;
+                        showingShapes = true;
+                        colorYellowBtn.isClicked = false;
+                        Thread.Sleep(500);
                     }
                     UpdateLevelEditorScreen(gameTime, mouse);
                     break;
@@ -1146,18 +1241,30 @@ namespace FirstGame
             {
                 spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
                 btnHidePallet.Draw(spriteBatch);
-                btnThumbTriangle.Draw(spriteBatch);
-                btnThumbStar.Draw(spriteBatch);
-                btnThumbSquare.Draw(spriteBatch);
-                btnThumbCircle.Draw(spriteBatch);
-                btnAddLetter.Draw(spriteBatch);
-                btnAddNumber.Draw(spriteBatch);
-                if (false) { 
-                    btnAddShape.Draw(spriteBatch);
+                if (showingShapes)
+                {
+                    btnThumbTriangle.Draw(spriteBatch);
+                    btnThumbStar.Draw(spriteBatch);
+                    btnThumbSquare.Draw(spriteBatch);
+                    btnThumbCircle.Draw(spriteBatch);
+                    btnAddLetter.Draw(spriteBatch);
+                    btnAddNumber.Draw(spriteBatch);
                 }
+                if (showingAlpha) {
+                    btnAddNumber.Draw(spriteBatch);
+                    btnAddShape.Draw(spriteBatch);
+                }//Fill this in.
+                if (showingNumbers) {
+                    btnAddLetter.Draw(spriteBatch);
+                    btnAddShape.Draw(spriteBatch);
+                }///Fill this in.
+                
+                
             }
+            else { btnHidePallet.Draw(spriteBatch); }
             if (sizeChoosing)
             {
+                spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
                 spriteBatch.Draw(chooseSize, chooseSizePosition, Color.White);
                 sizeTiny.Draw(spriteBatch);
                 sizeSmall.Draw(spriteBatch);
@@ -1167,6 +1274,7 @@ namespace FirstGame
             }
             if (colorChoosing)
             {
+                spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
                 colorBlackBtn.Draw(spriteBatch);
                 colorBlueBtn.Draw(spriteBatch);
                 colorDarkBlueBtn.Draw(spriteBatch);
@@ -1192,8 +1300,7 @@ namespace FirstGame
                 btnPauseRestart.Draw(spriteBatch);
                 btnPauseLoad.Draw(spriteBatch);
                 btnPauseEdit.Draw(spriteBatch);
-                btnPauseContinue.Draw(spriteBatch);
-                
+                btnPauseContinue.Draw(spriteBatch); 
             }
         }
 
@@ -1346,19 +1453,31 @@ namespace FirstGame
             btnLemExit.Update(mouse);
             btnLemClear.Update(mouse);
             btnLemBack.Update(mouse);
-            //
-
+            
             btnHidePallet.Update(mouse);
-            btnThumbTriangle.Update(mouse);
-            btnThumbStar.Update(mouse);
-            btnThumbSquare.Update(mouse);
-            btnThumbCircle.Update(mouse);
-            btnAddLetter.Update(mouse);
-            btnAddNumber.Update(mouse);
-            if (false)
+            if (showingShapes)
             {
+                btnThumbTriangle.Update(mouse);
+                btnThumbStar.Update(mouse);
+                btnThumbSquare.Update(mouse);
+                btnThumbCircle.Update(mouse);
+                btnAddLetter.Update(mouse);
+                btnAddNumber.Update(mouse);
+                btnAddLetter.Update(mouse);
+                btnAddNumber.Update(mouse);
+            }
+            if (showingAlpha)
+            {
+                btnAddNumber.Update(mouse);
                 btnAddShape.Update(mouse);
             }
+            if (showingNumbers)
+            {
+                btnAddLetter.Update(mouse);
+                btnAddShape.Update(mouse);
+            }
+            
+          
             if (sizeChoosing)
             {
                 sizeTiny.Update(mouse);
