@@ -48,6 +48,8 @@ namespace FirstGame
         bool showingShapes = true;
         bool showingNumbers = false;
         bool showingAlpha = false;
+        bool numberChoosing = false;
+        bool alphaChoosing = true;
 
         //Initializing Graphical Elements
         Texture2D myTopHeaderBkGround;
@@ -86,7 +88,7 @@ namespace FirstGame
         Vector2 pauseMenuBackgroundPosition = (new Vector2(600, 300));
         Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
         //Shape Pallet
-        int shapePalletX = 0, shapePalletY = 110;
+        int shapePalletX = 0, shapePalletY = 100;
         Texture2D shapePalletBackground, chooseSize, chooseColor;
         Vector2 shapePalletBackgroundPosition, chooseSizePosition, chooseColorPosition;
         cButton120x50 btnHidePallet, btnAddLetter, btnAddNumber, btnAddShape;
@@ -94,6 +96,9 @@ namespace FirstGame
         cButton100x100 btnThumbSquare, btnThumbCircle, btnThumbStar, btnThumbTriangle;
         cButton48x48 colorGreenBtn, colorGreyBtn, colorDarkGreyBtn, colorBlueBtn, colorBlackBtn, colorRedBtn, colorOrangeBtn;
         cButton48x48 colorYellowBtn, colorLightBlueBtn, colorDarkBlueBtn, colorPinkBtn, colorLightGreen;
+        cButton48x48 putA, putB, putC, putD, putE, putF, putG, putH, putI, putJ, putK, putL, putM, putN, putO, putP, putQ;
+        cButton48x48 putR, putS, putT, putU, putV, putW, putX, putY, putZ, put1, put2, put3, put4, put5, put6, put7, put8, put9;
+        cButton48x48 put0;
         
 
         //Initialize Button Elements (There are different Sizes of Buttons)
@@ -303,21 +308,21 @@ namespace FirstGame
             shapePalletBackground = Content.Load<Texture2D>("ShapePallet/shapePalletBackground");
             shapePalletBackgroundPosition = (new Vector2(shapePalletX, shapePalletY));
             btnHidePallet = new cButton120x50(Content.Load<Texture2D>("ShapePallet/hidePallet"), graphics.GraphicsDevice);
-            btnHidePallet.setPosition(new Vector2(shapePalletX+5, shapePalletY));
+            btnHidePallet.setPosition(new Vector2(shapePalletX+0, shapePalletY));
             btnThumbCircle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoCircle"), graphics.GraphicsDevice);
-            btnThumbCircle.setPosition(new Vector2(shapePalletX + 5, shapePalletY+50));
+            btnThumbCircle.setPosition(new Vector2(shapePalletX + 20, shapePalletY+60));
             btnThumbSquare = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoSquare"), graphics.GraphicsDevice);
-            btnThumbSquare.setPosition(new Vector2(shapePalletX + 5, shapePalletY+150));
+            btnThumbSquare.setPosition(new Vector2(shapePalletX + 20, shapePalletY+160));
             btnThumbStar= new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoStar"), graphics.GraphicsDevice);
-            btnThumbStar.setPosition(new Vector2(shapePalletX + 5, shapePalletY+250));
+            btnThumbStar.setPosition(new Vector2(shapePalletX + 20, shapePalletY+260));
             btnThumbTriangle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoTriangle"), graphics.GraphicsDevice);
-            btnThumbTriangle.setPosition(new Vector2(shapePalletX + 5, shapePalletY+350));
+            btnThumbTriangle.setPosition(new Vector2(shapePalletX + 20, shapePalletY+360));
             btnAddLetter = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addLetter"), graphics.GraphicsDevice);
-            btnAddLetter.setPosition(new Vector2(shapePalletX + 5, shapePalletY+450));
+            btnAddLetter.setPosition(new Vector2(shapePalletX + 15, shapePalletY+550));
             btnAddNumber = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addNumber"), graphics.GraphicsDevice);
-            btnAddNumber.setPosition(new Vector2(shapePalletX + 5, shapePalletY+500));
+            btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY+500));
             btnAddShape = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addShape"), graphics.GraphicsDevice);
-            btnAddShape.setPosition(new Vector2(shapePalletX + 5, shapePalletY+500));
+            btnAddShape.setPosition(new Vector2(shapePalletX + 15, shapePalletY+500));
             chooseSize = Content.Load<Texture2D>("ShapePallet/chooseSize");
             chooseSizePosition = (new Vector2(shapePalletX+10, shapePalletY+10));
             sizeTiny = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeTiny"), graphics.GraphicsDevice);
@@ -356,7 +361,79 @@ namespace FirstGame
             colorRedBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 290));
             colorYellowBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/yellowColor"), graphics.GraphicsDevice);
             colorYellowBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 290));
+            putA = new cButton48x48(Content.Load<Texture2D>("OSK/aButton"), graphics.GraphicsDevice);
+            putA.setPosition(new Vector2(shapePalletX, shapePalletY+50));
+            putB = new cButton48x48(Content.Load<Texture2D>("OSK/bButton"), graphics.GraphicsDevice);
+            putB.setPosition(new Vector2(shapePalletX+48, shapePalletY+50));
+            putC = new cButton48x48(Content.Load<Texture2D>("OSK/cButton"), graphics.GraphicsDevice);
+            putC.setPosition(new Vector2(shapePalletX+96, shapePalletY+50));
+            putD = new cButton48x48(Content.Load<Texture2D>("OSK/dButton"), graphics.GraphicsDevice);
+            putD.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 100));
+            putE = new cButton48x48(Content.Load<Texture2D>("OSK/eButton"), graphics.GraphicsDevice);
+            putE.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 100));
+            putF = new cButton48x48(Content.Load<Texture2D>("OSK/fButton"), graphics.GraphicsDevice);
+            putF.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 100));
+            putG = new cButton48x48(Content.Load<Texture2D>("OSK/gButton"), graphics.GraphicsDevice);
+            putG.setPosition(new Vector2(shapePalletX + 0 , shapePalletY + 150));
+            putH = new cButton48x48(Content.Load<Texture2D>("OSK/hButton"), graphics.GraphicsDevice);
+            putH.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 150));
+            putI = new cButton48x48(Content.Load<Texture2D>("OSK/iButton"), graphics.GraphicsDevice);
+            putI.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 150));
+            putJ = new cButton48x48(Content.Load<Texture2D>("OSK/jButton"), graphics.GraphicsDevice);
+            putJ.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 200));
+            putK = new cButton48x48(Content.Load<Texture2D>("OSK/kButton"), graphics.GraphicsDevice);
+            putK.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 200));
+            putL = new cButton48x48(Content.Load<Texture2D>("OSK/lButton"), graphics.GraphicsDevice);
+            putL.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 200));
+            putM = new cButton48x48(Content.Load<Texture2D>("OSK/mButton"), graphics.GraphicsDevice);
+            putM.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 250));
+            putN = new cButton48x48(Content.Load<Texture2D>("OSK/nButton"), graphics.GraphicsDevice);
+            putN.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 250));
+            putO = new cButton48x48(Content.Load<Texture2D>("OSK/oButton"), graphics.GraphicsDevice);
+            putO.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 250));
+            putP = new cButton48x48(Content.Load<Texture2D>("OSK/pButton"), graphics.GraphicsDevice);
+            putP.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 300));
+            putQ = new cButton48x48(Content.Load<Texture2D>("OSK/qButton"), graphics.GraphicsDevice);
+            putQ.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 300));
+            putR = new cButton48x48(Content.Load<Texture2D>("OSK/rButton"), graphics.GraphicsDevice);
+            putR.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 300));
+            putS = new cButton48x48(Content.Load<Texture2D>("OSK/sButton"), graphics.GraphicsDevice);
+            putS.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 350));
+            putT = new cButton48x48(Content.Load<Texture2D>("OSK/tButton"), graphics.GraphicsDevice);
+            putT.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 350));
+            putU = new cButton48x48(Content.Load<Texture2D>("OSK/uButton"), graphics.GraphicsDevice);
+            putU.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 350));
+            putV = new cButton48x48(Content.Load<Texture2D>("OSK/vButton"), graphics.GraphicsDevice);
+            putV.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 400));
+            putW = new cButton48x48(Content.Load<Texture2D>("OSK/wButton"), graphics.GraphicsDevice);
+            putW.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 400));
+            putX = new cButton48x48(Content.Load<Texture2D>("OSK/xButton"), graphics.GraphicsDevice);
+            putX.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 400));
+            putY = new cButton48x48(Content.Load<Texture2D>("OSK/yButton"), graphics.GraphicsDevice);
+            putY.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 450));
+            putZ = new cButton48x48(Content.Load<Texture2D>("OSK/zButton"), graphics.GraphicsDevice);
+            putZ.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 450));
 
+            put1 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/oneBtn"), graphics.GraphicsDevice);
+            put1.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 50));
+            put2 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/twoBtn"), graphics.GraphicsDevice);
+            put2.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 50));
+            put3 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/threeBtn"), graphics.GraphicsDevice);
+            put3.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 50));
+            put4 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/fourBtn"), graphics.GraphicsDevice);
+            put4.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 100));
+            put5 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/fiveBtn"), graphics.GraphicsDevice);
+            put5.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 100));
+            put6 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/sixBtn"), graphics.GraphicsDevice);
+            put6.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 100));
+            put7 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/sevenBtn"), graphics.GraphicsDevice);
+            put7.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 150));
+            put8 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/eightBtn"), graphics.GraphicsDevice);
+            put8.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 150));
+            put9 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/nineBtn"), graphics.GraphicsDevice);
+            put9.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 150));
+            put0 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/zeroBtn"), graphics.GraphicsDevice);
+            put0.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 200));
 
             //game play elements - these elements make up the patient game play screen.
             btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
@@ -946,16 +1023,24 @@ namespace FirstGame
                     }
                     if (btnLemBack.isClicked == true) {
                         levelEditorMenuON = false;
+                        btnLemBack.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnLemSave.isClicked == true) {
                         levelEditorMenuON = false;
+                        btnLemSave.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnLemLoad.isClicked == true) {
                         levelEditorMenuON = false;
+                        btnLemLoad.isClicked = false;
+                        Thread.Sleep(50);
                         CurrentGameState = GameState.LoadLevelScreen;
                     }
                     if (btnLemClear.isClicked == true) {
                         levelEditorMenuON = false;
+                        btnLemClear.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnLemExit.isClicked == true) {
                         levelEditorMenuON = false;
@@ -963,15 +1048,27 @@ namespace FirstGame
                     }
                     if (btnAddLetter.isClicked == true)
                     {
-
+                        showingAlpha = true;
+                        showingNumbers = false;
+                        showingShapes = false;
+                        btnAddLetter.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnAddNumber.isClicked == true)
                     {
-
+                        showingNumbers = true;
+                        showingAlpha = false;
+                        showingShapes = false;
+                        btnAddNumber.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnAddShape.isClicked == true)
                     {
-
+                        showingShapes = true;
+                        showingAlpha = false;
+                        showingNumbers = false;
+                        btnAddShape.isClicked = false;
+                        Thread.Sleep(50);
                     }
                     if (btnHidePallet.isClicked == true)
                     {
@@ -1247,14 +1344,53 @@ namespace FirstGame
                     btnThumbStar.Draw(spriteBatch);
                     btnThumbSquare.Draw(spriteBatch);
                     btnThumbCircle.Draw(spriteBatch);
+                    btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY + 500));
                     btnAddLetter.Draw(spriteBatch);
                     btnAddNumber.Draw(spriteBatch);
                 }
                 if (showingAlpha) {
                     btnAddNumber.Draw(spriteBatch);
+                    btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY + 550));
                     btnAddShape.Draw(spriteBatch);
+                    putA.Draw(spriteBatch);
+                    putB.Draw(spriteBatch);
+                    putC.Draw(spriteBatch);
+                    putD.Draw(spriteBatch);
+                    putE.Draw(spriteBatch);
+                    putF.Draw(spriteBatch);
+                    putG.Draw(spriteBatch);
+                    putH.Draw(spriteBatch);
+                    putI.Draw(spriteBatch);
+                    putJ.Draw(spriteBatch);
+                    putK.Draw(spriteBatch);
+                    putL.Draw(spriteBatch);
+                    putM.Draw(spriteBatch);
+                    putN.Draw(spriteBatch);
+                    putO.Draw(spriteBatch);
+                    putP.Draw(spriteBatch);
+                    putQ.Draw(spriteBatch);
+                    putR.Draw(spriteBatch);
+                    putS.Draw(spriteBatch);
+                    putT.Draw(spriteBatch);
+                    putU.Draw(spriteBatch);
+                    putV.Draw(spriteBatch);
+                    putW.Draw(spriteBatch);
+                    putX.Draw(spriteBatch);
+                    putY.Draw(spriteBatch);
+                    putZ.Draw(spriteBatch);
+                   
                 }//Fill this in.
                 if (showingNumbers) {
+                    put1.Draw(spriteBatch);
+                    put2.Draw(spriteBatch);
+                    put3.Draw(spriteBatch);
+                    put4.Draw(spriteBatch);
+                    put5.Draw(spriteBatch);
+                    put6.Draw(spriteBatch);
+                    put7.Draw(spriteBatch);
+                    put8.Draw(spriteBatch);
+                    put9.Draw(spriteBatch);
+                    put0.Draw(spriteBatch);
                     btnAddLetter.Draw(spriteBatch);
                     btnAddShape.Draw(spriteBatch);
                 }///Fill this in.
@@ -1470,9 +1606,45 @@ namespace FirstGame
             {
                 btnAddNumber.Update(mouse);
                 btnAddShape.Update(mouse);
+                putA.Update(mouse);
+                putB.Update(mouse);
+                putC.Update(mouse);
+                putD.Update(mouse);
+                putE.Update(mouse);
+                putF.Update(mouse);
+                putG.Update(mouse);
+                putH.Update(mouse);
+                putI.Update(mouse);
+                putJ.Update(mouse);
+                putK.Update(mouse);
+                putL.Update(mouse);
+                putM.Update(mouse);
+                putN.Update(mouse);
+                putO.Update(mouse);
+                putP.Update(mouse);
+                putQ.Update(mouse);
+                putR.Update(mouse);
+                putS.Update(mouse);
+                putT.Update(mouse);
+                putU.Update(mouse);
+                putV.Update(mouse);
+                putW.Update(mouse);
+                putX.Update(mouse);
+                putY.Update(mouse);
+                putZ.Update(mouse);
             }
             if (showingNumbers)
             {
+                put1.Update(mouse);
+                put2.Update(mouse);
+                put3.Update(mouse);
+                put4.Update(mouse);
+                put5.Update(mouse);
+                put6.Update(mouse);
+                put7.Update(mouse);
+                put8.Update(mouse);
+                put9.Update(mouse);
+                put0.Update(mouse);
                 btnAddLetter.Update(mouse);
                 btnAddShape.Update(mouse);
             }

@@ -52,6 +52,7 @@ Content\OSK\mButton.xnb
 Content\OSK\spaceButton.xnb
 Content\OSK\keyboardBackground.xnb
 Content\OSK\deleteButton.xnb
+Content\font.xnb
 Content\GUI\nothing.xnb
 Content\OSK\clear.xnb
 Content\GUI\textBackground.xnb
@@ -73,7 +74,6 @@ Content\GamePauseMenu\continueButtonGraphic.xnb
 Content\GamePauseMenu\restartButtonGraphic.xnb
 Content\GamePauseMenu\changeLevelButtonGraphic.xnb
 Content\GamePauseMenu\editButtonGraphic.xnb
-Content\font.xnb
 Content\ShapePallet\shapePalletBackground.xnb
 Content\ShapePallet\hidePallet.xnb
 Content\ShapePallet\addNumber.xnb
@@ -102,3 +102,13 @@ Content\ShapePallet\darkBlueColor.xnb
 Content\ShapePallet\pinkColor.xnb
 Content\ShapePallet\lightGreenColor.xnb
 Content\ShapePallet\orangeColor.xnb
+Content\ShapePallet\oneBtn.xnb
+Content\ShapePallet\twoBtn.xnb
+Content\ShapePallet\threeBtn.xnb
+Content\ShapePallet\fourBtn.xnb
+Content\ShapePallet\fiveBtn.xnb
+Content\ShapePallet\sixBtn.xnb
+Content\ShapePallet\sevenBtn.xnb
+Content\ShapePallet\eightBtn.xnb
+Content\ShapePallet\nineBtn.xnb
+Content\ShapePallet\zeroBtn.xnb
