@@ -12,39 +12,88 @@ namespace FirstGame.Back_end
     * letter, numbers that the therapist will put in the level.
      */
 
-    class createShape
+    class CreateShape
     {
 
         //Put private class variables here.
-        int color;
+        string color;
         int size;
         string shape;
         bool multiSelect;
         int[][] position;
          
 
-        /*
+        
 
         //Constructor for this class
-        public createShape(string shapePassedIn, int colorPassedIn, int sizePassedIn, bool multiselectPassedIn, Array )
+        public CreateShape(string shapePassedIn, string colorPassedIn, int sizePassedIn, int[][] positionPassedIn,
+                                bool multiSelectPassedIn)
         {
-            color = colorPassedIn;
-            shape = shapePassedIn;
-            size = sizePassedIn;
-            multiSelect = multiselectPassedIn;
-            
+            setColor(colorPassedIn);
+            setShape(shapePassedIn);
+            setSize(sizePassedIn);
+            setPosition(positionPassedIn);
+            setMultiSelect(multiSelectPassedIn);
 
         }
-        */
 
+
+        //Draws the shape on the screen.
+        public void drawShape()
+        {
+
+        }
 
         //Methods for this class, such as getters and setters, etc...
-        public void setColor(){
-            
-
+        public void setColor(string colorPassedIn)
+        {
+            color = colorPassedIn;
         }
 
+        public void setShape(string shapePassedIn)
+        {
+            shape = shapePassedIn;
+        }
 
+        public void setSize(int sizePassedIn)
+        {
+            size = sizePassedIn;
+        }
+
+        public void setPosition(int[][] poistionPassedIn)
+        {
+            position = poistionPassedIn;
+        }
+
+        public void setMultiSelect(bool multiSelectPassedIn)
+        {
+            multiSelect = multiSelectPassedIn;
+        }
+
+        public string getColor()
+        {
+            return color;
+        }
+
+        public string getShape()
+        {
+            return shape;
+        }
+
+        public int getSize()
+        {
+            return size;
+        }
+
+        public int[][] getPosition()
+        {
+            return position;
+        }
+
+        public bool getMultiSelect()
+        {
+            return multiSelect;
+        }
     }
 
 }
