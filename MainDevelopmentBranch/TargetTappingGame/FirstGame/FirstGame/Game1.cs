@@ -16,7 +16,7 @@ using System.Threading;
 namespace FirstGame
 {
     /// <summary>
-    /// This is the main type for your game. 
+    /// This is the main type for our target tapping game. 
     /// We may want to keep all GUI in here and define classes and methods to act
     /// upon those GUI elements elsewhere. This way we can change the entire GUI
     /// within one file. Which we will need to do to adapt to the final screen size.
@@ -39,19 +39,21 @@ namespace FirstGame
             PatientGame,
         }
         GameState CurrentGameState = GameState.HomeScreen;
-        bool multiState = false;
-        bool levelEditorMenuON = false;
-        bool pauseMenuON = false;
-        bool shapePalletVisible = true;
-        bool sizeChoosing = false;
-        bool colorChoosing = false;
-        bool showingShapes = true;
-        bool showingNumbers = false;
-        bool showingAlpha = false;
-        bool numberChoosing = false;
-        bool alphaChoosing = true;
 
-        //Initializing Graphical Elements
+        //These booleans are used to specify states and what GUI elements should be presented
+        bool multiState = false; //for multi button 
+        bool levelEditorMenuON = false; //Menu opens with menu button in level editor
+        bool pauseMenuON = false; //Menu opens with pause button in game play
+        bool shapePalletVisible = true; // Showing the pallet
+        bool sizeChoosing = false; // Choosing the size of an object in the pallet
+        bool colorChoosing = false; // Color choosing for an object in the pallet
+        bool showingShapes = true; //Choosing between shapes in the pallet
+        bool showingNumbers = false; //Choosing between numerical object in the pallet
+        bool showingAlpha = false; //CHoosing alpha objets in the pallet
+        //bool numberChoosing = false; // Unused
+        //bool alphaChoosing = true; // Unused
+
+        //Initializing Graphical Elements and set there positions. This includes labels etc.
         Texture2D myTopHeaderBkGround;
         Vector2 myTopHeaderPosition = Vector2.Zero; //example code
         Texture2D myTitle, myNewLevelTitle, myNewLevel, myName, myDescription, myLoadLevelTitle, myGrid, textBackgorund, magnifyGlass, listBackground;
@@ -87,7 +89,8 @@ namespace FirstGame
         Texture2D pauseMenuBackground, pauseMenuTitle;
         Vector2 pauseMenuBackgroundPosition = (new Vector2(600, 300));
         Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
-        //Shape Pallet
+        
+        //Shape Pallet Elements, this includes buttons and labels.
         int shapePalletX = 0, shapePalletY = 100;
         Texture2D shapePalletBackground, chooseSize, chooseColor;
         Vector2 shapePalletBackgroundPosition, chooseSizePosition, chooseColorPosition;
@@ -116,6 +119,11 @@ namespace FirstGame
         cButton120x50 btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
     
         //CREATE GAME CONSTRUCTOR//
+        /// <summary>
+        /// This is out constructor.
+        /// 
+        /// 
+        /// </summary>
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -129,6 +137,9 @@ namespace FirstGame
 
         }
 
+
+
+
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
         /// This is where it can query for any required services and load any non-graphic
@@ -137,29 +148,36 @@ namespace FirstGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // This has not been used by us yet. This methods comes with the template for an xna game.
 
             base.Initialize();
         }
 
+
+
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
+        /// all of your content. Here we load the graphical elements into label sprites and buttons.
         /// </summary>
         //LOAD CONTENT HERE//
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
-          
-            //Data Types for holding information
-            myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround");
+
+            //Header on all screens
+            myTopHeaderBkGround = Content.Load<Texture2D>("GUI/topHeaderBkGround"); 
+
+            //Sprite font loading
             font = Content.Load<SpriteFont>("font");
             nameOfTherapist = "Enter Your Name Here...";
             descriptionByTherapist = "Enter Your Description Here...";
             searchQuery = "Search...";
             textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
+
+            //INTs for uptime and holdtime, these will dictate times for game.
+            //Must be changed when a game is loaded!!!!!!
             intUpTime = 5;
             intHoldTime = 1;
 
@@ -304,7 +322,7 @@ namespace FirstGame
             btnLemClear.setPosition(new Vector2(630, 520));
             btnLemExit = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/exitButtonGraphic"), graphics.GraphicsDevice);
             btnLemExit.setPosition(new Vector2(630, 575));
-            //Shape Pallet
+            //Shape Pallet in editor screen// Conent loaded below.
             shapePalletBackground = Content.Load<Texture2D>("ShapePallet/shapePalletBackground");
             shapePalletBackgroundPosition = (new Vector2(shapePalletX, shapePalletY));
             btnHidePallet = new cButton120x50(Content.Load<Texture2D>("ShapePallet/hidePallet"), graphics.GraphicsDevice);
@@ -413,7 +431,6 @@ namespace FirstGame
             putY.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 450));
             putZ = new cButton48x48(Content.Load<Texture2D>("OSK/zButton"), graphics.GraphicsDevice);
             putZ.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 450));
-
             put1 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/oneBtn"), graphics.GraphicsDevice);
             put1.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 50));
             put2 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/twoBtn"), graphics.GraphicsDevice);
@@ -450,32 +467,44 @@ namespace FirstGame
             btnPauseRestart.setPosition(new Vector2(630, 520));
         }
 
+
+
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
         /// </summary>
         protected override void UnloadContent()
         {
-            //NOT CURRENTLY USED
-            // TODO: Unload any non ContentManager content here
+            //NOT CURRENTLY USED, defined as part of the XNA game template.
+            
         }
 
+
+
+
         /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
+        /// This is what will be updated every frame. In here we switch between game screens and more.
+        /// There are many helper function located below that this generic update method calls.
+        /// Some helper functions include drawing and updating. This removes a ton of non-logic from the
+        /// below method.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         //UPDATE GAME HERE//
         protected override void Update(GameTime gameTime)
         {
+            //Mouse state. May or may not work for touch.
             MouseState mouse = Mouse.GetState();
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            //This switch statment dictates what game state we are currently in.
+            //The game states switch between the welcome home screen, the create a new level screen, the load level screen,
+            //the level editor screen and finally the game playing screen for the patient.
             switch (CurrentGameState)
             {
-                    //update if in HOME SCREEN
+                    ///////////////////////////////update if in HOME SCREEN///////////////////////////////
                 case GameState.HomeScreen:
                     if (btnNew.isClicked == true)
                     {
@@ -492,7 +521,7 @@ namespace FirstGame
                     UpdateHomeScreen(gameTime, mouse);
                     break;
 
-                    //update if in NEWLEVEL SCREEN
+                    //////////////////////////////update if in NEWLEVEL SCREEN//////////////////////////////
                 case GameState.NewLevelScreen:
                     if (btnCancel.isClicked == true)
                     {
@@ -727,7 +756,7 @@ namespace FirstGame
                     UpdateNewLevelScreen(gameTime, mouse);
                     break;
 
-                    //update if in LOAD LEVEL SCREEN
+                    /////////////////////////////////////update if in LOAD LEVEL SCREEN///////////////////////////////
                 case GameState.LoadLevelScreen:
                     if (goSearch.isClicked == true)
                     {
@@ -929,7 +958,7 @@ namespace FirstGame
                     UpdateLoadLevelScreen(gameTime, mouse);
                     break;
 
-                    //update if in LEVEL EDITIOR SCREEN
+                    ////////////////////////////////update if in LEVEL EDITIOR SCREEN///////////////////////////////
                 case GameState.LevelEditor:
                     if (btnHome.isClicked == true)
                     {
@@ -1230,10 +1259,190 @@ namespace FirstGame
                         colorYellowBtn.isClicked = false;
                         Thread.Sleep(500);
                     }
+                    if (put0.isClicked == true)
+                    {
+                        put0.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put1.isClicked == true)
+                    {
+                        put1.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put2.isClicked == true)
+                    {
+                        put2.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put3.isClicked == true)
+                    {
+                        put3.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put4.isClicked == true)
+                    {
+                        put4.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put5.isClicked == true)
+                    {
+                        put5.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put6.isClicked == true)
+                    {
+                        put6.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put7.isClicked == true)
+                    {
+                        put7.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put8.isClicked == true)
+                    {
+                        put8.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (put9.isClicked == true)
+                    {
+                        put9.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putA.isClicked == true)
+                    {
+                        putA.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putB.isClicked == true)
+                    {
+                        putB.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putC.isClicked == true)
+                    {
+                        putC.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putD.isClicked == true)
+                    {
+                        putD.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putE.isClicked == true)
+                    {
+                        putE.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putF.isClicked == true)
+                    {
+                        putF.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putG.isClicked == true)
+                    {
+                        putG.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putH.isClicked == true)
+                    {
+                        putH.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putI.isClicked == true)
+                    {
+                        putI.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putJ.isClicked == true)
+                    {
+                        putJ.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putK.isClicked == true)
+                    {
+                        putK.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putL.isClicked == true)
+                    {
+                        putL.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putM.isClicked == true)
+                    {
+                        putM.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putN.isClicked == true)
+                    {
+                        putN.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putO.isClicked == true)
+                    {
+                        putO.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putP.isClicked == true)
+                    {
+                        putP.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putQ.isClicked == true)
+                    {
+                        putQ.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putR.isClicked == true)
+                    {
+                        putR.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putS.isClicked == true)
+                    {
+                        putS.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putT.isClicked == true)
+                    {
+                        putT.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putU.isClicked == true)
+                    {
+                        putU.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putV.isClicked == true)
+                    {
+                        putV.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putW.isClicked == true)
+                    {
+                        putW.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putX.isClicked == true)
+                    {
+                        putX.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putY.isClicked == true)
+                    {
+                        putY.isClicked = false;
+                        Thread.Sleep(500);
+                    }
+                    if (putZ.isClicked == true)
+                    {
+                        putZ.isClicked = false;
+                        Thread.Sleep(500);
+                    }
                     UpdateLevelEditorScreen(gameTime, mouse);
                     break;
 
-                    //update if playing PATIENT GAME
+                    ///////////////////////////////update if playing PATIENT GAME////////////////////////////////////////
                 case GameState.PatientGame:
                     if (btnBack.isClicked == true)
                     {
@@ -1269,8 +1478,10 @@ namespace FirstGame
         }
         
 
+
+
         /// <summary>
-        /// This is called when the game should DRAW itself.
+        /// This is called when the game should DRAW itself. This method also uses helper functions for drawing.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         //DRAW GAME HERE//
@@ -1292,10 +1503,10 @@ namespace FirstGame
                 case GameState.LoadLevelScreen: //Draw all elements for Loadlevel Screen
                     DrawLoadLayoutScreen(gameTime, spriteBatch);
                     break;
-                case GameState.LevelEditor:
+                case GameState.LevelEditor: //Draw all elements for Level Editor Screen
                     DrawLevelEdtorScreen(gameTime, spriteBatch);
                     break;
-                case GameState.PatientGame:
+                case GameState.PatientGame: //Draw all elements for Patient Game
                     DrawGameScreen(gameTime, spriteBatch);
                     break;
 
@@ -1304,7 +1515,17 @@ namespace FirstGame
             base.Draw(gameTime);
         }
 
+
+
+
+
+
         ///////////////////////////////////////////helper methods below/////////////////////////////////////////////////////
+        /// <summary>
+        /// Blow are helper methods for drawing and updating objects.
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="spriteBatch"></param>
         void DrawLevelEdtorScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
             btnHome.Draw(spriteBatch);
