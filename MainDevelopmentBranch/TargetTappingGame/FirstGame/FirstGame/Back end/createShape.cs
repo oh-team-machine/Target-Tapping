@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using FirstGame.Back_end;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace FirstGame.Back_end
 {
@@ -16,17 +18,17 @@ namespace FirstGame.Back_end
     {
 
         //Put private class variables here.
-        string color;
+        Color color;
         int size;
         string shape;
         bool multiSelect;
-        int[][] position;
+        int[] position = new int[2];
          
 
         
 
         //Constructor for this class
-        public CreateShape(string shapePassedIn, string colorPassedIn, int sizePassedIn, int[][] positionPassedIn,
+        public CreateShape(string shapePassedIn, Color colorPassedIn, int sizePassedIn, int[] positionPassedIn,
                                 bool multiSelectPassedIn)
         {
             setColor(colorPassedIn);
@@ -39,13 +41,15 @@ namespace FirstGame.Back_end
 
 
         //Draws the shape on the screen.
-        public void drawShape()
+        public void drawShape(GraphicsDeviceManager graphics)
         {
-
+            //Texture2D texture;
+            //DrawShape draw;
+            //texture = draw.drawShape(shape, size, graphics);
         }
 
         //Methods for this class, such as getters and setters, etc...
-        public void setColor(string colorPassedIn)
+        public void setColor(Color colorPassedIn)
         {
             color = colorPassedIn;
         }
@@ -60,7 +64,7 @@ namespace FirstGame.Back_end
             size = sizePassedIn;
         }
 
-        public void setPosition(int[][] poistionPassedIn)
+        public void setPosition(int[] poistionPassedIn)
         {
             position = poistionPassedIn;
         }
@@ -70,7 +74,7 @@ namespace FirstGame.Back_end
             multiSelect = multiSelectPassedIn;
         }
 
-        public string getColor()
+        public Color getColor()
         {
             return color;
         }
@@ -85,7 +89,7 @@ namespace FirstGame.Back_end
             return size;
         }
 
-        public int[][] getPosition()
+        public int[] getPosition()
         {
             return position;
         }
