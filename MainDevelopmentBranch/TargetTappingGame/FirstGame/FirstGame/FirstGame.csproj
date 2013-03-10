@@ -61,7 +61,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GameLibrary">
-      <HintPath>..\..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Kinect">
+      <HintPath>..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\Microsoft.Kinect.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -70,12 +73,18 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
+    <Reference Include="Windows7.Multitouch">
+      <HintPath>..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\Windows7.Multitouch.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Back end\createShape.cs" />

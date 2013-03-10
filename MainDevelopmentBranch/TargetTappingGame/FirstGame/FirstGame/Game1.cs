@@ -476,7 +476,7 @@ namespace FirstGame
         /// </summary>
         protected override void UnloadContent()
         {
-            //NOT CURRENTLY USED, defined as part of the XNA game template.
+            content.Unload();
             
         }
 

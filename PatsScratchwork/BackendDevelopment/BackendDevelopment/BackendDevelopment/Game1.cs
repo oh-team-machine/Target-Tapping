@@ -16,13 +16,23 @@ namespace BackendDevelopment
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        private Manager manager;
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        //SpriteBatch spriteBatch;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            //show the mouse
+            this.IsMouseVisible = true;
+
+            //graphics.PreferredBackBufferWidth = screenWidth; //currently set to 720P for laptop support, will change to 1080P
+            //graphics.PreferredBackBufferHeight = screenHeight;
+            //graphics.IsFullScreen = false;
+            //graphics.ApplyChanges();
+
         }
 
         /// <summary>
