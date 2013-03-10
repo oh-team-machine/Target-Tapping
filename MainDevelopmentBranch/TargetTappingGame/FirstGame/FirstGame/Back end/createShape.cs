@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FirstGame.Back_end
 {
-
+    //Pat's test of vs2010 git extension
     /*
     * This class contains all the properties (such as color, size, etc..) for our shapes,
     * letter, numbers that the therapist will put in the level.
