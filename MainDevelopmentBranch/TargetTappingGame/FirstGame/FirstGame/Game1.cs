@@ -94,29 +94,29 @@ namespace FirstGame
         int shapePalletX = 0, shapePalletY = 100;
         Texture2D shapePalletBackground, chooseSize, chooseColor;
         Vector2 shapePalletBackgroundPosition, chooseSizePosition, chooseColorPosition;
-        cButton120x50 btnHidePallet, btnAddLetter, btnAddNumber, btnAddShape;
-        cButton120x50 sizeTiny, sizeSmall, sizeMedium, sizeLarge, sizeXLarge;
-        cButton100x100 btnThumbSquare, btnThumbCircle, btnThumbStar, btnThumbTriangle;
-        cButton48x48 colorGreenBtn, colorGreyBtn, colorDarkGreyBtn, colorBlueBtn, colorBlackBtn, colorRedBtn, colorOrangeBtn;
-        cButton48x48 colorYellowBtn, colorLightBlueBtn, colorDarkBlueBtn, colorPinkBtn, colorLightGreen;
-        cButton48x48 putA, putB, putC, putD, putE, putF, putG, putH, putI, putJ, putK, putL, putM, putN, putO, putP, putQ;
-        cButton48x48 putR, putS, putT, putU, putV, putW, putX, putY, putZ, put1, put2, put3, put4, put5, put6, put7, put8, put9;
-        cButton48x48 put0;
+        Button btnHidePallet, btnAddLetter, btnAddNumber, btnAddShape;
+        Button sizeTiny, sizeSmall, sizeMedium, sizeLarge, sizeXLarge;
+        Button btnThumbSquare, btnThumbCircle, btnThumbStar, btnThumbTriangle;
+        Button colorGreenBtn, colorGreyBtn, colorDarkGreyBtn, colorBlueBtn, colorBlackBtn, colorRedBtn, colorOrangeBtn;
+        Button colorYellowBtn, colorLightBlueBtn, colorDarkBlueBtn, colorPinkBtn, colorLightGreen;
+        Button putA, putB, putC, putD, putE, putF, putG, putH, putI, putJ, putK, putL, putM, putN, putO, putP, putQ;
+        Button putR, putS, putT, putU, putV, putW, putX, putY, putZ, put1, put2, put3, put4, put5, put6, put7, put8, put9;
+        Button put0;
         
 
         //Initialize Button Elements (There are different Sizes of Buttons)
-        cButton btnNew, btnLoad, btnExit;
-        cButton120x50 btnCancel, btnCreate, btnOpen, btnBack;
-        cButton120x55 btnUpTime, btnHoldTime;
-        cButton55x55 btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
-        cButton48x48 a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
-        cButton500x25 clearNameButton, clearDescriptionButton, clearSearchButton;
-        cButton25x25 delName, delDesc, delSearch, goSearch;
+        Button btnNew, btnLoad, btnExit;
+        Button btnCancel, btnCreate, btnOpen, btnBack;
+        Button btnUpTime, btnHoldTime;
+        Button btnHome, btnMenu, btnMultiple, btnPlay, btnRedo, btnUndo, btnMoreUp, btnLessUp, btnMoreHold, btnLessHold;
+        Button a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, space1, space2, delete1, clear;
+        Button clearNameButton, clearDescriptionButton, clearSearchButton;
+        Button delName, delDesc, delSearch, goSearch;
         int intUpTime, intHoldTime;
         Vector2 intUpTimePosition = (new Vector2(520, 45));
         Vector2 intHoldTimePosition = (new Vector2(785, 45));
-        cButton120x50 btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
-        cButton120x50 btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
+        Button btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
+        Button btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
     
         //CREATE GAME CONSTRUCTOR//
         /// <summary>
@@ -183,291 +183,301 @@ namespace FirstGame
 
             //Home Screen Elements - these graphics and buttons make up the home screen
             myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
-            btnNew = new cButton(Content.Load<Texture2D>("GUI/newButton"), graphics.GraphicsDevice);
-            btnNew.setPosition(new Vector2(340, 200 ));
-            btnLoad = new cButton(Content.Load<Texture2D>("GUI/loadButton"), graphics.GraphicsDevice);
-            btnLoad.setPosition(new Vector2(340, 350));
-            btnExit = new cButton(Content.Load<Texture2D>("GUI/exitButton"), graphics.GraphicsDevice);
-            btnExit.setPosition(new Vector2(340, 500));
+            btnNew = makeButton(340, 200, "GUI/newButton");
+            btnLoad = makeButton(340, 350, "GUI/loadButton");
+            btnExit = makeButton(340, 500, "GUI/exitButton");
             
             //NewLevel Screen Elements - these graphics and buttons make up the create a new level screen, OSK defined here..
-            delDesc = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
-            delDesc.setPosition(new Vector2(500, 200));
-            delName = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
-            delName.setPosition(new Vector2(500, 130));
-            btnCancel = new cButton120x50(Content.Load<Texture2D>("GUI/cancel"), graphics.GraphicsDevice);
+            delDesc = makeButton(0, 0, "Gui/miniX");
+            delDesc.Position = new Point(500, 200);
+            delName = makeButton(0, 0, "Gui/miniX");
+            delName.Position = new Point(500, 130);
+            btnCancel = makeButton(0, 0, "GUI/cancel");
             myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
             myNewLevel = Content.Load<Texture2D>("GUI/newLevel");
-            btnCreate = new cButton120x50(Content.Load<Texture2D>("GUI/createButton"), graphics.GraphicsDevice);
-            btnCreate.setPosition(new Vector2(1160, 0));
+            btnCreate = makeButton(0, 0, "GUI/createButton");
+            btnCreate.Position = new Point(1160, 0);
             myName = Content.Load<Texture2D>("GUI/name");
-            clearNameButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
-            clearNameButton.setPosition(new Vector2(0, 130));
-            clearDescriptionButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
-            clearDescriptionButton.setPosition(new Vector2(0, 200));
+            clearNameButton = makeButton(0, 0, "GUI/nothing");
+            clearNameButton.Position = new Point(0, 130);
+            clearDescriptionButton = makeButton(0, 0, "GUI/nothing");
+            clearDescriptionButton.Position = new Point(0, 200);
             myDescription = Content.Load<Texture2D>("GUI/description");
             myOSKBackground = Content.Load<Texture2D>("OSK/keyboardBackground");
-            float keyStartingX = 401F;
-            float keyStartingY = 520F;
-            a = new cButton48x48(Content.Load<Texture2D>("OSK/aButton"), graphics.GraphicsDevice);
-            a.setPosition(new Vector2(keyStartingX+10, keyStartingY+50));
-            b = new cButton48x48(Content.Load<Texture2D>("OSK/bButton"), graphics.GraphicsDevice);
-            b.setPosition(new Vector2(keyStartingX+230, keyStartingY+100));
-            c = new cButton48x48(Content.Load<Texture2D>("OSK/cButton"), graphics.GraphicsDevice);
-            c.setPosition(new Vector2(keyStartingX+130, keyStartingY+100));
-            d = new cButton48x48(Content.Load<Texture2D>("OSK/dButton"), graphics.GraphicsDevice);
-            d.setPosition(new Vector2(keyStartingX+110, keyStartingY+50));
-            e = new cButton48x48(Content.Load<Texture2D>("OSK/eButton"), graphics.GraphicsDevice);
-            e.setPosition(new Vector2(keyStartingX+100, keyStartingY));
-            f = new cButton48x48(Content.Load<Texture2D>("OSK/fButton"), graphics.GraphicsDevice);
-            f.setPosition(new Vector2(keyStartingX+160, keyStartingY+50));
-            g = new cButton48x48(Content.Load<Texture2D>("OSK/gButton"), graphics.GraphicsDevice);
-            g.setPosition(new Vector2(keyStartingX+210, keyStartingY+50));
-            h = new cButton48x48(Content.Load<Texture2D>("OSK/hButton"), graphics.GraphicsDevice);
-            h.setPosition(new Vector2(keyStartingX+260, keyStartingY+50));
-            i = new cButton48x48(Content.Load<Texture2D>("OSK/iButton"), graphics.GraphicsDevice);
-            i.setPosition(new Vector2(keyStartingX+350, keyStartingY));
-            j = new cButton48x48(Content.Load<Texture2D>("OSK/jButton"), graphics.GraphicsDevice);
-            j.setPosition(new Vector2(keyStartingX+310, keyStartingY+50));
-            k = new cButton48x48(Content.Load<Texture2D>("OSK/kButton"), graphics.GraphicsDevice);
-            k.setPosition(new Vector2(keyStartingX+360, keyStartingY+50));
-            l = new cButton48x48(Content.Load<Texture2D>("OSK/lButton"), graphics.GraphicsDevice);
-            l.setPosition(new Vector2(keyStartingX+410, keyStartingY+50));
-            m = new cButton48x48(Content.Load<Texture2D>("OSK/mButton"), graphics.GraphicsDevice);
-            m.setPosition(new Vector2(keyStartingX+330, keyStartingY+100));
-            n = new cButton48x48(Content.Load<Texture2D>("OSK/nButton"), graphics.GraphicsDevice);
-            n.setPosition(new Vector2(keyStartingX+280, keyStartingY+100));
-            o = new cButton48x48(Content.Load<Texture2D>("OSK/oButton"), graphics.GraphicsDevice);
-            o.setPosition(new Vector2(keyStartingX+400, keyStartingY));
-            p = new cButton48x48(Content.Load<Texture2D>("OSK/pButton"), graphics.GraphicsDevice);
-            p.setPosition(new Vector2(keyStartingX+450, keyStartingY));
-            q = new cButton48x48(Content.Load<Texture2D>("OSK/qButton"), graphics.GraphicsDevice);
-            q.setPosition(new Vector2(keyStartingX, keyStartingY));
-            r = new cButton48x48(Content.Load<Texture2D>("OSK/rButton"), graphics.GraphicsDevice);
-            r.setPosition(new Vector2(keyStartingX+150, keyStartingY));
-            s = new cButton48x48(Content.Load<Texture2D>("OSK/sButton"), graphics.GraphicsDevice);
-            s.setPosition(new Vector2(keyStartingX+60, keyStartingY+50));
-            t = new cButton48x48(Content.Load<Texture2D>("OSK/tButton"), graphics.GraphicsDevice);
-            t.setPosition(new Vector2(keyStartingX+200, keyStartingY));
-            u = new cButton48x48(Content.Load<Texture2D>("OSK/uButton"), graphics.GraphicsDevice);
-            u.setPosition(new Vector2(keyStartingX+300, keyStartingY));
-            v = new cButton48x48(Content.Load<Texture2D>("OSK/vButton"), graphics.GraphicsDevice);
-            v.setPosition(new Vector2(keyStartingX+180, keyStartingY+100));
-            w = new cButton48x48(Content.Load<Texture2D>("OSK/wButton"), graphics.GraphicsDevice);
-            w.setPosition(new Vector2(keyStartingX+50, keyStartingY));
-            x = new cButton48x48(Content.Load<Texture2D>("OSK/xButton"), graphics.GraphicsDevice);
-            x.setPosition(new Vector2(keyStartingX+80, keyStartingY+100));
-            y = new cButton48x48(Content.Load<Texture2D>("OSK/yButton"), graphics.GraphicsDevice);
-            y.setPosition(new Vector2(keyStartingX+250, keyStartingY));
-            z = new cButton48x48(Content.Load<Texture2D>("OSK/zButton"), graphics.GraphicsDevice);
-            z.setPosition(new Vector2(keyStartingX+30, keyStartingY+100));
-            space1 = new cButton48x48(Content.Load<Texture2D>("OSK/spaceButton"), graphics.GraphicsDevice);
-            space1.setPosition(new Vector2(keyStartingX + 200, keyStartingY + 150));
-            space2 = new cButton48x48(Content.Load<Texture2D>("OSK/spaceButton"), graphics.GraphicsDevice);
-            space2.setPosition(new Vector2(keyStartingX + 250, keyStartingY + 150));
-            delete1 = new cButton48x48(Content.Load<Texture2D>("OSK/deleteButton"), graphics.GraphicsDevice);
-            delete1.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 100));
-            clear = new cButton48x48(Content.Load<Texture2D>("OSK/clear"), graphics.GraphicsDevice);
-            clear.setPosition(new Vector2(keyStartingX + 400, keyStartingY + 150));
+            int keyStartingX = 401;
+            int keyStartingY = 520;
+            a = makeButton(0, 0, "OSK/aButton");
+            a.Position = new Point(keyStartingX+10, keyStartingY+50);
+            b = makeButton(0, 0, "OSK/bButton");
+            b.Position = new Point(keyStartingX+230, keyStartingY+100);
+            c = makeButton(0, 0, "OSK/cButton");
+            c.Position = new Point(keyStartingX+130, keyStartingY+100);
+            d = makeButton(0, 0, "OSK/dButton");
+            d.Position = new Point(keyStartingX+110, keyStartingY+50);
+            e = makeButton(0, 0, "OSK/eButton");
+            e.Position = new Point(keyStartingX+100, keyStartingY);
+            f = makeButton(0, 0, "OSK/fButton");
+            f.Position = new Point(keyStartingX+160, keyStartingY+50);
+            g = makeButton(0, 0, "OSK/gButton");
+            g.Position = new Point(keyStartingX+210, keyStartingY+50);
+            h = makeButton(0, 0, "OSK/hButton");
+            h.Position = new Point(keyStartingX+260, keyStartingY+50);
+            i = makeButton(0, 0, "OSK/iButton");
+            i.Position = new Point(keyStartingX+350, keyStartingY);
+            j = makeButton(0, 0, "OSK/jButton");
+            j.Position = new Point(keyStartingX+310, keyStartingY+50);
+            k = makeButton(0, 0, "OSK/kButton");
+            k.Position = new Point(keyStartingX+360, keyStartingY+50);
+            l = makeButton(0, 0, "OSK/lButton");
+            l.Position = new Point(keyStartingX+410, keyStartingY+50);
+            m = makeButton(0, 0, "OSK/mButton");
+            m.Position = new Point(keyStartingX+330, keyStartingY+100);
+            n = makeButton(0, 0, "OSK/nButton");
+            n.Position = new Point(keyStartingX+280, keyStartingY+100);
+            o = makeButton(0, 0, "OSK/oButton");
+            o.Position = new Point(keyStartingX+400, keyStartingY);
+            p = makeButton(0, 0, "OSK/pButton");
+            p.Position = new Point(keyStartingX+450, keyStartingY);
+            q = makeButton(0, 0, "OSK/qButton");
+            q.Position = new Point(keyStartingX, keyStartingY);
+            r = makeButton(0, 0, "OSK/rButton");
+            r.Position = new Point(keyStartingX+150, keyStartingY);
+            s = makeButton(0, 0, "OSK/sButton");
+            s.Position = new Point(keyStartingX+60, keyStartingY+50);
+            t = makeButton(0, 0, "OSK/tButton");
+            t.Position = new Point(keyStartingX+200, keyStartingY);
+            u = makeButton(0, 0, "OSK/uButton");
+            u.Position = new Point(keyStartingX+300, keyStartingY);
+            v = makeButton(0, 0, "OSK/vButton");
+            v.Position = new Point(keyStartingX+180, keyStartingY+100);
+            w = makeButton(0, 0, "OSK/wButton");
+            w.Position = new Point(keyStartingX+50, keyStartingY);
+            x = makeButton(0, 0, "OSK/xButton");
+            x.Position = new Point(keyStartingX+80, keyStartingY+100);
+            y = makeButton(0, 0, "OSK/yButton");
+            y.Position = new Point(keyStartingX+250, keyStartingY);
+            z = makeButton(0, 0, "OSK/zButton");
+            z.Position = new Point(keyStartingX+30, keyStartingY+100);
+            space1 = makeButton(0, 0, "OSK/spaceButton");
+            space1.Position = new Point(keyStartingX + 200, keyStartingY + 150);
+            space2 = makeButton(0, 0, "OSK/spaceButton");
+            space2.Position = new Point(keyStartingX + 250, keyStartingY + 150);
+            delete1 = makeButton(0, 0, "OSK/deleteButton");
+            delete1.Position = new Point(keyStartingX + 400, keyStartingY + 100);
+            clear = makeButton(0, 0, "OSK/clear");
+            clear.Position = new Point(keyStartingX + 400, keyStartingY + 150);
 
             //LoadGame Screen Elements - these buttons and graphics make up the load screen, OSK is defined above
             magnifyGlass = Content.Load<Texture2D>("GUI/magnifyGlass");
             listBackground = Content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
-            btnOpen = new cButton120x50(Content.Load<Texture2D>("GUI/openButton"), graphics.GraphicsDevice);
-            btnOpen.setPosition(new Vector2(1160, 0));
-            delSearch = new cButton25x25(Content.Load<Texture2D>("Gui/miniX"), graphics.GraphicsDevice);
-            delSearch.setPosition(new Vector2(400, 85));
-            goSearch = new cButton25x25(Content.Load<Texture2D>("Gui/go"), graphics.GraphicsDevice);
-            goSearch.setPosition(new Vector2(425, 85));
-            clearSearchButton = new cButton500x25(Content.Load<Texture2D>("GUI/nothing"), graphics.GraphicsDevice);
-            clearSearchButton.setPosition(new Vector2(175, 85));
+            btnOpen = makeButton(0, 0, "GUI/openButton");
+            btnOpen.Position = new Point(1160, 0);
+            delSearch = makeButton(0, 0, "Gui/miniX");
+            delSearch.Position = new Point(400, 85);
+            goSearch = makeButton(0, 0, "Gui/go");
+            goSearch.Position = new Point(425, 85);
+            clearSearchButton = makeButton(0, 0, "GUI/nothing");
+            clearSearchButton.Position = new Point(175, 85);
 
             //Level Editor Elements - these buttons and graphics make up the level editor screen.
-            btnHome = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/homeButton"), graphics.GraphicsDevice);
-            btnHome.setPosition(new Vector2(30, 30));
-            btnMenu = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/menuButton"), graphics.GraphicsDevice);
-            btnMenu.setPosition(new Vector2(95, 30));
-            btnHoldTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/holdTimeButton"), graphics.GraphicsDevice);
-            btnHoldTime.setPosition(new Vector2(700, 30));
-            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-            btnMultiple.setPosition(new Vector2(355, 30));
-            btnPlay = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/playButton"), graphics.GraphicsDevice);
-            btnPlay.setPosition(new Vector2(290, 30));
-            btnRedo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/redoButton"), graphics.GraphicsDevice);
-            btnRedo.setPosition(new Vector2(215, 30));
-            btnUndo = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/undoButton"), graphics.GraphicsDevice);
-            btnUndo.setPosition(new Vector2(160, 30));
-            btnUpTime = new cButton120x55(Content.Load<Texture2D>("LevelEditorGUI/upTimeButton"), graphics.GraphicsDevice);
-            btnUpTime.setPosition(new Vector2(440, 30));
-            btnMoreUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
-            btnMoreUp.setPosition(new Vector2(560, 30));
-            btnMoreHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/moreButton"), graphics.GraphicsDevice);
-            btnMoreHold.setPosition(new Vector2(820, 30));
-            btnLessUp = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
-            btnLessUp.setPosition(new Vector2(615, 30));
-            btnLessHold = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/lessButton"), graphics.GraphicsDevice);
-            btnLessHold.setPosition(new Vector2(875, 30));
+            btnHome = makeButton(0, 0, "LevelEditorGUI/homeButton");
+            btnHome.Position = new Point(30, 30);
+            btnMenu = makeButton(0, 0, "LevelEditorGUI/menuButton");
+            btnMenu.Position = new Point(95, 30);
+            btnHoldTime = makeButton(0, 0, "LevelEditorGUI/holdTimeButton");
+            btnHoldTime.Position = new Point(700, 30);
+            btnMultiple = makeButton(0, 0, "LevelEditorGUI/multipleToggleOff");
+            btnMultiple.Position = new Point(355, 30);
+            btnPlay = makeButton(0, 0, "LevelEditorGUI/playButton");
+            btnPlay.Position = new Point(290, 30);
+            btnRedo = makeButton(0, 0, "LevelEditorGUI/redoButton");
+            btnRedo.Position = new Point(215, 30);
+            btnUndo = makeButton(0, 0, "LevelEditorGUI/undoButton");
+            btnUndo.Position = new Point(160, 30);
+            btnUpTime = makeButton(0, 0, "LevelEditorGUI/upTimeButton");
+            btnUpTime.Position = new Point(440, 30);
+            btnMoreUp = makeButton(0, 0, "LevelEditorGUI/moreButton");
+            btnMoreUp.Position = new Point(560, 30);
+            btnMoreHold = makeButton(0, 0, "LevelEditorGUI/moreButton");
+            btnMoreHold.Position = new Point(820, 30);
+            btnLessUp = makeButton(0, 0, "LevelEditorGUI/lessButton");
+            btnLessUp.Position = new Point(615, 30);
+            btnLessHold = makeButton(0, 0, "LevelEditorGUI/lessButton");
+            btnLessHold.Position = new Point(875, 30);
             myGrid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
             levelEditorMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = Content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
             //Vector2 levelEditorMenuGraphicPosition = (new Vector2(630, 300));
-            btnLemBack = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/backButtonGraphic"),graphics.GraphicsDevice);
-            btnLemBack.setPosition(new Vector2(630, 355));
-            btnLemSave = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/saveButtonGraphic"), graphics.GraphicsDevice);
-            btnLemSave.setPosition(new Vector2(630, 410));
-            btnLemLoad = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/loadButtonGraphic"), graphics.GraphicsDevice);
-            btnLemLoad.setPosition(new Vector2(630, 465));
-            btnLemClear = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/clearButtonGraphic"), graphics.GraphicsDevice);
-            btnLemClear.setPosition(new Vector2(630, 520));
-            btnLemExit = new cButton120x50(Content.Load<Texture2D>("LevelEditorMenu/exitButtonGraphic"), graphics.GraphicsDevice);
-            btnLemExit.setPosition(new Vector2(630, 575));
+            btnLemBack = makeButton(0, 0, "LevelEditorMenu/backButtonGraphic");
+            btnLemBack.Position = new Point(630, 355);
+            btnLemSave = makeButton(0, 0, "LevelEditorMenu/saveButtonGraphic");
+            btnLemSave.Position = new Point(630, 410);
+            btnLemLoad = makeButton(0, 0, "LevelEditorMenu/loadButtonGraphic");
+            btnLemLoad.Position = new Point(630, 465);
+            btnLemClear = makeButton(0, 0, "LevelEditorMenu/clearButtonGraphic");
+            btnLemClear.Position = new Point(630, 520);
+            btnLemExit = makeButton(0, 0, "LevelEditorMenu/exitButtonGraphic");
+            btnLemExit.Position = new Point(630, 575);
             //Shape Pallet in editor screen// Conent loaded below.
             shapePalletBackground = Content.Load<Texture2D>("ShapePallet/shapePalletBackground");
             shapePalletBackgroundPosition = (new Vector2(shapePalletX, shapePalletY));
-            btnHidePallet = new cButton120x50(Content.Load<Texture2D>("ShapePallet/hidePallet"), graphics.GraphicsDevice);
-            btnHidePallet.setPosition(new Vector2(shapePalletX+0, shapePalletY));
-            btnThumbCircle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoCircle"), graphics.GraphicsDevice);
-            btnThumbCircle.setPosition(new Vector2(shapePalletX + 20, shapePalletY+60));
-            btnThumbSquare = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoSquare"), graphics.GraphicsDevice);
-            btnThumbSquare.setPosition(new Vector2(shapePalletX + 20, shapePalletY+160));
-            btnThumbStar= new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoStar"), graphics.GraphicsDevice);
-            btnThumbStar.setPosition(new Vector2(shapePalletX + 20, shapePalletY+260));
-            btnThumbTriangle = new cButton100x100(Content.Load<Texture2D>("ShapePallet/demoTriangle"), graphics.GraphicsDevice);
-            btnThumbTriangle.setPosition(new Vector2(shapePalletX + 20, shapePalletY+360));
-            btnAddLetter = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addLetter"), graphics.GraphicsDevice);
-            btnAddLetter.setPosition(new Vector2(shapePalletX + 15, shapePalletY+550));
-            btnAddNumber = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addNumber"), graphics.GraphicsDevice);
-            btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY+500));
-            btnAddShape = new cButton120x50(Content.Load<Texture2D>("ShapePallet/addShape"), graphics.GraphicsDevice);
-            btnAddShape.setPosition(new Vector2(shapePalletX + 15, shapePalletY+500));
+            btnHidePallet = makeButton(0, 0, "ShapePallet/hidePallet");
+            btnHidePallet.Position = new Point(shapePalletX+0, shapePalletY);
+            btnThumbCircle = makeButton(0, 0, "ShapePallet/demoCircle");
+            btnThumbCircle.Position = new Point(shapePalletX + 20, shapePalletY+60);
+            btnThumbSquare = makeButton(0, 0, "ShapePallet/demoSquare");
+            btnThumbSquare.Position = new Point(shapePalletX + 20, shapePalletY+160);
+            btnThumbStar= makeButton(0, 0, "ShapePallet/demoStar");
+            btnThumbStar.Position = new Point(shapePalletX + 20, shapePalletY+260);
+            btnThumbTriangle = makeButton(0, 0, "ShapePallet/demoTriangle");
+            btnThumbTriangle.Position = new Point(shapePalletX + 20, shapePalletY+360);
+            btnAddLetter = makeButton(0, 0, "ShapePallet/addLetter");
+            btnAddLetter.Position = new Point(shapePalletX + 15, shapePalletY+550);
+            btnAddNumber = makeButton(0, 0, "ShapePallet/addNumber");
+            btnAddNumber.Position = new Point(shapePalletX + 15, shapePalletY+500);
+            btnAddShape = makeButton(0, 0, "ShapePallet/addShape");
+            btnAddShape.Position = new Point(shapePalletX + 15, shapePalletY+500);
             chooseSize = Content.Load<Texture2D>("ShapePallet/chooseSize");
             chooseSizePosition = (new Vector2(shapePalletX+10, shapePalletY+10));
-            sizeTiny = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeTiny"), graphics.GraphicsDevice);
-            sizeTiny.setPosition(new Vector2(shapePalletX + 5, shapePalletY+60));
-            sizeSmall = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeSmall"), graphics.GraphicsDevice);
-            sizeSmall.setPosition(new Vector2(shapePalletX + 5, shapePalletY+110));
-            sizeMedium = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeMedium"), graphics.GraphicsDevice);
-            sizeMedium.setPosition(new Vector2(shapePalletX + 5, shapePalletY+160));
-            sizeLarge = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeLarge"), graphics.GraphicsDevice);
-            sizeLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+210));
-            sizeXLarge = new cButton120x50(Content.Load<Texture2D>("ShapePallet/sizeXLarge"), graphics.GraphicsDevice);
-            sizeXLarge.setPosition(new Vector2(shapePalletX + 5, shapePalletY+260));
+            sizeTiny = makeButton(0, 0, "ShapePallet/sizeTiny");
+            sizeTiny.Position = new Point(shapePalletX + 5, shapePalletY+60);
+            sizeSmall = makeButton(0, 0, "ShapePallet/sizeSmall");
+            sizeSmall.Position = new Point(shapePalletX + 5, shapePalletY+110);
+            sizeMedium = makeButton(0, 0, "ShapePallet/sizeMedium");
+            sizeMedium.Position = new Point(shapePalletX + 5, shapePalletY+160);
+            sizeLarge = makeButton(0, 0, "ShapePallet/sizeLarge");
+            sizeLarge.Position = new Point(shapePalletX + 5, shapePalletY+210);
+            sizeXLarge = makeButton(0, 0, "ShapePallet/sizeXLarge");
+            sizeXLarge.Position = new Point(shapePalletX + 5, shapePalletY+260);
             chooseColor = Content.Load<Texture2D>("ShapePallet/chooseColor");
             chooseColorPosition = (new Vector2(shapePalletX + 10, shapePalletY + 10));
-            colorBlackBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/blackColor"), graphics.GraphicsDevice);
-            colorBlackBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 40));
-            colorBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/blueColor"), graphics.GraphicsDevice);
-            colorBlueBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 40));
-            colorDarkBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/darkBlueColor"), graphics.GraphicsDevice);
-            colorDarkBlueBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 90));
-            colorDarkGreyBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/darkGreyColor"), graphics.GraphicsDevice);
-            colorDarkGreyBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 90));
-            colorGreenBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/greenColor"), graphics.GraphicsDevice);
-            colorGreenBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 140));
-            colorGreyBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/greyColor"), graphics.GraphicsDevice);
-            colorGreyBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 140));
-            colorLightBlueBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/lightBlueColor"), graphics.GraphicsDevice);
-            colorLightBlueBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 190));
-            colorLightGreen = new cButton48x48(Content.Load<Texture2D>("ShapePallet/lightGreenColor"), graphics.GraphicsDevice);
-            colorLightGreen.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 190));
-            colorOrangeBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/orangeColor"), graphics.GraphicsDevice);
-            colorOrangeBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 240));
-            colorPinkBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/pinkColor"), graphics.GraphicsDevice);
-            colorPinkBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 240));
-            colorRedBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/redColor"), graphics.GraphicsDevice);
-            colorRedBtn.setPosition(new Vector2(shapePalletX + 5, shapePalletY + 290));
-            colorYellowBtn = new cButton48x48(Content.Load<Texture2D>("ShapePallet/yellowColor"), graphics.GraphicsDevice);
-            colorYellowBtn.setPosition(new Vector2(shapePalletX + 55, shapePalletY + 290));
-            putA = new cButton48x48(Content.Load<Texture2D>("OSK/aButton"), graphics.GraphicsDevice);
-            putA.setPosition(new Vector2(shapePalletX, shapePalletY+50));
-            putB = new cButton48x48(Content.Load<Texture2D>("OSK/bButton"), graphics.GraphicsDevice);
-            putB.setPosition(new Vector2(shapePalletX+48, shapePalletY+50));
-            putC = new cButton48x48(Content.Load<Texture2D>("OSK/cButton"), graphics.GraphicsDevice);
-            putC.setPosition(new Vector2(shapePalletX+96, shapePalletY+50));
-            putD = new cButton48x48(Content.Load<Texture2D>("OSK/dButton"), graphics.GraphicsDevice);
-            putD.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 100));
-            putE = new cButton48x48(Content.Load<Texture2D>("OSK/eButton"), graphics.GraphicsDevice);
-            putE.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 100));
-            putF = new cButton48x48(Content.Load<Texture2D>("OSK/fButton"), graphics.GraphicsDevice);
-            putF.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 100));
-            putG = new cButton48x48(Content.Load<Texture2D>("OSK/gButton"), graphics.GraphicsDevice);
-            putG.setPosition(new Vector2(shapePalletX + 0 , shapePalletY + 150));
-            putH = new cButton48x48(Content.Load<Texture2D>("OSK/hButton"), graphics.GraphicsDevice);
-            putH.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 150));
-            putI = new cButton48x48(Content.Load<Texture2D>("OSK/iButton"), graphics.GraphicsDevice);
-            putI.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 150));
-            putJ = new cButton48x48(Content.Load<Texture2D>("OSK/jButton"), graphics.GraphicsDevice);
-            putJ.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 200));
-            putK = new cButton48x48(Content.Load<Texture2D>("OSK/kButton"), graphics.GraphicsDevice);
-            putK.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 200));
-            putL = new cButton48x48(Content.Load<Texture2D>("OSK/lButton"), graphics.GraphicsDevice);
-            putL.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 200));
-            putM = new cButton48x48(Content.Load<Texture2D>("OSK/mButton"), graphics.GraphicsDevice);
-            putM.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 250));
-            putN = new cButton48x48(Content.Load<Texture2D>("OSK/nButton"), graphics.GraphicsDevice);
-            putN.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 250));
-            putO = new cButton48x48(Content.Load<Texture2D>("OSK/oButton"), graphics.GraphicsDevice);
-            putO.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 250));
-            putP = new cButton48x48(Content.Load<Texture2D>("OSK/pButton"), graphics.GraphicsDevice);
-            putP.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 300));
-            putQ = new cButton48x48(Content.Load<Texture2D>("OSK/qButton"), graphics.GraphicsDevice);
-            putQ.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 300));
-            putR = new cButton48x48(Content.Load<Texture2D>("OSK/rButton"), graphics.GraphicsDevice);
-            putR.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 300));
-            putS = new cButton48x48(Content.Load<Texture2D>("OSK/sButton"), graphics.GraphicsDevice);
-            putS.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 350));
-            putT = new cButton48x48(Content.Load<Texture2D>("OSK/tButton"), graphics.GraphicsDevice);
-            putT.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 350));
-            putU = new cButton48x48(Content.Load<Texture2D>("OSK/uButton"), graphics.GraphicsDevice);
-            putU.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 350));
-            putV = new cButton48x48(Content.Load<Texture2D>("OSK/vButton"), graphics.GraphicsDevice);
-            putV.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 400));
-            putW = new cButton48x48(Content.Load<Texture2D>("OSK/wButton"), graphics.GraphicsDevice);
-            putW.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 400));
-            putX = new cButton48x48(Content.Load<Texture2D>("OSK/xButton"), graphics.GraphicsDevice);
-            putX.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 400));
-            putY = new cButton48x48(Content.Load<Texture2D>("OSK/yButton"), graphics.GraphicsDevice);
-            putY.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 450));
-            putZ = new cButton48x48(Content.Load<Texture2D>("OSK/zButton"), graphics.GraphicsDevice);
-            putZ.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 450));
-            put1 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/oneBtn"), graphics.GraphicsDevice);
-            put1.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 50));
-            put2 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/twoBtn"), graphics.GraphicsDevice);
-            put2.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 50));
-            put3 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/threeBtn"), graphics.GraphicsDevice);
-            put3.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 50));
-            put4 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/fourBtn"), graphics.GraphicsDevice);
-            put4.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 100));
-            put5 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/fiveBtn"), graphics.GraphicsDevice);
-            put5.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 100));
-            put6 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/sixBtn"), graphics.GraphicsDevice);
-            put6.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 100));
-            put7 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/sevenBtn"), graphics.GraphicsDevice);
-            put7.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 150));
-            put8 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/eightBtn"), graphics.GraphicsDevice);
-            put8.setPosition(new Vector2(shapePalletX + 48, shapePalletY + 150));
-            put9 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/nineBtn"), graphics.GraphicsDevice);
-            put9.setPosition(new Vector2(shapePalletX + 96, shapePalletY + 150));
-            put0 = new cButton48x48(Content.Load<Texture2D>("ShapePallet/zeroBtn"), graphics.GraphicsDevice);
-            put0.setPosition(new Vector2(shapePalletX + 0, shapePalletY + 200));
+            colorBlackBtn = makeButton(0, 0, "ShapePallet/blackColor");
+            colorBlackBtn.Position = new Point(shapePalletX + 5, shapePalletY + 40);
+            colorBlueBtn = makeButton(0, 0, "ShapePallet/blueColor");
+            colorBlueBtn.Position = new Point(shapePalletX + 55, shapePalletY + 40);
+            colorDarkBlueBtn = makeButton(0, 0, "ShapePallet/darkBlueColor");
+            colorDarkBlueBtn.Position = new Point(shapePalletX + 5, shapePalletY + 90);
+            colorDarkGreyBtn = makeButton(0, 0, "ShapePallet/darkGreyColor");
+            colorDarkGreyBtn.Position = new Point(shapePalletX + 55, shapePalletY + 90);
+            colorGreenBtn = makeButton(0, 0, "ShapePallet/greenColor");
+            colorGreenBtn.Position = new Point(shapePalletX + 5, shapePalletY + 140);
+            colorGreyBtn = makeButton(0, 0, "ShapePallet/greyColor");
+            colorGreyBtn.Position = new Point(shapePalletX + 55, shapePalletY + 140);
+            colorLightBlueBtn = makeButton(0, 0, "ShapePallet/lightBlueColor");
+            colorLightBlueBtn.Position = new Point(shapePalletX + 5, shapePalletY + 190);
+            colorLightGreen = makeButton(0, 0, "ShapePallet/lightGreenColor");
+            colorLightGreen.Position = new Point(shapePalletX + 55, shapePalletY + 190);
+            colorOrangeBtn = makeButton(0, 0, "ShapePallet/orangeColor");
+            colorOrangeBtn.Position = new Point(shapePalletX + 5, shapePalletY + 240);
+            colorPinkBtn = makeButton(0, 0, "ShapePallet/pinkColor");
+            colorPinkBtn.Position = new Point(shapePalletX + 55, shapePalletY + 240);
+            colorRedBtn = makeButton(0, 0, "ShapePallet/redColor");
+            colorRedBtn.Position = new Point(shapePalletX + 5, shapePalletY + 290);
+            colorYellowBtn = makeButton(0, 0, "ShapePallet/yellowColor");
+            colorYellowBtn.Position = new Point(shapePalletX + 55, shapePalletY + 290);
+            putA = makeButton(0, 0, "OSK/aButton");
+            putA.Position = new Point(shapePalletX, shapePalletY+50);
+            putB = makeButton(0, 0, "OSK/bButton");
+            putB.Position = new Point(shapePalletX+48, shapePalletY+50);
+            putC = makeButton(0, 0, "OSK/cButton");
+            putC.Position = new Point(shapePalletX+96, shapePalletY+50);
+            putD = makeButton(0, 0, "OSK/dButton");
+            putD.Position = new Point(shapePalletX + 0, shapePalletY + 100);
+            putE = makeButton(0, 0, "OSK/eButton");
+            putE.Position = new Point(shapePalletX + 48, shapePalletY + 100);
+            putF = makeButton(0, 0, "OSK/fButton");
+            putF.Position = new Point(shapePalletX + 96, shapePalletY + 100);
+            putG = makeButton(0, 0, "OSK/gButton");
+            putG.Position = new Point(shapePalletX + 0 , shapePalletY + 150);
+            putH = makeButton(0, 0, "OSK/hButton");
+            putH.Position = new Point(shapePalletX + 48, shapePalletY + 150);
+            putI = makeButton(0, 0, "OSK/iButton");
+            putI.Position = new Point(shapePalletX + 96, shapePalletY + 150);
+            putJ = makeButton(0, 0, "OSK/jButton");
+            putJ.Position = new Point(shapePalletX + 0, shapePalletY + 200);
+            putK = makeButton(0, 0, "OSK/kButton");
+            putK.Position = new Point(shapePalletX + 48, shapePalletY + 200);
+            putL = makeButton(0, 0, "OSK/lButton");
+            putL.Position = new Point(shapePalletX + 96, shapePalletY + 200);
+            putM = makeButton(0, 0, "OSK/mButton");
+            putM.Position = new Point(shapePalletX + 0, shapePalletY + 250);
+            putN = makeButton(0, 0, "OSK/nButton");
+            putN.Position = new Point(shapePalletX + 48, shapePalletY + 250);
+            putO = makeButton(0, 0, "OSK/oButton");
+            putO.Position = new Point(shapePalletX + 96, shapePalletY + 250);
+            putP = makeButton(0, 0, "OSK/pButton");
+            putP.Position = new Point(shapePalletX + 0, shapePalletY + 300);
+            putQ = makeButton(0, 0, "OSK/qButton");
+            putQ.Position = new Point(shapePalletX + 48, shapePalletY + 300);
+            putR = makeButton(0, 0, "OSK/rButton");
+            putR.Position = new Point(shapePalletX + 96, shapePalletY + 300);
+            putS = makeButton(0, 0, "OSK/sButton");
+            putS.Position = new Point(shapePalletX + 0, shapePalletY + 350);
+            putT = makeButton(0, 0, "OSK/tButton");
+            putT.Position = new Point(shapePalletX + 48, shapePalletY + 350);
+            putU = makeButton(0, 0, "OSK/uButton");
+            putU.Position = new Point(shapePalletX + 96, shapePalletY + 350);
+            putV = makeButton(0, 0, "OSK/vButton");
+            putV.Position = new Point(shapePalletX + 0, shapePalletY + 400);
+            putW = makeButton(0, 0, "OSK/wButton");
+            putW.Position = new Point(shapePalletX + 48, shapePalletY + 400);
+            putX = makeButton(0, 0, "OSK/xButton");
+            putX.Position = new Point(shapePalletX + 96, shapePalletY + 400);
+            putY = makeButton(0, 0, "OSK/yButton");
+            putY.Position = new Point(shapePalletX + 0, shapePalletY + 450);
+            putZ = makeButton(0, 0, "OSK/zButton");
+            putZ.Position = new Point(shapePalletX + 48, shapePalletY + 450);
+            put1 = makeButton(0, 0, "ShapePallet/oneBtn");
+            put1.Position = new Point(shapePalletX + 0, shapePalletY + 50);
+            put2 = makeButton(0, 0, "ShapePallet/twoBtn");
+            put2.Position = new Point(shapePalletX + 48, shapePalletY + 50);
+            put3 = makeButton(0, 0, "ShapePallet/threeBtn");
+            put3.Position = new Point(shapePalletX + 96, shapePalletY + 50);
+            put4 = makeButton(0, 0, "ShapePallet/fourBtn");
+            put4.Position = new Point(shapePalletX + 0, shapePalletY + 100);
+            put5 = makeButton(0, 0, "ShapePallet/fiveBtn");
+            put5.Position = new Point(shapePalletX + 48, shapePalletY + 100);
+            put6 = makeButton(0, 0, "ShapePallet/sixBtn");
+            put6.Position = new Point(shapePalletX + 96, shapePalletY + 100);
+            put7 = makeButton(0, 0, "ShapePallet/sevenBtn");
+            put7.Position = new Point(shapePalletX + 0, shapePalletY + 150);
+            put8 = makeButton(0, 0, "ShapePallet/eightBtn");
+            put8.Position = new Point(shapePalletX + 48, shapePalletY + 150);
+            put9 = makeButton(0, 0, "ShapePallet/nineBtn");
+            put9.Position = new Point(shapePalletX + 96, shapePalletY + 150);
+            put0 = makeButton(0, 0, "ShapePallet/zeroBtn");
+            put0.Position = new Point(shapePalletX + 0, shapePalletY + 200);
 
             //game play elements - these elements make up the patient game play screen.
-            btnBack = new cButton120x50(Content.Load<Texture2D>("GUI/backButton"), graphics.GraphicsDevice);
-            btnBack.setPosition(new Vector2(0, 0));
+            btnBack = makeButton(0, 0, "GUI/backButton");
+            btnBack.Position = new Point(0, 0);
             pauseMenuBackground = Content.Load<Texture2D>("GamePauseMenu/menuBackground");
             pauseMenuTitle = Content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
-            btnPauseContinue = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/continueButtonGraphic"), graphics.GraphicsDevice);
-            btnPauseContinue.setPosition(new Vector2(630, 355));
-            btnPauseEdit = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/editButtonGraphic"), graphics.GraphicsDevice);
-            btnPauseEdit.setPosition(new Vector2(630, 410));
-            btnPauseLoad = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/changeLevelButtonGraphic"), graphics.GraphicsDevice);
-            btnPauseLoad.setPosition(new Vector2(630, 465));
-            btnPauseRestart = new cButton120x50(Content.Load<Texture2D>("GamePauseMenu/restartButtonGraphic"), graphics.GraphicsDevice);
-            btnPauseRestart.setPosition(new Vector2(630, 520));
+            btnPauseContinue = makeButton(0, 0, "GamePauseMenu/continueButtonGraphic");
+            btnPauseContinue.Position = new Point(630, 355);
+            btnPauseEdit = makeButton(0, 0, "GamePauseMenu/editButtonGraphic");
+            btnPauseEdit.Position = new Point(630, 410);
+            btnPauseLoad = makeButton(0, 0, "GamePauseMenu/changeLevelButtonGraphic");
+            btnPauseLoad.Position = new Point(630, 465);
+            btnPauseRestart = makeButton(0, 0, "GamePauseMenu/restartButtonGraphic");
+            btnPauseRestart.Position = new Point(630, 520);
         }
 
+	// Utility function for making a button at the specified locations.
+	protected Button makeButton(int x, int y, string resourceName)
+	{
+	    Texture2D buttex = Content.Load<Texture2D>(resourceName);
+	    Tangibility buttonTang = new Tangibility(x, y, buttex);
+	    return new Button(buttonTang);
+	}
 
+	// Button to sprite
+        protected void drawTo(GiveMeSomethingICanDraw drawable, SpriteBatch spriteBatch)
+        {
+	    Tangibility tan = drawable.getTangible();
+            spriteBatch.Draw(tan.Texture, tan.Dimensions, tan.Color);
+        }
 
 
         /// <summary>
@@ -506,15 +516,15 @@ namespace FirstGame
             {
                     ///////////////////////////////update if in HOME SCREEN///////////////////////////////
                 case GameState.HomeScreen:
-                    if (btnNew.isClicked == true)
+                    if (btnNew.IsClicked == true)
                     {
                         CurrentGameState = GameState.NewLevelScreen;
                     }
-                    if (btnLoad.isClicked == true)
+                    if (btnLoad.IsClicked == true)
                     {
                         CurrentGameState = GameState.LoadLevelScreen;
                     }
-                    if (btnExit.isClicked == true)
+                    if (btnExit.IsClicked == true)
                     {
                         this.Exit();
                     }
@@ -523,232 +533,232 @@ namespace FirstGame
 
                     //////////////////////////////update if in NEWLEVEL SCREEN//////////////////////////////
                 case GameState.NewLevelScreen:
-                    if (btnCancel.isClicked == true)
+                    if (btnCancel.IsClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
                     }
-                    if (btnCreate.isClicked == true)
+                    if (btnCreate.IsClicked == true)
                     {
                         CurrentGameState = GameState.LevelEditor;
                     }
-                    if (clearNameButton.isClicked == true)
+                    if (clearNameButton.IsClicked == true)
                     {
                         nameHighlight = true;
                     }
-                    if (clearDescriptionButton.isClicked == true)
+                    if (clearDescriptionButton.IsClicked == true)
                     {
                         nameHighlight = false;  
                     }
-                    if (a.isClicked == true)
+                    if (a.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "a"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "a"; }
-                        a.isClicked = false;
+                        a.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (b.isClicked == true)
+                    if (b.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "b"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "b"; }
-                        b.isClicked = false;
+                        b.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (c.isClicked == true)
+                    if (c.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "c"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "c"; }
-                        c.isClicked = false;
+                        c.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (d.isClicked == true)
+                    if (d.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "d"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "d"; }
-                        d.isClicked = false;
+                        d.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (e.isClicked == true)
+                    if (e.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "e"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "e"; }
-                        e.isClicked = false;
+                        e.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (f.isClicked == true)
+                    if (f.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "f"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "f"; }
-                        f.isClicked = false;
+                        f.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (g.isClicked == true)
+                    if (g.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "g"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "g"; }
-                        g.isClicked = false;
+                        g.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (h.isClicked == true)
+                    if (h.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "h"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "h"; }
-                        h.isClicked = false;
+                        h.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (i.isClicked == true)
+                    if (i.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "i"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "i"; }
-                        i.isClicked = false;
+                        i.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (j.isClicked == true)
+                    if (j.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "j"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "j"; }
-                        j.isClicked = false;
+                        j.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (k.isClicked == true)
+                    if (k.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "k"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "k"; }
-                        k.isClicked = false;
+                        k.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (l.isClicked == true)
+                    if (l.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "l"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "l"; }
-                        l.isClicked = false;
+                        l.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (m.isClicked == true)
+                    if (m.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "m"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "m"; }
-                        m.isClicked = false;
+                        m.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (n.isClicked == true)
+                    if (n.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "n"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "n"; }
-                        n.isClicked = false;
+                        n.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (o.isClicked == true)
+                    if (o.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "o"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "o"; }
-                        o.isClicked = false;
+                        o.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (p.isClicked == true)
+                    if (p.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "p"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "p"; }
-                        p.isClicked = false;
+                        p.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (q.isClicked == true)
+                    if (q.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "q"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "q"; }
-                        q.isClicked = false;
+                        q.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (r.isClicked == true)
+                    if (r.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "r"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "r"; }
-                        r.isClicked = false;
+                        r.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (s.isClicked == true)
+                    if (s.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "s"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "s"; }
-                        s.isClicked = false;
+                        s.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (t.isClicked == true)
+                    if (t.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "t"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "t"; }
-                        t.isClicked = false;
+                        t.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (u.isClicked == true)
+                    if (u.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "u"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "u"; }
-                        u.isClicked = false;
+                        u.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (v.isClicked == true)
+                    if (v.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "v"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "v"; }
-                        v.isClicked = false;
+                        v.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (w.isClicked == true)
+                    if (w.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "w"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "w"; }
-                        w.isClicked = false;
+                        w.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (x.isClicked == true)
+                    if (x.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "x"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "x"; }
-                        x.isClicked = false;
+                        x.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (y.isClicked == true)
+                    if (y.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "y"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "y"; }
-                        y.isClicked = false;
+                        y.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (z.isClicked == true)
+                    if (z.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "z"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "z"; }
-                        z.isClicked = false;
+                        z.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (space1.isClicked == true || space2.isClicked)
+                    if (space1.IsClicked == true || space2.IsClicked)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist + "_"; }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist + "_"; }
-                        space1.isClicked = false;
-                        space2.isClicked = false;
+                        space1.IsClicked = false;
+                        space2.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (delete1.isClicked == true)
+                    if (delete1.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = nameOfTherapist.Remove((nameOfTherapist.Length)-1); }
                         if (nameHighlight == false) { descriptionByTherapist = descriptionByTherapist.Remove((descriptionByTherapist.Length) - 1); }
-                        delete1.isClicked = false;
+                        delete1.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (clear.isClicked == true)
+                    if (clear.IsClicked == true)
                     {
                         if (nameHighlight == true) { nameOfTherapist = ""; }
                         if (nameHighlight == false) { descriptionByTherapist = ""; }
-                        clear.isClicked = false;
+                        clear.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (delName.isClicked == true)
+                    if (delName.IsClicked == true)
                     {
                         nameHighlight = true;
                         nameOfTherapist = "";
                     }
-                    if (delDesc.isClicked == true)
+                    if (delDesc.IsClicked == true)
                     {
                         nameHighlight = false;
                         descriptionByTherapist = "";
@@ -758,201 +768,201 @@ namespace FirstGame
 
                     /////////////////////////////////////update if in LOAD LEVEL SCREEN///////////////////////////////
                 case GameState.LoadLevelScreen:
-                    if (goSearch.isClicked == true)
+                    if (goSearch.IsClicked == true)
                     {
 
                     }
-                    if (btnCancel.isClicked == true)
+                    if (btnCancel.IsClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
                     }
-                    if (btnOpen.isClicked == true)
+                    if (btnOpen.IsClicked == true)
                     {
                         CurrentGameState = GameState.LevelEditor;
                     }
-                    if (delSearch.isClicked == true)
+                    if (delSearch.IsClicked == true)
                     {
                         searchQuery = "";
                     }
-                    if (clearSearchButton.isClicked == true)
+                    if (clearSearchButton.IsClicked == true)
                     {
                         if (loadKeyBoard == false) { loadKeyBoard = true; } //else { loadKeyBoard = false; }
-                        clearSearchButton.isClicked = false;
+                        clearSearchButton.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (a.isClicked == true)
+                    if (a.IsClicked == true)
                     {
                         searchQuery = searchQuery + "a";
-                        a.isClicked = false;
+                        a.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (b.isClicked == true)
+                    if (b.IsClicked == true)
                     {
                         searchQuery = searchQuery + "b";
-                        b.isClicked = false;
+                        b.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (c.isClicked == true)
+                    if (c.IsClicked == true)
                     {
                         searchQuery = searchQuery + "c";
-                        c.isClicked = false;
+                        c.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (d.isClicked == true)
+                    if (d.IsClicked == true)
                     {
                         searchQuery = searchQuery + "d";
-                        d.isClicked = false;
+                        d.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (e.isClicked == true)
+                    if (e.IsClicked == true)
                     {
                         searchQuery = searchQuery + "e";
-                        e.isClicked = false;
+                        e.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (f.isClicked == true)
+                    if (f.IsClicked == true)
                     {
                         searchQuery = searchQuery + "f";
-                        f.isClicked = false;
+                        f.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (g.isClicked == true)
+                    if (g.IsClicked == true)
                     {
                         searchQuery = searchQuery + "g";
-                        g.isClicked = false;
+                        g.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (h.isClicked == true)
+                    if (h.IsClicked == true)
                     {
                         searchQuery = searchQuery + "h";
-                        h.isClicked = false;
+                        h.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (i.isClicked == true)
+                    if (i.IsClicked == true)
                     {
                         searchQuery = searchQuery + "i";
-                        i.isClicked = false;
+                        i.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (j.isClicked == true)
+                    if (j.IsClicked == true)
                     {
                         searchQuery = searchQuery + "j";
-                        j.isClicked = false;
+                        j.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (k.isClicked == true)
+                    if (k.IsClicked == true)
                     {
                         searchQuery = searchQuery + "k";
-                        k.isClicked = false;
+                        k.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (l.isClicked == true)
+                    if (l.IsClicked == true)
                     {
                         searchQuery = searchQuery + "l";
-                        l.isClicked = false;
+                        l.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (m.isClicked == true)
+                    if (m.IsClicked == true)
                     {
                         searchQuery = searchQuery + "m";
-                        m.isClicked = false;
+                        m.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (n.isClicked == true)
+                    if (n.IsClicked == true)
                     {
                         searchQuery = searchQuery + "n";
-                        n.isClicked = false;
+                        n.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (o.isClicked == true)
+                    if (o.IsClicked == true)
                     {
                         searchQuery = searchQuery + "o";
-                        o.isClicked = false;
+                        o.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (p.isClicked == true)
+                    if (p.IsClicked == true)
                     {
                         searchQuery = searchQuery + "p";
-                        p.isClicked = false;
+                        p.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (q.isClicked == true)
+                    if (q.IsClicked == true)
                     {
                         searchQuery = searchQuery + "q";
-                        q.isClicked = false;
+                        q.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (r.isClicked == true)
+                    if (r.IsClicked == true)
                     {
                         searchQuery = searchQuery + "r";
-                        r.isClicked = false;
+                        r.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (s.isClicked == true)
+                    if (s.IsClicked == true)
                     {
                         searchQuery = searchQuery + "s";
-                        s.isClicked = false;
+                        s.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (t.isClicked == true)
+                    if (t.IsClicked == true)
                     {
                         searchQuery = searchQuery + "t";
-                        t.isClicked = false;
+                        t.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (u.isClicked == true)
+                    if (u.IsClicked == true)
                     {
                         searchQuery = searchQuery + "u";
-                        u.isClicked = false;
+                        u.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (v.isClicked == true)
+                    if (v.IsClicked == true)
                     {
                         searchQuery = searchQuery + "v";
-                        v.isClicked = false;
+                        v.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (w.isClicked == true)
+                    if (w.IsClicked == true)
                     {
                         searchQuery = searchQuery + "w";
-                        w.isClicked = false;
+                        w.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (x.isClicked == true)
+                    if (x.IsClicked == true)
                     {
                         searchQuery = searchQuery + "x";
-                        x.isClicked = false;
+                        x.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (y.isClicked == true)
+                    if (y.IsClicked == true)
                     {
                         searchQuery = searchQuery + "y";
-                        y.isClicked = false;
+                        y.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (z.isClicked == true)
+                    if (z.IsClicked == true)
                     {
                         searchQuery = searchQuery + "z";
-                        z.isClicked = false;
+                        z.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (space1.isClicked == true || space2.isClicked)
+                    if (space1.IsClicked == true || space2.IsClicked)
                     {
                         searchQuery = searchQuery + "_";
-                        space1.isClicked = false;
-                        space2.isClicked = false;
+                        space1.IsClicked = false;
+                        space2.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (delete1.isClicked == true)
+                    if (delete1.IsClicked == true)
                     {
                         searchQuery = searchQuery.Remove((searchQuery.Length) - 1);
-                        delete1.isClicked = false;
+                        delete1.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (clear.isClicked == true)
+                    if (clear.IsClicked == true)
                     {
                         searchQuery = "";
-                        clear.isClicked = false;
+                        clear.IsClicked = false;
                         Thread.Sleep(50);
                     }
                     UpdateLoadLevelScreen(gameTime, mouse);
@@ -960,12 +970,12 @@ namespace FirstGame
 
                     ////////////////////////////////update if in LEVEL EDITIOR SCREEN///////////////////////////////
                 case GameState.LevelEditor:
-                    if (btnHome.isClicked == true)
+                    if (btnHome.IsClicked == true)
                     {
                         CurrentGameState = GameState.HomeScreen;
                         //Call A Method Defined In Another Class
                     }
-                    if (btnMenu.isClicked == true)
+                    if (btnMenu.IsClicked == true)
                     {
                         if (levelEditorMenuON == true)
                         {
@@ -975,468 +985,468 @@ namespace FirstGame
                             levelEditorMenuON = true;
                         }
                         btnMenu.Update(mouse);
-                        btnMenu.isClicked = false;
+                        btnMenu.IsClicked = false;
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
-                    if (btnHoldTime.isClicked == true)
+                    if (btnHoldTime.IsClicked == true)
                     {
                         //Call A Method Defined In Another Class
                     }
-                    if (btnMultiple.isClicked == true)
+                    if (btnMultiple.IsClicked == true)
                     {
                         if (multiState == true)
                         {
                             multiState = false;
-                            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOff"), graphics.GraphicsDevice);
-                            btnMultiple.setPosition(new Vector2(355, 30));
+                            btnMultiple = makeButton(0, 0, "LevelEditorGUI/multipleToggleOff");
+                            btnMultiple.Position = new Point(355, 30);
                             btnMultiple.Update(mouse);
-                            btnMultiple.isClicked = false;
+                            btnMultiple.IsClicked = false;
                             Thread.Sleep(50);
                         }
                         else if (multiState == false)
                         {
                             multiState = true;
-                            btnMultiple = new cButton55x55(Content.Load<Texture2D>("LevelEditorGUI/multipleToggleOn"), graphics.GraphicsDevice);
-                            btnMultiple.setPosition(new Vector2(355, 30));
+                            btnMultiple = makeButton(0, 0, "LevelEditorGUI/multipleToggleOn");
+                            btnMultiple.Position = new Point(355, 30);
                             btnMultiple.Update(mouse);
-                            btnMultiple.isClicked = false;
+                            btnMultiple.IsClicked = false;
                             Thread.Sleep(50);
                         }
                         //Call A Method Defined In Another Class
                     }
-                    if (btnPlay.isClicked == true)
+                    if (btnPlay.IsClicked == true)
                     {
                         CurrentGameState = GameState.PatientGame; 
                         //Call A Method Defined In Another Class
                     }
-                    if (btnRedo.isClicked == true)
+                    if (btnRedo.IsClicked == true)
                     {
                         //Call A Method Defined In Another Class
                     }
-                    if (btnUndo.isClicked == true)
+                    if (btnUndo.IsClicked == true)
                     {
                         //Call A Method Defined In Another Class
                     }
-                    if (btnUpTime.isClicked == true)
+                    if (btnUpTime.IsClicked == true)
                     {
                         //Call A Method Defined In Another Class
                     }
-                    if (btnMoreUp.isClicked == true)
+                    if (btnMoreUp.IsClicked == true)
                     {
                         intUpTime++;
-                        btnMoreUp.isClicked = false;
+                        btnMoreUp.IsClicked = false;
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
-                    if (btnLessUp.isClicked == true)
+                    if (btnLessUp.IsClicked == true)
                     {
                         intUpTime--;
-                        btnLessUp.isClicked = false;
+                        btnLessUp.IsClicked = false;
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
-                    if (btnMoreHold.isClicked == true)
+                    if (btnMoreHold.IsClicked == true)
                     {
                         intHoldTime++;
-                        btnMoreHold.isClicked = false;
+                        btnMoreHold.IsClicked = false;
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
-                    if (btnLessHold.isClicked == true)
+                    if (btnLessHold.IsClicked == true)
                     {
                         intHoldTime--;
-                        btnLessHold.isClicked = false;
+                        btnLessHold.IsClicked = false;
                         Thread.Sleep(50);
                         //Call A Method Defined In Another Class
                     }
-                    if (btnLemBack.isClicked == true) {
+                    if (btnLemBack.IsClicked == true) {
                         levelEditorMenuON = false;
-                        btnLemBack.isClicked = false;
+                        btnLemBack.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnLemSave.isClicked == true) {
+                    if (btnLemSave.IsClicked == true) {
                         levelEditorMenuON = false;
-                        btnLemSave.isClicked = false;
+                        btnLemSave.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnLemLoad.isClicked == true) {
+                    if (btnLemLoad.IsClicked == true) {
                         levelEditorMenuON = false;
-                        btnLemLoad.isClicked = false;
+                        btnLemLoad.IsClicked = false;
                         Thread.Sleep(50);
                         CurrentGameState = GameState.LoadLevelScreen;
                     }
-                    if (btnLemClear.isClicked == true) {
+                    if (btnLemClear.IsClicked == true) {
                         levelEditorMenuON = false;
-                        btnLemClear.isClicked = false;
+                        btnLemClear.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnLemExit.isClicked == true) {
+                    if (btnLemExit.IsClicked == true) {
                         levelEditorMenuON = false;
                         this.Exit();
                     }
-                    if (btnAddLetter.isClicked == true)
+                    if (btnAddLetter.IsClicked == true)
                     {
                         showingAlpha = true;
                         showingNumbers = false;
                         showingShapes = false;
-                        btnAddLetter.isClicked = false;
+                        btnAddLetter.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnAddNumber.isClicked == true)
+                    if (btnAddNumber.IsClicked == true)
                     {
                         showingNumbers = true;
                         showingAlpha = false;
                         showingShapes = false;
-                        btnAddNumber.isClicked = false;
+                        btnAddNumber.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnAddShape.isClicked == true)
+                    if (btnAddShape.IsClicked == true)
                     {
                         showingShapes = true;
                         showingAlpha = false;
                         showingNumbers = false;
-                        btnAddShape.isClicked = false;
+                        btnAddShape.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnHidePallet.isClicked == true)
+                    if (btnHidePallet.IsClicked == true)
                     {
                         if (shapePalletVisible){shapePalletVisible = false;}
                         else { shapePalletVisible = true; }
-                        btnHidePallet.isClicked = false;
+                        btnHidePallet.IsClicked = false;
                         Thread.Sleep(50);
 
                     }
-                    if (btnThumbCircle.isClicked == true)
+                    if (btnThumbCircle.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = true;
-                        btnThumbCircle.isClicked = false;
+                        btnThumbCircle.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnThumbSquare.isClicked == true)
+                    if (btnThumbSquare.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = true;
-                        btnThumbSquare.isClicked = false;
+                        btnThumbSquare.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnThumbStar.isClicked == true)
+                    if (btnThumbStar.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = true;
-                        btnThumbStar.isClicked = false;
+                        btnThumbStar.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (btnThumbTriangle.isClicked == true)
+                    if (btnThumbTriangle.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = true;
-                        btnThumbTriangle.isClicked = false;
+                        btnThumbTriangle.IsClicked = false;
                         Thread.Sleep(50);
                     }
-                    if (sizeTiny.isClicked == true)
+                    if (sizeTiny.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = false;
                         colorChoosing = true;
-                        sizeTiny.isClicked = false;
+                        sizeTiny.IsClicked = false;
                         Thread.Sleep(1500);
                     }
-                    if (sizeSmall.isClicked == true)
+                    if (sizeSmall.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = false;
                         colorChoosing = true;
-                        sizeSmall.isClicked = false;
+                        sizeSmall.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (sizeMedium.isClicked == true)
+                    if (sizeMedium.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = false;
                         colorChoosing = true;
-                        sizeMedium.isClicked = false;
+                        sizeMedium.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (sizeLarge.isClicked == true)
+                    if (sizeLarge.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = false;
                         colorChoosing = true;
-                        sizeLarge.isClicked = false;
+                        sizeLarge.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (sizeXLarge.isClicked == true)
+                    if (sizeXLarge.IsClicked == true)
                     {
                         showingShapes = false;
                         sizeChoosing = false;
                         colorChoosing = true;
-                        sizeXLarge.isClicked = false;
+                        sizeXLarge.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorBlackBtn.isClicked == true)
+                    if (colorBlackBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorBlackBtn.isClicked = false;
+                        colorBlackBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorBlueBtn.isClicked == true)
+                    if (colorBlueBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorBlueBtn.isClicked = false;
+                        colorBlueBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorDarkBlueBtn.isClicked == true)
+                    if (colorDarkBlueBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorDarkBlueBtn.isClicked = false;
+                        colorDarkBlueBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorDarkGreyBtn.isClicked == true)
+                    if (colorDarkGreyBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorDarkGreyBtn.isClicked = false;
+                        colorDarkGreyBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorGreenBtn.isClicked == true)
+                    if (colorGreenBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorGreenBtn.isClicked = false;
+                        colorGreenBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorGreyBtn.isClicked == true)
+                    if (colorGreyBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorGreyBtn.isClicked = false;
+                        colorGreyBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorLightBlueBtn.isClicked == true)
+                    if (colorLightBlueBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorLightBlueBtn.isClicked = false;
+                        colorLightBlueBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorLightGreen.isClicked == true)
+                    if (colorLightGreen.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorLightGreen.isClicked = false;
+                        colorLightGreen.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorOrangeBtn.isClicked == true)
+                    if (colorOrangeBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorOrangeBtn.isClicked = false;
+                        colorOrangeBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorPinkBtn.isClicked == true)
+                    if (colorPinkBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorPinkBtn.isClicked = false;
+                        colorPinkBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorRedBtn.isClicked == true)
+                    if (colorRedBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorRedBtn.isClicked = false;
+                        colorRedBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (colorYellowBtn.isClicked == true)
+                    if (colorYellowBtn.IsClicked == true)
                     {
                         colorChoosing = false;
                         showingShapes = true;
-                        colorYellowBtn.isClicked = false;
+                        colorYellowBtn.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put0.isClicked == true)
+                    if (put0.IsClicked == true)
                     {
-                        put0.isClicked = false;
+                        put0.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put1.isClicked == true)
+                    if (put1.IsClicked == true)
                     {
-                        put1.isClicked = false;
+                        put1.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put2.isClicked == true)
+                    if (put2.IsClicked == true)
                     {
-                        put2.isClicked = false;
+                        put2.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put3.isClicked == true)
+                    if (put3.IsClicked == true)
                     {
-                        put3.isClicked = false;
+                        put3.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put4.isClicked == true)
+                    if (put4.IsClicked == true)
                     {
-                        put4.isClicked = false;
+                        put4.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put5.isClicked == true)
+                    if (put5.IsClicked == true)
                     {
-                        put5.isClicked = false;
+                        put5.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put6.isClicked == true)
+                    if (put6.IsClicked == true)
                     {
-                        put6.isClicked = false;
+                        put6.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put7.isClicked == true)
+                    if (put7.IsClicked == true)
                     {
-                        put7.isClicked = false;
+                        put7.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put8.isClicked == true)
+                    if (put8.IsClicked == true)
                     {
-                        put8.isClicked = false;
+                        put8.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (put9.isClicked == true)
+                    if (put9.IsClicked == true)
                     {
-                        put9.isClicked = false;
+                        put9.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putA.isClicked == true)
+                    if (putA.IsClicked == true)
                     {
-                        putA.isClicked = false;
+                        putA.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putB.isClicked == true)
+                    if (putB.IsClicked == true)
                     {
-                        putB.isClicked = false;
+                        putB.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putC.isClicked == true)
+                    if (putC.IsClicked == true)
                     {
-                        putC.isClicked = false;
+                        putC.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putD.isClicked == true)
+                    if (putD.IsClicked == true)
                     {
-                        putD.isClicked = false;
+                        putD.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putE.isClicked == true)
+                    if (putE.IsClicked == true)
                     {
-                        putE.isClicked = false;
+                        putE.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putF.isClicked == true)
+                    if (putF.IsClicked == true)
                     {
-                        putF.isClicked = false;
+                        putF.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putG.isClicked == true)
+                    if (putG.IsClicked == true)
                     {
-                        putG.isClicked = false;
+                        putG.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putH.isClicked == true)
+                    if (putH.IsClicked == true)
                     {
-                        putH.isClicked = false;
+                        putH.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putI.isClicked == true)
+                    if (putI.IsClicked == true)
                     {
-                        putI.isClicked = false;
+                        putI.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putJ.isClicked == true)
+                    if (putJ.IsClicked == true)
                     {
-                        putJ.isClicked = false;
+                        putJ.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putK.isClicked == true)
+                    if (putK.IsClicked == true)
                     {
-                        putK.isClicked = false;
+                        putK.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putL.isClicked == true)
+                    if (putL.IsClicked == true)
                     {
-                        putL.isClicked = false;
+                        putL.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putM.isClicked == true)
+                    if (putM.IsClicked == true)
                     {
-                        putM.isClicked = false;
+                        putM.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putN.isClicked == true)
+                    if (putN.IsClicked == true)
                     {
-                        putN.isClicked = false;
+                        putN.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putO.isClicked == true)
+                    if (putO.IsClicked == true)
                     {
-                        putO.isClicked = false;
+                        putO.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putP.isClicked == true)
+                    if (putP.IsClicked == true)
                     {
-                        putP.isClicked = false;
+                        putP.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putQ.isClicked == true)
+                    if (putQ.IsClicked == true)
                     {
-                        putQ.isClicked = false;
+                        putQ.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putR.isClicked == true)
+                    if (putR.IsClicked == true)
                     {
-                        putR.isClicked = false;
+                        putR.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putS.isClicked == true)
+                    if (putS.IsClicked == true)
                     {
-                        putS.isClicked = false;
+                        putS.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putT.isClicked == true)
+                    if (putT.IsClicked == true)
                     {
-                        putT.isClicked = false;
+                        putT.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putU.isClicked == true)
+                    if (putU.IsClicked == true)
                     {
-                        putU.isClicked = false;
+                        putU.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putV.isClicked == true)
+                    if (putV.IsClicked == true)
                     {
-                        putV.isClicked = false;
+                        putV.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putW.isClicked == true)
+                    if (putW.IsClicked == true)
                     {
-                        putW.isClicked = false;
+                        putW.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putX.isClicked == true)
+                    if (putX.IsClicked == true)
                     {
-                        putX.isClicked = false;
+                        putX.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putY.isClicked == true)
+                    if (putY.IsClicked == true)
                     {
-                        putY.isClicked = false;
+                        putY.IsClicked = false;
                         Thread.Sleep(500);
                     }
-                    if (putZ.isClicked == true)
+                    if (putZ.IsClicked == true)
                     {
-                        putZ.isClicked = false;
+                        putZ.IsClicked = false;
                         Thread.Sleep(500);
                     }
                     UpdateLevelEditorScreen(gameTime, mouse);
@@ -1444,28 +1454,28 @@ namespace FirstGame
 
                     ///////////////////////////////update if playing PATIENT GAME////////////////////////////////////////
                 case GameState.PatientGame:
-                    if (btnBack.isClicked == true)
+                    if (btnBack.IsClicked == true)
                     {
-                        btnBack.isClicked = false;
+                        btnBack.IsClicked = false;
                         pauseMenuON = true;
                         Thread.Sleep(50);
                         btnBack.Update(mouse);
                     }
-                    if (btnPauseContinue.isClicked == true)
+                    if (btnPauseContinue.IsClicked == true)
                     {
                         pauseMenuON = false;
                     }
-                    if (btnPauseEdit.isClicked == true)
+                    if (btnPauseEdit.IsClicked == true)
                     {
                         pauseMenuON = false;
                         CurrentGameState = GameState.LevelEditor;
                     }
-                    if (btnPauseLoad.isClicked == true)
+                    if (btnPauseLoad.IsClicked == true)
                     {
                         pauseMenuON = false;
                         CurrentGameState = GameState.LoadLevelScreen;
                     }
-                    if (btnPauseRestart.isClicked == true)
+                    if (btnPauseRestart.IsClicked == true)
                     {
                         pauseMenuON = false;
                     }
@@ -1528,18 +1538,18 @@ namespace FirstGame
         /// <param name="spriteBatch"></param>
         void DrawLevelEdtorScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            btnHome.Draw(spriteBatch);
-            btnMenu.Draw(spriteBatch);
-            btnHoldTime.Draw(spriteBatch);
-            btnMultiple.Draw(spriteBatch);
-            btnPlay.Draw(spriteBatch);
-            btnRedo.Draw(spriteBatch);
-            btnUndo.Draw(spriteBatch);
-            btnUpTime.Draw(spriteBatch);
-            btnMoreUp.Draw(spriteBatch);
-            btnMoreHold.Draw(spriteBatch);
-            btnLessUp.Draw(spriteBatch);
-            btnLessHold.Draw(spriteBatch);
+            drawTo(btnHome, spriteBatch);
+            drawTo(btnMenu, spriteBatch);
+            drawTo(btnHoldTime, spriteBatch);
+            drawTo(btnMultiple, spriteBatch);
+            drawTo(btnPlay, spriteBatch);
+            drawTo(btnRedo, spriteBatch);
+            drawTo(btnUndo, spriteBatch);
+            drawTo(btnUpTime, spriteBatch);
+            drawTo(btnMoreUp, spriteBatch);
+            drawTo(btnMoreHold, spriteBatch);
+            drawTo(btnLessUp, spriteBatch);
+            drawTo(btnLessHold, spriteBatch);
             originForRotation.X = 960;//myGrid.Width / 2;
             originForRotation.Y = 485;//(myGrid.Height + 110) / 2;
             spriteBatch.Draw(myGrid, myGridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
@@ -1549,132 +1559,132 @@ namespace FirstGame
             {
                 spriteBatch.Draw(levelEditorMenuBackground, levelEditorMenuBackgroundPosition, Color.White);
                 spriteBatch.Draw(levelEditorMenuTitle, levelEditorMenuGraphicPosition, Color.White);
-                btnLemBack.Draw(spriteBatch);
-                btnLemClear.Draw(spriteBatch);
-                btnLemExit.Draw(spriteBatch);
-                btnLemLoad.Draw(spriteBatch);
-                btnLemSave.Draw(spriteBatch);
+                drawTo(btnLemBack, spriteBatch);
+                drawTo(btnLemClear, spriteBatch);
+                drawTo(btnLemExit, spriteBatch);
+                drawTo(btnLemLoad, spriteBatch);
+                drawTo(btnLemSave, spriteBatch);
             }
             if (shapePalletVisible)
             {
                 spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
-                btnHidePallet.Draw(spriteBatch);
+                drawTo(btnHidePallet, spriteBatch);
                 if (showingShapes)
                 {
-                    btnThumbTriangle.Draw(spriteBatch);
-                    btnThumbStar.Draw(spriteBatch);
-                    btnThumbSquare.Draw(spriteBatch);
-                    btnThumbCircle.Draw(spriteBatch);
-                    btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY + 500));
-                    btnAddLetter.Draw(spriteBatch);
-                    btnAddNumber.Draw(spriteBatch);
+                    drawTo(btnThumbTriangle, spriteBatch);
+                    drawTo(btnThumbStar, spriteBatch);
+                    drawTo(btnThumbSquare, spriteBatch);
+                    drawTo(btnThumbCircle, spriteBatch);
+                    btnAddNumber.Position = new Point(shapePalletX + 15, shapePalletY + 500);
+                    drawTo(btnAddLetter, spriteBatch);
+                    drawTo(btnAddNumber, spriteBatch);
                 }
                 if (showingAlpha) {
-                    btnAddNumber.Draw(spriteBatch);
-                    btnAddNumber.setPosition(new Vector2(shapePalletX + 15, shapePalletY + 550));
-                    btnAddShape.Draw(spriteBatch);
-                    putA.Draw(spriteBatch);
-                    putB.Draw(spriteBatch);
-                    putC.Draw(spriteBatch);
-                    putD.Draw(spriteBatch);
-                    putE.Draw(spriteBatch);
-                    putF.Draw(spriteBatch);
-                    putG.Draw(spriteBatch);
-                    putH.Draw(spriteBatch);
-                    putI.Draw(spriteBatch);
-                    putJ.Draw(spriteBatch);
-                    putK.Draw(spriteBatch);
-                    putL.Draw(spriteBatch);
-                    putM.Draw(spriteBatch);
-                    putN.Draw(spriteBatch);
-                    putO.Draw(spriteBatch);
-                    putP.Draw(spriteBatch);
-                    putQ.Draw(spriteBatch);
-                    putR.Draw(spriteBatch);
-                    putS.Draw(spriteBatch);
-                    putT.Draw(spriteBatch);
-                    putU.Draw(spriteBatch);
-                    putV.Draw(spriteBatch);
-                    putW.Draw(spriteBatch);
-                    putX.Draw(spriteBatch);
-                    putY.Draw(spriteBatch);
-                    putZ.Draw(spriteBatch);
+                    drawTo(btnAddNumber, spriteBatch);
+                    btnAddNumber.Position = new Point(shapePalletX + 15, shapePalletY + 550);
+                    drawTo(btnAddShape, spriteBatch);
+                    drawTo(putA, spriteBatch);
+                    drawTo(putB, spriteBatch);
+                    drawTo(putC, spriteBatch);
+                    drawTo(putD, spriteBatch);
+                    drawTo(putE, spriteBatch);
+                    drawTo(putF, spriteBatch);
+                    drawTo(putG, spriteBatch);
+                    drawTo(putH, spriteBatch);
+                    drawTo(putI, spriteBatch);
+                    drawTo(putJ, spriteBatch);
+                    drawTo(putK, spriteBatch);
+                    drawTo(putL, spriteBatch);
+                    drawTo(putM, spriteBatch);
+                    drawTo(putN, spriteBatch);
+                    drawTo(putO, spriteBatch);
+                    drawTo(putP, spriteBatch);
+                    drawTo(putQ, spriteBatch);
+                    drawTo(putR, spriteBatch);
+                    drawTo(putS, spriteBatch);
+                    drawTo(putT, spriteBatch);
+                    drawTo(putU, spriteBatch);
+                    drawTo(putV, spriteBatch);
+                    drawTo(putW, spriteBatch);
+                    drawTo(putX, spriteBatch);
+                    drawTo(putY, spriteBatch);
+                    drawTo(putZ, spriteBatch);
                    
                 }//Fill this in.
                 if (showingNumbers) {
-                    put1.Draw(spriteBatch);
-                    put2.Draw(spriteBatch);
-                    put3.Draw(spriteBatch);
-                    put4.Draw(spriteBatch);
-                    put5.Draw(spriteBatch);
-                    put6.Draw(spriteBatch);
-                    put7.Draw(spriteBatch);
-                    put8.Draw(spriteBatch);
-                    put9.Draw(spriteBatch);
-                    put0.Draw(spriteBatch);
-                    btnAddLetter.Draw(spriteBatch);
-                    btnAddShape.Draw(spriteBatch);
+                    drawTo(put1, spriteBatch);
+                    drawTo(put2, spriteBatch);
+                    drawTo(put3, spriteBatch);
+                    drawTo(put4, spriteBatch);
+                    drawTo(put5, spriteBatch);
+                    drawTo(put6, spriteBatch);
+                    drawTo(put7, spriteBatch);
+                    drawTo(put8, spriteBatch);
+                    drawTo(put9, spriteBatch);
+                    drawTo(put0, spriteBatch);
+                    drawTo(btnAddLetter, spriteBatch);
+                    drawTo(btnAddShape, spriteBatch);
                 }///Fill this in.
                 
                 
             }
-            else { btnHidePallet.Draw(spriteBatch); }
+            else { drawTo(btnHidePallet, spriteBatch); }
             if (sizeChoosing)
             {
                 spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
                 spriteBatch.Draw(chooseSize, chooseSizePosition, Color.White);
-                sizeTiny.Draw(spriteBatch);
-                sizeSmall.Draw(spriteBatch);
-                sizeMedium.Draw(spriteBatch);
-                sizeLarge.Draw(spriteBatch);
-                sizeXLarge.Draw(spriteBatch);
+                drawTo(sizeTiny, spriteBatch);
+                drawTo(sizeSmall, spriteBatch);
+                drawTo(sizeMedium, spriteBatch);
+                drawTo(sizeLarge, spriteBatch);
+                drawTo(sizeXLarge, spriteBatch);
             }
             if (colorChoosing)
             {
                 spriteBatch.Draw(shapePalletBackground, shapePalletBackgroundPosition, Color.White);
-                colorBlackBtn.Draw(spriteBatch);
-                colorBlueBtn.Draw(spriteBatch);
-                colorDarkBlueBtn.Draw(spriteBatch);
-                colorDarkGreyBtn.Draw(spriteBatch);
-                colorGreenBtn.Draw(spriteBatch);
-                colorGreyBtn.Draw(spriteBatch);
-                colorLightBlueBtn.Draw(spriteBatch);
-                colorLightGreen.Draw(spriteBatch);
-                colorOrangeBtn.Draw(spriteBatch);
-                colorPinkBtn.Draw(spriteBatch);
-                colorRedBtn.Draw(spriteBatch);
-                colorYellowBtn.Draw(spriteBatch);
+                drawTo(colorBlackBtn, spriteBatch);
+                drawTo(colorBlueBtn, spriteBatch);
+                drawTo(colorDarkBlueBtn, spriteBatch);
+                drawTo(colorDarkGreyBtn, spriteBatch);
+                drawTo(colorGreenBtn, spriteBatch);
+                drawTo(colorGreyBtn, spriteBatch);
+                drawTo(colorLightBlueBtn, spriteBatch);
+                drawTo(colorLightGreen, spriteBatch);
+                drawTo(colorOrangeBtn, spriteBatch);
+                drawTo(colorPinkBtn, spriteBatch);
+                drawTo(colorRedBtn, spriteBatch);
+                drawTo(colorYellowBtn, spriteBatch);
             }
 
         }
         void DrawGameScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            btnBack.Draw(spriteBatch);
+            drawTo(btnBack, spriteBatch);
             if (pauseMenuON)
             {
                 spriteBatch.Draw(pauseMenuBackground, pauseMenuBackgroundPosition, Color.White);
                 spriteBatch.Draw(pauseMenuTitle, pauseMenuGraphicPosition, Color.White);
-                btnPauseRestart.Draw(spriteBatch);
-                btnPauseLoad.Draw(spriteBatch);
-                btnPauseEdit.Draw(spriteBatch);
-                btnPauseContinue.Draw(spriteBatch); 
+                drawTo(btnPauseRestart, spriteBatch);
+                drawTo(btnPauseLoad, spriteBatch);
+                drawTo(btnPauseEdit, spriteBatch);
+                drawTo(btnPauseContinue, spriteBatch); 
             }
         }
 
         void DrawHomeScreen (GameTime gameTime, SpriteBatch spriteBatch) {
-            btnNew.Draw(spriteBatch);
-            btnLoad.Draw(spriteBatch);
-            btnExit.Draw(spriteBatch);
+            drawTo(btnNew, spriteBatch);
+            drawTo(btnLoad, spriteBatch);
+            drawTo(btnExit, spriteBatch);
             spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
         
         }
         void DrawNewLayoutScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            btnCancel.Draw(spriteBatch);
-            btnCreate.Draw(spriteBatch);
+            drawTo(btnCancel, spriteBatch);
+            drawTo(btnCreate, spriteBatch);
             spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
-            clearDescriptionButton.Draw(spriteBatch);
-            clearNameButton.Draw(spriteBatch);
+            drawTo(clearDescriptionButton, spriteBatch);
+            drawTo(clearNameButton, spriteBatch);
             spriteBatch.Draw(myNewLevelTitle, myNewLevelTitlePosition, Color.White);
             if (nameHighlight == true) { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.Black); }
             else { spriteBatch.DrawString(font, nameOfTherapist, nameOfTherapistPosition, Color.DarkGray); }
@@ -1685,46 +1695,46 @@ namespace FirstGame
             spriteBatch.Draw(myName, myNamePosition, Color.White);
             spriteBatch.Draw(myDescription, myDescriptionPosition, Color.White);
             spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-            delName.Draw(spriteBatch);
-            delDesc.Draw(spriteBatch);
-            a.Draw(spriteBatch);
-            b.Draw(spriteBatch);
-            c.Draw(spriteBatch);
-            d.Draw(spriteBatch);
-            e.Draw(spriteBatch);
-            f.Draw(spriteBatch);
-            g.Draw(spriteBatch);
-            h.Draw(spriteBatch);
-            i.Draw(spriteBatch);
-            j.Draw(spriteBatch);
-            k.Draw(spriteBatch);
-            l.Draw(spriteBatch);
-            m.Draw(spriteBatch);
-            n.Draw(spriteBatch);
-            o.Draw(spriteBatch);
-            p.Draw(spriteBatch);
-            q.Draw(spriteBatch);
-            r.Draw(spriteBatch);
-            s.Draw(spriteBatch);
-            t.Draw(spriteBatch);
-            u.Draw(spriteBatch);
-            v.Draw(spriteBatch);
-            w.Draw(spriteBatch);
-            x.Draw(spriteBatch);
-            y.Draw(spriteBatch);
-            z.Draw(spriteBatch);
-            space1.Draw(spriteBatch);
-            space2.Draw(spriteBatch);
-            delete1.Draw(spriteBatch);
-            clear.Draw(spriteBatch);
+            drawTo(delName, spriteBatch);
+            drawTo(delDesc, spriteBatch);
+            drawTo(a, spriteBatch);
+            drawTo(b, spriteBatch);
+            drawTo(c, spriteBatch);
+            drawTo(d, spriteBatch);
+            drawTo(e, spriteBatch);
+            drawTo(f, spriteBatch);
+            drawTo(g, spriteBatch);
+            drawTo(h, spriteBatch);
+            drawTo(i, spriteBatch);
+            drawTo(j, spriteBatch);
+            drawTo(k, spriteBatch);
+            drawTo(l, spriteBatch);
+            drawTo(m, spriteBatch);
+            drawTo(n, spriteBatch);
+            drawTo(o, spriteBatch);
+            drawTo(p, spriteBatch);
+            drawTo(q, spriteBatch);
+            drawTo(r, spriteBatch);
+            drawTo(s, spriteBatch);
+            drawTo(t, spriteBatch);
+            drawTo(u, spriteBatch);
+            drawTo(v, spriteBatch);
+            drawTo(w, spriteBatch);
+            drawTo(x, spriteBatch);
+            drawTo(y, spriteBatch);
+            drawTo(z, spriteBatch);
+            drawTo(space1, spriteBatch);
+            drawTo(space2, spriteBatch);
+            drawTo(delete1, spriteBatch);
+            drawTo(clear, spriteBatch);
 
         }
         void DrawLoadLayoutScreen(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            btnCancel.Draw(spriteBatch);
-            btnOpen.Draw(spriteBatch);
+            drawTo(btnCancel, spriteBatch);
+            drawTo(btnOpen, spriteBatch);
             spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
-            goSearch.Draw(spriteBatch);
+            drawTo(goSearch, spriteBatch);
 
             if (loadKeyBoard == false) 
             { 
@@ -1735,41 +1745,41 @@ namespace FirstGame
             }
             spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
             spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
-            delSearch.Draw(spriteBatch);
+            drawTo(delSearch, spriteBatch);
 
             if (loadKeyBoard == true)
             {
                 spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
-                a.Draw(spriteBatch);
-                b.Draw(spriteBatch);
-                c.Draw(spriteBatch);
-                d.Draw(spriteBatch);
-                e.Draw(spriteBatch);
-                f.Draw(spriteBatch);
-                g.Draw(spriteBatch);
-                h.Draw(spriteBatch);
-                i.Draw(spriteBatch);
-                j.Draw(spriteBatch);
-                k.Draw(spriteBatch);
-                l.Draw(spriteBatch);
-                m.Draw(spriteBatch);
-                n.Draw(spriteBatch);
-                o.Draw(spriteBatch);
-                p.Draw(spriteBatch);
-                q.Draw(spriteBatch);
-                r.Draw(spriteBatch);
-                s.Draw(spriteBatch);
-                t.Draw(spriteBatch);
-                u.Draw(spriteBatch);
-                v.Draw(spriteBatch);
-                w.Draw(spriteBatch);
-                x.Draw(spriteBatch);
-                y.Draw(spriteBatch);
-                z.Draw(spriteBatch);
-                space1.Draw(spriteBatch);
-                space2.Draw(spriteBatch);
-                delete1.Draw(spriteBatch);
-                clear.Draw(spriteBatch);
+                drawTo(a, spriteBatch);
+                drawTo(b, spriteBatch);
+                drawTo(c, spriteBatch);
+                drawTo(d, spriteBatch);
+                drawTo(e, spriteBatch);
+                drawTo(f, spriteBatch);
+                drawTo(g, spriteBatch);
+                drawTo(h, spriteBatch);
+                drawTo(i, spriteBatch);
+                drawTo(j, spriteBatch);
+                drawTo(k, spriteBatch);
+                drawTo(l, spriteBatch);
+                drawTo(m, spriteBatch);
+                drawTo(n, spriteBatch);
+                drawTo(o, spriteBatch);
+                drawTo(p, spriteBatch);
+                drawTo(q, spriteBatch);
+                drawTo(r, spriteBatch);
+                drawTo(s, spriteBatch);
+                drawTo(t, spriteBatch);
+                drawTo(u, spriteBatch);
+                drawTo(v, spriteBatch);
+                drawTo(w, spriteBatch);
+                drawTo(x, spriteBatch);
+                drawTo(y, spriteBatch);
+                drawTo(z, spriteBatch);
+                drawTo(space1, spriteBatch);
+                drawTo(space2, spriteBatch);
+                drawTo(delete1, spriteBatch);
+                drawTo(clear, spriteBatch);
             }
 
         }
