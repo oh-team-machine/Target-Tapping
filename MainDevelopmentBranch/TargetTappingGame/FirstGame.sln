@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstGame", "FirstGame\FirstGame\FirstGame.csproj", "{F28C4B0A-41CF-4974-8B82-60E8569F9459}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "FirstGameContent", "FirstGame\FirstGameContent\FirstGameContent.contentproj", "{6B3FF255-0F75-456A-88F7-1038BE86DAFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstGameContent", "FirstGame\FirstGameContent\FirstGameContent.contentproj", "{6B3FF255-0F75-456A-88F7-1038BE86DAFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Widget", "Layout\Widget.csproj", "{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{F28C4B0A-41CF-4974-8B82-60E8569F9459}.Release|x86.Build.0 = Release|x86
 		{6B3FF255-0F75-456A-88F7-1038BE86DAFA}.Debug|x86.ActiveCfg = Debug|x86
 		{6B3FF255-0F75-456A-88F7-1038BE86DAFA}.Release|x86.ActiveCfg = Release|x86
+		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Debug|x86.ActiveCfg = Debug|x86
+		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Debug|x86.Build.0 = Debug|x86
+		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Release|x86.ActiveCfg = Release|x86
+		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

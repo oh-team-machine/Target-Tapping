@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Note: this was made before I had found out about the magic of
+     XNAContent XML loader things. -->
+<layout>
+  <meta>
+    <resolution width="1280" height="800" />
+    <allow name="keyboard" value="true" />
+  </meta>
+
+  <screen showKeyboard="true">
+    <button id="back" texture="GUI/backButton.bmp" />
+    <button id="front" texture="GUI/backButton.bmp" />
+  </screen>
+
+</layout>

@@ -73,7 +73,6 @@ Content\GamePauseMenu\continueButtonGraphic.xnb
 Content\GamePauseMenu\restartButtonGraphic.xnb
 Content\GamePauseMenu\changeLevelButtonGraphic.xnb
 Content\GamePauseMenu\editButtonGraphic.xnb
-Content\font.xnb
 Content\ShapePallet\shapePalletBackground.xnb
 Content\ShapePallet\hidePallet.xnb
 Content\ShapePallet\addNumber.xnb
@@ -112,3 +111,5 @@ Content\ShapePallet\sevenBtn.xnb
 Content\ShapePallet\eightBtn.xnb
 Content\ShapePallet\nineBtn.xnb
 Content\ShapePallet\zeroBtn.xnb
+Content\font.xnb
+Content\Layouts\MainScreen.xnb

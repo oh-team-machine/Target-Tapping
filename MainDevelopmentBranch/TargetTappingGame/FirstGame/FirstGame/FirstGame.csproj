@@ -60,9 +60,6 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GameLibrary">
-      <HintPath>..\..\..\..\..\..\GameLibrary\GameLibrary\bin\x86\Release\GameLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -106,8 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FirstGameContent\FirstGameContent.contentproj">
-      <Name>FirstGameContent</Name>
+      <Name>FirstGameContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
+      <Project>{6B3FF255-0F75-456A-88F7-1038BE86DAFA}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

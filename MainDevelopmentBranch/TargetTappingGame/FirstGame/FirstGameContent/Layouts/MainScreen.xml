@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent
+  xmlns:OTM="OhTeamMachine.Widget">
+  <Asset Type="OTM:Screen">
+    <Dimensions>
+      1280 800 0 0
+    </Dimensions>
+
+    <Content Type="OTM:ChaoticLayout">
+      <Elements>
+      </Elements>
+    </Content>
+  </Asset>
+</XnaContent>
