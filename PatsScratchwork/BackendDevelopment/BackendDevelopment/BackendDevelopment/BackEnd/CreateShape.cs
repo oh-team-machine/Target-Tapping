@@ -39,6 +39,10 @@ namespace BackendDevelopment.BackEnd
             Texture2D texture;
             DrawShape draw = new DrawShape();
             texture = draw.drawShape(shape, size, graphics);
+            SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            spriteBatch.Begin();
+            spriteBatch.Draw(texture, new Vector2(30, 30), Color.Red);
+            spriteBatch.End();
         }
 
         //Methods for this class, such as getters and setters, etc...

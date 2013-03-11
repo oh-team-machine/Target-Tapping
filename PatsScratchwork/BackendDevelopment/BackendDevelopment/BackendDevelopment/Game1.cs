@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using GameLibrary;
+using BackendDevelopment.BackEnd;
 
 namespace BackendDevelopment
 {
@@ -101,6 +102,10 @@ namespace BackendDevelopment
             this.graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+
+            int[] position = { 30, 30 };
+            CreateShape circle = new CreateShape("Circle", Color.Red, 30, position, true);
+            circle.drawShape(this.graphics);
 
             base.Draw(gameTime);
         }
