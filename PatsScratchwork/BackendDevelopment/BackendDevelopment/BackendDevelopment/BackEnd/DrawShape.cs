@@ -27,6 +27,14 @@ namespace BackendDevelopment.BackEnd
             {
                 texture = drawSquare(size, graphics);
             }
+            else if (shape == "Triangle")
+            {
+                texture = drawTrianlge(size, graphics);
+            }
+            else if (shape == "Star")
+            {
+                texture = drawStar(size, graphics);
+            }
             else
             {
                 texture = drawRect(size, graphics);
@@ -92,6 +100,66 @@ namespace BackendDevelopment.BackEnd
             // Colour the entire texture transparent first.
             for (int i = 0; i < data.Length; i++)
                 data[i] = Color.White;
+            texture.SetData(data);
+            return texture;
+        }
+
+        private static Texture2D drawTrianlge(int width, GraphicsDeviceManager graphics)
+        {
+            int outerWidth = width * 2 + 2; // So circle doesn't go out of bounds
+
+            Texture2D texture = new Texture2D(graphics.GraphicsDevice, outerWidth, outerWidth);
+
+            Color[] data = new Color[outerWidth * outerWidth];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            for (int y = 0; y < outerWidth; y++)
+            {
+                {
+                    for (int x = 0; x < (outerWidth - y); x++)
+                        data[(x + (y/2)) + (outerWidth * y)] = Color.White;
+                }
+            }
+
+            Array.Reverse(data);
+
+            texture.SetData(data);
+            return texture;
+        }
+
+        private static Texture2D drawStar(int width, GraphicsDeviceManager graphics)
+        {
+            int outerWidth = width * 2 + 2; // So circle doesn't go out of bounds
+
+            Texture2D texture = new Texture2D(graphics.GraphicsDevice, outerWidth, outerWidth);
+
+            Color[] data = new Color[outerWidth * outerWidth];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            for (int y = 0; y < outerWidth; y++)
+            {
+                {
+                    for (int x = 0; x < (outerWidth - (2 * y)); x++)
+                        data[(x + y) + (outerWidth * y) + (outerWidth * (34*outerWidth/100))] = Color.White;
+                }
+            }
+
+            Array.Reverse(data);
+
+            for (int y = 0; y < outerWidth; y++)
+            {
+                {
+                    for (int x = 0; x < (outerWidth - (2 * y)); x++)
+                        data[(x + y) + (outerWidth * y) + (outerWidth * (34*outerWidth/100))] = Color.White;
+                }
+            }
+
             texture.SetData(data);
             return texture;
         }
