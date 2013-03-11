@@ -5,6 +5,7 @@ using System.Text;
 using BackendDevelopment.BackEnd;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using RaisingStudio.Xna.Graphics;
 
 namespace BackendDevelopment.BackEnd
 {
@@ -36,13 +37,23 @@ namespace BackendDevelopment.BackEnd
         //Draws the shape on the screen.
         public void drawShape(GraphicsDeviceManager graphics)
         {
-            Texture2D texture;
-            DrawShape draw = new DrawShape();
-            texture = draw.drawShape(shape, size, graphics);
-            SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
-            spriteBatch.Begin();
-            spriteBatch.Draw(texture, new Vector2(30, 30), Color.Red);
-            spriteBatch.End();
+            //Texture2D texture;
+            //DrawShape draw = new DrawShape();
+            //texture = draw.drawShape(shape, size, graphics);
+            //SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            //spriteBatch.Begin();
+            //spriteBatch.Draw(texture, new Vector2(30, 30), Color.Red);
+            //spriteBatch.End();
+            
+            DrawingBatch drawingBatch = new DrawingBatch(graphics.GraphicsDevice);
+            //drawingBatch.Render.RenderTarget.
+            drawingBatch.Begin();
+            drawingBatch.DrawEllipse(310, 10, 50, 50, Color.Green);
+            drawingBatch.DrawFilledEllipse(310, 110, 80, 40, Color.Green);
+            drawingBatch.DrawPolyline(new Vector2[] { new Vector2(410, 10), new Vector2(440, 10), new Vector2(420, 20), new Vector2(440, 40), new Vector2(410, 60) }, Color.Aqua);
+            drawingBatch.DrawFilledTriangle(240, 110, 240, 160, 200, 160, Color.Brown);
+
+            drawingBatch.End();
         }
 
         //Methods for this class, such as getters and setters, etc...
