@@ -96,6 +96,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TapLevel\TapLevel.csproj">
+      <Project>{9CD70281-541E-4496-9018-E7136904A8EC}</Project>
+      <Name>TapLevel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FirstGameContent\FirstGameContent.contentproj">
       <Name>FirstGameContent %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>

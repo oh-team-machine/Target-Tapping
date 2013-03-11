@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent
+  xmlns:OTM="OhTeamMachine.TapLevel">
+  <Asset Type="OTM:Level">
+    <Meta>
+      <HoldTime>2</HoldTime>
+      <UpTime>2</UpTime>
+    </Meta>
+    <Targets>
+      <Item Type="OTM:Target">
+        <Shape>Cirlce</Shape>
+        <Size>Big</Size>
+        <Color>FF0000FF</Color>
+      </Item>
+    </Targets>
+  </Asset>
+</XnaContent>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstGameContent", "FirstGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Widget", "Layout\Widget.csproj", "{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapLevel", "TapLevel\TapLevel.csproj", "{9CD70281-541E-4496-9018-E7136904A8EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -23,6 +25,10 @@ Global
 		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Debug|x86.Build.0 = Debug|x86
 		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Release|x86.ActiveCfg = Release|x86
 		{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}.Release|x86.Build.0 = Release|x86
+		{9CD70281-541E-4496-9018-E7136904A8EC}.Debug|x86.ActiveCfg = Debug|x86
+		{9CD70281-541E-4496-9018-E7136904A8EC}.Debug|x86.Build.0 = Debug|x86
+		{9CD70281-541E-4496-9018-E7136904A8EC}.Release|x86.ActiveCfg = Release|x86
+		{9CD70281-541E-4496-9018-E7136904A8EC}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -836,10 +836,21 @@
       <Project>{30C915DD-BA90-4CFC-A4A9-9EC75690CE20}</Project>
       <Name>Widget</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\TapLevel\TapLevel.csproj">
+      <Project>{9CD70281-541E-4496-9018-E7136904A8EC}</Project>
+      <Name>TapLevel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Layouts\MainScreen.xml">
       <Name>MainScreen</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SampleLevels\XMLFile1.xml">
+      <Name>XMLFile1</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>
