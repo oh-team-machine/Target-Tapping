@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using GameLibrary;
 
 namespace BackendDevelopment
 {
@@ -16,22 +17,28 @@ namespace BackendDevelopment
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        private Manager manager;
-        GraphicsDeviceManager graphics;
-        //SpriteBatch spriteBatch;
+        //load the custom manager that Michael provided to us in his AHS tempalte
+        //not used atm
+        //create a graphics device for handling the screen
+        private GraphicsDeviceManager graphics;
+        //create a spritebatch to load bitmaps and put them on the screen via the graphics manager above
+        private SpriteBatch spriteBatch;
+        Texture2D myTexture;
+        //The screen size will change to 1080P at the end
+        int screenWidth = 1280, screenHeight = 720;
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            //initialize the graphics with this class as the parameter
+            this.graphics = new GraphicsDeviceManager(this);
+            //set root directoy for sprites
             Content.RootDirectory = "Content";
 
-            //show the mouse
-            this.IsMouseVisible = true;
-
-            //graphics.PreferredBackBufferWidth = screenWidth; //currently set to 720P for laptop support, will change to 1080P
-            //graphics.PreferredBackBufferHeight = screenHeight;
-            //graphics.IsFullScreen = false;
-            //graphics.ApplyChanges();
+            //increaste the window size
+            this.graphics.PreferredBackBufferWidth = screenWidth; //currently set to 720P for laptop support, will change to 1080P
+            this.graphics.PreferredBackBufferHeight = screenHeight;
+            this.graphics.IsFullScreen = false;
+            this.graphics.ApplyChanges();
 
         }
 
@@ -44,6 +51,8 @@ namespace BackendDevelopment
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            //show the mouse
+            this.IsMouseVisible = true;
 
             base.Initialize();
         }
@@ -54,8 +63,8 @@ namespace BackendDevelopment
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+             // Create a new SpriteBatch, which can be used to draw textures.
+            this.spriteBatch = new SpriteBatch(this.graphics.GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }
@@ -67,6 +76,7 @@ namespace BackendDevelopment
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+           
         }
 
         /// <summary>
@@ -76,9 +86,6 @@ namespace BackendDevelopment
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
 
             // TODO: Add your update logic here
 
@@ -91,7 +98,7 @@ namespace BackendDevelopment
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            this.graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
 
