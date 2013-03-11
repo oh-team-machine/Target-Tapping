@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{F28C4B0A-41CF-4974-8B82-60E8569F9459}</ProjectGuid>
+    <ProjectGuid>{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FirstGame</RootNamespace>
-    <AssemblyName>FirstGame</AssemblyName>
+    <RootNamespace>BackendDevelopment</RootNamespace>
+    <AssemblyName>BackendDevelopment</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
     <XnaProfile>Reach</XnaProfile>
-    <XnaCrossPlatformGroupID>91e83fa8-839c-49af-adc7-2c595452123f</XnaCrossPlatformGroupID>
+    <XnaCrossPlatformGroupID>aa6f25dd-248c-4d2d-8bd0-bfe0812ad07a</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
@@ -60,8 +60,9 @@
     <XnaCompressContent>true</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GameLibrary">
-      <HintPath>..\..\..\..\PatsScratchwork\BackendDevelopment\BackendDevelopment\BackendDevelopment\libraries\GameLibrary.dll</HintPath>
+    <Reference Include="GameLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\GameLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -69,47 +70,44 @@
     <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Net" />
-    <Reference Include="Windows7.Multitouch">
-      <HintPath>..\..\..\..\PatsScratchwork\BackendDevelopment\BackendDevelopment\BackendDevelopment\libraries\Windows7.Multitouch.dll</HintPath>
+    <Reference Include="Windows7.Multitouch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\Windows7.Multitouch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Back end\createShape.cs" />
-    <Compile Include="Back end\drawShape.cs" />
-    <Compile Include="Back end\levelLoad.cs" />
-    <Compile Include="Back end\saveLevel.cs" />
-    <Compile Include="Front end\Button.cs" />
-    <Compile Include="Front end\GiveMeSomethingICanDraw.cs" />
-    <Compile Include="Front end\Tangibility.cs" />
-    <Compile Include="Front end\guiHelperFunctions.cs" />
-    <Compile Include="Front end\levelEditor.cs" />
-    <Compile Include="Front end\newLayoutNaming.cs" />
+    <Compile Include="BackEnd\CreateShape.cs" />
+    <Compile Include="BackEnd\DrawShape.cs" />
+    <Compile Include="BackEnd\LevelLoad.cs" />
+    <Compile Include="BackEnd\SaveLevel.cs" />
+    <Compile Include="FrontEnd\BackgroundScreen.cs" />
+    <Compile Include="FrontEnd\LevelEditor.cs" />
+    <Compile Include="FrontEnd\MenuScreen.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="UIControls\Button.cs" />
+    <Compile Include="UIControls\Collisions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <Content Include="libraries\GameLibrary.dll" />
+    <Content Include="libraries\Microsoft.Kinect.dll" />
+    <Content Include="libraries\Windows7.Multitouch.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TapLevel\TapLevel.csproj">
-      <Project>{9CD70281-541E-4496-9018-E7136904A8EC}</Project>
-      <Name>TapLevel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FirstGameContent\FirstGameContent.contentproj">
-      <Name>FirstGameContent %28Content%29</Name>
+    <ProjectReference Include="..\BackendDevelopmentContent\BackendDevelopmentContent.contentproj">
+      <Name>BackendDevelopmentContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
-      <Project>{6B3FF255-0F75-456A-88F7-1038BE86DAFA}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +137,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

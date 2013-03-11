@@ -12,6 +12,7 @@ using FirstGame.Front_end;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using GameLibrary;
 
 namespace FirstGame
 {
@@ -486,7 +487,7 @@ namespace FirstGame
         /// </summary>
         protected override void UnloadContent()
         {
-            //NOT CURRENTLY USED, defined as part of the XNA game template.
+          //  content.Unload();
             
         }
 

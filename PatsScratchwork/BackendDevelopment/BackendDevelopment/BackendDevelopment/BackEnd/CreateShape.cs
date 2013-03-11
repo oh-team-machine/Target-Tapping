@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FirstGame.Back_end;
+using BackendDevelopment.BackEnd;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace FirstGame.Back_end
-{
-    //Pat's test of vs2010 git extension
-    /*
-    * This class contains all the properties (such as color, size, etc..) for our shapes,
-    * letter, numbers that the therapist will put in the level.
-     */
 
+namespace BackendDevelopment.BackEnd
+{
     class CreateShape
     {
-
         //Put private class variables here.
         Color color;
         int size;
@@ -43,9 +37,23 @@ namespace FirstGame.Back_end
         //Draws the shape on the screen.
         public void drawShape(GraphicsDeviceManager graphics)
         {
-            //Texture2D texture;
-            //DrawShape draw;
-            //texture = draw.drawShape(shape, size, graphics);
+            Texture2D texture;
+            DrawShape draw = new DrawShape();
+            texture = draw.drawShape(shape, size, graphics);
+            SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
+            spriteBatch.Begin();
+            spriteBatch.Draw(texture, new Vector2(30, 30), Color.Red);
+            spriteBatch.End();
+
+            //DrawingBatch drawingBatch = new DrawingBatch(graphics.GraphicsDevice);
+            //drawingBatch.Render.RenderTarget.
+            //drawingBatch.Begin();
+            //drawingBatch.DrawEllipse(310, 10, 50, 50, Color.Green);
+            //drawingBatch.DrawFilledEllipse(310, 110, 80, 40, Color.Green);
+            //drawingBatch.DrawPolyline(new Vector2[] { new Vector2(410, 10), new Vector2(440, 10), new Vector2(420, 20), new Vector2(440, 40), new Vector2(410, 60) }, Color.Aqua);
+            //drawingBatch.DrawFilledTriangle(240, 110, 240, 160, 200, 160, Color.Brown);
+
+            //drawingBatch.End();
         }
 
         //Methods for this class, such as getters and setters, etc...
@@ -99,9 +107,4 @@ namespace FirstGame.Back_end
             return multiSelect;
         }
     }
-
 }
-
-   
-
-
