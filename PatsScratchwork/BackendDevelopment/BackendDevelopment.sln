@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendDevelopment", "BackendDevelopment\BackendDevelopment\BackendDevelopment.csproj", "{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BackendDevelopmentContent", "BackendDevelopment\BackendDevelopmentContent\BackendDevelopmentContent.contentproj", "{D83E4D10-B1FC-4C11-89A4-3CE970964D21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendDevelopmentContent", "BackendDevelopment\BackendDevelopmentContent\BackendDevelopmentContent.contentproj", "{D83E4D10-B1FC-4C11-89A4-3CE970964D21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,6 +16,7 @@ Global
 		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Release|x86.ActiveCfg = Release|x86
 		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Release|x86.Build.0 = Release|x86
 		{D83E4D10-B1FC-4C11-89A4-3CE970964D21}.Debug|x86.ActiveCfg = Debug|x86
+		{D83E4D10-B1FC-4C11-89A4-3CE970964D21}.Debug|x86.Build.0 = Debug|x86
 		{D83E4D10-B1FC-4C11-89A4-3CE970964D21}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution

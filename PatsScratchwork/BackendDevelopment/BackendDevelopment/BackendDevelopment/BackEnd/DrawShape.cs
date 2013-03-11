@@ -22,9 +22,14 @@ namespace BackendDevelopment.BackEnd
             if (shape == "Circle")
             {
                 texture = drawCircle(size, graphics);
-            } else
+            }
+            else if (shape == "Square")
             {
-            texture = drawSquare(size, graphics);
+                texture = drawSquare(size, graphics);
+            }
+            else
+            {
+                texture = drawRect(size, graphics);
             }
 
             return texture;
@@ -67,6 +72,22 @@ namespace BackendDevelopment.BackEnd
             Texture2D texture = new Texture2D(graphics.GraphicsDevice, outerWidth, outerWidth);
 
             Color[] data = new Color[outerWidth * outerWidth];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.White;
+            texture.SetData(data);
+            return texture;
+        }
+
+        private static Texture2D drawRect(int width, GraphicsDeviceManager graphics)
+        {
+            int outerWidth = width * 2 + 2; // So circle doesn't go out of bounds
+            int outerHeight = (width/2) *2 + 2; // So circle doesn't go out of bounds
+
+            Texture2D texture = new Texture2D(graphics.GraphicsDevice, outerWidth, outerHeight);
+
+            Color[] data = new Color[outerWidth * outerHeight];
 
             // Colour the entire texture transparent first.
             for (int i = 0; i < data.Length; i++)
