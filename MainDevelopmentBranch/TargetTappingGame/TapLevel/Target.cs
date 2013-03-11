@@ -8,6 +8,7 @@ namespace OhTeamMachine.TapLevel
 {
     public class Target : TargetContainer
     {
+        public Rectangle Coords { get; set; }
         public string Shape { get; set; }
         public string Size { get; set; }
         public Color Color { get; set; }

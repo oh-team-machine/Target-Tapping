@@ -849,8 +849,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SampleLevels\XMLFile1.xml">
-      <Name>XMLFile1</Name>
+    <Compile Include="SampleLevels\SampleLevel.xml">
+      <Name>SampleLevel</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>

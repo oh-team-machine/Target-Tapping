@@ -8,9 +8,23 @@
     </Meta>
     <Targets>
       <Item Type="OTM:Target">
+        <Coords>0 0 100 100</Coords>
         <Shape>Cirlce</Shape>
         <Size>Big</Size>
         <Color>FF0000FF</Color>
+        <!--Bounding box top left is at (0,0) and
+         has 100px sides -->
+      </Item>
+      <Item Type="OTM:MultiTargets">
+        <Targets>
+          <!-- Items in a multi MUST be Targets. -->
+          <Item>
+            <Coords> 300 460 50 50</Coords>
+            <Shape>Square</Shape>
+            <Size>Small</Size>
+            <Color>00FFFFFF</Color>
+          </Item>         
+        </Targets>
       </Item>
     </Targets>
   </Asset>
