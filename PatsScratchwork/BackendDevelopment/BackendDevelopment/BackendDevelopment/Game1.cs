@@ -204,13 +204,14 @@ namespace BackendDevelopment
         {
             this.graphics.GraphicsDevice.Clear(Color.Red);
 
+
+            //int[] position = { 350, 250 };
+            //CreateLetter myLetter = new CreateLetter("A", "Medium", position, Color.WhiteSmoke);
+            //myLetter.drawLetter(graphics, Content);
             // TODO: Add your drawing code here
             //SpriteBatch = ScreenManager.SpriteBatch;
             SpriteBatch.Begin();
             //SpriteBatch.Draw(menuBackground, menuRect, Color.Blue);
-
-
-
 
             exitButton.Draw(SpriteBatch);
             patientButton.Draw(SpriteBatch);
