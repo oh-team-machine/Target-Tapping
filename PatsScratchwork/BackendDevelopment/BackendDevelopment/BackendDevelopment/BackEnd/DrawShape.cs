@@ -54,6 +54,8 @@ namespace BackendDevelopment.BackEnd
                 data[y * outerRadius + x + 1] = Color.White;
             }
 
+            data = fillCircle(data, outerRadius);
+            
             texture.SetData(data);
             return texture;
         }
@@ -71,6 +73,61 @@ namespace BackendDevelopment.BackEnd
                 data[i] = Color.White;
             texture.SetData(data);
             return texture;
+        }
+
+        private static Color[] fillCircle(Color[] data, int outerRadius)
+        {
+            bool finished = false;
+            int firstSkip = 0;
+            int lastSkip = 0;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (finished == false)
+                {
+                    if((data[i] == Color.White) && (firstSkip == 0)) 
+                    {
+                        while (data[i + 1] == Color.White)
+                        {
+                            i++;
+                        }
+                        firstSkip = 1;
+                        i++;
+                    }
+                    if (firstSkip == 1) {
+                        if (data[i] == Color.White && data[i + 1] != Color.White)
+                        {
+                            i++;
+                            while (data[i] != Color.White)
+                            {
+                                for (int j = 1; j <= outerRadius; j++)
+                                {
+                                    if (data[i + j] != Color.White)
+                                    {
+                                        lastSkip++;
+                                    }
+                                }
+                                if (lastSkip == outerRadius)
+                                {
+                                    finished = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    data[i] = Color.White;
+                                    i++;
+                                    lastSkip = 0;
+                                }
+                            }
+                            while (data[i] == Color.White)
+                            {
+                                i++;
+                            }
+                            i--;
+                        }
+                    }
+                }
+            }
+            return data;
         }
     }
 }
