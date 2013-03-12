@@ -12,50 +12,18 @@ namespace BackendDevelopment.BackEnd
 {
     class CreateLetter
     {
-        public CreateLetter(string letterPassed, string sizePassed, Rectangle rectanglePassed, Color colorPassed)
+        public CreateLetter(string letterPassed, Rectangle rectanglePassed, Color colorPassed)
         {
             letter = letterPassed;
-            size = sizePassed;
             rectangle = rectanglePassed;
             color = colorPassed;
         }
 
         public Texture2D drawLetter(GraphicsDeviceManager graphics, ContentManager Content)
         {
-            //SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
-            //SpriteFont spriteFont = Content.Load<SpriteFont>("Medium");
-            //if (size == "Tiny")
-            //{
-            //    spriteFont = Content.Load<SpriteFont>("Tiny");
-            //}
-            //else if (size == "Small")
-            //{
-            //    spriteFont = Content.Load<SpriteFont>("Small");
-            //}
-            //else if (size == "Medium")
-            //{
-            //    spriteFont = Content.Load<SpriteFont>("Medium");
-            //}
-            //else if (size == "Large")
-            //{
-            //    spriteFont = Content.Load<SpriteFont>("Large");
-            //}
-            //else if (size == "Huge")
-            //{
-            //    spriteFont = Content.Load<SpriteFont>("Huge");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Have passed in the wrong type of size!");
-            //}
-
-            //Vector2 pos = new Vector2(position[0], position[1]);
-            //Vector2 middle = spriteFont.MeasureString(letter) / 2;
-            //spriteBatch.Begin();
-            //spriteBatch.DrawString(spriteFont, letter, pos, color,
-            //        0, middle, 1.0f, SpriteEffects.None, 0.5f);
-
-            Texture2D texture = Content.Load<Texture2D>("letterA");
+            Texture2D texture;
+            string letterToGrab = System.String.Format("letter{0}", letter);
+            texture = Content.Load<Texture2D>(letterToGrab);
 
             // Assume you have a Texture2D called texture
 
@@ -86,9 +54,8 @@ namespace BackendDevelopment.BackEnd
             return texture;
         }
 
-        public string letter { get; set; }
-        public string size { get; set; }
-        public Rectangle rectangle { get; set; }
-        public Color color { get; set; }
+        public static string letter { get; set; }
+        public static Rectangle rectangle { get; set; }
+        public static Color color { get; set; }
     }
 }
