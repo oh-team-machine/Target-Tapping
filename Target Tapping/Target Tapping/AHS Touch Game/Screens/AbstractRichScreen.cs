@@ -81,5 +81,16 @@ namespace TargetTapping.Screens
 	    return new GameLibrary.UI.Button(texture, area);
         }
 
+	/// <summary>
+	/// Adds the screen to the manager and chills out.
+	/// </summary>
+	/// <param name="screen"></param>
+        protected void AddScreenAndChill(GameLibrary.Screen screen)
+        {
+            ScreenManager.AddScreen(screen, false);
+            ScreenState = GameLibrary.State.Hidden;
+        }
+
+
     }
 }

@@ -22,6 +22,29 @@ namespace TargetTapping.Screens
 
         }
 
+        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        {
+            base.Update(gameTime);
+	    
+	    if (btnNew.IsClicked())
+	    {
+                AddScreenAndChill(new NewLevelScreen());
+	    }
+	    else if (btnLoad.IsClicked())
+	    {
+                AddScreenAndChill(new LoadLevelScreen());
+	    }
+	    else if (btnExit.IsClicked())
+	    {
+                ScreenManager.Exit();
+	    }
+
+            btnNew.Update(mouseState);
+            btnLoad.Update(mouseState);
+            btnExit.Update(mouseState);
+
+        }
+
         public override void PreparedDraw(SpriteBatch SpriteBatch)
         {
             btnNew.Draw(SpriteBatch);

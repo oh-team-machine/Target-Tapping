@@ -24,15 +24,6 @@ namespace AHS_Touch_Game
             this.Missed = 0;
         }
 
-	/// <summary>
-	/// Adds a screen to the Screen Manager, uninitialized.
-	/// This will initialize it FOR you!
-	/// </summary>
-	/// <param name="screen"></param>
-	public void AddScreen(GameLibrary.Screen screen) {
-            base.AddScreen(screen, false);
-	}
-
     }
 }
 
