@@ -8,22 +8,23 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+
 namespace BackendDevelopment.BackEnd
 {
-    class CreateLetter
+    class CreateNumber
     {
-        public CreateLetter(string letterPassed, Rectangle rectanglePassed, Color colorPassed)
+        public CreateNumber(string numberPassed, Rectangle rectanglePassed, Color colorPassed)
         {
-            letter = letterPassed;
+            number = numberPassed;
             rectangle = rectanglePassed;
             color = colorPassed;
         }
 
-        public Texture2D drawLetter(GraphicsDeviceManager graphics, ContentManager Content)
+        public Texture2D drawNumber(GraphicsDeviceManager graphics, ContentManager Content)
         {
             Texture2D texture;
-            string letterToGrab = System.String.Format("Letters\\letter{0}", letter);
-            texture = Content.Load<Texture2D>(letterToGrab);
+            string numberToGrab = System.String.Format("Numbers\\number{0}", number);
+            texture = Content.Load<Texture2D>(numberToGrab);
 
             // Assume you have a Texture2D called texture
 
@@ -54,7 +55,7 @@ namespace BackendDevelopment.BackEnd
             return texture;
         }
 
-        public static string letter { get; set; }
+        public static string number { get; set; }
         public static Rectangle rectangle { get; set; }
         public static Color color { get; set; }
     }

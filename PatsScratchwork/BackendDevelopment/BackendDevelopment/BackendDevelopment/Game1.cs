@@ -144,8 +144,9 @@ namespace BackendDevelopment
             if (exitButton.IsClicked())
             {
                 DrawShape mydraw = new DrawShape();
-                Texture2D exitText = mydraw.drawShape("Circle", 100, graphics);
+                //Texture2D exitText = mydraw.drawShape("Circle", 100, graphics);
                 Rectangle exitRect = new Rectangle(500, 500, 100, 100);
+                Texture2D exitText = new CreateNumber("5", exitRect, Color.Green).drawNumber(graphics, Content);
                 Button temp = new Button(exitText, exitRect);
                 buttonList.Add(temp);
             }
