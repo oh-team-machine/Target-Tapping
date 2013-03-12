@@ -25,6 +25,10 @@ namespace TargetTapping.Screens
         protected ContentManager content;
         protected MouseState mouseState;
 
+        /// IMPORTANT! THIS *MUST* BE CALLED BEFORE ANYTHING HAPPENS
+        /// IN THE OVERRIDEN LoadContent. That is, this:
+        ///    base.LoadContent()
+        /// should always be the first line.
         public override void LoadContent()
         {
             content = new ContentManager(ScreenManager.Game.Services, CONTENT_DIR);
@@ -85,6 +89,7 @@ namespace TargetTapping.Screens
 	/// Adds the screen to the manager and chills out.
 	/// </summary>
 	/// <param name="screen"></param>
+	/// (That is, it stops redrawing and taking input).
         protected void AddScreenAndChill(GameLibrary.Screen screen)
         {
             ScreenManager.AddScreen(screen, false);

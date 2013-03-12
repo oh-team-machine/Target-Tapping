@@ -15,19 +15,24 @@ namespace TargetTapping
         private GameManager manager;
         private GraphicsDeviceManager graphics;
 
+	// Resolution of the screen.
+#if DEBUG
+	private Rectangle screenResolution = new Rectangle(0, 0, 1280, 720);
+        private bool isFullScreen = false;
+#else
+	private Rectangle screenResolution = new Rectangle(0, 0, 1920, 1080);
+        private bool isFullScreen = true;
+#endif
+
         public TargetTappingGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = screenResolution.Width;
+            graphics.PreferredBackBufferHeight = screenResolution.Height;
 
-#if DEBUG
-            graphics.IsFullScreen = false;
-#else
-            graphics.IsFullScreen = true;
-#endif
+            graphics.IsFullScreen = isFullScreen;
 
             graphics.ApplyChanges();
 
@@ -50,10 +55,13 @@ namespace TargetTapping
             manager.Input.InitializeTouch(this.Window.Handle);
 #endif
 
-	    // Load the first screen. THE MENU SCREEN!
-            MenuScreen ms = new MenuScreen();
+            var back = new BackgroundScreen(screenResolution);
 
-            manager.AddScreen(ms, true);
+	    // Load the first screen. THE MENU SCREEN!
+            var ms = new MenuScreen();
+
+            manager.AddScreen(back, true);
+            manager.AddScreen(ms, false);
         }
 
         /// <summary>

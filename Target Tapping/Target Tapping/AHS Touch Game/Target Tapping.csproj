@@ -133,6 +133,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Screens\AbstractRichScreen.cs" />
+    <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\LoadLevelScreen.cs" />
     <Compile Include="Screens\MenuScreeen.cs" />
     <Compile Include="Screens\NewLevelScreen.cs" />

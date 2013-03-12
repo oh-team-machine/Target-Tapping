@@ -5,6 +5,9 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+// AS YOU CAN SEE HERE: This is Michael's template menu screen.
+// I am using it as reference while making my dirrivate screens,
+// but this is, overall, dead code that should probably be deleted.
 namespace AHS_Touch_Game.Screens
 {
     class SampleMenuScreen : GameLibrary.Screen
