@@ -15,6 +15,10 @@ namespace TargetTapping
 
         public int Missed { get; set; }
 
+        public int UpTime { get; set; }
+
+        public int HoldTime { get; set; }
+
         public GameManager(Microsoft.Xna.Framework.Game game)
             : base(game)
         {

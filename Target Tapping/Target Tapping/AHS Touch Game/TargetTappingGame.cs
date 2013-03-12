@@ -13,11 +13,12 @@ namespace TargetTapping
         private GameManager manager;
         private GraphicsDeviceManager graphics;
 
-	// Resolution of the screen.
+	// Resolution of the screen. For debug, will fit our laptop screens.
 #if DEBUG
 	private Rectangle screenResolution = new Rectangle(0, 0, 1280, 720);
         private bool isFullScreen = false;
 #else
+	// For release, will fit the 1080p display.
 	private Rectangle screenResolution = new Rectangle(0, 0, 1920, 1080);
         private bool isFullScreen = true;
 #endif
