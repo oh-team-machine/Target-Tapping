@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using AHS_Touch_Game.Screens;
 using AHS_Touch_Game;
+using TargetTapping.Screens;
 
 namespace TargetTapping
 {
@@ -12,7 +13,6 @@ namespace TargetTapping
     public class TargetTappingGame : Microsoft.Xna.Framework.Game
     {
         private GameManager manager;
-
         private GraphicsDeviceManager graphics;
 
         public TargetTappingGame()

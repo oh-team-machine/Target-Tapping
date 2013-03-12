@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace AHS_Touch_Game.Screens
 {
-    class MenuScreen : GameLibrary.Screen
+    class SampleMenuScreen : GameLibrary.Screen
     {
         private ContentManager content;
 
