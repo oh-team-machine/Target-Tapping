@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 // AS YOU CAN SEE HERE: This is Michael's template menu screen.
 // I am using it as reference while making my dirrivate screens,
 // but this is, overall, dead code that should probably be deleted.
-namespace AHS_Touch_Game.Screens
+namespace TargetTapping.Screens
 {
     class SampleMenuScreen : GameLibrary.Screen
     {
@@ -78,9 +78,9 @@ namespace AHS_Touch_Game.Screens
 
             else if (optionsButton.IsClicked())
             {
-                OptionsScreen os = new OptionsScreen();
+                //OptionsScreen os = new OptionsScreen();
 
-                ScreenManager.AddScreen(os, false);
+                //ScreenManager.AddScreen(os, false);
 
                 this.ScreenState = State.Hidden;
 

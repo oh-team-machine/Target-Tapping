@@ -134,13 +134,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Screens\AbstractRichScreen.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
+    <Compile Include="Screens\LevelEditScreen.cs" />
     <Compile Include="Screens\LoadLevelScreen.cs" />
     <Compile Include="Screens\MenuScreeen.cs" />
     <Compile Include="Screens\NewLevelScreen.cs" />
+    <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="TargetTappingGame.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\SampleMenuScreen.cs" />
-    <Compile Include="Screens\OptionsScreen.cs" />
     <Compile Include="Screens\PatientScreen.cs" />
   </ItemGroup>
   <ItemGroup>

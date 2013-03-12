@@ -26,6 +26,7 @@ namespace TargetTapping.Screens
         {
             base.Update(gameTime);
 	    
+	    // Check if any of the buttons have been clicked.
 	    if (btnNew.IsClicked())
 	    {
                 AddScreenAndChill(new NewLevelScreen());
@@ -47,6 +48,7 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch SpriteBatch)
         {
+	    // Draw all dem buttons.
             btnNew.Draw(SpriteBatch);
             btnLoad.Draw(SpriteBatch);
             btnExit.Draw(SpriteBatch);

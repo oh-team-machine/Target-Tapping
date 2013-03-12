@@ -1,33 +1,31 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
 
 namespace TargetTapping.Screens
 {
-    class GameScreen : AbstractRichScreen
+    class LevelEditScreen : AbstractRichScreen
     {
-        #region Variables
-
-	// Stuff 'em in here, boss!
-
-        #endregion Variables
 
         public override void LoadContent()
         {
+            base.LoadContent();
+
+	    // Load buttons 'n' stuff, yo!
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+	    // Update stuff here!
+
             base.Update(gameTime);
         }
 
-
         public override void PreparedDraw(SpriteBatch SpriteBatch)
         {
+	    
         }
     }
 }

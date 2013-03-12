@@ -1,8 +1,6 @@
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AHS_Touch_Game.Screens;
-using AHS_Touch_Game;
 using TargetTapping.Screens;
 
 namespace TargetTapping

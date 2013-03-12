@@ -1,7 +1,7 @@
 using System;
 using TargetTapping;
 
-namespace AHS_Touch_Game
+namespace TargetTapping
 {
 #if WINDOWS || XBOX
     static class Program

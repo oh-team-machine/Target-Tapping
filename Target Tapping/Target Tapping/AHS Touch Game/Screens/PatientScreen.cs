@@ -8,7 +8,8 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace AHS_Touch_Game.Screens
+/// THIS IS DEAD CODE, but Michael might want it in the future.
+namespace TargetTapping.Screens
 {
     class PatientScreen : GameLibrary.Screen
     {

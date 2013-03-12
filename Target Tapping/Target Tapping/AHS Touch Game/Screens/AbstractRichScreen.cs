@@ -64,7 +64,8 @@ namespace TargetTapping.Screens
         }
 
 	/// <summary>
-	///  This gets called by the Draw method, inside the SpriteBatch create.
+	///  This makes it unncessary to Begin/End the SpriteBatch. 
+        ///  This gets called by the Draw method, inside the SpriteBatch create.
 	/// </summary>
         abstract public void PreparedDraw(SpriteBatch SpriteBatch);
 
