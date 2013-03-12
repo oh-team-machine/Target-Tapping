@@ -50,6 +50,7 @@ namespace TargetTapping
             manager.Input.InitializeTouch(this.Window.Handle);
 #endif
 
+	    // Load the first screen. THE MENU SCREEN!
             MenuScreen ms = new MenuScreen();
 
             manager.AddScreen(ms, true);

@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 
 namespace TargetTapping.Screens
 {
@@ -14,6 +15,7 @@ namespace TargetTapping.Screens
     /// </summary>
     /// Including loading the content manager, getting the mouse state,
     /// setting up the SpriteBatch on Draw, etc.
+    /// Also, contains fun utility funcitons! Yay!
     abstract class AbstractRichScreen : GameLibrary.Screen
     {
         /// The directory for finding content.
@@ -61,5 +63,23 @@ namespace TargetTapping.Screens
 	///  This gets called by the Draw method, inside the SpriteBatch create.
 	/// </summary>
         abstract public void PreparedDraw(SpriteBatch SpriteBatch);
+
+	// UTILITY FUNCTIONS!
+
+	/// <summary>
+	/// Load a spiffy button from the specified resource.
+	/// </summary>
+	/// <param name="x">The x of the button's top-left corner.</param>
+	/// <param name="y">The y of the button's top-left corner.</param>
+	/// <param name="resource">The name of the texture to load.</param>
+	/// <returns></returns>
+        protected GameLibrary.UI.Button MakeButton(int x, int y, string resource)
+        {
+            Texture2D texture = content.Load<Texture2D>(resource);
+            Rectangle area = new Rectangle(x, y, texture.Width, texture.Height);
+
+	    return new GameLibrary.UI.Button(texture, area);
+        }
+
     }
 }
