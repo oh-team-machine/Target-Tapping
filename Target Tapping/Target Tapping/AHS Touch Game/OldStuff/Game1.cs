@@ -15,7 +15,7 @@ using System.Threading;
 
 namespace FirstGame
 {
-#if I_EVER_WANT_TO_SEE_THIS_CODE_EVER_AGAIN
+#if I_EVER_WANT_TO_COMPILE_THIS_CODE_EVER_AGAIN
     /// <summary>
     /// This is the main type for our target tapping game. 
     /// We may want to keep all GUI in here and define classes and methods to act

@@ -21,7 +21,18 @@ namespace TargetTapping.Screens
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-	        // Update stuff here!
+            // Update stuff here!
+            //if (keyboard.CurrentKey != "")
+            //{
+            //}
+	    
+            if (keyboard.CurrentKey == "l")
+            {
+                AddScreenAndChill(new LevelEditScreen());
+            }
+
+	    // Update the keyboard and all of its keys.
+            keyboard.Update(mouseState);
 
         }
 
