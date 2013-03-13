@@ -12,17 +12,32 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public TargetTapping.Back_end.Object Object { get; private set; }
         public ShapeCreationState ObjectFactory { get; private set; }
 
-        public Rectangle BoundingBox { get; set; }
-        public Point Position { get; set; }
+        public Rectangle BoundingBox { get; private set; }
+        public Point Position
+        {
+            get;
+            private set
+            {
+                Rectangle newBox = new Rectangle(
+                    value.X, value.Y,
+                    BoundingBox.Width, BoundingBox.Height);
+                BoundingBox = newBox;
+            }
+        }
 
         // The current state.
         public PaletteState CurrentState { get; private set; }
+
+        // TEMPORARY
+        bool shouldDraw = true;
 
         // Contains all of the managed states.
         private Dictionary<string, PaletteState> States = new Dictionary<string, PaletteState>();
 
         public Palette(int x, int y)
         {
+            Position = new Point(x, y);
+
             Object = null;
             ObjectFactory = new ShapeCreationState();
 
@@ -43,8 +58,27 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         }
 
+        public void Update(Microsoft.Xna.Framework.Input.MouseState state)
+        {
+            CurrentState.Update(state);
+        }
+
+        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        {
+            if (!shouldDraw)
+                return;
+
+            CurrentState.Draw(spriteBatch);
+        }
+
         public void Hide()
         {
+            shouldDraw = false;
+        }
+
+        public void Unhide()
+        {
+            shouldDraw = true;
         }
 
         // Changes the state on next update.
@@ -60,15 +94,5 @@ namespace TargetTapping.FrontEnd.LevelEditor
             }
         }
 
-        public void Update(Microsoft.Xna.Framework.Input.MouseState state)
-        {
-            CurrentState.Update(state);
-        }
-
-        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
-        {
-            CurrentState.Draw(spriteBatch);
-        }
-    
     }
 }
