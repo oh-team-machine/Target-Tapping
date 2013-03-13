@@ -172,10 +172,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\PatsScratchwork\BackendDevelopment\BackendDevelopment\BackendDevelopment\BackendDevelopment.csproj">
-      <Project>{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}</Project>
-      <Name>BackendDevelopment</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AHS Touch Game Content\Target Tapping Content.contentproj">
       <Project>{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}</Project>
       <Name>Target Tapping Content %28Content%29</Name>

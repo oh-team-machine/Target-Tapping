@@ -5,10 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Target Tapping", "Target Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Target Tapping Content", "Target Tapping\AHS Touch Game Content\Target Tapping Content.contentproj", "{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendDevelopment", "..\PatsScratchwork\BackendDevelopment\BackendDevelopment\BackendDevelopment\BackendDevelopment.csproj", "{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendDevelopmentContent", "..\PatsScratchwork\BackendDevelopment\BackendDevelopment\BackendDevelopmentContent\BackendDevelopmentContent.contentproj", "{D83E4D10-B1FC-4C11-89A4-3CE970964D21}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,12 +17,6 @@ Global
 		{6B71A6A7-E509-4681-903C-FBA866958010}.Release|x86.Build.0 = Release|x86
 		{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}.Debug|x86.ActiveCfg = Debug|x86
 		{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}.Release|x86.ActiveCfg = Release|x86
-		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Debug|x86.ActiveCfg = Debug|x86
-		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Debug|x86.Build.0 = Debug|x86
-		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Release|x86.ActiveCfg = Release|x86
-		{AA75E3E0-7D0E-4FE9-BF6A-A778EAAB194C}.Release|x86.Build.0 = Release|x86
-		{D83E4D10-B1FC-4C11-89A4-3CE970964D21}.Debug|x86.ActiveCfg = Debug|x86
-		{D83E4D10-B1FC-4C11-89A4-3CE970964D21}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

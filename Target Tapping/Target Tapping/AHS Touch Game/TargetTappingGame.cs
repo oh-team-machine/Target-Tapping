@@ -72,10 +72,6 @@ namespace TargetTapping
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
-
-            //!!!!HACK!!! -- Aaron says we need this.
-            //basically have to call this after a SpriteBatch.End() for Objects to work properly.
-            GraphicsDevice.Textures[0] = null;
         }
     }
 }
