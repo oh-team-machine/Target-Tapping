@@ -25,7 +25,10 @@ namespace TargetTapping
 
         public TargetTappingGame()
         {
+
             graphics = new GraphicsDeviceManager(this);
+           
+
             Content.RootDirectory = "Content";
 
             graphics.PreferredBackBufferWidth = screenResolution.Width;
@@ -47,6 +50,7 @@ namespace TargetTapping
         private void InitializeGame()
         {
             manager = new GameManager(this);
+            this.manager.graphics = graphics;
 
             Components.Add(manager);
 

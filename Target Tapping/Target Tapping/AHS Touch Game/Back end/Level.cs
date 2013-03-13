@@ -20,6 +20,7 @@ namespace TargetTapping.Back_end
         public bool multiSelect { get; set; }
         public int upTime { get; set; }
         public int holdTime { get; set; }
+        public string levelName { get; set; }
 
         public void addObject(TargetTapping.Back_end.Object objectPassed)
         {

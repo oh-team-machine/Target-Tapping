@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping
 {
@@ -18,6 +20,8 @@ namespace TargetTapping
         public int UpTime { get; set; }
 
         public int HoldTime { get; set; }
+
+        public GraphicsDeviceManager graphics { get; set; }
 
         public GameManager(Microsoft.Xna.Framework.Game game)
             : base(game)
