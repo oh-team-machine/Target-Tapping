@@ -83,7 +83,7 @@ namespace TargetTapping.Screens
             Texture2D texture = content.Load<Texture2D>(resource);
             Rectangle area = new Rectangle(x, y, texture.Width, texture.Height);
 
-	    return new GameLibrary.UI.Button(texture, area);
+	        return new GameLibrary.UI.Button(texture, area);
         }
 
 	    /// <summary>
