@@ -146,7 +146,7 @@ namespace BackendDevelopment
                 DrawShape mydraw = new DrawShape();
                 //Texture2D exitText = mydraw.drawShape("Circle", 100, graphics);
                 Rectangle exitRect = new Rectangle(500, 500, 100, 100);
-                Texture2D exitText = new CreateNumber("5", exitRect, Color.Green).drawNumber(graphics, Content);
+                Texture2D exitText = new DrawNumber("5", exitRect, Color.Green).drawNumber(graphics, Content);
                 Button temp = new Button(exitText, exitRect);
                 buttonList.Add(temp);
             }
@@ -157,7 +157,7 @@ namespace BackendDevelopment
                 DrawShape mydraw = new DrawShape();
                 //Texture2D exitText = mydraw.drawShape("Triangle", 50, graphics);
                 Rectangle exitRect = new Rectangle(500, 100, 100, 100);
-                Texture2D exitText = new CreateLetter("G", exitRect, Color.Green).drawLetter(graphics, Content);
+                Texture2D exitText = new DrawLetter("G", exitRect, Color.Green).drawLetter(graphics, Content);
                 Button temp = new Button(exitText, exitRect);
                 buttonList.Add(temp);
             }

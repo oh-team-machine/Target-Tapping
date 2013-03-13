@@ -16,7 +16,7 @@ namespace BackendDevelopment.BackEnd
         //int = myInt;
 
         //Constructor for this class
-        public Texture2D drawShape(string shape, int size, GraphicsDeviceManager graphics)
+        public static Texture2D drawShape(string shape, int size, GraphicsDeviceManager graphics)
         {
             Texture2D texture;
             if (shape == "Circle")
