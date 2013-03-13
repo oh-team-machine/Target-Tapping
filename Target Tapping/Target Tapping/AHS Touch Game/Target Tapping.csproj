@@ -116,6 +116,8 @@
     <Compile Include="Back end\drawShape.cs" />
     <Compile Include="Back end\levelLoad.cs" />
     <Compile Include="Back end\saveLevel.cs" />
+    <Compile Include="FrontEnd\Key.cs" />
+    <Compile Include="FrontEnd\Keyboard.cs" />
     <Compile Include="FrontEnd\Updatable.cs" />
     <Compile Include="OldStuff\Game1.cs" />
     <Compile Include="Manager.cs" />

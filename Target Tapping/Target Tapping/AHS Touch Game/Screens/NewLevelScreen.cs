@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using TargetTapping.FrontEnd;
 
 namespace TargetTapping.Screens
 {
     class NewLevelScreen : AbstractRichScreen
     {
+        private Keyboard keyboard;
 
         public override void LoadContent()
         {
             base.LoadContent();
 
-	        // Load buttons 'n' stuff, yo!
+            keyboard = new Keyboard(401, 520, content);
+            keyboard.LoadContent();
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -24,7 +27,7 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch SpriteBatch)
         {
-	    
+	    keyboard.Draw(SpriteBatch);
         }
     }
 }
