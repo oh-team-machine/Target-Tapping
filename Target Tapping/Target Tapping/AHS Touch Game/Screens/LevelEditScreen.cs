@@ -64,6 +64,7 @@ namespace TargetTapping.Screens
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            
 
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
@@ -78,15 +79,6 @@ namespace TargetTapping.Screens
                 button.Update(mouseState);
             }
 
-            // Update the state of all objects that have been created in this level on the level grid
-            foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
-            {
-                foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
-                {
-                    myObject.Update(mouseState);
-                }
-            }
-
             // This foreach loop will check if a button in the list of buttonlists
             // is clicked and if it is then we are going to move its position.
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
@@ -95,11 +87,27 @@ namespace TargetTapping.Screens
                 {
                     if (myObject.IsClicked())
                     {
-                        // Do stuff!
+                        //now were going to set the current clicked object on the leveleditor grid 
+                        //to have its property shouldIbeDrawn = false.
+                        myObject.shouldIbeDrawn = false;
+                        //now make a temporary reference to this object so that once we register a 
+                        //new mouse click anywhere on the level editor grid we set the reference to
+                        //have the new coordinates and put its shouldIBeDrawn property back to true;
+
                     }
+
+                    // Update the state of all objects that have been created in this level on the level grid
                     myObject.Update(mouseState);
                 }
             }
+
+            //now were going to test if the mouse has been clicked anywhere on the leveleditor grid
+            if(mouseState.LeftButton == ButtonState.Pressed){
+
+                //
+            }
+
+
 
             base.Update(gameTime);
         }
