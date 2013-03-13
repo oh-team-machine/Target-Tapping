@@ -243,7 +243,7 @@ namespace BackendDevelopment
             SpriteBatch.End();
             //!!!!HACK!!!
             //basically have to call this after a SpriteBatch.End() for Objects to work properly.
-            GraphicsDevice.Textures[0] = null; 
+            GraphicsDevice.Textures[0] = null;
 
             base.Draw(gameTime);
         }

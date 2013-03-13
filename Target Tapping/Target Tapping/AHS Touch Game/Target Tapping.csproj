@@ -13,7 +13,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <XnaProfile>HiDef</XnaProfile>
+    <XnaProfile>Reach</XnaProfile>
     <XnaCrossPlatformGroupID>581b55a7-2af7-4a91-96f5-68a6c4935d53</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
@@ -115,9 +115,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Back end\createShape.cs" />
-    <Compile Include="Back end\drawShape.cs" />
+    <Compile Include="Back end\DrawLetter.cs" />
+    <Compile Include="Back end\DrawNumber.cs" />
+    <Compile Include="Back end\DrawShape.cs" />
     <Compile Include="Back end\levelLoad.cs" />
+    <Compile Include="Back end\Object.cs" />
     <Compile Include="Back end\saveLevel.cs" />
     <Compile Include="FrontEnd\Key.cs" />
     <Compile Include="FrontEnd\Keyboard.cs" />
