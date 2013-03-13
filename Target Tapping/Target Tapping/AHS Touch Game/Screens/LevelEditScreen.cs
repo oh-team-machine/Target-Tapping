@@ -64,9 +64,6 @@ namespace TargetTapping.Screens
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            //Get the current state of the Mouse
-            MouseState aMouse = Mouse.GetState();
-
 
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
@@ -85,7 +82,7 @@ namespace TargetTapping.Screens
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
             {
                 foreach (TargetTapping.Back_end.Object myObject in  myListofObjects)
-                    myObject.Update(aMouse);
+                    myObject.Update(mouseState);
             }
 
             base.Update(gameTime);
