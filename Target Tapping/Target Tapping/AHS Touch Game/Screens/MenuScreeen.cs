@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
+using Microsoft.Xna.Framework;
 
 namespace TargetTapping.Screens
 {
@@ -11,6 +12,8 @@ namespace TargetTapping.Screens
     {
 
         private Button btnNew, btnLoad, btnExit;
+        Texture2D myTitle;
+        Vector2 myTitlePosition = new Vector2(250, 0);
 
         public override void LoadContent()
         {
@@ -19,6 +22,7 @@ namespace TargetTapping.Screens
             btnNew = MakeButton(340, 200, "GUI/newButton");
             btnLoad = MakeButton(340, 350, "GUI/loadButton");
             btnExit = MakeButton(340, 500, "GUI/exitButton");
+            myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
 
         }
 
@@ -46,12 +50,14 @@ namespace TargetTapping.Screens
 
         }
 
-        public override void PreparedDraw(SpriteBatch SpriteBatch)
+        public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-	    // Draw all dem buttons.
-            btnNew.Draw(SpriteBatch);
-            btnLoad.Draw(SpriteBatch);
-            btnExit.Draw(SpriteBatch);
+	        // Draw all dem buttons.
+            btnNew.Draw(spriteBatch);
+            btnLoad.Draw(spriteBatch);
+            btnExit.Draw(spriteBatch);
+
+            spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
         }
 
     }

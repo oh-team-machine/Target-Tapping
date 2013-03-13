@@ -22,7 +22,7 @@ namespace TargetTapping.Screens
         public const string CONTENT_DIR = "Content";
 
 
-        protected ContentManager content;
+        protected ContentManager Content;
         protected MouseState mouseState;
 
         /// IMPORTANT! THIS *MUST* BE CALLED BEFORE ANYTHING HAPPENS
@@ -31,12 +31,12 @@ namespace TargetTapping.Screens
         /// should always be the first line.
         public override void LoadContent()
         {
-            content = new ContentManager(ScreenManager.Game.Services, CONTENT_DIR);
+            Content = new ContentManager(ScreenManager.Game.Services, CONTENT_DIR);
         }
 
         public override void UnloadContent()
         {
-            content.Unload();
+            Content.Unload();
         }
 
         public override void HandleInput(Microsoft.Xna.Framework.GameTime gameTime, GameLibrary.InputManager input)
@@ -67,7 +67,7 @@ namespace TargetTapping.Screens
 	    ///  This makes it unncessary to Begin/End the SpriteBatch. 
         ///  This gets called by the Draw method, inside the SpriteBatch create.
 	    /// </summary>
-        abstract public void PreparedDraw(SpriteBatch SpriteBatch);
+        abstract public void PreparedDraw(SpriteBatch spriteBatch);
 
 	    // UTILITY FUNCTIONS!
 
@@ -80,7 +80,7 @@ namespace TargetTapping.Screens
 	    /// <returns></returns>
         protected GameLibrary.UI.Button MakeButton(int x, int y, string resource)
         {
-            Texture2D texture = content.Load<Texture2D>(resource);
+            Texture2D texture = Content.Load<Texture2D>(resource);
             Rectangle area = new Rectangle(x, y, texture.Width, texture.Height);
 
 	    return new GameLibrary.UI.Button(texture, area);
