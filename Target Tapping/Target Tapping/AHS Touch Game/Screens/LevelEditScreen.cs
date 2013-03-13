@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
+using TargetTapping.Back_end;
 
 namespace TargetTapping.Screens
 {
@@ -24,6 +25,9 @@ namespace TargetTapping.Screens
 
         // The level editor's got a bunch of buttons!
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
+
+        // Declare a new level object for the level editor screen to load in loadContent
+        Level myLevel = new Level();
 
         // Title stuff, apparently.
         Texture2D grid;
@@ -66,10 +70,16 @@ namespace TargetTapping.Screens
             }
 
 
-            // Update the state of all buttons.
+            // Update the state of all buttons
             foreach (var button in btns.Values)
             {
                 button.Update(mouseState);
+            }
+
+            // Update the state of all objects that have been created in this level
+            foreach (Object myBut in myLevel.objectList)
+            {
+                myBut.Update(aMouse);
             }
 
             base.Update(gameTime);
