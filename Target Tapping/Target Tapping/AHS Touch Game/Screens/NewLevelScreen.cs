@@ -13,14 +13,13 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
 
-	    // Load buttons 'n' stuff, yo!
+	        // Load buttons 'n' stuff, yo!
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-	    // Update stuff here!
+	        // Update stuff here!
 
-            base.Update(gameTime);
         }
 
         public override void PreparedDraw(SpriteBatch SpriteBatch)
