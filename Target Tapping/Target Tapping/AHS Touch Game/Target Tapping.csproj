@@ -151,7 +151,6 @@
     <Compile Include="Screens\PatientScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Game6.ico" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
