@@ -73,7 +73,15 @@ namespace TargetTapping.Screens
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
             {
-                ScreenManager.RemoveScreen(this);
+                //uncomment this to get things back to normal
+                //ScreenManager.RemoveScreen(this);
+
+
+              //comment out the next 3 lines to get rid of test code.
+                TargetTapping.Back_end.Object testMoving = 
+                    new TargetTapping.Back_end.Object("Shape", Color.Red, new Rectangle(500,500,100,100), "Circle", false, /*this needs to set  */ null,content);
+                this.myLevel.addObject(testMoving);
+
             }
 
 
