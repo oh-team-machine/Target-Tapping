@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Target Tapping", "Target Tapping\AHS Touch Game\Target Tapping.csproj", "{6B71A6A7-E509-4681-903C-FBA866958010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Target Tapping Content", "Target Tapping\AHS Touch Game Content\Target Tapping Content.contentproj", "{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B71A6A7-E509-4681-903C-FBA866958010}.Debug|x86.ActiveCfg = Debug|x86
+		{6B71A6A7-E509-4681-903C-FBA866958010}.Debug|x86.Build.0 = Debug|x86
+		{6B71A6A7-E509-4681-903C-FBA866958010}.Release|x86.ActiveCfg = Release|x86
+		{6B71A6A7-E509-4681-903C-FBA866958010}.Release|x86.Build.0 = Release|x86
+		{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}.Debug|x86.ActiveCfg = Debug|x86
+		{F86277D8-A9FC-42BA-BBB4-768DD85C21FF}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
