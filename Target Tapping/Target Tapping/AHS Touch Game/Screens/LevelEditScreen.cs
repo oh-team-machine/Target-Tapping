@@ -95,8 +95,7 @@ namespace TargetTapping.Screens
                 {
                     if (myObject.IsClicked())
                     {
-                        Console.WriteLine("Your but has been clicked");
-                        myObject..Rect = new Rectangle(750, 750, 50, 50);
+                        // Do stuff!
                     }
                     myObject.Update(mouseState);
                 }

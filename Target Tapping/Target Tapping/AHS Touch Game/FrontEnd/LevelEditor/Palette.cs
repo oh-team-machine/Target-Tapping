@@ -15,7 +15,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public Rectangle BoundingBox { get; private set; }
         public Point Position
         {
-            get;
+            get
+            {
+                return BoundingBox.Location;
+            }
             private set
             {
                 Rectangle newBox = new Rectangle(
