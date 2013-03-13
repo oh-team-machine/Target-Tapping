@@ -9,7 +9,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 {
     class Palette : Updatable
     {
-        public Object Object { get; private set; }
+        public TargetTapping.Back_end.Object Object { get; private set; }
         public ShapeCreationState ObjectFactory { get; private set; }
 
         public Rectangle BoundingBox { get; set; }
