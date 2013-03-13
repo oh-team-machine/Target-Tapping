@@ -6,28 +6,23 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
+    // State for when the user selects the position on the screen.
     class PositionPaletteState : PaletteState
     {
-        private Palette parent;
 
-        public PositionPaletteState(Palette p)
+        public PositionPaletteState(Palette p) : base(p) { }
+
+        public override void Update(MouseState mouse)
         {
-            parent = p;
-            // Immediately hide the palette
-            parent.Hide();
-        }
-
-
-        public void Update(MouseState mouse)
-        {
-            // Should check if mouse state is clicked.
+            // Assume the click is the position.
             if (mouse.LeftButton == ButtonState.Pressed)
             {
-                
+                //int x = mouse.X, y = mouse.Y;
+                parent.RequestStateChange("Initial");
             }
         }
 
-        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             // Don't need to draw anything!
         }

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
-    class ShapePaletteState : PaletteState
+    class AlphPaletteState : PaletteState
     {
+        public AlphPaletteState(Palette p) : base(p) { }
 
-        public ShapePaletteState(Palette p) : base(p) { }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
