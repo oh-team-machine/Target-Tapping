@@ -32,8 +32,8 @@ namespace BackendDevelopment
         private Texture2D menuBackground;
         private Rectangle menuRect;
 
-        private Button exitButton;
-        private Button patientButton;
+        private BackendDevelopment.BackEnd.Object testObject1;
+        private BackendDevelopment.BackEnd.Object testObject2;
         private Button optionsButton;
 
         //The screen size will change to 1080P at the end
@@ -98,9 +98,7 @@ namespace BackendDevelopment
            // this.menuBackground = Content.Load<Texture2D>("Sprites/MenuBackground");
 
             //Buttons are 300 x 75 but lets change it to have the drawShape method make the shape for us
-            DrawShape mydraw = new DrawShape();
-            Texture2D exitText = mydraw.drawShape("Circle", 100, graphics);
-            Texture2D patientText = mydraw.drawShape("Square", 100, graphics);
+            
            // Texture2D optionsText = mydraw.drawShape("Rectanlge", 100, graphics);
 
             //Texture2D exitText = Content.Load<Texture2D>("Sprites/ExitButton");
@@ -121,9 +119,9 @@ namespace BackendDevelopment
            // Rectangle exitRect = new Rectangle(buttonX, optionsRect.Y + buttonSpace + exitText.Height, exitText.Width, exitText.Height);
             Rectangle exitRect = new Rectangle(100, 500, 100, 100);
             Rectangle patientRect = new Rectangle(100, 100, 100, 100);
-            
-            exitButton = new Button(exitText, exitRect);
-            patientButton = new Button(patientText, patientRect);
+
+            testObject1= new BackendDevelopment.BackEnd.Object("Star", Color.DarkSlateGray, exitRect, "Shape", false, graphics, Content);
+            testObject2 = new BackendDevelopment.BackEnd.Object("5", Color.DarkSlateGray, patientRect, "Number", false, graphics, Content);
             //optionsButton = new GameLibrary.UI.Button(optionsText, optionsRect);
 
 
@@ -137,11 +135,27 @@ namespace BackendDevelopment
             //Get the current state of the Mouse
             MouseState aMouse = Mouse.GetState();
 
-            exitButton.Update(aMouse);
-            patientButton.Update(aMouse);
+            testObject1.Update(aMouse);
+            testObject2.Update(aMouse);
             //optionsButton.Update(aMouse);
 
-            if (exitButton.IsClicked())
+
+            foreach (Button myBut in buttonList)
+            {
+                myBut.Update(aMouse);
+            }
+
+            foreach (Button myBut in buttonList)
+            {
+                if (myBut.IsClicked())
+                {
+                    Console.WriteLine("Your but has been clicked");
+                    myBut.Rect = new Rectangle(750, 750, 50, 50);
+                }
+
+            }
+
+            if (testObject1.IsClicked())
             {
                 DrawShape mydraw = new DrawShape();
                 //Texture2D exitText = mydraw.drawShape("Circle", 100, graphics);
@@ -151,7 +165,7 @@ namespace BackendDevelopment
                 buttonList.Add(temp);
             }
 
-            else if (patientButton.IsClicked())
+            else if (testObject2.IsClicked())
             {
 
                 DrawShape mydraw = new DrawShape();
@@ -215,8 +229,8 @@ namespace BackendDevelopment
             SpriteBatch.Begin();
             //SpriteBatch.Draw(menuBackground, menuRect, Color.Blue);
 
-            exitButton.Draw(SpriteBatch);
-            patientButton.Draw(SpriteBatch);
+            testObject1.Draw(SpriteBatch);
+            testObject2.Draw(SpriteBatch);
             //optionsButton.Draw(SpriteBatch);
 
 
@@ -227,7 +241,9 @@ namespace BackendDevelopment
 
 
             SpriteBatch.End();
-
+            //!!!!HACK!!!
+            //basically have to call this after a SpriteBatch.End() for Objects to work properly.
+            GraphicsDevice.Textures[0] = null; 
 
             base.Draw(gameTime);
         }

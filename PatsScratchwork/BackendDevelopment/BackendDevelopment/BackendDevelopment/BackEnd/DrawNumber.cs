@@ -40,6 +40,10 @@ namespace BackendDevelopment.BackEnd
                 {
                     data[i] = Color.Transparent;
                 }
+                else if (data[i] == Color.Transparent)
+                {
+
+                }
                 else
                 {
                     data[i] = color;
@@ -47,11 +51,7 @@ namespace BackendDevelopment.BackEnd
             }
 
             // Once you have finished changing data, set it back to the texture:
-
             texture.SetData(data);
-            //SpriteBatch spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
-            //spriteBatch.Begin();
-            //spriteBatch.Draw(texture, rectangle, Color.Green);
             return texture;
         }
 

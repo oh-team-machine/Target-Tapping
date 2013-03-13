@@ -39,6 +39,10 @@ namespace BackendDevelopment.BackEnd
                 {
                     data[i] = Color.Transparent;
                 }
+                else if (data[i] == Color.Transparent)
+                {
+
+                }
                 else
                 {
                     data[i] = color;

@@ -81,9 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackEnd\CreateNumber.cs" />
-    <Compile Include="BackEnd\CreateLetter.cs" />
-    <Compile Include="BackEnd\CreateShape.cs" />
+    <Compile Include="BackEnd\DrawNumber.cs" />
+    <Compile Include="BackEnd\DrawLetter.cs" />
+    <Compile Include="BackEnd\Object.cs" />
     <Compile Include="BackEnd\DrawShape.cs" />
     <Compile Include="BackEnd\LevelLoad.cs" />
     <Compile Include="BackEnd\SaveLevel.cs" />
