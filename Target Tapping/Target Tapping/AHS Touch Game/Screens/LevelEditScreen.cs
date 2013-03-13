@@ -81,8 +81,25 @@ namespace TargetTapping.Screens
             // Update the state of all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
             {
-                foreach (TargetTapping.Back_end.Object myObject in  myListofObjects)
+                foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                {
                     myObject.Update(mouseState);
+                }
+            }
+
+            // This foreach loop will check if a button in the list of buttonlists
+            // is clicked and if it is then we are going to move its position.
+            foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
+            {
+                foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                {
+                    if (myObject.IsClicked())
+                    {
+                        Console.WriteLine("Your but has been clicked");
+                        myObject..Rect = new Rectangle(750, 750, 50, 50);
+                    }
+                    myObject.Update(mouseState);
+                }
             }
 
             base.Update(gameTime);
@@ -94,6 +111,15 @@ namespace TargetTapping.Screens
             foreach (var button in btns.Values)
             {
                 button.Draw(spriteBatch);
+            }
+
+            // draw the all objects that have been created in this level on the level grid
+            foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
+            {
+                foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                {
+                    myObject.Draw(spriteBatch);
+                }
             }
 
             // Draw dat grid, yo.
