@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
+using Microsoft.Xna.Framework.Input;
 
 namespace TargetTapping.Screens
 {
