@@ -9,6 +9,9 @@ namespace TargetTapping
     /// </summary>
     class GameManager : GameLibrary.ScreenManager
     {
+        // Hacky stuff!
+        public static GameManager GlobalInstance { get; private set; }
+
         public String PatientName { get; set; }
 
         public int Repetitions { get; set; }
@@ -21,6 +24,7 @@ namespace TargetTapping
 
         public int HoldTime { get; set; }
 
+
         public GraphicsDeviceManager graphics { get; set; }
 
         public GameManager(Microsoft.Xna.Framework.Game game)
@@ -30,6 +34,8 @@ namespace TargetTapping
             this.Repetitions = 10;
             this.Time = 0.0f;
             this.Missed = 0;
+
+            GlobalInstance = this;
         }
 
     }
