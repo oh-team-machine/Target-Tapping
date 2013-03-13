@@ -30,6 +30,10 @@ namespace TargetTapping.Screens
         // Declare a new level object for the level editor screen to load in loadContent
         Level myLevel = new Level();
 
+        // Declare a new object that will be used to reference an object that we are moving
+        // around on the levelEditor screen.
+        private TargetTapping.Back_end.Object objBeingMoved = null;
+
         // Title stuff, apparently.
         Texture2D grid;
         Vector2 gridPosition = (new Vector2(0, 110));
@@ -93,6 +97,7 @@ namespace TargetTapping.Screens
                         //now make a temporary reference to this object so that once we register a 
                         //new mouse click anywhere on the level editor grid we set the reference to
                         //have the new coordinates and put its shouldIBeDrawn property back to true;
+                        this.objBeingMoved = myObject;
 
                     }
 
@@ -104,10 +109,24 @@ namespace TargetTapping.Screens
             //now were going to test if the mouse has been clicked anywhere on the leveleditor grid
             if(mouseState.LeftButton == ButtonState.Pressed){
 
-                //
+                if (this.objBeingMoved != null)
+                {
+                    //need to implement a check to see if the spot we are clicking in intersects within the
+                    //rectangle of the grid.
+
+                    //set new position of the objectbeingMoved to wherever the mouse was just clicked.
+                    this.objBeingMoved.rectangle = new Rectangle(mouseState.X, mouseState.Y,
+                        this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
+
+                    //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
+                    //So this will now redraw the object at the new position.
+                    this.objBeingMoved.shouldIbeDrawn = true;
+
+                    //now remove the reference so we no long change the actual object in the list.
+                    this.objBeingMoved = null;
+                }
+
             }
-
-
 
             base.Update(gameTime);
         }
