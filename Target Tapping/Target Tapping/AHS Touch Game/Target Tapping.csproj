@@ -125,6 +125,14 @@
     <Compile Include="Back end\ShapeCreationState.cs" />
     <Compile Include="FrontEnd\Key.cs" />
     <Compile Include="FrontEnd\Keyboard.cs" />
+    <Compile Include="FrontEnd\LevelEditor\AlphPaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\ColorPaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\NumPaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\Palette.cs" />
+    <Compile Include="FrontEnd\LevelEditor\PaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\PositionPaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\ShapePaletteState.cs" />
+    <Compile Include="FrontEnd\LevelEditor\SizePaletteState.cs" />
     <Compile Include="FrontEnd\Updatable.cs" />
     <Compile Include="OldStuff\Game1.cs" />
     <Compile Include="Manager.cs" />

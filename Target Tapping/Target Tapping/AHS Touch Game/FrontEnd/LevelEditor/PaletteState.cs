@@ -5,7 +5,16 @@ using System.Text;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
-    public interface PaletteState : Updatable
+    // Every PaletteState takes in the parent.
+    abstract class PaletteState : Updatable
     {
+        protected Palette parent;
+        public PaletteState(Palette p) {
+            parent = p;
+        }
+
+        abstract public void Update(Microsoft.Xna.Framework.Input.MouseState state);
+
+        abstract public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch);
     }
 }
