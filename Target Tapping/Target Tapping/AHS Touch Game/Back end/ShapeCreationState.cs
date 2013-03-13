@@ -88,12 +88,12 @@ namespace TargetTapping.Back_end
         }
 
         //getter and setter for coordinates
-        public Rectangle Coordinates
+        public Point Coordinates
         {
             //set the shape type 
             set { this._coordinatesObj = value; }
             //get the shape type  
-            get { return (Rectangle)this._coordinatesObj; }
+            get { return (Point)this._coordinatesObj; }
         }
 
 

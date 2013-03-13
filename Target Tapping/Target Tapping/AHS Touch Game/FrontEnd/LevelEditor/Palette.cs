@@ -9,7 +9,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 {
     class Palette : Updatable
     {
-        public TargetTapping.Back_end.Object Object { get; private set; }
+
         public ShapeCreationState ObjectFactory { get; private set; }
 
         public Rectangle BoundingBox { get; private set; }
@@ -41,7 +41,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
         {
             Position = new Point(x, y);
 
-            Object = null;
             ObjectFactory = new ShapeCreationState();
 
             // Instantiate new start states.
@@ -55,15 +54,22 @@ namespace TargetTapping.FrontEnd.LevelEditor
             States.Add("Position", new PositionPaletteState(this));
 
             // Setup the initial, and next states.
-            States.Add("INITIAL", States["Shape"]);
-            States.Add("NEXT", States["Size"]);
-            CurrentState = States["INITIAL"];
-
+            States.Add("INITIAL", States["Shape"]); // First is always Shape
+            States.Add("NEXT", States["Size"]); // Second is always size, then colour, then position
+            CurrentState = States["INITIAL"]; // Set the current state to the initial state.
         }
 
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
             CurrentState.Update(state);
+        }
+
+        // Resets the ObjectFactory.
+        public void Reset()
+        {
+            // Simply get a new ShapeCreationState and let the
+            // GC deal with the old one.
+            ObjectFactory = new ShapeCreationState();
         }
 
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
