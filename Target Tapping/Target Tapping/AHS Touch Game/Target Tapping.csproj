@@ -18,6 +18,7 @@
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -30,7 +31,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -120,9 +120,7 @@
     <Compile Include="Back end\DrawNumber.cs" />
     <Compile Include="Back end\DrawShape.cs" />
     <Compile Include="Back end\levelLoad.cs" />
-    <Compile Include="Back end\Object.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    <Compile Include="Back end\Object.cs" />
     <Compile Include="Back end\saveLevel.cs" />
     <Compile Include="Back end\ShapeCreationState.cs" />
     <Compile Include="FrontEnd\Key.cs" />
@@ -181,6 +179,9 @@
       <Name>Target Tapping Content %28Content%29</Name>
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
