@@ -15,7 +15,7 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
 
-            keyboard = new Keyboard(401, 520, Content);
+            keyboard = new Keyboard(401, 520, content);
             keyboard.LoadContent();
         }
 

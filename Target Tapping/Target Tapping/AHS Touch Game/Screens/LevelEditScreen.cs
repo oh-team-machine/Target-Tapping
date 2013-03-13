@@ -53,7 +53,7 @@ namespace TargetTapping.Screens
             btns.Add("LessHold",  MakeButton(875,  30, "LevelEditorGUI/lessButton"));
 
             // Also, the grid.
-            grid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+            grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
 
         }
 

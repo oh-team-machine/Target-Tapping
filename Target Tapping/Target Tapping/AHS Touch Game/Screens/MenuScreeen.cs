@@ -22,7 +22,7 @@ namespace TargetTapping.Screens
             btnNew = MakeButton(340, 200, "GUI/newButton");
             btnLoad = MakeButton(340, 350, "GUI/loadButton");
             btnExit = MakeButton(340, 500, "GUI/exitButton");
-            myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
+            myTitle = content.Load<Texture2D>("GUI/targetTappingGame");
 
         }
 

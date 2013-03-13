@@ -22,7 +22,7 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
 
-            Background = Content.Load<Texture2D>("GUI/topHeaderBkGround"); 
+            Background = content.Load<Texture2D>("GUI/topHeaderBkGround"); 
 
         }
 

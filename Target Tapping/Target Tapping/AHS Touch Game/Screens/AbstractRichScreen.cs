@@ -22,7 +22,7 @@ namespace TargetTapping.Screens
         public const string CONTENT_DIR = "Content";
 
 
-        protected ContentManager Content;
+        protected ContentManager content;
         protected MouseState mouseState;
 
         /// IMPORTANT! THIS *MUST* BE CALLED BEFORE ANYTHING HAPPENS
@@ -31,12 +31,12 @@ namespace TargetTapping.Screens
         /// should always be the first line.
         public override void LoadContent()
         {
-            Content = new ContentManager(ScreenManager.Game.Services, CONTENT_DIR);
+            content = new ContentManager(ScreenManager.Game.Services, CONTENT_DIR);
         }
 
         public override void UnloadContent()
         {
-            Content.Unload();
+            content.Unload();
         }
 
         public override void HandleInput(Microsoft.Xna.Framework.GameTime gameTime, GameLibrary.InputManager input)
@@ -80,7 +80,7 @@ namespace TargetTapping.Screens
 	    /// <returns></returns>
         protected GameLibrary.UI.Button MakeButton(int x, int y, string resource)
         {
-            Texture2D texture = Content.Load<Texture2D>(resource);
+            Texture2D texture = content.Load<Texture2D>(resource);
             Rectangle area = new Rectangle(x, y, texture.Width, texture.Height);
 
 	    return new GameLibrary.UI.Button(texture, area);
