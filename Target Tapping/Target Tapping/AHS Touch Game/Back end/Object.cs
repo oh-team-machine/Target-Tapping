@@ -16,6 +16,7 @@ namespace TargetTapping.Back_end
     {
         private bool bMouseDownInside;
         private bool bIsClicked;
+        private bool shouldIBeDrawn;
 
         //Constructor for this class
         public Object(string ObjectPassedIn, Color colorPassedIn, Rectangle rectanglePassedIn,
@@ -29,6 +30,8 @@ namespace TargetTapping.Back_end
             texture = grabObject(graphics, content);
             bMouseDownInside = false;
             bIsClicked = false;
+            this.shouldIBeDrawn = true;
+
         }
 
         //Creates Buttons on the screen.
@@ -79,13 +82,19 @@ namespace TargetTapping.Back_end
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (bMouseDownInside)
-            {
-                spriteBatch.Draw(texture, new Vector2(rectangle.X + rectangle.Width / 2, rectangle.Y + rectangle.Height / 2), 
-                    null, Color.DarkViolet, 0.0f, new Vector2(rectangle.Width / 2f, rectangle.Height / 2f), 0.8f, SpriteEffects.None, 0);
+            //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
+            if(this.shouldIBeDrawn){
+
+                if (bMouseDownInside)
+                {
+                    spriteBatch.Draw(texture, new Vector2(rectangle.X + rectangle.Width / 2, rectangle.Y + rectangle.Height / 2), 
+                        null, Color.DarkViolet, 0.0f, new Vector2(rectangle.Width / 2f, rectangle.Height / 2f), 0.8f, SpriteEffects.None, 0);
+                }
+                else{
+
+                    spriteBatch.Draw(texture, rectangle, color);
+                }
             }
-            else
-                spriteBatch.Draw(texture, rectangle, color);
         }
 
         public bool IsClicked()
@@ -103,5 +112,6 @@ namespace TargetTapping.Back_end
         public string shapeType { get; set; }
         public bool multiSelect { get; set; }
         public Texture2D texture { get; set; }
+        public bool shouldIbeDrawn { get; set; }
     }
 }
