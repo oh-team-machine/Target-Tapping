@@ -31,14 +31,14 @@ namespace TargetTapping.Screens
                 AddScreenAndChill(new LevelEditScreen());
             }
 
-	    // Update the keyboard and all of its keys.
+	        // Update the keyboard and all of its keys.
             keyboard.Update(mouseState);
 
         }
 
         public override void PreparedDraw(SpriteBatch SpriteBatch)
         {
-	    keyboard.Draw(SpriteBatch);
+            keyboard.Draw(SpriteBatch);
         }
     }
 }

@@ -46,12 +46,12 @@ namespace TargetTapping.Screens
             base.HandleInput(gameTime, input);
         }
 
-	/// <summary>
-	/// Use the base class when you want to draw things in a SpriteBatch,
+	    /// <summary>
+	    /// Use the base class when you want to draw things in a SpriteBatch,
         /// but don't want to manually setup the SpriteBatch.
-	/// </summary>
-	/// <param name="gameTime"></param>
-	/// <param name="transform"></param>
+	    /// </summary>
+	    /// <param name="gameTime"></param>
+	    /// <param name="transform"></param>
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime, Microsoft.Xna.Framework.Matrix transform)
         {
             SpriteBatch SpriteBatch = ScreenManager.SpriteBatch;
@@ -63,21 +63,21 @@ namespace TargetTapping.Screens
             SpriteBatch.End();
         }
 
-	/// <summary>
-	///  This makes it unncessary to Begin/End the SpriteBatch. 
+	    /// <summary>
+	    ///  This makes it unncessary to Begin/End the SpriteBatch. 
         ///  This gets called by the Draw method, inside the SpriteBatch create.
-	/// </summary>
+	    /// </summary>
         abstract public void PreparedDraw(SpriteBatch SpriteBatch);
 
-	// UTILITY FUNCTIONS!
+	    // UTILITY FUNCTIONS!
 
-	/// <summary>
-	/// Load a spiffy button from the specified resource.
-	/// </summary>
-	/// <param name="x">The x of the button's top-left corner.</param>
-	/// <param name="y">The y of the button's top-left corner.</param>
-	/// <param name="resource">The name of the texture to load.</param>
-	/// <returns></returns>
+	    /// <summary>
+	    /// Load a spiffy button from the specified resource.
+	    /// </summary>
+	    /// <param name="x">The x of the button's top-left corner.</param>
+	    /// <param name="y">The y of the button's top-left corner.</param>
+	    /// <param name="resource">The name of the texture to load.</param>
+	    /// <returns></returns>
         protected GameLibrary.UI.Button MakeButton(int x, int y, string resource)
         {
             Texture2D texture = content.Load<Texture2D>(resource);
@@ -86,11 +86,11 @@ namespace TargetTapping.Screens
 	    return new GameLibrary.UI.Button(texture, area);
         }
 
-	/// <summary>
-	/// Adds the screen to the manager and chills out.
-	/// </summary>
-	/// <param name="screen"></param>
-	/// (That is, it stops redrawing and taking input).
+	    /// <summary>
+	    /// Adds the screen to the manager and chills out.
+	    /// </summary>
+	    /// <param name="screen"></param>
+	    /// (That is, it stops redrawing and taking input).
         protected void AddScreenAndChill(GameLibrary.Screen screen)
         {
             ScreenManager.AddScreen(screen, false);
