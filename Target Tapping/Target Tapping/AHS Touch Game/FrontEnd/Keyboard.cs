@@ -38,43 +38,69 @@ namespace TargetTapping.FrontEnd
         private string[] rows = {
 		"qwertyuiop",
 		"asdfghjkl",
-		"zxcvbnm"
+		"zxcvbnm",
+        "_____0" //_ for underscore, and 0 for delete!
 	};
 
-        public Keyboard(int x, int y, ContentManager content)
-        {
+    public Keyboard(int x, int y, ContentManager content)
+    {
 	    this.content = content;
-            CurrentKey = "";
-            Position = new Point(x, y);
-        }
+        CurrentKey = "";
+        Position = new Point(x, y);
+    }
 	
 	public void LoadContent() {
 
-            keys = new List<Key>();
+        keys = new List<Key>();
 
 	    int x = Position.X;
-            int y = Position.Y;
+        int y = Position.Y;
 	    // GAH! HARD CODED! GET AWAY!
 	    int keyWidth = 48;
 	    int keyHeight = 48;
-
+        int indentation = 0;
 
 	    // Make a key for each key in a row.
 	    foreach (string row in rows)
 	    {
+            indentation += 1;
+            int insideCounter =  0;
                 foreach (char c in row)
                 {
                     keys.Add(MakeKey(x, y, c));
                     x += keyWidth;
+                    insideCounter++;
+                    if(indentation == 4) {
+                        if (insideCounter == 5) { x += 50; }
+                    }
                 }
-	        x = Position.X;
-                y += keyHeight;
+                if (indentation == 1)
+                {
+                    x = Position.X + 15;
+                    y += keyHeight;
+                }
+                if (indentation == 2)
+                {
+                    x = Position.X + 35;
+                    y += keyHeight;
+                }
+                if (indentation == 3)
+                {
+                    x = Position.X + 130;
+                    y += keyHeight;
+                }
+               
 	    }
 
 	}
 
         public void Update(MouseState state)
         {
+            // Do the updates independently.
+            foreach (Key key in keys)
+            {
+                key.Update(state);
+            }
 	    // Get the key press for every input.
             foreach (Key key in keys)
             {
@@ -88,11 +114,7 @@ namespace TargetTapping.FrontEnd
 	    // If we don't find a key, let the current key be none.
             CurrentKey = "";
 
-	    // Do the updates independently.
-            foreach (Key key in keys)
-            {
-                key.Update(state);
-            }
+	   
         }
 
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
