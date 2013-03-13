@@ -14,26 +14,50 @@ namespace TargetTapping.Back_end
     {
 
         //Put private class variables here.
-        bool _typeSet;
-        bool _colorSet;
-        bool _sizeSet;
-        bool _coordinatesSet;
+        //int i = 123;      // a value type 
+        //object o = i;     // boxing 
+        //int j = (int)o;   // unboxing
 
         private String _type;
-        private Color _color;
-        private int _size;
-        private Rectangle _coordinates;
+
+        //private Color _color;
+        private object _colorObj; // this needs to be unboxed later
+
+        //private int _size;
+        private object _sizeObj; // this needs to be unboxed later
+        
+        //private Rectangle _coordinates;
+        private object _coordinatesObj; // this needs to be unboxed later
 
 
         //Constructor for this class just make a blank object
         public ShapeCreationState()
         {
-            this._typeSet = false;
-            this._colorSet = false;
-            this._sizeSet = false;
-            this._coordinatesSet = false;
+            this._type = null;
+            this._colorObj = null;
+            this._sizeObj = null;
+            this._coordinatesObj = null;
 
         }
+
+        //Method to test if all the properties are set in this object
+        //if it returns true then an actual object can be created based on the properites
+        //of this object.
+        public bool isReady()
+        {
+
+            if (this._type != null && this._colorObj != null && this._sizeObj != null && this._coordinatesObj != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
         //The following block is the getter and setters for the actual values 
 
         //getter and setter for type
@@ -48,65 +72,31 @@ namespace TargetTapping.Back_end
         public Color Color
         {
             //set the shape type 
-            set { this._color = value; }
+            set { this._colorObj = value;
+                }
             //get the shape type  
-            get { return this._color; }
+            get { return (Color)this._colorObj; }
         }
 
         //getter and setter for size
         public int Size
         {
             //set the shape type 
-            set { this._size = value; }
+            set { this._sizeObj = value; }
             //get the shape type  
-            get { return this._size; }
+            get { return (int)this._sizeObj; }
         }
 
         //getter and setter for coordinates
         public Rectangle Coordinates
         {
             //set the shape type 
-            set { this._coordinates = value; }
+            set { this._coordinatesObj = value; }
             //get the shape type  
-            get { return this._coordinates; }
+            get { return (Rectangle)this._coordinatesObj; }
         }
 
-        //The following block is the getter and setters for the state of the value
 
-        //getter and setter for type
-        public bool TypeTest
-        {
-            //set the shape type 
-            set { this._typeSet = value; }
-            //get the shape type  
-            get { return this._typeSet; }
-        }
-        //getter and setter for color
-        public bool ColorTest
-        {
-            //set the shape type 
-            set { this._colorSet = value; }
-            //get the shape type  
-            get { return this._colorSet; }
-        }
-
-        //getter and setter for size
-        public bool SizeTest
-        {
-            //set the shape type 
-            set { this._sizeSet = value; }
-            //get the shape type  
-            get { return this._sizeSet; }
-        }
-
-        //getter and setter for coordinates
-        public bool CoordinatesTest
-        {
-            //set the shape type 
-            set { this._coordinatesSet = value; }
-            //get the shape type  
-            get { return this._coordinatesSet; }
-        }
 
 
     }
