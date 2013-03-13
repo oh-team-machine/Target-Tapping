@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BackendDevelopment.BackEnd;
+using TargetTapping.Back_end;
 using GameLibrary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 
 
-namespace BackendDevelopment.BackEnd
+namespace TargetTapping.Back_end
 {
     class Object
     {

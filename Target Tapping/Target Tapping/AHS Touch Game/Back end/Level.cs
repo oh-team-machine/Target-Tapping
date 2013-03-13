@@ -5,7 +5,9 @@ using System.Text;
 
 namespace TargetTapping.Back_end
 {
-    class SaveLevel
+    class Level
     {
+        public List<List<TargetTapping.Back_end.Object>> objectList { get; set; }
+
     }
 }

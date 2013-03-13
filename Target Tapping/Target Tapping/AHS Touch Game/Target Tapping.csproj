@@ -115,11 +115,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Back end\Level.cs" />
     <Compile Include="Back end\DrawLetter.cs" />
     <Compile Include="Back end\DrawNumber.cs" />
     <Compile Include="Back end\DrawShape.cs" />
     <Compile Include="Back end\levelLoad.cs" />
-    <Compile Include="Back end\Object.cs" />
+    <Compile Include="Back end\Object.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Back end\saveLevel.cs" />
     <Compile Include="Back end\ShapeCreationState.cs" />
     <Compile Include="FrontEnd\Key.cs" />

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
 
-namespace BackendDevelopment.BackEnd
+namespace TargetTapping.Back_end
 {
     class DrawShape
     {
