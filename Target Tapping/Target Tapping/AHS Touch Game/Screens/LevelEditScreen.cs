@@ -55,7 +55,6 @@ namespace TargetTapping.Screens
             // Also, the grid.
             grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
 
-	        // Load buttons 'n' stuff, yo!
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -68,9 +67,9 @@ namespace TargetTapping.Screens
 
 
             // Update the state of all buttons.
-            foreach (var pair in btns)
+            foreach (var button in btns.Values)
             {
-                pair.Value.Update(mouseState);
+                button.Update(mouseState);
             }
 
             base.Update(gameTime);
@@ -79,11 +78,12 @@ namespace TargetTapping.Screens
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
             // Draw all of the buttons.
-            foreach (var pair in btns)
+            foreach (var button in btns.Values)
             {
-                pair.Value.Draw(spriteBatch);
+                button.Draw(spriteBatch);
             }
 
+            // Draw dat grid, yo.
             spriteBatch.Draw(grid,
                    gridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
         }
