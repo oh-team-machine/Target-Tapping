@@ -10,15 +10,19 @@ namespace TargetTapping.FrontEnd.LevelEditor
     class PositionPaletteState : PaletteState
     {
 
-        public PositionPaletteState(Palette p) : base(p) { }
+        public PositionPaletteState(Palette p) : base(p) {
+            parent.Hide();
+        }
 
         public override void Update(MouseState mouse)
         {
             // Assume the click is the position.
             if (mouse.LeftButton == ButtonState.Pressed)
             {
-                //int x = mouse.X, y = mouse.Y;
+                int x = mouse.X, y = mouse.Y;
+
                 parent.RequestStateChange("Initial");
+                parent.Unhide();
             }
         }
 
