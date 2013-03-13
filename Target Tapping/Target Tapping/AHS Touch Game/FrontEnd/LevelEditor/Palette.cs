@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TargetTapping.Back_end;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
@@ -103,5 +104,19 @@ namespace TargetTapping.FrontEnd.LevelEditor
             }
         }
 
+
+        public void LoadContent(ContentManager content)
+        {
+            List<PaletteState> statesLoaded = new List<PaletteState>();
+            foreach (var state in States.Values)
+            {
+                if (statesLoaded.Contains(state)) {
+                    continue;
+                }
+
+                statesLoaded.Add(state);
+                state.LoadContent(content);
+            }
+        }
     }
 }

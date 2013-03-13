@@ -13,8 +13,11 @@ namespace TargetTapping.FrontEnd.LevelEditor
             parent = p;
         }
 
+        abstract public void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content);
+
         abstract public void Update(Microsoft.Xna.Framework.Input.MouseState state);
 
         abstract public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch);
+    
     }
 }

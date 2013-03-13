@@ -19,5 +19,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
         {
             throw new NotImplementedException();
         }
+
+        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

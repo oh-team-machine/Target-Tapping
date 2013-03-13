@@ -137,5 +137,11 @@ namespace TargetTapping.FrontEnd
 
 	    return new Key(key, appearance, dimensions);
         }
+
+        // Stuff from the constructor should really go in here.
+        public void LoadContent(ContentManager content)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
