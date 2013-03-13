@@ -29,7 +29,7 @@ namespace TargetTapping.Back_end
         private static StorageDevice device;
         private static IAsyncResult result;
 
-        public static void SaveLevel(Level levelPassed)
+        public static void saveLevel(Level levelPassed)
         {
             SaveLevelData data = new SaveLevelData();
             data.objectList = levelPassed.objectList;
