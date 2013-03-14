@@ -75,15 +75,47 @@ namespace TargetTapping.Screens
             {
                 //uncomment this to get things back to normal
                 //ScreenManager.RemoveScreen(this);
-
-                GameManager manager = GameManager.GlobalInstance;
+                AddScreenAndChill(new MenuScreen());
+              /*  GameManager manager = GameManager.GlobalInstance;
 
               //comment out the next 3 lines to get rid of test code.
                 TargetTapping.Back_end.Object testMoving =
                     new TargetTapping.Back_end.Object("Circle", Color.Red, new Rectangle(500, 500, 100, 100),
                     "Shape", false, manager.Graphics, content);
                 myLevel.addObject(testMoving);
+              */  
+
+            }
+            if (btns["Menu"].IsClicked())
+            {
+                AddScreenAndChill(new LEMScreen());
+            }
+            if (btns["Play"].IsClicked())
+            {
+                AddScreenAndChill(new GameScreen());
+            }
+            if (btns["MoreUp"].IsClicked())
+            {
                 
+            }
+            if (btns["MoreHold"].IsClicked())
+            {
+
+            }
+            if (btns["LessUp"].IsClicked())
+            {
+
+            }
+            if (btns["LessHold"].IsClicked())
+            {
+
+            }
+            if (btns["Redo"].IsClicked())
+            {
+
+            }
+            if (btns["Undo"].IsClicked())
+            {
 
             }
             if (btns["Multiple"].IsClicked())
