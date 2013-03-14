@@ -147,6 +147,8 @@ namespace TargetTapping.Screens
             {
                 button.Update(mouseState);
             }
+            // Update the palette
+            palette.Update(mouseState);
 
             // This foreach loop will check if a button in the list of buttonlists
             // is clicked and if it is then we are going to move its position.

@@ -33,6 +33,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         // The current state.
         public PaletteState CurrentState { get; private set; }
+        public String CurrentStateName { get; private set; }
 
         // TEMPORARY
         bool isHidden = false;
@@ -40,6 +41,17 @@ namespace TargetTapping.FrontEnd.LevelEditor
         // Contains all of the managed states.
         private Dictionary<string, PaletteState> States = new Dictionary<string, PaletteState>();
         private Texture2D shapePalletBackground;
+
+        // A dictionary to the NEXT state.
+        private Dictionary<string, string> nextStates = new Dictionary<string, string>
+        {
+            { "Shape", "Size" },
+            { "Num",  "Size" },
+            { "Alph", "Size" },
+            { "Size", "Color" },
+            { "Color", "Position" },
+            { "Position", "INITIAL" }
+        };
 
         public Palette(int x, int y)
         {
@@ -58,9 +70,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
             States.Add("Position", new PositionPaletteState(this));
 
             // Setup the initial, and next states.
-            States.Add("INITIAL", States["Shape"]); // First is always Shape
-            States.Add("NEXT", States["Size"]); // Second is always size, then colour, then position
+            var initialStateName = "Shape";
+            States.Add("INITIAL", States[initialStateName]); // First is always Shape
             CurrentState = States["INITIAL"]; // Set the current state to the initial state.
+            CurrentStateName = initialStateName;
 
             // Make sure that it's unhidden!
             Unhide();
@@ -125,6 +138,17 @@ namespace TargetTapping.FrontEnd.LevelEditor
         // Changes the state on next update.
         public void RequestStateChange(string stateName)
         {
+            if (stateName == "NEXT")
+            {
+                var nextName = nextStates[CurrentStateName];
+                var nextState = States[nextName];
+
+                CurrentStateName = nextName;
+                CurrentState = nextState;
+
+                return;
+            }
+
             if (States.ContainsKey(stateName))
             {
                 CurrentState = States[stateName];
