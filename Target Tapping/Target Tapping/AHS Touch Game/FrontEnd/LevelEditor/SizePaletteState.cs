@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using GameLibrary.UI;
 
 namespace TargetTapping.FrontEnd.LevelEditor
@@ -36,17 +34,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
-            foreach (var pair in sizeButtons)
-            {
-                if (pair.Value.IsClicked())
-                {
-                    // A size button has been clicked!
-
-                    // TODO: REMOVE LAZINESS:
-                    parent.ObjectFactory.Size = 1;
-                    parent.RequestStateChange("NEXT");
-                    break;
-                }
+            if (sizeButtons.Any(pair => pair.Value.IsClicked())) {
+                parent.ObjectFactory.Size = 1;
+                parent.RequestStateChange("NEXT");
             }
 
 

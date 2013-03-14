@@ -1,58 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TargetTapping.Back_end;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using TargetTapping.Back_end;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
-    class Palette : Updatable
+    internal class Palette : Updatable
     {
+        private const string InitialStateName = "Shape";
 
-        public ShapeCreationState ObjectFactory { get; private set; }
+        private Dictionary<string, PaletteState> States =
+                new Dictionary<string, PaletteState>();
 
-        public Rectangle BoundingBox { get; private set; }
+        private bool _isHidden;
 
-        public Point Position
-        {
-            get
+        private Dictionary<string, string> nextStates = new Dictionary
+                <string, string>
             {
-                return BoundingBox.Location;
-            }
-            private set
-            {
-                Rectangle newBox = new Rectangle(
-                    value.X, value.Y,
-                    BoundingBox.Width, BoundingBox.Height);
-                BoundingBox = newBox;
-            }
-        }
+                    {"Shape", "Size"},
+                    {"Num", "Size"},
+                    {"Alph", "Size"},
+                    {"Size", "Color"},
+                    {"Color", "Position"},
+                    {"Position", "INITIAL"}
+            };
 
-        // The current state.
-        public PaletteState CurrentState { get; private set; }
-        public String CurrentStateName { get; private set; }
-
-        // TEMPORARY
-        bool isHidden = false;
-
-        // Contains all of the managed states.
-        private Dictionary<string, PaletteState> States = new Dictionary<string, PaletteState>();
-        private Texture2D shapePalletBackground;
-
-        // A dictionary to the NEXT state.
-        private Dictionary<string, string> nextStates = new Dictionary<string, string>
-        {
-            { "Shape", "Size" },
-            { "Num",  "Size" },
-            { "Alph", "Size" },
-            { "Size", "Color" },
-            { "Color", "Position" },
-            { "Position", "INITIAL" }
-        };
-        private const string initialStateName = "Shape";
+        private Texture2D _shapePalletBackground;
 
         public Palette(int x, int y)
         {
@@ -71,13 +45,37 @@ namespace TargetTapping.FrontEnd.LevelEditor
             States.Add("Position", new PositionPaletteState(this));
 
             // Setup the initial, and next states.
-            States.Add("INITIAL", States[initialStateName]); // First is always Shape
-            CurrentState = States["INITIAL"]; // Set the current state to the initial state.
-            CurrentStateName = initialStateName;
+            States.Add("INITIAL", States[InitialStateName]);
+                    // First is always Shape
+            CurrentState = States["INITIAL"];
+                    // Set the current state to the initial state.
+            CurrentStateName = InitialStateName;
 
             // Make sure that it's unhidden!
             Unhide();
         }
+
+        public ShapeCreationState ObjectFactory { get; private set; }
+
+        public Rectangle BoundingBox { get; private set; }
+
+        public Point Position
+        {
+            get { return BoundingBox.Location; }
+            private set
+            {
+                var newBox = new Rectangle(
+                        value.X, value.Y,
+                        BoundingBox.Width, BoundingBox.Height);
+                BoundingBox = newBox;
+            }
+        }
+
+        // The current state.
+        public PaletteState CurrentState { get; private set; }
+        public String CurrentStateName { get; private set; }
+
+        // TEMPORARY
 
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
@@ -85,26 +83,22 @@ namespace TargetTapping.FrontEnd.LevelEditor
         }
 
         // Resets the ObjectFactory.
-        public void Reset()
-        {
-            // Simply get a new ShapeCreationState and let the
-            // GC deal with the old one.
-            ObjectFactory = new ShapeCreationState();
-        }
 
         public void LoadContent(RichContentManager content)
         {
-            List<PaletteState> statesLoaded = new List<PaletteState>();
+            var statesLoaded = new List<PaletteState>();
 
-            shapePalletBackground = content.Load<Texture2D>("ShapePallet/shapePalletBackground");
+            _shapePalletBackground =
+                    content.Load<Texture2D>("ShapePallet/shapePalletBackground");
             BoundingBox = new Rectangle(
-                Position.X, Position.Y,
-                shapePalletBackground.Width,
-                shapePalletBackground.Height);
+                    Position.X, Position.Y,
+                    _shapePalletBackground.Width,
+                    _shapePalletBackground.Height);
 
             foreach (var state in States.Values)
             {
-                if (statesLoaded.Contains(state)) {
+                if (statesLoaded.Contains(state))
+                {
                     continue;
                 }
 
@@ -113,26 +107,33 @@ namespace TargetTapping.FrontEnd.LevelEditor
             }
         }
 
-        public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            if (isHidden)
+            if (_isHidden)
                 return;
 
             // Draw the background first.
-            spriteBatch.Draw(shapePalletBackground, BoundingBox, Color.White);
+            spriteBatch.Draw(_shapePalletBackground, BoundingBox, Color.White);
 
             // WHY WON'T YOU DRAW?
             CurrentState.Draw(spriteBatch);
         }
 
+        public void Reset()
+        {
+            // Simply get a new ShapeCreationState and let the
+            // GC deal with the old one.
+            ObjectFactory = new ShapeCreationState();
+        }
+
         public void Hide()
         {
-            isHidden = true;
+            _isHidden = true;
         }
 
         public void Unhide()
         {
-            isHidden = false;
+            _isHidden = false;
         }
 
         // Changes the state on next update.
@@ -153,16 +154,16 @@ namespace TargetTapping.FrontEnd.LevelEditor
             {
                 if (stateName == "INITIAL")
                 {
-                    stateName = initialStateName;
+                    stateName = InitialStateName;
                 }
                 CurrentStateName = stateName;
                 CurrentState = States[stateName];
             }
             else
             {
-                throw new NotSupportedException("State '" + stateName + "' does not exist.");
+                throw new NotSupportedException("State '" + stateName +
+                                                "' does not exist.");
             }
         }
-
     }
 }
