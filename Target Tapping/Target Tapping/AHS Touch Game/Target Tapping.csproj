@@ -134,6 +134,7 @@
     <Compile Include="FrontEnd\LevelEditor\PositionPaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\ShapePaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\SizePaletteState.cs" />
+    <Compile Include="FrontEnd\RichContentManager.cs" />
     <Compile Include="FrontEnd\Updatable.cs" />
     <Compile Include="OldStuff\Game1.cs" />
     <Compile Include="GameManager.cs" />

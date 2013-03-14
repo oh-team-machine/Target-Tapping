@@ -48,7 +48,6 @@ Content\OSK\bButton.xnb
 Content\OSK\cButton.xnb
 Content\OSK\clear.xnb
 Content\OSK\dButton.xnb
-Content\OSK\0Button.xnb
 Content\OSK\eButton.xnb
 Content\OSK\fButton.xnb
 Content\OSK\gButton.xnb
@@ -65,7 +64,6 @@ Content\OSK\pButton.xnb
 Content\OSK\qButton.xnb
 Content\OSK\rButton.xnb
 Content\OSK\sButton.xnb
-Content\OSK\_Button.xnb
 Content\OSK\tButton.xnb
 Content\OSK\uButton.xnb
 Content\OSK\vButton.xnb
@@ -155,7 +153,6 @@ Content\Numbers\number8.xnb
 Content\Numbers\number9.xnb
 Content\Font.xnb
 Content\WinFont.xnb
-<<<<<<< HEAD
-=======
+Content\OSK\0Button.xnb
+Content\OSK\_Button.xnb
 Content\GUI\nothing2.xnb
->>>>>>> Load Screen Up

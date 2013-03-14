@@ -25,7 +25,7 @@ namespace TargetTapping
         public int HoldTime { get; set; }
 
 
-        public GraphicsDeviceManager graphics { get; set; }
+        public GraphicsDeviceManager Graphics { get; set; }
 
         public GameManager(Microsoft.Xna.Framework.Game game)
             : base(game)

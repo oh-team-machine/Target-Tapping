@@ -10,13 +10,23 @@ namespace TargetTapping.FrontEnd.LevelEditor
     {
 
         private Dictionary<string, Button> shapeButtons = new Dictionary<string, Button>();
+        private string[] shapeNames =
+        {
+            "Circle", "Square", "Triangle", "Star"
+        };
 
         public ShapePaletteState(Palette p) : base(p) { }
 
-        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        public override void LoadContent(RichContentManager content)
         {
+            
             // NOTE! The name of the key IS ALSO the name of the shape in DrawShape.
-            //shapeButtons.Add("Circle", null);
+            foreach (var name in shapeNames)
+            {
+                var resourceName = "ShapePallet/" + name + "Demo";
+                var button = content.MakeButton(0, 0, resourceName);
+                shapeButtons.Add(name, button);
+            }
         }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
@@ -26,7 +36,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            foreach (var button in shapeButtons)
+            {
+
+            }
         }
     }
 }

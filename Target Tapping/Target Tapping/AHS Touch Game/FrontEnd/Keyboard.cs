@@ -139,7 +139,7 @@ namespace TargetTapping.FrontEnd
         }
 
         // Stuff from the constructor should really go in here.
-        public void LoadContent(ContentManager content)
+        public void LoadContent(RichContentManager content)
         {
             throw new NotImplementedException();
         }

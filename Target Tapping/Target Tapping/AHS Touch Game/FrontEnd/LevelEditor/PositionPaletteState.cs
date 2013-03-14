@@ -34,7 +34,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // Don't need to draw anything!
         }
 
-        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        public override void LoadContent(RichContentManager content)
         {
             throw new NotImplementedException();
         }

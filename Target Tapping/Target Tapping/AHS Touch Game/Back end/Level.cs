@@ -24,14 +24,20 @@ namespace TargetTapping.Back_end
 
         public void addObject(TargetTapping.Back_end.Object objectPassed)
         {
+            List<TargetTapping.Back_end.Object> placeHolder = new List<TargetTapping.Back_end.Object>();
+            placeHolder.Add(objectPassed);
             if (multiSelect == true)
             {
-                objectList[currentPosition].Add(objectPassed);
+                objectList.Add(placeHolder);
+            }
+            else if (currentPosition == 0)
+            {
+                objectList.Add(placeHolder);
             }
             else
             {
                 currentPosition = currentPosition + 1;
-                objectList[currentPosition].Add(objectPassed);
+                objectList.Add(placeHolder);
             }
         }
 
