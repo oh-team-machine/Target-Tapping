@@ -17,12 +17,12 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override void LoadContent(RichContentManager content)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

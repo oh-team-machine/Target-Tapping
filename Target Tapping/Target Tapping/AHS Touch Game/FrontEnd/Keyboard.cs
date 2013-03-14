@@ -141,7 +141,8 @@ namespace TargetTapping.FrontEnd
         // Stuff from the constructor should really go in here.
         public void LoadContent(RichContentManager content)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("This class was designed before the Updatable interface "
+                + "and I'm too lazy to fix it right now.");
         }
     }
 }

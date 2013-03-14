@@ -19,14 +19,12 @@ namespace TargetTapping.Back_end
         private bool shouldIBeDrawn;
 
         //Constructor for this class
-        public Object(string ObjectPassedIn, Color colorPassedIn, Rectangle rectanglePassedIn,
-                             string shapeTypePassedIn, bool multiSelectPassedIn, GraphicsDeviceManager graphics, ContentManager content)
+        public Object(string objectType, string objectSubname, Rectangle rectanglePassedIn, Color colorPassedIn, ContentManager content, GraphicsDeviceManager graphics)
         {
-            objectName = ObjectPassedIn;
+            objectName = objectSubname;
             color = colorPassedIn;
             rectangle = rectanglePassedIn;
-            shapeType = shapeTypePassedIn;
-            multiSelect = multiSelectPassedIn;
+            shapeType = objectType;
             texture = grabObject(graphics, content);
             bMouseDownInside = false;
             bIsClicked = false;

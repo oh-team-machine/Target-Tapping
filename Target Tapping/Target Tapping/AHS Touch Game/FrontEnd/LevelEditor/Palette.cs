@@ -5,6 +5,7 @@ using System.Text;
 using TargetTapping.Back_end;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
@@ -14,6 +15,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public ShapeCreationState ObjectFactory { get; private set; }
 
         public Rectangle BoundingBox { get; private set; }
+
         public Point Position
         {
             get
@@ -33,10 +35,11 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public PaletteState CurrentState { get; private set; }
 
         // TEMPORARY
-        bool shouldDraw = true;
+        bool isHidden = false;
 
         // Contains all of the managed states.
         private Dictionary<string, PaletteState> States = new Dictionary<string, PaletteState>();
+        private Texture2D shapePalletBackground;
 
         public Palette(int x, int y)
         {
@@ -58,6 +61,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
             States.Add("INITIAL", States["Shape"]); // First is always Shape
             States.Add("NEXT", States["Size"]); // Second is always size, then colour, then position
             CurrentState = States["INITIAL"]; // Set the current state to the initial state.
+
+            // Make sure that it's unhidden!
+            Unhide();
         }
 
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
@@ -73,22 +79,47 @@ namespace TargetTapping.FrontEnd.LevelEditor
             ObjectFactory = new ShapeCreationState();
         }
 
+        public void LoadContent(RichContentManager content)
+        {
+            List<PaletteState> statesLoaded = new List<PaletteState>();
+
+            shapePalletBackground = content.Load<Texture2D>("ShapePallet/shapePalletBackground");
+            BoundingBox = new Rectangle(
+                Position.X, Position.Y,
+                shapePalletBackground.Width,
+                shapePalletBackground.Height);
+
+            foreach (var state in States.Values)
+            {
+                if (statesLoaded.Contains(state)) {
+                    continue;
+                }
+
+                statesLoaded.Add(state);
+                state.LoadContent(content);
+            }
+        }
+
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            if (!shouldDraw)
+            if (isHidden)
                 return;
 
+            // Draw the background first.
+            spriteBatch.Draw(shapePalletBackground, BoundingBox, Color.White);
+
+            // WHY WON'T YOU DRAW?
             CurrentState.Draw(spriteBatch);
         }
 
         public void Hide()
         {
-            shouldDraw = false;
+            isHidden = true;
         }
 
         public void Unhide()
         {
-            shouldDraw = true;
+            isHidden = false;
         }
 
         // Changes the state on next update.
@@ -104,19 +135,5 @@ namespace TargetTapping.FrontEnd.LevelEditor
             }
         }
 
-
-        public void LoadContent(RichContentManager content)
-        {
-            List<PaletteState> statesLoaded = new List<PaletteState>();
-            foreach (var state in States.Values)
-            {
-                if (statesLoaded.Contains(state)) {
-                    continue;
-                }
-
-                statesLoaded.Add(state);
-                state.LoadContent(content);
-            }
-        }
     }
 }

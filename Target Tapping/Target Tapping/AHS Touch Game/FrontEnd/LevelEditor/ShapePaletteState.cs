@@ -19,26 +19,53 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void LoadContent(RichContentManager content)
         {
+
+            int x = parent.Position.X;
+            int y = parent.Position.Y;
             
             // NOTE! The name of the key IS ALSO the name of the shape in DrawShape.
             foreach (var name in shapeNames)
             {
-                var resourceName = "ShapePallet/" + name + "Demo";
-                var button = content.MakeButton(0, 0, resourceName);
+                var resourceName = "ShapePallet/demo" + name;
+                var button = content.MakeButton(x, y, resourceName);
                 shapeButtons.Add(name, button);
+                y += button.Rect.Height;
             }
         }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
-            throw new NotImplementedException();
+
+            // Find a pair that is clicked.
+            foreach (var pair in shapeButtons)
+            {
+                if (pair.Value.IsClicked())
+                {
+                    var shapeName = pair.Key;
+
+                    parent.ObjectFactory.Type = "Shape";
+                    parent.ObjectFactory.Name = shapeName;
+
+                    // Next state in the palette.
+                    parent.RequestStateChange("NEXT");
+
+                    break;
+                }
+
+            }
+
+            // Update all of the button's states
+            foreach (var button in shapeButtons.Values)
+            {
+                button.Update(state);
+            }
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            foreach (var button in shapeButtons)
+            foreach (var button in shapeButtons.Values)
             {
-
+                button.Draw(spriteBatch);
             }
         }
     }

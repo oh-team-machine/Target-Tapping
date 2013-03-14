@@ -7,6 +7,7 @@ using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
 using Microsoft.Xna.Framework.Input;
+using TargetTapping.FrontEnd.LevelEditor;
 
 namespace TargetTapping.Screens
 {
@@ -33,6 +34,8 @@ namespace TargetTapping.Screens
         // Declare a new object that will be used to reference an object that we are moving
         // around on the levelEditor screen.
         private TargetTapping.Back_end.Object objBeingMoved = null;
+
+        private Palette palette;
 
         // Title stuff, apparently.
         Texture2D grid;
@@ -64,6 +67,10 @@ namespace TargetTapping.Screens
             // Also, the grid.
             grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
 
+            // Place the palette.
+            palette = new Palette(0, 100);
+            palette.LoadContent(content);
+
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -80,8 +87,7 @@ namespace TargetTapping.Screens
 
               //comment out the next 3 lines to get rid of test code.
                 TargetTapping.Back_end.Object testMoving =
-                    new TargetTapping.Back_end.Object("Circle", Color.Red, new Rectangle(500, 500, 100, 100),
-                    "Shape", false, manager.Graphics, content);
+                    new TargetTapping.Back_end.Object("Circle", "Shape", new Rectangle(500, 500, 100, 100), Color.Red, content, manager.Graphics);
                 myLevel.addObject(testMoving);
                 
 
@@ -179,6 +185,8 @@ namespace TargetTapping.Screens
                 }
             }
 
+            // Draw the Palette
+            palette.Draw(spriteBatch);
         }
     }
 }

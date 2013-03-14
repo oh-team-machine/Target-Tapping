@@ -18,16 +18,20 @@ namespace TargetTapping.Back_end
         //object o = i;     // boxing 
         //int j = (int)o;   // unboxing
 
+        // "Shape", "Letter", "Number"
         private String _type;
 
-        //private Color _color;
+        // Colour
         private object _colorObj; // this needs to be unboxed later
 
-        //private int _size;
+        // Size as an int
         private object _sizeObj; // this needs to be unboxed later
         
-        //private Rectangle _coordinates;
+        // Position as a point
         private object _coordinatesObj; // this needs to be unboxed later
+
+        // "Circle", "A", "1"
+        private string _objName;
 
 
         //Constructor for this class just make a blank object
@@ -43,17 +47,14 @@ namespace TargetTapping.Back_end
         //Method to test if all the properties are set in this object
         //if it returns true then an actual object can be created based on the properites
         //of this object.
-        public bool isReady()
+        public bool IsReady()
         {
 
-            if (this._type != null && this._colorObj != null && this._sizeObj != null && this._coordinatesObj != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return ((this._type != null)
+                &&  (this._colorObj != null)
+                &&  (this._sizeObj != null)
+                &&  (this._coordinatesObj != null)
+                &&  (this._objName != null));
 
         }
 
@@ -68,6 +69,14 @@ namespace TargetTapping.Back_end
             //get the shape type  
             get { return this._type; }
         }
+
+        //getter and setter for name
+        public string Name
+        {
+            set { this._objName = value; }
+            get { return this._objName; }
+        }
+
         //getter and setter for color
         public Color Color
         {

@@ -23,7 +23,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void LoadContent(RichContentManager content)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
