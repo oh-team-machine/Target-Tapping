@@ -17,12 +17,15 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public ShapePaletteState(Palette p) : base(p) { }
 
-        public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager content)
+        public override void LoadContent(RichContentManager content)
         {
+            
             // NOTE! The name of the key IS ALSO the name of the shape in DrawShape.
             foreach (var name in shapeNames)
             {
-                shapeButtons.Add(name, null);
+                var resourceName = "ShapePallet/" + name + "Demo";
+                var button = content.MakeButton(0, 0, resourceName);
+                shapeButtons.Add(name, button);
             }
         }
 

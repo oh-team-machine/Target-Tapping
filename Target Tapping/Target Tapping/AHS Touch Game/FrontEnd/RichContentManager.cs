@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping.FrontEnd
 {
-    class RichContentManager : ContentManager
+    public class RichContentManager : ContentManager
     {
 
         public RichContentManager(IServiceProvider sp, string dir) : base(sp, dir) { }

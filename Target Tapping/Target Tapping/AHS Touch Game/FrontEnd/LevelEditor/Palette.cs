@@ -105,7 +105,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
         }
 
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(RichContentManager content)
         {
             List<PaletteState> statesLoaded = new List<PaletteState>();
             foreach (var state in States.Values)

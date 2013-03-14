@@ -10,7 +10,7 @@ namespace TargetTapping.FrontEnd
 {
     public interface Updatable
     {
-        void LoadContent(ContentManager content);
+        void LoadContent(RichContentManager content);
         void Update(MouseState state);
         void Draw(SpriteBatch spriteBatch);
     }
