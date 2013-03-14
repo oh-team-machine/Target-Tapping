@@ -12,8 +12,8 @@ namespace TargetTapping.Screens
     {
         Button btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
         Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
-        Vector2 levelEditorMenuPosition = (new Vector2(600, 300));
-        Vector2 levelEditorMenuGraphicPosition = (new Vector2(630, 300));
+        Vector2 levelEditorMenuPosition = (new Vector2(500, 200));
+        Vector2 levelEditorMenuGraphicPosition = (new Vector2(530, 200));
 
 
         public override void LoadContent()
@@ -21,11 +21,11 @@ namespace TargetTapping.Screens
             base.LoadContent();
             levelEditorMenuBackground = content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
-            btnLemBack = MakeButton(630, 355, "LevelEditorMenu/backButtonGraphic");
-            btnLemSave = MakeButton(630, 410, "LevelEditorMenu/saveButtonGraphic");
-            btnLemLoad = MakeButton(630, 465, "LevelEditorMenu/loadButtonGraphic");
-            btnLemClear = MakeButton(630, 520, "LevelEditorMenu/clearButtonGraphic");
-            btnLemExit = MakeButton(630, 575, "LevelEditorMenu/exitButtonGraphic");
+            btnLemBack = MakeButton(530, 255, "LevelEditorMenu/backButtonGraphic");
+            btnLemSave = MakeButton(530, 310, "LevelEditorMenu/saveButtonGraphic");
+            btnLemLoad = MakeButton(530, 365, "LevelEditorMenu/loadButtonGraphic");
+            btnLemClear = MakeButton(530, 420, "LevelEditorMenu/clearButtonGraphic");
+            btnLemExit = MakeButton(530, 475, "LevelEditorMenu/exitButtonGraphic");
 
 	       // Load buttons 'n' stuff, yo!
         }

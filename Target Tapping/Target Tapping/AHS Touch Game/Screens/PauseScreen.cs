@@ -12,18 +12,18 @@ namespace TargetTapping.Screens
     {
         Button btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
         Texture2D pauseMenuBackground, pauseMenuTitle;
-        Vector2 pauseMenuBackgroundPosition = (new Vector2(600, 300));
-        Vector2 pauseMenuGraphicPosition = (new Vector2(630, 300));
+        Vector2 pauseMenuBackgroundPosition = (new Vector2(500, 200));
+        Vector2 pauseMenuGraphicPosition = (new Vector2(530, 200));
 
         public override void LoadContent()
         {
             base.LoadContent();
             pauseMenuBackground = content.Load<Texture2D>("GamePauseMenu/menuBackground");
             pauseMenuTitle = content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
-            btnPauseContinue = MakeButton(630, 355, "GamePauseMenu/continueButtonGraphic");
-            btnPauseEdit = MakeButton(630, 410, "GamePauseMenu/editButtonGraphic");
-            btnPauseLoad = MakeButton(630, 465, "GamePauseMenu/changeLevelButtonGraphic");
-            btnPauseRestart = MakeButton(630, 520, "GamePauseMenu/restartButtonGraphic");
+            btnPauseContinue = MakeButton(530, 255, "GamePauseMenu/continueButtonGraphic");
+            btnPauseEdit = MakeButton(530, 310, "GamePauseMenu/editButtonGraphic");
+            btnPauseLoad = MakeButton(530, 365, "GamePauseMenu/changeLevelButtonGraphic");
+            btnPauseRestart = MakeButton(530, 420, "GamePauseMenu/restartButtonGraphic");
 	       // Load buttons 'n' stuff, yo!
         }
 

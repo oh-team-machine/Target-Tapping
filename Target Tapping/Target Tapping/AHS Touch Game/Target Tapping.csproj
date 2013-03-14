@@ -145,7 +145,7 @@
     <Compile Include="Screens\LEMScreen.cs" />
     <Compile Include="Screens\LevelEditScreen.cs" />
     <Compile Include="Screens\LoadLevelScreen.cs" />
-    <Compile Include="Screens\MenuScreeen.cs" />
+    <Compile Include="Screens\MenuScreen.cs" />
     <Compile Include="Screens\NewLevelScreen.cs" />
     <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="TargetTappingGame.cs" />
