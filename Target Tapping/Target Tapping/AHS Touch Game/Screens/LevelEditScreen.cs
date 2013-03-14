@@ -83,6 +83,22 @@ namespace TargetTapping.Screens
                 this.myLevel.addObject(testMoving);
 
             }
+            if (btns["Multiple"].IsClicked())
+            {
+                if (multiState == true)
+                {
+                    multiState = false;
+                    btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOff");
+                    btns["Multiple"].Update(mouseState);
+                }
+                else if (multiState == false)
+                {
+                    multiState = true;
+                    btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOn");
+                    btns["Multiple"].Update(mouseState);
+                }
+                //Call A Method Defined In Another Class
+            }
 
 
             // Update the state of all buttons

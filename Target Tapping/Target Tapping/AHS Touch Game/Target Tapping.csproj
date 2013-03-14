@@ -141,6 +141,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Screens\AbstractRichScreen.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
+    <Compile Include="Screens\LEMScreen.cs" />
     <Compile Include="Screens\LevelEditScreen.cs" />
     <Compile Include="Screens\LoadLevelScreen.cs" />
     <Compile Include="Screens\MenuScreeen.cs" />
