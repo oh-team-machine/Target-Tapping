@@ -155,6 +155,8 @@ namespace TargetTapping.Screens
                 var level = new Back_end.Object(type, name, rect, color, content,
                                                 graphman);
                 myLevel.addObject(level);
+
+                palette.Reset();
             }
 
             // Update the state of all buttons.

@@ -120,6 +120,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // Simply get a new ShapeCreationState and let the
             // GC deal with the old one.
             ObjectFactory = new ShapeCreationState();
+
+            Unhide();
+            RequestStateChange("INITIAL");
         }
 
         public void Hide()
