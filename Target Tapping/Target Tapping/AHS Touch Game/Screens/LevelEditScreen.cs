@@ -83,6 +83,7 @@ namespace TargetTapping.Screens
                     new TargetTapping.Back_end.Object("Shape", Color.Red, new Rectangle(500, 500, 100, 100),
                     "Circle", false, manager.Graphics, content);
                 myLevel.addObject(testMoving);
+                
 
             }
 
@@ -149,6 +150,10 @@ namespace TargetTapping.Screens
                 button.Draw(spriteBatch);
             }
 
+            // Draw dat grid, yo.
+            spriteBatch.Draw(grid,
+                   gridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+
             // draw the all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
             {
@@ -158,9 +163,6 @@ namespace TargetTapping.Screens
                 }
             }
 
-            // Draw dat grid, yo.
-            spriteBatch.Draw(grid,
-                   gridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
         }
     }
 }
