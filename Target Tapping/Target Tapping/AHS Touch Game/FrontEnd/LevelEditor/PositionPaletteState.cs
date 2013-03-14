@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
 namespace TargetTapping.FrontEnd.LevelEditor
@@ -12,7 +8,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
     {
 
         public PositionPaletteState(Palette p) : base(p) {
-            parent.Hide();
+        }
+
+        public override void LoadContent(RichContentManager content)
+        {
         }
 
         public override void Update(MouseState mouse)
@@ -32,10 +31,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             // Don't need to draw anything!
+            parent.Hide();
         }
 
-        public override void LoadContent(RichContentManager content)
-        {
-        }
     }
 }

@@ -131,7 +131,7 @@
     <Compile Include="FrontEnd\LevelEditor\NumPaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\Palette.cs" />
     <Compile Include="FrontEnd\LevelEditor\PaletteState.cs" />
-    <Compile Include="FrontEnd\LevelEditor\PaletteStateBase.cs" />
+    <Compile Include="FrontEnd\LevelEditor\RichPaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\PositionPaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\ShapePaletteState.cs" />
     <Compile Include="FrontEnd\LevelEditor\SizePaletteState.cs" />

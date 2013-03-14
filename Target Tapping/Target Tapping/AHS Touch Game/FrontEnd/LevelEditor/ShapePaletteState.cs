@@ -6,67 +6,32 @@ using GameLibrary.UI;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
-    class ShapePaletteState : PaletteState
+    class ShapePaletteState : RichPaletteState
     {
 
-        private Dictionary<string, Button> shapeButtons = new Dictionary<string, Button>();
-        private string[] shapeNames =
+        private readonly string[] _shapeNames =
         {
             "Circle", "Square", "Triangle", "Star"
         };
 
-        public ShapePaletteState(Palette p) : base(p) { }
-
-        public override void LoadContent(RichContentManager content)
+        public ShapePaletteState(Palette p) : base(p)
         {
-
-            int x = parent.Position.X;
-            int y = parent.Position.Y;
-            
-            // NOTE! The name of the key IS ALSO the name of the shape in DrawShape.
-            foreach (var name in shapeNames)
-            {
-                var resourceName = "ShapePallet/demo" + name;
-                var button = content.MakeButton(x, y, resourceName);
-                shapeButtons.Add(name, button);
-                y += button.Rect.Height;
-            }
+            ThingNames = _shapeNames;
         }
 
-        public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
+        protected override string ResourceNameFromId(string name)
         {
-
-            // Find a pair that is clicked.
-            foreach (var pair in shapeButtons)
-            {
-                if (pair.Value.IsClicked())
-                {
-                    var shapeName = pair.Key;
-
-                    parent.ObjectFactory.Type = "Shape";
-                    parent.ObjectFactory.Name = shapeName;
-
-                    // Next state in the palette.
-                    parent.RequestStateChange("NEXT");
-
-                    break;
-                }
-
-            }
-
-            // Update all of the button's states
-            foreach (var button in shapeButtons.Values)
-            {
-                button.Update(state);
-            }
+            var resourceName = string.Format("ShapePallet/demo{0}", name);
+            return resourceName;
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        protected override bool OnButtonPressed(string shapeName, Button button)
         {
-            foreach (var button in shapeButtons.Values)
-            {
-                button.Draw(spriteBatch);
-            }
+            parent.ObjectFactory.Type = "Shape";
+            parent.ObjectFactory.Name = shapeName;
+
+            // Go to the next state.
+            return true;
         }
     }
 }

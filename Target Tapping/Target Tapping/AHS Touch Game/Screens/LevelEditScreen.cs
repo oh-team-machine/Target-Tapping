@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
@@ -73,7 +71,7 @@ namespace TargetTapping.Screens
 
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             
 
@@ -141,8 +139,25 @@ namespace TargetTapping.Screens
                 //Call A Method Defined In Another Class
             }
 
+            // Handle the creation of stuff.
+            if (palette.ObjectFactory.IsReady())
+            {
+                var fac = palette.ObjectFactory;
 
-            // Update the state of all buttons
+                var color = fac.Color;
+                var type = fac.Type;
+                var name = fac.Name;
+                var pos = fac.Coordinates;
+                // TODO: Not a hardcoded size!
+                var rect = new Rectangle(pos.X, pos.Y, 100, 100);
+                var graphman = GameManager.GlobalInstance.Graphics;
+
+                var level = new Back_end.Object(type, name, rect, color, content,
+                                                graphman);
+                myLevel.addObject(level);
+            }
+
+            // Update the state of all buttons.
             foreach (var button in btns.Values)
             {
                 button.Update(mouseState);

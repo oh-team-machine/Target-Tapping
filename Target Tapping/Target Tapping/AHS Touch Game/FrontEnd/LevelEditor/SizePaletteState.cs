@@ -1,59 +1,33 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using GameLibrary.UI;
+﻿using GameLibrary.UI;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
     // Shows a list of sizes
-    class SizePaletteState : PaletteState
+    class SizePaletteState : RichPaletteState
     {
-        public SizePaletteState(Palette p) : base(p) { }
+        public SizePaletteState(Palette p) : base(p)
+        {
+            ThingNames = _sizes;
+        }
 
-        private string[] sizes = {
+        private readonly string[] _sizes = {
             "Tiny", "Small", "Medium", "Large", "XLarge"
         };
 
-        private Dictionary<string, Button> sizeButtons = new Dictionary<string, Button>();
-
-        public override void LoadContent(RichContentManager content)
+        protected override string ResourceNameFromId(string name)
         {
-            // Load all of the size palette icons.
-            int x = parent.Position.X,
-                y = parent.Position.Y;
-
-            // Add each button to the dict.
-            foreach (var name in sizes)
-            {
-                var resource = "ShapePallet/size" + name;
-                var button = content.MakeButton(x, y, resource);
-                y += button.Rect.Height;
-                sizeButtons.Add(name, button);
-            }
-
+            var resource = string.Format("ShapePallet/size{0}", name);
+            return resource;
         }
 
-        public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
+        protected override bool OnButtonPressed(string name, Button button)
         {
-            if (sizeButtons.Any(pair => pair.Value.IsClicked())) {
-                parent.ObjectFactory.Size = 1;
-                parent.RequestStateChange("NEXT");
-            }
+            // TODO: DETERMINE THE SIZE FROM THE NAME OF THE SIZE
+            parent.ObjectFactory.Size = 1;
 
-
-            // Update the buttons.
-            foreach (var button in sizeButtons.Values)
-            {
-                button.Update(state);
-            }
+            // Go to the next state.
+            return true;
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
-        {
-            foreach (var button in sizeButtons.Values)
-            {
-                button.Draw(spriteBatch);
-            }
-
-        }
     }
 }

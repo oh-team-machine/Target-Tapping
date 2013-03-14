@@ -15,7 +15,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         private bool _isHidden;
 
-        private Dictionary<string, string> nextStates = new Dictionary
+        // Edges of directed state diagram. From state => To State.
+        private readonly Dictionary<string, string> _nextStates = new Dictionary
                 <string, string>
             {
                     {"Shape", "Size"},
@@ -75,14 +76,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public PaletteState CurrentState { get; private set; }
         public String CurrentStateName { get; private set; }
 
-        // TEMPORARY
-
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
             CurrentState.Update(state);
         }
-
-        // Resets the ObjectFactory.
 
         public void LoadContent(RichContentManager content)
         {
@@ -115,7 +112,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // Draw the background first.
             spriteBatch.Draw(_shapePalletBackground, BoundingBox, Color.White);
 
-            // WHY WON'T YOU DRAW?
             CurrentState.Draw(spriteBatch);
         }
 
@@ -141,7 +137,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
         {
             if (stateName == "NEXT")
             {
-                var nextName = nextStates[CurrentStateName];
+                var nextName = _nextStates[CurrentStateName];
                 var nextState = States[nextName];
 
                 CurrentStateName = nextName;
@@ -161,8 +157,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
             }
             else
             {
-                throw new NotSupportedException("State '" + stateName +
-                                                "' does not exist.");
+                throw new NotSupportedException(
+                    string.Format("State '{0}' does not exist.", stateName));
             }
         }
     }
