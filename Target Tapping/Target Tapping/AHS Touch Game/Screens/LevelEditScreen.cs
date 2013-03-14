@@ -80,8 +80,8 @@ namespace TargetTapping.Screens
 
               //comment out the next 3 lines to get rid of test code.
                 TargetTapping.Back_end.Object testMoving =
-                    new TargetTapping.Back_end.Object("Shape", Color.Red, new Rectangle(500, 500, 100, 100),
-                    "Circle", false, manager.Graphics, content);
+                    new TargetTapping.Back_end.Object("Circle", Color.Red, new Rectangle(500, 500, 100, 100),
+                    "Shape", false, manager.Graphics, content);
                 myLevel.addObject(testMoving);
                 
 
