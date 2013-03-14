@@ -1,5 +1,8 @@
-﻿using GameLibrary.UI;
+﻿using System.Diagnostics;
+using System.Reflection;
+using GameLibrary.UI;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
@@ -21,8 +24,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
         // What happens when a Color gets clicked on.
         protected override bool OnButtonPressed(string name, Button button)
         {
-            // TODO: DETERMINE THE ACTUAL COLOUR BY THE NAME
-            var color = new Color(255, 255, 0);
+            // WARNING: Don't look at the implementation of DoEvil.
+            // Just replace it.
+            var color = DoEvil(button);
             parent.ObjectFactory.Color = color;
 
             // Go to the next state.
@@ -40,6 +44,32 @@ namespace TargetTapping.FrontEnd.LevelEditor
         protected override int MaxInRow()
         {
             return 2;
+        }
+
+        private Color DoEvil(Button butt)
+        {
+            var fields = typeof(Button).GetFields( BindingFlags.NonPublic | BindingFlags.Instance);
+
+            Texture2D tex = null;
+            // must get icon field which was field 1 on my machine
+            foreach (var info in fields)
+            {
+                if (info.FieldType == typeof(Texture2D))
+                {
+                    tex = (Texture2D)info.GetValue(butt);
+                }
+                
+            }
+
+            var centerPixel = new Color[1];
+            Debug.Assert(tex != null, "Could not get texture information.");
+
+            tex.GetData<Color>( 0,
+                   // Interior rectangle with only one pixel.
+                   new Rectangle(2, 2, 1, 1), 
+                   centerPixel, 0, 1);
+
+            return centerPixel[0];
         }
 
     }
