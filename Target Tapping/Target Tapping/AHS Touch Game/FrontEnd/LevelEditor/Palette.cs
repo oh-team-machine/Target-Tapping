@@ -52,6 +52,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             { "Color", "Position" },
             { "Position", "INITIAL" }
         };
+        private const string initialStateName = "Shape";
 
         public Palette(int x, int y)
         {
@@ -70,7 +71,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
             States.Add("Position", new PositionPaletteState(this));
 
             // Setup the initial, and next states.
-            var initialStateName = "Shape";
             States.Add("INITIAL", States[initialStateName]); // First is always Shape
             CurrentState = States["INITIAL"]; // Set the current state to the initial state.
             CurrentStateName = initialStateName;
@@ -151,6 +151,11 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
             if (States.ContainsKey(stateName))
             {
+                if (stateName == "INITIAL")
+                {
+                    stateName = initialStateName;
+                }
+                CurrentStateName = stateName;
                 CurrentState = States[stateName];
             }
             else
