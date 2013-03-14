@@ -76,11 +76,13 @@ namespace TargetTapping.Screens
                 //uncomment this to get things back to normal
                 //ScreenManager.RemoveScreen(this);
 
+                GameManager manager = GameManager.GlobalInstance;
 
               //comment out the next 3 lines to get rid of test code.
-                TargetTapping.Back_end.Object testMoving = 
-                    new TargetTapping.Back_end.Object("Shape", Color.Red, new Rectangle(500,500,100,100), "Circle", false, /*this needs to set  */ null,content);
-                this.myLevel.addObject(testMoving);
+                TargetTapping.Back_end.Object testMoving =
+                    new TargetTapping.Back_end.Object("Shape", Color.Red, new Rectangle(500, 500, 100, 100),
+                    "Circle", false, manager.Graphics, content);
+                myLevel.addObject(testMoving);
 
             }
 
@@ -93,9 +95,9 @@ namespace TargetTapping.Screens
 
             // This foreach loop will check if a button in the list of buttonlists
             // is clicked and if it is then we are going to move its position.
-            foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
+            foreach (var myListofObjects in myLevel.objectList)
             {
-                foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                foreach (var myObject in myListofObjects)
                 {
                     if (myObject.IsClicked())
                     {

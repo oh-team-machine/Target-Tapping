@@ -50,7 +50,7 @@ namespace TargetTapping
         private void InitializeGame()
         {
             manager = new GameManager(this);
-            this.manager.graphics = graphics;
+            this.manager.Graphics = graphics;
 
             Components.Add(manager);
 

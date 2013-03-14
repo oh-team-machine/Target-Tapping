@@ -31,6 +31,7 @@ namespace TargetTapping.Back_end
             else
             {
                 currentPosition = currentPosition + 1;
+                // AARON, IT'S BROKEN HERE: argument out of range exception!
                 objectList[currentPosition].Add(objectPassed);
             }
         }
