@@ -13,10 +13,10 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.Back_end
 {
-    class SaveLevel
+    public class SaveLevel
     {
         [Serializable]
-        private struct SaveLevelData
+        public struct SaveLevelData
         {
             public List<List<TargetTapping.Back_end.Object>> objectList;
             public int currentPosition;
@@ -27,29 +27,39 @@ namespace TargetTapping.Back_end
         }
 
         private static StorageDevice device;
-        private static IAsyncResult result;
+        public Level level;
 
-        public static void saveLevel(Level levelPassed)
+        public void initiateSave(Level levelPassed) {
+            level = levelPassed;
+            device = null;
+            StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevel, null);
+        }
+
+        void saveLevel(IAsyncResult result)
         {
             SaveLevelData data = new SaveLevelData();
-            data.objectList = levelPassed.objectList;
-            data.currentPosition = levelPassed.currentPosition;
-            data.multiSelect = levelPassed.multiSelect;
-            data.upTime = levelPassed.upTime;
-            data.holdTime = levelPassed.holdTime;
-            data.filename = levelPassed.levelName;
+            data.objectList = level.objectList;
+            data.currentPosition = level.currentPosition;
+            data.multiSelect = level.multiSelect;
+            data.upTime = level.upTime;
+            data.holdTime = level.holdTime;
+            data.filename = level.levelName;
 
-            IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
-            result.AsyncWaitHandle.WaitOne();
-            StorageContainer container = device.EndOpenContainer(r);
-            if (container.FileExists(levelPassed.levelName))
-                container.DeleteFile(levelPassed.levelName);
-            Stream stream = container.CreateFile(levelPassed.levelName);
-            XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelData));
-            serializer.Serialize(stream, data);
-            stream.Close();
-            container.Dispose();
-            result.AsyncWaitHandle.Close();
+            device = StorageDevice.EndShowSelector(result);
+            if (device != null && device.IsConnected)
+            {
+                IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
+                result.AsyncWaitHandle.WaitOne();
+                StorageContainer container = device.EndOpenContainer(r);
+                if (container.FileExists(level.levelName))
+                    container.DeleteFile(level.levelName);
+                Stream stream = container.CreateFile(level.levelName);
+                XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelData));
+                serializer.Serialize(stream, data);
+                stream.Close();
+                container.Dispose();
+                result.AsyncWaitHandle.Close();
+            }
         }
     }
 }

@@ -1,7 +1,10 @@
 using System.Windows.Forms;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using TargetTapping.Screens;
+using TargetTapping.Back_end;
+using System;
 
 namespace TargetTapping
 {

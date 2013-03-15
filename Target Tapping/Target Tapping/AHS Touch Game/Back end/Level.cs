@@ -5,10 +5,10 @@ using System.Text;
 
 namespace TargetTapping.Back_end
 {
-    class Level
+    public class Level
     {
         public Level () {
-            objectList = new List<List<Object>>();
+            objectList = new List<List<TargetTapping.Back_end.Object>>();
             currentPosition = 0;
             multiSelect = false;
             upTime = 0;

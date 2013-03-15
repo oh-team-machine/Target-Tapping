@@ -13,10 +13,10 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.Back_end
 {
-    class LevelLoad
+    public class LevelLoad
     {
         [Serializable]
-        private struct SaveLevelData
+        public struct SaveLevelData
         {
             public List<List<TargetTapping.Back_end.Object>> objectList;
             public int currentPosition;
@@ -27,11 +27,17 @@ namespace TargetTapping.Back_end
         }
 
         private static StorageDevice device;
-        private static IAsyncResult result;
-
-        public static Level loadLevel(string filename)
+        private static Level level;
+        private static string filename;
+        public Level initiateLoad(string filenamePassed)
         {
-            Level level = new Level();
+            filename = filenamePassed;
+            StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevel, null);
+            return level;
+        }
+
+        void loadLevel(IAsyncResult result)
+        {
             device = StorageDevice.EndShowSelector(result);
             IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
             result.AsyncWaitHandle.WaitOne();
@@ -51,11 +57,6 @@ namespace TargetTapping.Back_end
                 stream.Close();
                 container.Dispose();
             }
-            else
-            {
-                Console.WriteLine("No such filename");
-            }
-            return level;
         }
     }
 }

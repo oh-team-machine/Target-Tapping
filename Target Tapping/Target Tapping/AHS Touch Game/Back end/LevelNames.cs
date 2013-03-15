@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using System.Collections.Specialized;
+using System.Collections;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,37 +18,78 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.Back_end
 {
-    class LevelNames
+    public class LevelNames
     {
         [Serializable]
-        private struct SaveLevelNames
+        public struct SaveLevelNames
         {
             public List<string> filename;
         }
 
-        public static List<string> filename { get; set; }
+        public static List<string> filenames;
         private static StorageDevice device;
-        private static IAsyncResult result;
-
         public LevelNames()
         {
-            filename = loadLevelName();
+            device = null;
+            StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+            filenames = new List<string>();
+        }
+
+        public List<string> getFileNames() {
+            return filenames;
+    }
+
+        void loadLevelName(IAsyncResult result)
+        {
+            device = StorageDevice.EndShowSelector(result);
+            IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
+            StorageContainer container = device.EndOpenContainer(r);
+            if (container.FileExists("ListofFilenames.sav"))
+            {
+                Stream stream = container.OpenFile("ListofFilenames.sav", FileMode.Open);
+                XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelNames));
+                stream.Seek(0, SeekOrigin.Begin);
+                SaveLevelNames data = (SaveLevelNames)serializer.Deserialize(stream);
+                filenames = data.filename;
+                stream.Close();
+                container.Dispose();
+            }
+        }
+
+        void saveLevelName(IAsyncResult result)
+        {
+            device = StorageDevice.EndShowSelector(result);
+            if (device != null && device.IsConnected)
+            {
+                SaveLevelNames data = new SaveLevelNames();
+                data.filename = filenames;
+
+                IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
+                StorageContainer container = device.EndOpenContainer(r);
+                if (container.FileExists("ListofFilenames.sav"))
+                    container.DeleteFile("ListofFilenames.sav");
+                Stream stream = container.CreateFile("ListofFilenames.sav");
+                XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelNames));
+                serializer.Serialize(stream, data);
+                stream.Close();
+                container.Dispose();
+            }
         }
 
         public void addFilename(string newFilename)
         {
-            filename.Add(newFilename);
-            saveLevelName(filename);
+            filenames.Add(newFilename);
+            StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
         }
 
         public void removeFilename(string oldFilename)
         {
             int position = 0;
-            foreach (var file in filename)
+            foreach (var file in filenames)
             {
                 if (oldFilename == file)
                 {
-                    filename.RemoveAt(position);
+                    filenames.RemoveAt(position);
                 }
                 else
                 {
@@ -51,61 +97,21 @@ namespace TargetTapping.Back_end
                 }
                 position = position + 1;
             }
-            saveLevelName(filename);
+            StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
         }
 
         public void changeFilename(string oldFilename, string newFilename)
         {
             int position = 0;
-            foreach (var file in filename)
+            foreach (var file in filenames)
             {
                 if (oldFilename == file)
                 {
-                    filename[position] = newFilename;
+                    filenames[position] = newFilename;
+                    break;
                 }
                 position = position + 1;
             }
-        }
-
-        private static List<string> loadLevelName()
-        {
-            device = StorageDevice.EndShowSelector(result);
-            IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
-            result.AsyncWaitHandle.WaitOne();
-            StorageContainer container = device.EndOpenContainer(r);
-            result.AsyncWaitHandle.Close();
-            if (container.FileExists("ListofFilenames.sav"))
-            {
-                Stream stream = container.OpenFile("ListofFilenames.save", FileMode.Open);
-                XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelNames));
-                SaveLevelNames data = (SaveLevelNames)serializer.Deserialize(stream);
-                filename = data.filename;
-                stream.Close();
-                container.Dispose();
-            }
-            else
-            {
-                filename = new List<string>();
-            }
-            return filename;
-        }
-
-        private static void saveLevelName(List<string> filename)
-        {
-            SaveLevelNames data = new SaveLevelNames();
-            data.filename = filename;
-
-            IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
-            result.AsyncWaitHandle.WaitOne();
-            StorageContainer container = device.EndOpenContainer(r);
-            if (container.FileExists("ListofFilenames.sav"))
-                container.DeleteFile("ListofFilenames.sav");
-            Stream stream = container.CreateFile("ListofFilenames.sav");
-            XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelNames));
-            serializer.Serialize(stream, data);
-            stream.Close();
-            container.Dispose();
-            result.AsyncWaitHandle.Close();
         }
     }
 }

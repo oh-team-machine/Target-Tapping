@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TargetTapping.Back_end
 {
-    class Object
+    public class Object
     {
         private bool bMouseDownInside;
         private bool bIsClicked;
