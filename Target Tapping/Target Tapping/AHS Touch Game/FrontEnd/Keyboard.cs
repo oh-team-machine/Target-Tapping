@@ -20,6 +20,8 @@ namespace TargetTapping.FrontEnd
 	// All of the keys.
         private List<Key> keys;
         private ContentManager content;
+        Texture2D myOSKBackground;
+        Vector2 myOSKBackgroundPosition = (new Vector2(390, 510));
 
 	public string CurrentKey { get; private set; }
 
@@ -50,6 +52,7 @@ namespace TargetTapping.FrontEnd
     }
 	
 	public void LoadContent() {
+        myOSKBackground = content.Load<Texture2D>("OSK/keyboardBackground");
 
         keys = new List<Key>();
 
@@ -57,6 +60,7 @@ namespace TargetTapping.FrontEnd
         int y = Position.Y;
 	    // GAH! HARD CODED! GET AWAY!
 	    int keyWidth = 48;
+
 	    int keyHeight = 48;
         int indentation = 0;
 
@@ -119,10 +123,11 @@ namespace TargetTapping.FrontEnd
 
         public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(myOSKBackground, myOSKBackgroundPosition, Color.White);
             foreach (Key key in keys)
             {
                 key.Draw(spriteBatch);
-            }
+            } 
         }
 
 	// Produces a new Key object.

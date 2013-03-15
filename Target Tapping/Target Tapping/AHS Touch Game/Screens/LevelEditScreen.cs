@@ -23,6 +23,12 @@ namespace TargetTapping.Screens
         bool showingNumbers = false; //Choosing between numerical object in the pallet
         bool showingAlpha = false; //CHoosing alpha objets in the pallet
 
+        int intUpTime = 5;
+        int intHoldTime = 1;
+        Vector2 intUpTimePosition = (new Vector2(520, 45));
+        Vector2 intHoldTimePosition = (new Vector2(785, 45));
+        SpriteFont font;
+
         // The level editor's got a bunch of buttons!
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
 
@@ -48,6 +54,7 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
 
+            font = content.Load<SpriteFont>("font");
             // Load all o' dem buttons
             btns.Add("Home",  MakeButton(30,  30, "LevelEditorGUI/homeButton"));
             btns.Add("Menu",  MakeButton(95,  30, "LevelEditorGUI/menuButton"));
@@ -91,21 +98,37 @@ namespace TargetTapping.Screens
                 GameManager.GlobalInstance.activeLevel = this.myLevel;
                 AddScreenAndChill(new GameScreen());
             }
+            if (btns["UpTime"].IsClicked() )
+            {
+                //Call A Method Defined In Another Class
+            }
             if (btns["MoreUp"].IsClicked())
             {
-                
-            }
-            if (btns["MoreHold"].IsClicked())
-            {
-
+                if (intUpTime < 30)
+                {
+                    intUpTime++;
+                }
             }
             if (btns["LessUp"].IsClicked())
             {
-
+                if (intUpTime > 1)
+                {
+                    intUpTime--;
+                }
+            }
+            if (btns["MoreHold"].IsClicked())
+            {
+                if (intHoldTime < 30)
+                {
+                    intHoldTime++;
+                }
             }
             if (btns["LessHold"].IsClicked())
             {
-
+                if (intHoldTime > 1)
+                {
+                    intHoldTime--;
+                }
             }
             if (btns["Redo"].IsClicked())
             {
@@ -211,6 +234,8 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
+
+            
             // Draw all of the buttons.
             foreach (var button in btns.Values)
             {
@@ -229,7 +254,8 @@ namespace TargetTapping.Screens
                     myObject.Draw(spriteBatch);
                 }
             }
-
+            spriteBatch.DrawString(font, intHoldTime.ToString(), intHoldTimePosition, Color.Black);
+            spriteBatch.DrawString(font, intUpTime.ToString(), intUpTimePosition, Color.Black);
             // Draw the Palette
             palette.Draw(spriteBatch);
         }
