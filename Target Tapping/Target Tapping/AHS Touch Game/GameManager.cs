@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using TargetTapping.Back_end;
 
 namespace TargetTapping
 {
@@ -24,6 +25,10 @@ namespace TargetTapping
 
         public int HoldTime { get; set; }
 
+        //added this to store the level once its been made in the level editor and to
+        //access its objects while in the gamescreen.
+        public Level activeLevel { get; set; }
+
 
         public GraphicsDeviceManager Graphics { get; set; }
 
@@ -34,6 +39,8 @@ namespace TargetTapping
             this.Repetitions = 10;
             this.Time = 0.0f;
             this.Missed = 0;
+            //instantiate the Level we will be playing
+            this.activeLevel = new Level();
 
             GlobalInstance = this;
         }

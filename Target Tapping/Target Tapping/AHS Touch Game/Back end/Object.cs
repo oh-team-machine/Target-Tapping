@@ -91,6 +91,7 @@ namespace TargetTapping.Back_end
                 else{
 
                     spriteBatch.Draw(texture, rectangle, color);
+                   
                 }
             }
         }

@@ -27,7 +27,7 @@ namespace TargetTapping.Screens
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
 
         // Declare a new level object for the level editor screen to load in loadContent
-        Level myLevel = new Level();
+        Level myLevel = GameManager.GlobalInstance.activeLevel;
 
         // Declare a new object that will be used to reference an object that we are moving
         // around on the levelEditor screen.
@@ -78,17 +78,7 @@ namespace TargetTapping.Screens
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
             {
-                //uncomment this to get things back to normal
-                //ScreenManager.RemoveScreen(this);
                 AddScreenAndChill(new MenuScreen());
-              /*  GameManager manager = GameManager.GlobalInstance;
-
-              //comment out the next 3 lines to get rid of test code.
-                TargetTapping.Back_end.Object testMoving =
-                    new TargetTapping.Back_end.Object("Circle", "Shape", new Rectangle(500, 500, 100, 100), Color.Red, content, manager.Graphics);
-                myLevel.addObject(testMoving);
-              */  
-
             }
             if (btns["Menu"].IsClicked())
             {
@@ -96,6 +86,9 @@ namespace TargetTapping.Screens
             }
             if (btns["Play"].IsClicked())
             {
+                //going to set the gameManager to have a reference to myLevel so that we can access
+                //all the objects that we've created and now want to display on the gamescreen.
+                GameManager.GlobalInstance.activeLevel = this.myLevel;
                 AddScreenAndChill(new GameScreen());
             }
             if (btns["MoreUp"].IsClicked())
@@ -182,6 +175,7 @@ namespace TargetTapping.Screens
                         //new mouse click anywhere on the level editor grid we set the reference to
                         //have the new coordinates and put its shouldIBeDrawn property back to true;
                         this.objBeingMoved = myObject;
+                        //Console.WriteLine("Stuff");
 
                     }
 
