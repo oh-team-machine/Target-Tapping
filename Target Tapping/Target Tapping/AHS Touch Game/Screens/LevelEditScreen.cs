@@ -189,11 +189,14 @@ namespace TargetTapping.Screens
             {
                 foreach (var myObject in myListofObjects)
                 {
+                    // Update the state of all objects that have been created in this level on the level grid
+                    myObject.Update(mouseState);
+
                     if (myObject.IsClicked())
                     {
                         //now were going to set the current clicked object on the leveleditor grid 
                         //to have its property shouldIbeDrawn = false.
-                        myObject.shouldIbeDrawn = false;
+                        //myObject.shouldIbeDrawn = false;
                         //now make a temporary reference to this object so that once we register a 
                         //new mouse click anywhere on the level editor grid we set the reference to
                         //have the new coordinates and put its shouldIBeDrawn property back to true;
@@ -201,12 +204,9 @@ namespace TargetTapping.Screens
                         //Console.WriteLine("Stuff");
 
                     }
-
-                    // Update the state of all objects that have been created in this level on the level grid
-                    myObject.Update(mouseState);
                 }
             }
-
+            
             //now were going to test if the mouse has been clicked anywhere on the leveleditor grid
             if(mouseState.LeftButton == ButtonState.Pressed){
 
@@ -216,7 +216,8 @@ namespace TargetTapping.Screens
                     //rectangle of the grid.
 
                     //set new position of the objectbeingMoved to wherever the mouse was just clicked.
-                    this.objBeingMoved.rectangle = new Rectangle(mouseState.X, mouseState.Y,
+                    //add one pixel so we are not above the shape when we drop it!!!!!!!!!!!!!!!!!!!!
+                    this.objBeingMoved.rectangle = new Rectangle(mouseState.X+1, mouseState.Y+1,
                         this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
 
                     //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
@@ -226,9 +227,9 @@ namespace TargetTapping.Screens
                     //now remove the reference so we no long change the actual object in the list.
                     this.objBeingMoved = null;
                 }
-
+            
             }
-
+            
             base.Update(gameTime);
         }
 
