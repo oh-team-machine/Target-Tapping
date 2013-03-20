@@ -38,7 +38,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected override string ResourceNameFromId(string name)
         {
-            return string.Format("Letters/letter{0}", name);
+            return string.Format("OSK/{0}Button", name);
         }
     }
 }

@@ -662,22 +662,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\eightBtn.bmp">
-      <Name>eightBtn</Name>
+    <Compile Include="ShapePallet\8Btn.bmp">
+      <Name>8Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\fiveBtn.bmp">
-      <Name>fiveBtn</Name>
+    <Compile Include="ShapePallet\5Btn.bmp">
+      <Name>5Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\fourBtn.bmp">
-      <Name>fourBtn</Name>
+    <Compile Include="ShapePallet\4Btn.bmp">
+      <Name>4Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -718,15 +718,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\nineBtn.bmp">
-      <Name>nineBtn</Name>
+    <Compile Include="ShapePallet\9Btn.bmp">
+      <Name>9Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\oneBtn.bmp">
-      <Name>oneBtn</Name>
+    <Compile Include="ShapePallet\1Btn.bmp">
+      <Name>1Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -753,8 +753,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\sevenBtn.bmp">
-      <Name>sevenBtn</Name>
+    <Compile Include="ShapePallet\7Btn.bmp">
+      <Name>7Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -767,8 +767,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\sixBtn.bmp">
-      <Name>sixBtn</Name>
+    <Compile Include="ShapePallet\6Btn.bmp">
+      <Name>6Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -809,15 +809,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\threeBtn.bmp">
-      <Name>threeBtn</Name>
+    <Compile Include="ShapePallet\3Btn.bmp">
+      <Name>3Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\twoBtn.bmp">
-      <Name>twoBtn</Name>
+    <Compile Include="ShapePallet\2Btn.bmp">
+      <Name>2Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -830,8 +830,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ShapePallet\zeroBtn.bmp">
-      <Name>zeroBtn</Name>
+    <Compile Include="ShapePallet\0Btn.bmp">
+      <Name>0Btn</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

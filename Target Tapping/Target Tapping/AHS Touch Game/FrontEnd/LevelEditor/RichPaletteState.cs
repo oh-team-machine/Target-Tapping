@@ -16,7 +16,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
         protected Dictionary<string, Button> ThingButtons = new Dictionary<string,Button>();
 
         // Just do what the parent does.
-        protected RichPaletteState(Palette p) : base(p) { }
+        protected RichPaletteState(Palette p) : base(p) {
+            _position = p.Position;
+        }
 
         internal override Point Position
         {

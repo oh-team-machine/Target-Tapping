@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using TargetTapping.Back_end;
@@ -8,9 +9,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
 {
     internal class Palette : Updatable
     {
-        private const string InitialStateName = "Shape";
+        private const string InitialStateName = "Num";
 
-        private Dictionary<string, PaletteState> States =
+        private readonly Dictionary<string, PaletteState> _states =
                 new Dictionary<string, PaletteState>();
 
         private bool _isHidden;
@@ -36,19 +37,19 @@ namespace TargetTapping.FrontEnd.LevelEditor
             ObjectFactory = new ShapeCreationState();
 
             // Instantiate new start states.
-            States.Add("Shape", new ShapePaletteState(this));
-            States.Add("Num", new NumPaletteState(this));
-            States.Add("Alph", new AlphPaletteState(this));
+            _states.Add("Shape", new ShapePaletteState(this));
+            _states.Add("Num", new NumPaletteState(this));
+            _states.Add("Alph", new AlphPaletteState(this));
 
             // The states they go to.
-            States.Add("Size", new SizePaletteState(this));
-            States.Add("Color", new ColorPaletteState(this));
-            States.Add("Position", new PositionPaletteState(this));
+            _states.Add("Size", new SizePaletteState(this));
+            _states.Add("Color", new ColorPaletteState(this));
+            _states.Add("Position", new PositionPaletteState(this));
 
             // Setup the initial, and next states.
-            States.Add("INITIAL", States[InitialStateName]);
+            _states.Add("INITIAL", _states[InitialStateName]);
                     // First is always Shape
-            CurrentState = States["INITIAL"];
+            CurrentState = _states["INITIAL"];
                     // Set the current state to the initial state.
             CurrentStateName = InitialStateName;
 
@@ -69,6 +70,12 @@ namespace TargetTapping.FrontEnd.LevelEditor
                         value.X, value.Y,
                         BoundingBox.Width, BoundingBox.Height);
                 BoundingBox = newBox;
+
+                // Change the position of all palette states.
+                foreach (var state in _states.Values)
+                {
+                    state.Position = value;
+                }
             }
         }
 
@@ -83,8 +90,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public void LoadContent(RichContentManager content)
         {
-            var statesLoaded = new List<PaletteState>();
 
+            // Load the background.
             _shapePalletBackground =
                     content.Load<Texture2D>("ShapePallet/shapePalletBackground");
             BoundingBox = new Rectangle(
@@ -92,13 +99,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
                     _shapePalletBackground.Width,
                     _shapePalletBackground.Height);
 
-            foreach (var state in States.Values)
-            {
-                if (statesLoaded.Contains(state))
-                {
-                    continue;
-                }
-
+            // LoadContent for all palette states; do not LoadContent more than once.
+            var statesLoaded = new List<PaletteState>();
+            foreach (var state in _states.Values.Where(state => !statesLoaded.Contains(state))) {
                 statesLoaded.Add(state);
                 state.LoadContent(content);
             }
@@ -141,7 +144,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             if (stateName == "NEXT")
             {
                 var nextName = _nextStates[CurrentStateName];
-                var nextState = States[nextName];
+                var nextState = _states[nextName];
 
                 CurrentStateName = nextName;
                 CurrentState = nextState;
@@ -149,14 +152,14 @@ namespace TargetTapping.FrontEnd.LevelEditor
                 return;
             }
 
-            if (States.ContainsKey(stateName))
+            if (_states.ContainsKey(stateName))
             {
                 if (stateName == "INITIAL")
                 {
                     stateName = InitialStateName;
                 }
                 CurrentStateName = stateName;
-                CurrentState = States[stateName];
+                CurrentState = _states[stateName];
             }
             else
             {

@@ -22,7 +22,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected override bool OnButtonPressed(string name, Button button)
         {
-            throw new NotImplementedException();
+            Parent.ObjectFactory.SetNumber();
+            Parent.ObjectFactory.Name = name;
+
+            return true;
         }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
@@ -36,14 +39,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
             return 3;
         }
 
-        protected override void DrawExtras(SpriteBatch spriteBatch)
-        {
-            base.DrawExtras(spriteBatch);
-        }
-
         protected override string ResourceNameFromId(string name)
         {
-            return string.Format("Numbers/number{0}", name);
+            return string.Format("ShapePallet/{0}Btn", name);
         }
 
     }
