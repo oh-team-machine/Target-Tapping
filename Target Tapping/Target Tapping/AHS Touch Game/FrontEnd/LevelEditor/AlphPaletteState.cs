@@ -1,23 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using GameLibrary.UI;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
-    class AlphPaletteState : PaletteState
+    class AlphPaletteState : RichPaletteState
     {
-        public AlphPaletteState(Palette p) : base(p) { }
-
-
-        public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
+        public AlphPaletteState(Palette p) : base(p)
         {
-            throw new NotImplementedException();
+            ThingNames = MakeAlphapbet().ToArray();
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        protected override int MaxInRow()
         {
-            //throw new NotImplementedException();
+            return 3;
+        }
+
+        // Yields the alphabet as strings.
+        private static IEnumerable<string> MakeAlphapbet()
+        {
+            for (var c = 'A'; c <= 'Z'; c++)
+            {
+                yield return c.ToString();
+            }
+        }
+
+        protected override bool OnButtonPressed(string name, Button button)
+        {
+            parent.ObjectFactory.SetLetter();
+            parent.ObjectFactory.Name = name;
+
+            return true;
+        }
+
+        protected override string ResourceNameFromId(string name)
+        {
+            return string.Format("Letters/letter{0}", name);
         }
 
         public override void LoadContent(RichContentManager content)

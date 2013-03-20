@@ -2,27 +2,49 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GameLibrary.UI;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
     // Choose a number, move to size state.
-    class NumPaletteState : PaletteState
+    class NumPaletteState : RichPaletteState
     {
-        public NumPaletteState(Palette p) : base(p) { }
+        private readonly string[] _numbers =
+        {
+            "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
+        };
+
+        public NumPaletteState(Palette p) : base(p)
+        {
+            ThingNames = _numbers;
+        }
+
+        protected override bool OnButtonPressed(string name, Button button)
+        {
+            throw new NotImplementedException();
+        }
 
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
-            throw new NotImplementedException();
+            base.Update(state);
+            Console.Beep();
         }
 
-        public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+        protected override int MaxInRow()
         {
-            throw new NotImplementedException();
+            return 3;
         }
 
-        public override void LoadContent(RichContentManager content)
+        protected override void DrawExtras(SpriteBatch spriteBatch)
         {
-            //throw new NotImplementedException();
+            base.DrawExtras(spriteBatch);
         }
+
+        protected override string ResourceNameFromId(string name)
+        {
+            return string.Format("Numbers/number{0}", name);
+        }
+
     }
 }

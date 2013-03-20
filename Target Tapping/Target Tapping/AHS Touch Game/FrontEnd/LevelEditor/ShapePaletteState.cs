@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GameLibrary.UI;
+﻿using GameLibrary.UI;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
@@ -27,7 +23,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected override bool OnButtonPressed(string shapeName, Button button)
         {
-            parent.ObjectFactory.Type = "Shape";
+            parent.ObjectFactory.SetShape();
             parent.ObjectFactory.Name = shapeName;
 
             // Go to the next state.

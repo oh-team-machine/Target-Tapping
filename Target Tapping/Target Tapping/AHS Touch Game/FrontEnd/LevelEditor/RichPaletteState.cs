@@ -99,7 +99,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             DrawThingButtons(spriteBatch);
         }
 
-        protected void DrawExtras(SpriteBatch spriteBatch)
+        protected virtual void DrawExtras(SpriteBatch spriteBatch)
         {
         }
 
