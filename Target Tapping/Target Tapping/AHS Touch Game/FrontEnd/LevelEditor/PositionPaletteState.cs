@@ -7,12 +7,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
     class PositionPaletteState : PaletteState
     {
 
-        public PositionPaletteState(Palette p) : base(p) {
-        }
+        public PositionPaletteState(Palette p) : base(p) { }
 
-        public override void LoadContent(RichContentManager content)
-        {
-        }
+        internal override Point Position { get { return new Point(0,0);}  set { } }
+        public override void LoadContent(RichContentManager content) { }
 
         public override void Update(MouseState mouse)
         {
@@ -21,17 +19,17 @@ namespace TargetTapping.FrontEnd.LevelEditor
             {
                 int x = mouse.X, y = mouse.Y;
 
-                parent.ObjectFactory.Coordinates = new Point(x, y);
+                Parent.ObjectFactory.Coordinates = new Point(x, y);
 
-                parent.RequestStateChange("INITIAL");
-                parent.Unhide();
+                Parent.RequestStateChange("INITIAL");
+                Parent.Unhide();
             }
         }
 
         public override void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
             // Don't need to draw anything!
-            parent.Hide();
+            Parent.Hide();
         }
 
     }

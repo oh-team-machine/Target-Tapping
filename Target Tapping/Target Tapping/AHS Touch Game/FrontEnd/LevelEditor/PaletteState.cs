@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {
     // Every PaletteState takes in the parent.
     abstract class PaletteState : Updatable
     {
-        protected Palette parent;
-        public PaletteState(Palette p) {
-            parent = p;
+        protected Palette Parent;
+
+        // Position of the palette's top-left
+        abstract internal Point Position { get; set; }
+
+        protected PaletteState(Palette p)
+        {
+            if (p == null) throw new ArgumentNullException("p");
+            Parent = p;
         }
 
         abstract public void LoadContent(RichContentManager content);
@@ -18,6 +22,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
         abstract public void Update(Microsoft.Xna.Framework.Input.MouseState state);
 
         abstract public void Draw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch);
-    
+
     }
 }

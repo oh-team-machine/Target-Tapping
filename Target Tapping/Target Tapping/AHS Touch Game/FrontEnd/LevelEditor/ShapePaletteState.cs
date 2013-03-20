@@ -23,8 +23,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected override bool OnButtonPressed(string shapeName, Button button)
         {
-            parent.ObjectFactory.SetShape();
-            parent.ObjectFactory.Name = shapeName;
+            Parent.ObjectFactory.SetShape();
+            Parent.ObjectFactory.Name = shapeName;
 
             // Go to the next state.
             return true;

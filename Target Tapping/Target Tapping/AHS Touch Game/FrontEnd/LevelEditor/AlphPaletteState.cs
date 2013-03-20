@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using GameLibrary.UI;
 
@@ -21,14 +22,16 @@ namespace TargetTapping.FrontEnd.LevelEditor
         {
             for (var c = 'A'; c <= 'Z'; c++)
             {
-                yield return c.ToString();
+                // I don't know what this InvariantCulture stuff is about,
+                // but ReShaper was complaining about it.
+                yield return c.ToString(CultureInfo.InvariantCulture);
             }
         }
 
         protected override bool OnButtonPressed(string name, Button button)
         {
-            parent.ObjectFactory.SetLetter();
-            parent.ObjectFactory.Name = name;
+            Parent.ObjectFactory.SetLetter();
+            Parent.ObjectFactory.Name = name;
 
             return true;
         }
@@ -36,11 +39,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
         protected override string ResourceNameFromId(string name)
         {
             return string.Format("Letters/letter{0}", name);
-        }
-
-        public override void LoadContent(RichContentManager content)
-        {
-            //throw new NotImplementedException();
         }
     }
 }

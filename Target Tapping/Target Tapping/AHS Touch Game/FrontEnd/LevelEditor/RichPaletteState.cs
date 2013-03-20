@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using GameLibrary.UI;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,11 +11,47 @@ namespace TargetTapping.FrontEnd.LevelEditor
     internal abstract class RichPaletteState : PaletteState
     {
         protected string[] ThingNames { get; set; }
+        private Point _position;
 
         protected Dictionary<string, Button> ThingButtons = new Dictionary<string,Button>();
 
         // Just do what the parent does.
         protected RichPaletteState(Palette p) : base(p) { }
+
+        internal override Point Position
+        {
+            get { return _position; }
+            set
+            {
+                MoveEverything(value);
+                _position = value;
+            }
+        }
+
+        // Moves all the buttons to the given position.
+        protected void MoveEverything(Point newTopLeft)
+        {
+            var oldTopLeft = _position;
+            foreach (var button in ThingButtons.Values)
+            {
+                // Get the offset from the old top-left.
+                var old = button.Rect.Location;
+                var offset = new Point(
+                    old.X - oldTopLeft.X,
+                    old.Y - oldTopLeft.Y);
+
+                // Find out the new position.
+                var newPos = new Point(
+                    newTopLeft.X + offset.X,
+                    newTopLeft.Y + offset.Y);
+
+                button.Rect = new Rectangle(
+                   newPos.X, newPos.Y,
+                   button.Rect.Width,
+                   button.Rect.Height);
+            }
+
+        }
 
         // Given a thing name, gets the resource name.
         protected abstract string ResourceNameFromId(string name);
@@ -40,8 +77,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected void LoadButtons(RichContentManager content)
         {
-            int x = parent.Position.X,
-                y = parent.Position.Y;
+            int x = Parent.Position.X,
+                y = Parent.Position.Y;
 
             var maxInRow = MaxInRow();
             var inRow = 0;
@@ -57,7 +94,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
                 // Start from the beginning for a new row.
                 if (inRow >= maxInRow)
                 {
-                    x = parent.Position.X;
+                    x = Parent.Position.X;
                     inRow = 0;
                     y += button.Rect.Height;
                 }
@@ -76,7 +113,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             foreach (var pair in ThingButtons.Where(pair => pair.Value.IsClicked())) {
                 if (OnButtonPressed(pair.Key, pair.Value))
                 {
-                    parent.RequestStateChange("NEXT");
+                    Parent.RequestStateChange("NEXT");
                 }
                 break;
             }

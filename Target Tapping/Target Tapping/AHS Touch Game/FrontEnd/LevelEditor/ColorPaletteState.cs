@@ -27,7 +27,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // WARNING: Don't look at the implementation of DoEvil.
             // Just replace it.
             var color = DoEvil(button);
-            parent.ObjectFactory.Color = color;
+            Parent.ObjectFactory.Color = color;
 
             // Go to the next state.
             return true;
