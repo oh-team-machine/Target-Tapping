@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using GameLibrary.UI;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace TargetTapping.FrontEnd.LevelEditor
 {

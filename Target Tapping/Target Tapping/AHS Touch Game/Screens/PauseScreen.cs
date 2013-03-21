@@ -53,14 +53,14 @@ namespace TargetTapping.Screens
 
         }
 
-        public override void PreparedDraw(SpriteBatch SpriteBatch)
+        public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-            SpriteBatch.Draw(pauseMenuBackground, pauseMenuBackgroundPosition, Color.White);
-            SpriteBatch.Draw(pauseMenuTitle, pauseMenuGraphicPosition, Color.White);
-            btnPauseRestart.Draw(SpriteBatch);
-            btnPauseLoad.Draw(SpriteBatch);
-            btnPauseEdit.Draw(SpriteBatch);
-            btnPauseContinue.Draw(SpriteBatch); 
+            spriteBatch.Draw(pauseMenuBackground, pauseMenuBackgroundPosition, Color.White);
+            spriteBatch.Draw(pauseMenuTitle, pauseMenuGraphicPosition, Color.White);
+            btnPauseRestart.Draw(spriteBatch);
+            btnPauseLoad.Draw(spriteBatch);
+            btnPauseEdit.Draw(spriteBatch);
+            btnPauseContinue.Draw(spriteBatch); 
         }
 
     }

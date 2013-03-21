@@ -9,7 +9,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 {
     internal class Palette : Updatable
     {
-        private const string InitialStateName = "Num";
+        private const string InitialStateName = "Alph";
 
         private readonly Dictionary<string, PaletteState> _states =
                 new Dictionary<string, PaletteState>();

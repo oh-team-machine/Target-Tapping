@@ -95,29 +95,29 @@ namespace TargetTapping.Screens
             base.Update(gameTime);
         }
 
-        public override void PreparedDraw(SpriteBatch SpriteBatch)
+        public override void PreparedDraw(SpriteBatch spriteBatch)
         {
             
-            btnCancel.Draw(SpriteBatch);
-            btnOpen.Draw(SpriteBatch);
-            SpriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
-            goSearch.Draw(SpriteBatch);
-            clearSearchButton.Draw(SpriteBatch);
+            btnCancel.Draw(spriteBatch);
+            btnOpen.Draw(spriteBatch);
+            spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
+            goSearch.Draw(spriteBatch);
+            clearSearchButton.Draw(spriteBatch);
             if (loadKeyBoard == false)
             {
-                SpriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.White);
+                spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.White);
             }
             else
             {
-                SpriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
+                spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
             }
-            SpriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
-            SpriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
-            delSearch.Draw(SpriteBatch);
+            spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
+            spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
+            delSearch.Draw(spriteBatch);
 
             if (loadKeyBoard == true)
             {
-                keyboard.Draw(SpriteBatch);
+                keyboard.Draw(spriteBatch);
             }
 
 

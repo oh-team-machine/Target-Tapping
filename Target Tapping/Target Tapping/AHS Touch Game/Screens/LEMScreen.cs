@@ -62,16 +62,16 @@ namespace TargetTapping.Screens
 
         }
 
-        public override void PreparedDraw(SpriteBatch SpriteBatch)
+        public override void PreparedDraw(SpriteBatch spriteBatch)
         {
 
-            SpriteBatch.Draw(levelEditorMenuBackground, levelEditorMenuPosition, Color.White);
-            SpriteBatch.Draw(levelEditorMenuTitle, levelEditorMenuGraphicPosition, Color.White);
-            btnLemBack.Draw(SpriteBatch);
-            btnLemClear.Draw(SpriteBatch);
-            btnLemExit.Draw(SpriteBatch);
-            btnLemLoad.Draw(SpriteBatch);
-            btnLemSave.Draw(SpriteBatch);
+            spriteBatch.Draw(levelEditorMenuBackground, levelEditorMenuPosition, Color.White);
+            spriteBatch.Draw(levelEditorMenuTitle, levelEditorMenuGraphicPosition, Color.White);
+            btnLemBack.Draw(spriteBatch);
+            btnLemClear.Draw(spriteBatch);
+            btnLemExit.Draw(spriteBatch);
+            btnLemLoad.Draw(spriteBatch);
+            btnLemSave.Draw(spriteBatch);
         }
 
     }

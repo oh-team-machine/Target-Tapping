@@ -87,20 +87,20 @@ namespace TargetTapping.Screens
         }
 
 
-        public override void PreparedDraw(SpriteBatch SpriteBatch)
+        public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-            btnPause.Draw(SpriteBatch);
+            btnPause.Draw(spriteBatch);
 
             // draw all objects that were created 
             foreach (var myListofObjects in playingLevel.objectList)
             {
                 foreach (var myObject in myListofObjects)
                 {
-                    myObject.Draw(SpriteBatch);
+                    myObject.Draw(spriteBatch);
                 }
             }
             //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
-            SpriteBatch.DrawString(font, "Score: "+score.ToString(), scorePosition, Color.White);
+            spriteBatch.DrawString(font, "Score: "+score.ToString(), scorePosition, Color.White);
             //SpriteBatch.End();
 
 
