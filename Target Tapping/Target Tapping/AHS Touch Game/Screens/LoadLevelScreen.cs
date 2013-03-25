@@ -33,7 +33,7 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
             font = content.Load<SpriteFont>("font");
-            searchQuery = "Search...";
+            searchQuery = "";
             textBackgorund = content.Load<Texture2D>("GUI/textBackground");
             magnifyGlass = content.Load<Texture2D>("GUI/magnifyGlass");
             listBackground = content.Load<Texture2D>("GUI/listBackground");

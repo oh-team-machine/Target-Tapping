@@ -15,7 +15,7 @@ namespace TargetTapping.Screens
         #region Variables
 
         // Stuff 'em in here, boss!
-        Button btnPause;
+        Button btnPause, btnTouchToStart;
 
         //Here were going to get the current level that we built in the leveleditor
         Level playingLevel = GameManager.GlobalInstance.activeLevel;
@@ -27,11 +27,16 @@ namespace TargetTapping.Screens
         //position to put the score at
         private Vector2 scorePosition;
 
+        //This boolean say whether the game has been started
+        private bool hasTouchedToStart = false;
+
         #endregion Variables
 
         public override void LoadContent()
         {
             base.LoadContent();
+            btnTouchToStart = MakeButton(250, 250, "GameScreenContent/touchToStart");
+
             btnPause = MakeButton(0, 0, "GUI/pauseButton");
             //initialize the score
             this.score = 0;
@@ -47,40 +52,53 @@ namespace TargetTapping.Screens
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            if (btnPause.IsClicked())
+            
+            //Touch to Start functionality.
+            if (btnTouchToStart.IsClicked())
             {
-                AddScreenAndChill(new PauseScreen());
+                hasTouchedToStart = true;
+                //Start Timer here and all game events
             }
-            btnPause.Update(mouseState);
-
-
-            foreach (var myListofObjects in playingLevel.objectList)
+            if (hasTouchedToStart == false)
             {
-                foreach (var myObject in myListofObjects)
+                btnTouchToStart.Update(mouseState);
+            }
+
+            //This all happens after touch to start!
+            if (hasTouchedToStart == true)
+            {
+                if (btnPause.IsClicked())
                 {
-                    // Update the state of all objects that have been brought over from the leveleditor screen
-                    myObject.Update(mouseState);
+                    AddScreenAndChill(new PauseScreen());
                 }
-            }
-            // This foreach loop will check if a button in the list of buttonlists
-            // is clicked and if it is then we are going to move its position.
-            foreach (var myListofObjects in playingLevel.objectList)
-            {
-                foreach (var myObject in myListofObjects)
+                btnPause.Update(mouseState);
+
+
+                foreach (var myListofObjects in playingLevel.objectList)
                 {
-                    if (myObject.IsClicked())
+                    foreach (var myObject in myListofObjects)
                     {
-                        this.score++;
-                        //now were going to set the current clicked object on the gamescree 
-                        //to have its property shouldIbeDrawn = false. Because its been clicked
-                        //Lets also update the score 
-                        myObject.shouldIbeDrawn = false;
-                        
-
-                    }                
+                        // Update the state of all objects that have been brought over from the leveleditor screen
+                        myObject.Update(mouseState);
+                    }
+                }
+                // This foreach loop will check if a button in the list of buttonlists
+                // is clicked and if it is then we are going to move its position.
+                foreach (var myListofObjects in playingLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        if (myObject.IsClicked())
+                        {
+                            this.score++;
+                            //now were going to set the current clicked object on the gamescree 
+                            //to have its property shouldIbeDrawn = false. Because its been clicked
+                            //Lets also update the score 
+                            myObject.shouldIbeDrawn = false;
+                        }
+                    }
                 }
             }
-           
 
 
             base.Update(gameTime);
@@ -89,21 +107,28 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-            btnPause.Draw(spriteBatch);
-
-            // draw all objects that were created 
-            foreach (var myListofObjects in playingLevel.objectList)
+            if (hasTouchedToStart == false)
             {
-                foreach (var myObject in myListofObjects)
-                {
-                    myObject.Draw(spriteBatch);
-                }
+                btnTouchToStart.Draw(spriteBatch);
             }
-            //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
-            spriteBatch.DrawString(font, "Score: "+score.ToString(), scorePosition, Color.White);
-            //SpriteBatch.End();
+            else
+            {
 
+                btnPause.Draw(spriteBatch);
 
+                // draw all objects that were created 
+                foreach (var myListofObjects in playingLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.Draw(spriteBatch);
+                    }
+                }
+                //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
+                spriteBatch.DrawString(font, "Score: " + score.ToString(), scorePosition, Color.White);
+                //SpriteBatch.End();
+
+            }
         }
     }
 }

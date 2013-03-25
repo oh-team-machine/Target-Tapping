@@ -45,8 +45,8 @@ namespace TargetTapping.Screens
             base.LoadContent();
 
             font = content.Load<SpriteFont>("font");
-            nameOfTherapist = "Enter Your Name Here...";
-            descriptionByTherapist = "Enter Your Description Here...";
+            nameOfTherapist = "";
+            descriptionByTherapist = "";
             textBackgorund = content.Load<Texture2D>("GUI/textBackground");
             myNewLevelTitle = content.Load<Texture2D>("GUI/newLevel");
 
