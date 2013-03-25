@@ -35,6 +35,10 @@ namespace TargetTapping.Screens
         private Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
         private Texture2D textBackgorund;
 
+        
+        private bool nameCreated = false;
+        private bool descriptionCreated = false;
+
 
         public override void LoadContent()
         {
@@ -91,11 +95,13 @@ namespace TargetTapping.Screens
                     if (nameHighlight)
                     {
                         nameOfTherapist = nameOfTherapist + keyboard.CurrentKey;
+                        nameCreated = true;
                     }
                     if (nameHighlight == false)
                     {
                         descriptionByTherapist = descriptionByTherapist +
                                                  keyboard.CurrentKey;
+                        descriptionCreated = true;
                     }
                 }
             }
@@ -106,8 +112,14 @@ namespace TargetTapping.Screens
             }
             if (btnCreate.IsClicked())
             {
-                GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
-                AddScreenAndChill(new LevelEditScreen());
+                if (nameCreated && descriptionCreated)
+                {
+                    if ((nameOfTherapist.Length > 1) && (descriptionByTherapist.Length > 1))
+                    {
+                        GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
+                        AddScreenAndChill(new LevelEditScreen());
+                    }
+                }
             }
             if (clearNameButton.IsClicked())
             {
