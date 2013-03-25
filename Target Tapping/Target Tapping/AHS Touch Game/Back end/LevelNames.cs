@@ -32,12 +32,12 @@ namespace TargetTapping.Back_end
         {
             device = null;
             StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
-            filenames = new List<string>();
         }
 
-        public List<string> getFileNames() {
+        public List<string> getFileNames() 
+        {
             return filenames;
-    }
+        }
 
         void loadLevelName(IAsyncResult result)
         {
