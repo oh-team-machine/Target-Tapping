@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
+using TargetTapping.Back_end;
 
 namespace TargetTapping.Screens
 {
@@ -40,6 +41,10 @@ namespace TargetTapping.Screens
             }
             if (btnLemSave.IsClicked())
             {
+                GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
+                SerializableLevel sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
+                new SaveLevel().initiateSave(sLevel);
+
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (btnLemLoad.IsClicked())

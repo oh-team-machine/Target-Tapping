@@ -106,6 +106,7 @@ namespace TargetTapping.Screens
             }
             if (btnCreate.IsClicked())
             {
+                GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (clearNameButton.IsClicked())

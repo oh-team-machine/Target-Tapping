@@ -123,6 +123,7 @@
     <Compile Include="Back end\LevelNames.cs" />
     <Compile Include="Back end\Object.cs" />
     <Compile Include="Back end\saveLevel.cs" />
+    <Compile Include="Back end\SerializableLevel.cs" />
     <Compile Include="Back end\ShapeCreationState.cs" />
     <Compile Include="FrontEnd\Key.cs" />
     <Compile Include="FrontEnd\Keyboard.cs" />

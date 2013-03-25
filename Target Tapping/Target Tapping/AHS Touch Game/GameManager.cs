@@ -25,6 +25,8 @@ namespace TargetTapping
 
         public int HoldTime { get; set; }
 
+        public LevelNames LevelNames { get; private set; }
+
         //added this to store the level once its been made in the level editor and to
         //access its objects while in the gamescreen.
         public Level activeLevel { get; set; }
@@ -41,7 +43,7 @@ namespace TargetTapping
             this.Missed = 0;
             //instantiate the Level we will be playing
             this.activeLevel = new Level();
-
+            LevelNames = new LevelNames();
             GlobalInstance = this;
         }
 

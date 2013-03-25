@@ -168,9 +168,9 @@ namespace TargetTapping.Screens
                 var rect = new Rectangle(pos.X, pos.Y, 100, 100);
                 var graphman = GameManager.GlobalInstance.Graphics;
 
-                var level = new Back_end.Object(type, name, rect, color, content,
+                var entity = new Back_end.Object(type, name, rect, color, content,
                                                 graphman);
-                myLevel.addObject(level);
+                myLevel.addObject(entity);
 
                 palette.Reset();
             }

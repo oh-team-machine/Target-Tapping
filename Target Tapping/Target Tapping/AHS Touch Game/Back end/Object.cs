@@ -105,8 +105,7 @@ namespace TargetTapping.Back_end
         public Color color { get; set; }
         public Rectangle rectangle { get; set; }
         public string shapeType { get; set; }
-        public bool multiSelect { get; set; }
-        public Texture2D texture { get; set; }
+        private Texture2D texture { get; set; }
         public bool shouldIbeDrawn { get; set; }
     }
 }

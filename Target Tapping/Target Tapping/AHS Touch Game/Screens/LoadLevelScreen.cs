@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using GameLibrary.UI;
 using TargetTapping.FrontEnd;
+using TargetTapping.Back_end;
 
 namespace TargetTapping.Screens
 {
@@ -26,6 +27,8 @@ namespace TargetTapping.Screens
         Button clearSearchButton;
         private Keyboard keyboard;
 
+        LevelNames levelNames = GameManager.GlobalInstance.LevelNames;
+
         public override void LoadContent()
         {
             base.LoadContent();
@@ -42,8 +45,11 @@ namespace TargetTapping.Screens
             clearSearchButton = MakeButton(175, 85, "GUI/nothing2");
             keyboard = new Keyboard(401, 520, content);
             keyboard.LoadContent();
+            fileList = new List(levelNames.getFileNames(), 600, 15, 20, lisBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
 	    // Load buttons 'n' stuff, yo!
         }
+
+        public List fileList { get; set; }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
@@ -62,16 +68,20 @@ namespace TargetTapping.Screens
                     searchQuery = searchQuery + keyboard.CurrentKey;
                 }
             }
-            if (goSearch.IsClicked())
-            {
+            //if (goSearch.IsClicked())
+            //{
 
-            }
+            //}
             if (btnCancel.IsClicked())
             {
                 AddScreenAndChill(new MenuScreen());
             }
             if (btnOpen.IsClicked())
             {
+                LevelLoad levelL = new LevelLoad();
+                SerializableLevel sLevel = levelL.initiateLoad(fileList.SelectedElement());
+                var graphics = GameManager.GlobalInstance.Graphics;
+                GameManager.GlobalInstance.activeLevel = sLevel.constructLevel(content, graphics);
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (delSearch.IsClicked())
@@ -92,6 +102,9 @@ namespace TargetTapping.Screens
             {
                 keyboard.Update(mouseState);
             }
+
+            fileList.Update(gameTime, mouseState);
+
             base.Update(gameTime);
         }
 
@@ -115,12 +128,12 @@ namespace TargetTapping.Screens
             spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
             delSearch.Draw(spriteBatch);
 
+            fileList.Draw(spriteBatch);
+
             if (loadKeyBoard == true)
             {
                 keyboard.Draw(spriteBatch);
             }
-
-
         }
     }
 }

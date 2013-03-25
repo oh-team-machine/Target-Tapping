@@ -18,7 +18,7 @@ namespace TargetTapping.Back_end
         [Serializable]
         public struct SaveLevelData
         {
-            public List<List<TargetTapping.Back_end.Object>> objectList;
+            public List<List<SerializableEntity>> objectList;
             public int currentPosition;
             public bool multiSelect;
             public int upTime;
@@ -27,11 +27,12 @@ namespace TargetTapping.Back_end
         }
 
         private static StorageDevice device;
-        private static Level level;
+        private static SerializableLevel level;
         private static string filename;
-        public Level initiateLoad(string filenamePassed)
+        public SerializableLevel initiateLoad(string filenamePassed)
         {
-            filename = filenamePassed;
+            level = new SerializableLevel(new Level());
+            filename = filenamePassed + ".sav";
             StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevel, null);
             return level;
         }
@@ -48,7 +49,7 @@ namespace TargetTapping.Back_end
                 Stream stream = container.OpenFile(filename, FileMode.Open);
                 XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelData));
                 SaveLevelData data = (SaveLevelData)serializer.Deserialize(stream);
-                level.objectList = data.objectList;
+                level.entityList = data.objectList;
                 level.currentPosition = data.currentPosition;
                 level.multiSelect = data.multiSelect;
                 level.holdTime = data.holdTime;

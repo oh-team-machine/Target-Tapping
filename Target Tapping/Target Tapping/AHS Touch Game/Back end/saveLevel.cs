@@ -18,7 +18,7 @@ namespace TargetTapping.Back_end
         [Serializable]
         public struct SaveLevelData
         {
-            public List<List<TargetTapping.Back_end.Object>> objectList;
+            public List<List<SerializableEntity>> objectList;
             public int currentPosition;
             public bool multiSelect;
             public int upTime;
@@ -27,9 +27,9 @@ namespace TargetTapping.Back_end
         }
 
         private static StorageDevice device;
-        public Level level;
+        public SerializableLevel level;
 
-        public void initiateSave(Level levelPassed) {
+        public void initiateSave(SerializableLevel levelPassed) {
             level = levelPassed;
             device = null;
             StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevel, null);
@@ -38,7 +38,7 @@ namespace TargetTapping.Back_end
         void saveLevel(IAsyncResult result)
         {
             SaveLevelData data = new SaveLevelData();
-            data.objectList = level.objectList;
+            data.objectList = level.entityList;
             data.currentPosition = level.currentPosition;
             data.multiSelect = level.multiSelect;
             data.upTime = level.upTime;
@@ -51,9 +51,10 @@ namespace TargetTapping.Back_end
                 IAsyncResult r = device.BeginOpenContainer("MyGamesStorage", null, null);
                 result.AsyncWaitHandle.WaitOne();
                 StorageContainer container = device.EndOpenContainer(r);
-                if (container.FileExists(level.levelName))
-                    container.DeleteFile(level.levelName);
-                Stream stream = container.CreateFile(level.levelName);
+                if (container.FileExists(level.levelName + ".sav"))
+                    container.DeleteFile(level.levelName + ".sav");
+                Stream stream = container.CreateFile(level.levelName + ".sav");
+                
                 XmlSerializer serializer = new XmlSerializer(typeof(SaveLevelData));
                 serializer.Serialize(stream, data);
                 stream.Close();
