@@ -77,11 +77,12 @@ namespace TargetTapping.Back_end
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //attempt to avoid double clicking it
-            Thread.Sleep(50);
+            
 
             //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
             if(this.shouldIBeDrawn){
+                //attempt to avoid double clicking it
+                //Thread.Sleep(250);
 
                 if (bMouseDownInside)
                 {

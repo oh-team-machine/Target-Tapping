@@ -16,7 +16,7 @@ namespace TargetTapping.Screens
         bool multiState = false; //for multi button 
         bool levelEditorMenuON = false; //Menu opens with menu button in level editor
         bool shapePalletVisible = true; // Showing the pallet
-        // This should be replaced by FSM
+        // This should be replacedC:\Users\Patrick\Documents\Visual Studio 2010\Projects\Target-Tapping\Target Tapping\Target Tapping\AHS Touch Game\Screens\LevelEditScreen.cs by FSM
         bool sizeChoosing = false; // Choosing the size of an object in the pallet
         bool colorChoosing = false; // Color choosing for an object in the pallet
         bool showingShapes = true; //Choosing between shapes in the pallet
@@ -165,7 +165,9 @@ namespace TargetTapping.Screens
                 var name = fac.Name;
                 var pos = fac.Coordinates;
                 // TODO: Not a hardcoded size!
-                var rect = new Rectangle(pos.X, pos.Y, 100, 100);
+                //need to fix this, currently incrementing pos.x and pos.y by 1 to avoid the double click error thats going on.
+                //need to remove this and find a proper fix.
+                var rect = new Rectangle(pos.X+1, pos.Y+1, 100, 100);
                 var graphman = GameManager.GlobalInstance.Graphics;
 
                 var entity = new Back_end.Object(type, name, rect, color, content,
@@ -214,7 +216,7 @@ namespace TargetTapping.Screens
                 {
                     //need to implement a check to see if the spot we are clicking in intersects within the
                     //rectangle of the grid.
-
+                    
                     //set new position of the objectbeingMoved to wherever the mouse was just clicked.
                     //add one pixel so we are not above the shape when we drop it!!!!!!!!!!!!!!!!!!!!
                     this.objBeingMoved.rectangle = new Rectangle(mouseState.X+1, mouseState.Y+1,
