@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using GameLibrary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -76,6 +77,9 @@ namespace TargetTapping.Back_end
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            //attempt to avoid double clicking it
+            Thread.Sleep(50);
+
             //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
             if(this.shouldIBeDrawn){
 
