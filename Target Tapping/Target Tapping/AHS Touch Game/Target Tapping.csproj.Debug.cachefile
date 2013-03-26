@@ -158,3 +158,7 @@ Content\ShapePallet\3Btn.xnb
 Content\ShapePallet\2Btn.xnb
 Content\ShapePallet\0Btn.xnb
 Content\GameScreenContent\touchToStart.xnb
+Content\LevelEditorGUI\addShapeButton.xnb
+Content\LevelEditorGUI\addNumButton.xnb
+Content\LevelEditorGUI\addAlphButton.xnb
+Content\LevelEditorGUI\addLabel.xnb

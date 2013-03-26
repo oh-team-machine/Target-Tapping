@@ -41,7 +41,7 @@ namespace TargetTapping
 
             graphics.IsFullScreen = isFullScreen;
             //Shawn's editing
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;// full screen turned off as there are to many bugs to test in full
             //
 
 

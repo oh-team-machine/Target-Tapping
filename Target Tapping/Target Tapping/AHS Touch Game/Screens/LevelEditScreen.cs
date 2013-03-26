@@ -42,8 +42,9 @@ namespace TargetTapping.Screens
         private Palette palette;
 
         // Title stuff, apparently.
-        Texture2D grid;
+        Texture2D grid, addLabel;
         Vector2 gridPosition = (new Vector2(0, 110));
+        Vector2 addLabelPosition = (new Vector2(985, 27));
         float rotationAngle = 4.71238898F; // wat.
         Vector2 originForRotation = new Vector2(
              960, //(grid.Width / 2);
@@ -70,9 +71,13 @@ namespace TargetTapping.Screens
             btns.Add("MoreHold",  MakeButton(820,  30, "LevelEditorGUI/moreButton"));
             btns.Add("LessUp",  MakeButton(615,  30, "LevelEditorGUI/lessButton"));
             btns.Add("LessHold",  MakeButton(875,  30, "LevelEditorGUI/lessButton"));
+            btns.Add("AddShape", MakeButton(1040, 30, "LevelEditorGUI/addShapeButton"));
+            btns.Add("AddAlpha", MakeButton(1105, 30, "LevelEditorGUI/addAlphButton"));
+            btns.Add("AddNumbr", MakeButton(1170, 30, "LevelEditorGUI/addNumButton"));
 
             // Also, the grid.
             grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+            addLabel = content.Load<Texture2D>("LevelEditorGUI/addLabel");
 
             // Place the palette.
             palette = new Palette(0, 100);
@@ -137,6 +142,18 @@ namespace TargetTapping.Screens
 
             }
             if (btns["Undo"].IsClicked())
+            {
+
+            }
+            if (btns["AddAlpha"].IsClicked())
+            {
+
+            }
+            if (btns["AddShape"].IsClicked())
+            {
+
+            }
+            if (btns["AddNumbr"].IsClicked())
             {
 
             }
@@ -239,7 +256,8 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-
+            //draw add object label
+            spriteBatch.Draw(addLabel, addLabelPosition, Color.White);
             
             // Draw all of the buttons.
             foreach (var button in btns.Values)
@@ -251,6 +269,8 @@ namespace TargetTapping.Screens
             //spriteBatch.Draw(grid,
               //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
             spriteBatch.Draw(grid, gridPosition, Color.White);
+
+            
 
             // draw the all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
