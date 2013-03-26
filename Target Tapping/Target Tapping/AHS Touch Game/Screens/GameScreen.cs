@@ -14,6 +14,10 @@ namespace TargetTapping.Screens
     {
         #region Variables
 
+        //Stuff to draw objects on screen in order.
+        int time = 0;
+        int currentListNumber = 0;
+
         // Stuff 'em in here, boss!
         Button btnPause, btnTouchToStart;
 
@@ -31,9 +35,6 @@ namespace TargetTapping.Screens
         private bool hasTouchedToStart = false;
 
         #endregion Variables
-        int time = 0;
-        int currentListNumber = 0;
-        List<TargetTapping.Back_end.Object> currentObjectList;
 
         public override void LoadContent()
         {
@@ -49,7 +50,6 @@ namespace TargetTapping.Screens
             float scoreLength = (font.MeasureString("999/999")).X;
             //double check this position
             scorePosition = new Vector2(this.ScreenManager.ScaleXPosition((this.ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth / 2.0f) - (scoreLength / 2.0f)), this.ScreenManager.ScaleYPosition(20.0f));
-            currentObjectList = playingLevel.objectList[currentListNumber];
 
         }
 
@@ -61,17 +61,28 @@ namespace TargetTapping.Screens
             }
             else 
             {
-                if (time == (playingLevel.upTime * 10))
+                if (time == (playingLevel.upTime * 60))
                 {
-                    if (currentListNumber == playingLevel.objectList.Count)
+                    if (currentListNumber == playingLevel.objectList.Count - 1)
                     {
+                        foreach (var myListofObjects in playingLevel.objectList)
+                        {
+                            foreach (var myObject in myListofObjects)
+                            {
+                                myObject.shouldIbeDrawn = true;
+                            }
+                        }
                         //TO DO: add end level screen.
                     }
                     else
                     {
                         currentListNumber = currentListNumber + 1;
-                        currentObjectList = playingLevel.objectList[currentListNumber];
                     }
+                    time = 0;
+                }
+                else
+                {
+                    time = time + 1;
                 }
             }
             
@@ -96,27 +107,27 @@ namespace TargetTapping.Screens
                 btnPause.Update(mouseState);
 
 
-                foreach (var myObject in currentObjectList)
+                foreach (var myObject in playingLevel.objectList[currentListNumber])
                 {
                     // Update the state of all objects that have been brought over from the leveleditor screen
                     myObject.Update(mouseState);
                 }
                 // This foreach loop will check if a button in the list of buttonlists
                 // is clicked and if it is then we are going to move its position.
-                foreach (var myObject in currentObjectList)
+                foreach (var myObject in playingLevel.objectList[currentListNumber])
                 {
                     if (myObject.IsClicked())
                     {
                         this.score++;
                         //now were going to set the current clicked object on the gamescree 
                         //to have its property shouldIbeDrawn = false. Because its been clicked
-                        //Lets also update the score 
+                        //Lets also update the score
+                        //playingLevel.objectList[currentListNumber][position].shouldIbeDrawn = false;
                         myObject.shouldIbeDrawn = false;
                     }
                 }
             }
 
-            time = time + 1;
             base.Update(gameTime);
         }
 
@@ -133,7 +144,7 @@ namespace TargetTapping.Screens
                 btnPause.Draw(spriteBatch);
 
                 // draw all objects that were created 
-                foreach (var myObject in currentObjectList)
+                foreach (var myObject in playingLevel.objectList[currentListNumber])
                 {
                     myObject.Draw(spriteBatch);
                 }
