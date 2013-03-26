@@ -12,18 +12,22 @@ namespace TargetTapping.Screens
     {
         Button btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
         Texture2D pauseMenuBackground, pauseMenuTitle;
-        Vector2 pauseMenuBackgroundPosition = (new Vector2(500, 200));
-        Vector2 pauseMenuGraphicPosition = (new Vector2(530, 200));
+        Vector2 pauseMenuBackgroundPosition;
+        Vector2 pauseMenuGraphicPosition;
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         public override void LoadContent()
         {
             base.LoadContent();
+            pauseMenuBackgroundPosition = (new Vector2(((screenWidth / 2) - 200), ((screenHeight / 2) - 175)));
+            pauseMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 160), ((screenHeight / 2) - 175)));
             pauseMenuBackground = content.Load<Texture2D>("GamePauseMenu/menuBackground");
             pauseMenuTitle = content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
-            btnPauseContinue = MakeButton(530, 255, "GamePauseMenu/continueButtonGraphic");
-            btnPauseEdit = MakeButton(530, 310, "GamePauseMenu/editButtonGraphic");
-            btnPauseLoad = MakeButton(530, 365, "GamePauseMenu/changeLevelButtonGraphic");
-            btnPauseRestart = MakeButton(530, 420, "GamePauseMenu/restartButtonGraphic");
+            btnPauseContinue = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 20, "GamePauseMenu/continueButtonGraphic");
+            btnPauseEdit = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 75, "GamePauseMenu/editButtonGraphic");
+            btnPauseLoad = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 130, "GamePauseMenu/changeLevelButtonGraphic");
+            btnPauseRestart = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 185, "GamePauseMenu/restartButtonGraphic");
 	       // Load buttons 'n' stuff, yo!
         }
 

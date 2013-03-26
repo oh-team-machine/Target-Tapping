@@ -25,8 +25,8 @@ namespace TargetTapping.Screens
 
         int intUpTime = 5;
         int intHoldTime = 1;
-        Vector2 intUpTimePosition = (new Vector2(520, 45));
-        Vector2 intHoldTimePosition = (new Vector2(785, 45));
+        Vector2 intUpTimePosition;
+        Vector2 intHoldTimePosition;
         SpriteFont font;
 
         // The level editor's got a bunch of buttons!
@@ -53,6 +53,8 @@ namespace TargetTapping.Screens
         public override void LoadContent()
         {
             base.LoadContent();
+            intUpTimePosition = (new Vector2(520, 45));
+            intHoldTimePosition = (new Vector2(785, 45));
 
             font = content.Load<SpriteFont>("font");
             // Load all o' dem buttons
@@ -246,8 +248,9 @@ namespace TargetTapping.Screens
             }
 
             // Draw dat grid, yo.
-            spriteBatch.Draw(grid,
-                   gridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(grid,
+              //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(grid, gridPosition, Color.White);
 
             // draw the all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)

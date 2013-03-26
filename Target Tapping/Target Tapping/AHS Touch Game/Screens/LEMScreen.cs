@@ -13,20 +13,25 @@ namespace TargetTapping.Screens
     {
         Button btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
         Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
-        Vector2 levelEditorMenuPosition = (new Vector2(500, 200));
-        Vector2 levelEditorMenuGraphicPosition = (new Vector2(530, 200));
-
+        Vector2 levelEditorMenuPosition;
+        Vector2 levelEditorMenuGraphicPosition;
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         public override void LoadContent()
         {
+            //((screenWidth / 2) - 400)
             base.LoadContent();
+            levelEditorMenuPosition = (new Vector2( ((screenWidth / 2) - 200), ((screenHeight / 2) - 175) ) );
+            levelEditorMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 160), ((screenHeight / 2) - 175) ) );
+
             levelEditorMenuBackground = content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
-            btnLemBack = MakeButton(530, 255, "LevelEditorMenu/backButtonGraphic");
-            btnLemSave = MakeButton(530, 310, "LevelEditorMenu/saveButtonGraphic");
-            btnLemLoad = MakeButton(530, 365, "LevelEditorMenu/loadButtonGraphic");
-            btnLemClear = MakeButton(530, 420, "LevelEditorMenu/clearButtonGraphic");
-            btnLemExit = MakeButton(530, 475, "LevelEditorMenu/exitButtonGraphic");
+            btnLemBack = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
+            btnLemSave = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
+            btnLemLoad = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
+            btnLemClear = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 185, "LevelEditorMenu/clearButtonGraphic");
+            btnLemExit = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 240, "LevelEditorMenu/exitButtonGraphic");
 
 	       // Load buttons 'n' stuff, yo!
         }
