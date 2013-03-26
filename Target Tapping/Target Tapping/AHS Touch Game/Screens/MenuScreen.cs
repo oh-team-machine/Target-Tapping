@@ -11,19 +11,22 @@ namespace TargetTapping.Screens
     class MenuScreen : AbstractRichScreen
     {
 
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         private Button btnNew, btnLoad, btnExit;
         Texture2D myTitle;
-        Vector2 myTitlePosition = new Vector2(250, 0);
+        Vector2 myTitlePosition;
+       
 
         public override void LoadContent()
         {
             base.LoadContent();
-
-            btnNew = MakeButton(340, 200, "GUI/newButton");
-            btnLoad = MakeButton(340, 350, "GUI/loadButton");
-            btnExit = MakeButton(340, 500, "GUI/exitButton");
+            myTitlePosition = new Vector2(((screenWidth / 2) - 400), 0);
+            btnNew = MakeButton(((screenWidth/2)-300), ((screenHeight/3)), "GUI/newButton");
+            btnLoad = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+150), "GUI/loadButton");
+            btnExit = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+300), "GUI/exitButton");
             myTitle = content.Load<Texture2D>("GUI/targetTappingGame");
-
+            System.Diagnostics.Debug.WriteLine(((screenWidth / 2) - 300));
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)

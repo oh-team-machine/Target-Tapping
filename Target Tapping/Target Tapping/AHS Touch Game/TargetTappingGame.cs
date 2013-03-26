@@ -28,9 +28,11 @@ namespace TargetTapping
 
         public TargetTappingGame()
         {
-
+            //Shawn is using this for setting up new resolution.
             graphics = new GraphicsDeviceManager(this);
-           
+            screenResolution = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            //
+
 
             Content.RootDirectory = "Content";
 
@@ -38,6 +40,10 @@ namespace TargetTapping
             graphics.PreferredBackBufferHeight = screenResolution.Height;
 
             graphics.IsFullScreen = isFullScreen;
+            //Shawn's editing
+            graphics.IsFullScreen = true;
+            //
+
 
             graphics.ApplyChanges();
 
@@ -80,5 +86,6 @@ namespace TargetTapping
 
             base.Draw(gameTime);
         }
+        
     }
 }
