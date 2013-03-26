@@ -34,12 +34,15 @@ namespace TargetTapping.Screens
         //This boolean say whether the game has been started
         private bool hasTouchedToStart = false;
 
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
         #endregion Variables
 
         public override void LoadContent()
         {
             base.LoadContent();
-            btnTouchToStart = MakeButton(250, 250, "GameScreenContent/touchToStart");
+            btnTouchToStart = MakeButton(((screenWidth / 2) - 100), ((screenHeight / 2) - 100), "GameScreenContent/touchToStart");
 
             btnPause = MakeButton(0, 0, "GUI/pauseButton");
             //initialize the score
