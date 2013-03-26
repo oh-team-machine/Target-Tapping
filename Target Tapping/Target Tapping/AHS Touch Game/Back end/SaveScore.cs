@@ -32,12 +32,22 @@ namespace TargetTapping.Back_end
         public static List<int> timeScores;
         public static List<int> hitsScores;
 
+        private static bool check = true;
         private static StorageDevice device;
 
        public SaveScore()
-        {
-            device = null;
-            StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+       {
+           device = null;
+           if (check) {
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+           }
+           if (check == false)
+           {
+                levelNames = new List<string>();
+                timeScores = new List<int>();
+                hitsScores = new List<int>();
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.save, null);
+           }
         }
 
         void loadLevelName(IAsyncResult result)
@@ -56,6 +66,10 @@ namespace TargetTapping.Back_end
                 hitsScores = data.hitsScore;
                 stream.Close();
                 container.Dispose();
+            }
+            else
+            {
+                check = false;
             }
         }
 

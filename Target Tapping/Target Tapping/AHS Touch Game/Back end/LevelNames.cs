@@ -28,10 +28,21 @@ namespace TargetTapping.Back_end
 
         public static List<string> filenames;
         private static StorageDevice device;
+
+        private static bool check = true;
+
         public LevelNames()
         {
             device = null;
-            StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+            if(check)
+            {
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+            }
+            if(check == false)
+            {
+                filenames = new List<string>();
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+            }
         }
 
         public List<string> getFileNames() 
@@ -53,6 +64,10 @@ namespace TargetTapping.Back_end
                 filenames = data.filename;
                 stream.Close();
                 container.Dispose();
+            }
+            else
+            {
+                check = false;
             }
         }
 
