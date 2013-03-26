@@ -40,14 +40,35 @@ namespace TargetTapping.Screens
             }
             if (btnPauseEdit.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (btnPauseLoad.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new LoadLevelScreen());
             }
             if (btnPauseRestart.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new GameScreen());
             }
             btnPauseContinue.Update(mouseState);
