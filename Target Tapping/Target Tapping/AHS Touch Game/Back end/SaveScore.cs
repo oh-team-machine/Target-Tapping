@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.Back_end
 {
-    class SaveScore
+    public class SaveScore
     {
         [Serializable]
         public struct SaveLevelNames

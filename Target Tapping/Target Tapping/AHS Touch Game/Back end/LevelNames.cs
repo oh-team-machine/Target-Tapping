@@ -78,8 +78,18 @@ namespace TargetTapping.Back_end
 
         public void addFilename(string newFilename)
         {
-            filenames.Add(newFilename);
-            StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+            foreach (var filename in filenames)
+            {
+                if (newFilename == filename)
+                {
+
+                }
+                else
+                {
+                    filenames.Add(newFilename);
+                    StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+                }
+            }
         }
 
         public void removeFilename(string oldFilename)

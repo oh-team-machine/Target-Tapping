@@ -45,6 +45,7 @@ namespace TargetTapping
             //instantiate the Level we will be playing
             this.activeLevel = new Level();
             LevelNames = new LevelNames();
+            SaveScore = new SaveScore();
             GlobalInstance = this;
         }
 
