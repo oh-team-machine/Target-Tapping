@@ -82,7 +82,7 @@ namespace TargetTapping
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.AntiqueWhite);
+            GraphicsDevice.Clear(Color.DarkGray);
 
             base.Draw(gameTime);
         }
