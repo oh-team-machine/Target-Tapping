@@ -21,7 +21,9 @@ namespace TargetTapping.FrontEnd
         private List<Key> keys;
         private ContentManager content;
         Texture2D myOSKBackground;
-        Vector2 myOSKBackgroundPosition = (new Vector2(390, 510));
+        Vector2 myOSKBackgroundPosition;
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
 	public string CurrentKey { get; private set; }
 
@@ -52,6 +54,7 @@ namespace TargetTapping.FrontEnd
     }
 	
 	public void LoadContent() {
+        myOSKBackgroundPosition = (new Vector2(((screenWidth / 2) - 260), ((screenHeight) - 250)));
         myOSKBackground = content.Load<Texture2D>("OSK/keyboardBackground");
 
         keys = new List<Key>();
