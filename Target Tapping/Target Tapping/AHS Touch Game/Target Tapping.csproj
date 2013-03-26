@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Back end\SaveScore.cs" />
     <Compile Include="Back end\Level.cs" />
     <Compile Include="Back end\DrawLetter.cs" />
     <Compile Include="Back end\DrawNumber.cs" />

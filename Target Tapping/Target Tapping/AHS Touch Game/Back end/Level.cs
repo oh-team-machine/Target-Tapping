@@ -11,8 +11,8 @@ namespace TargetTapping.Back_end
             objectList = new List<List<TargetTapping.Back_end.Object>>();
             currentPosition = 0;
             multiSelect = false;
-            upTime = 0;
-            holdTime = 0;
+            upTime = 5;
+            holdTime = 1;
         }
 
         public List<List<TargetTapping.Back_end.Object>> objectList { get; set; }
