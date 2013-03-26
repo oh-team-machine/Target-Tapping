@@ -31,6 +31,9 @@ namespace TargetTapping.Screens
         private bool hasTouchedToStart = false;
 
         #endregion Variables
+        int time = 0;
+        int currentListNumber = 0;
+        List<TargetTapping.Back_end.Object> currentObjectList;
 
         public override void LoadContent()
         {
@@ -46,12 +49,31 @@ namespace TargetTapping.Screens
             float scoreLength = (font.MeasureString("999/999")).X;
             //double check this position
             scorePosition = new Vector2(this.ScreenManager.ScaleXPosition((this.ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth / 2.0f) - (scoreLength / 2.0f)), this.ScreenManager.ScaleYPosition(20.0f));
-
+            currentObjectList = playingLevel.objectList[currentListNumber];
 
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            if (hasTouchedToStart == false)
+            {
+
+            }
+            else 
+            {
+                if (time == (playingLevel.upTime * 10))
+                {
+                    if (currentListNumber == playingLevel.objectList.Count)
+                    {
+                        //TO DO: add end level screen.
+                    }
+                    else
+                    {
+                        currentListNumber = currentListNumber + 1;
+                        currentObjectList = playingLevel.objectList[currentListNumber];
+                    }
+                }
+            }
             
             //Touch to Start functionality.
             if (btnTouchToStart.IsClicked())
@@ -74,33 +96,27 @@ namespace TargetTapping.Screens
                 btnPause.Update(mouseState);
 
 
-                foreach (var myListofObjects in playingLevel.objectList)
+                foreach (var myObject in currentObjectList)
                 {
-                    foreach (var myObject in myListofObjects)
-                    {
-                        // Update the state of all objects that have been brought over from the leveleditor screen
-                        myObject.Update(mouseState);
-                    }
+                    // Update the state of all objects that have been brought over from the leveleditor screen
+                    myObject.Update(mouseState);
                 }
                 // This foreach loop will check if a button in the list of buttonlists
                 // is clicked and if it is then we are going to move its position.
-                foreach (var myListofObjects in playingLevel.objectList)
+                foreach (var myObject in currentObjectList)
                 {
-                    foreach (var myObject in myListofObjects)
+                    if (myObject.IsClicked())
                     {
-                        if (myObject.IsClicked())
-                        {
-                            this.score++;
-                            //now were going to set the current clicked object on the gamescree 
-                            //to have its property shouldIbeDrawn = false. Because its been clicked
-                            //Lets also update the score 
-                            myObject.shouldIbeDrawn = false;
-                        }
+                        this.score++;
+                        //now were going to set the current clicked object on the gamescree 
+                        //to have its property shouldIbeDrawn = false. Because its been clicked
+                        //Lets also update the score 
+                        myObject.shouldIbeDrawn = false;
                     }
                 }
             }
 
-
+            time = time + 1;
             base.Update(gameTime);
         }
 
@@ -117,12 +133,9 @@ namespace TargetTapping.Screens
                 btnPause.Draw(spriteBatch);
 
                 // draw all objects that were created 
-                foreach (var myListofObjects in playingLevel.objectList)
+                foreach (var myObject in currentObjectList)
                 {
-                    foreach (var myObject in myListofObjects)
-                    {
-                        myObject.Draw(spriteBatch);
-                    }
+                    myObject.Draw(spriteBatch);
                 }
                 //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
                 spriteBatch.DrawString(font, "Score: " + score.ToString(), scorePosition, Color.White);

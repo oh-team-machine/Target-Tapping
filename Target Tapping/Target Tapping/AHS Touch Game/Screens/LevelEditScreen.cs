@@ -114,6 +114,7 @@ namespace TargetTapping.Screens
                 if (intUpTime < 30)
                 {
                     intUpTime++;
+                    GameManager.GlobalInstance.activeLevel.upTime = intUpTime;
                 }
             }
             if (btns["LessUp"].IsClicked())
@@ -121,6 +122,7 @@ namespace TargetTapping.Screens
                 if (intUpTime > 1)
                 {
                     intUpTime--;
+                    GameManager.GlobalInstance.activeLevel.upTime = intUpTime;
                 }
             }
             if (btns["MoreHold"].IsClicked())
@@ -128,6 +130,7 @@ namespace TargetTapping.Screens
                 if (intHoldTime < 30)
                 {
                     intHoldTime++;
+                    GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
                 }
             }
             if (btns["LessHold"].IsClicked())
@@ -135,6 +138,7 @@ namespace TargetTapping.Screens
                 if (intHoldTime > 1)
                 {
                     intHoldTime--;
+                    GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
                 }
             }
             if (btns["Redo"].IsClicked())
@@ -164,12 +168,14 @@ namespace TargetTapping.Screens
                     multiState = false;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOff");
                     btns["Multiple"].Update(mouseState);
+                    GameManager.GlobalInstance.activeLevel.multiSelect = false;
                 }
                 else if (multiState == false)
                 {
                     multiState = true;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOn");
                     btns["Multiple"].Update(mouseState);
+                    GameManager.GlobalInstance.activeLevel.multiSelect = true;
                 }
                 //Call A Method Defined In Another Class
             }
