@@ -125,7 +125,7 @@
     <Compile Include="Back end\Object.cs" />
     <Compile Include="Back end\saveLevel.cs" />
     <Compile Include="Back end\SerializableLevel.cs" />
-    <Compile Include="Back end\ShapeCreationState.cs" />
+    <Compile Include="Back end\EntityFactory.cs" />
     <Compile Include="FrontEnd\Key.cs" />
     <Compile Include="FrontEnd\Keyboard.cs" />
     <Compile Include="FrontEnd\LevelEditor\AlphPaletteState.cs" />

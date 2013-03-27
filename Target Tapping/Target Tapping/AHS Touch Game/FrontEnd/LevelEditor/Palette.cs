@@ -36,7 +36,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             IsHidden = true;
             Position = new Point(x, y);
 
-            ObjectFactory = new ShapeCreationState();
+            ObjectFactory = new EntityFactory();
 
             // Instantiate new start states.
             _states.Add("Shape", new ShapePaletteState(this));
@@ -59,7 +59,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             Show();
         }
 
-        public ShapeCreationState ObjectFactory { get; private set; }
+        public EntityFactory ObjectFactory { get; private set; }
 
         public Rectangle BoundingBox { get; private set; }
 
@@ -123,9 +123,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public void Reset()
         {
-            // Simply get a new ShapeCreationState and let the
-            // GC deal with the old one.
-            ObjectFactory = new ShapeCreationState();
+            // Create a new EntityFactory and let the GC deal with the old one.
+            ObjectFactory = new EntityFactory();
 
             RequestStateChange("INITIAL");
             Hide();
