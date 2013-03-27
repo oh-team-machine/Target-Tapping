@@ -11,6 +11,8 @@ namespace TargetTapping.Screens
 {
     class LevelEditScreen : AbstractRichScreen
     {
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         //These booleans are used to specify states and what GUI elements should be presented
         bool multiState = false; //for multi button 
@@ -74,6 +76,7 @@ namespace TargetTapping.Screens
             btns.Add("AddShape", MakeButton(1040, 35, "LevelEditorGUI/addShapeButton"));
             btns.Add("AddAlpha", MakeButton(1105, 35, "LevelEditorGUI/addAlphButton"));
             btns.Add("AddNumbr", MakeButton(1170, 35, "LevelEditorGUI/addNumButton"));
+            btns.Add("HelpBtn", MakeButton(((screenWidth) - 55), 35, "HELP/LEhelpIcon"));
 
             // Also, the grid.
             grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
@@ -160,6 +163,10 @@ namespace TargetTapping.Screens
             if (btns["AddNumbr"].IsClicked())
             {
 
+            }
+            if (btns["HelpBtn"].IsClicked())
+            {
+                AddScreenAndChill(new LEHelpScreen());
             }
             if (btns["Multiple"].IsClicked())
             {

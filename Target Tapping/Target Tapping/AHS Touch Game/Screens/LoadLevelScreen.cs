@@ -26,7 +26,7 @@ namespace TargetTapping.Screens
         String searchQuery;
         Vector2 searchQueryPosition ;
         bool loadKeyBoard = false;
-        Button btnCancel, btnOpen, delSearch, goSearch;
+        Button btnCancel, btnOpen, delSearch, goSearch, btnHelp;
         Button clearSearchButton;
         private Keyboard keyboard;
 
@@ -50,6 +50,7 @@ namespace TargetTapping.Screens
             listBackground = content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = content.Load<Texture2D>("GUI/loadGameTitle");
 
+            btnHelp = MakeButton(((screenWidth) - 55), screenHeight - 55, "HELP/helpIcon");
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             btnOpen = MakeButton(((screenWidth) - 120), 0, "GUI/openButton");
             delSearch = MakeButton( ((screenWidth / 2) - 19), 113, "Gui/miniX");
@@ -105,7 +106,12 @@ namespace TargetTapping.Screens
             {
                 if (loadKeyBoard == false) { loadKeyBoard = true; } //else { loadKeyBoard = false; }
             }
+            if (btnHelp.IsClicked())
+            {
+                AddScreenAndChill(new LoadHelpScreen());
+            }
             // update load screen
+            btnHelp.Update(mouseState);
             btnCancel.Update(mouseState);
             btnOpen.Update(mouseState);
             delSearch.Update(mouseState);
@@ -115,7 +121,7 @@ namespace TargetTapping.Screens
             {
                 keyboard.Update(mouseState);
             }
-
+            
             fileList.Update(gameTime, mouseState);
 
             base.Update(gameTime);
@@ -126,6 +132,7 @@ namespace TargetTapping.Screens
             
             btnCancel.Draw(spriteBatch);
             btnOpen.Draw(spriteBatch);
+            btnHelp.Draw(spriteBatch);
             spriteBatch.Draw(myLoadLevelTitle, myLoadLevelTitlePosition, Color.White);
             goSearch.Draw(spriteBatch);
             clearSearchButton.Draw(spriteBatch);

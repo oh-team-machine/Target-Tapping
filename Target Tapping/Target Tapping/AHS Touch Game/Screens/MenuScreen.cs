@@ -13,7 +13,7 @@ namespace TargetTapping.Screens
 
         int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-        private Button btnNew, btnLoad, btnExit;
+        private Button btnNew, btnLoad, btnExit, btnHelp;
         Texture2D myTitle;
         Vector2 myTitlePosition;
        
@@ -25,6 +25,7 @@ namespace TargetTapping.Screens
             btnNew = MakeButton(((screenWidth/2)-300), ((screenHeight/3)), "GUI/newButton");
             btnLoad = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+150), "GUI/loadButton");
             btnExit = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+300), "GUI/exitButton");
+            btnHelp = MakeButton(((screenWidth) - 55), screenHeight-55, "HELP/helpIcon");
             myTitle = content.Load<Texture2D>("GUI/targetTappingGame");
             System.Diagnostics.Debug.WriteLine(((screenWidth / 2) - 300));
         }
@@ -43,6 +44,10 @@ namespace TargetTapping.Screens
 	    {
             AddScreenAndChill(new LoadLevelScreen());
 	    }
+        else if (btnHelp.IsClicked())
+        {
+            AddScreenAndChill(new HomeHelpScreen());
+        }
 	    else if (btnExit.IsClicked())
 	    {
             ScreenManager.Exit();
@@ -51,8 +56,10 @@ namespace TargetTapping.Screens
             btnNew.Update(mouseState);
             btnLoad.Update(mouseState);
             btnExit.Update(mouseState);
+            btnHelp.Update(mouseState);
 
         }
+        
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
@@ -60,6 +67,7 @@ namespace TargetTapping.Screens
             btnNew.Draw(spriteBatch);
             btnLoad.Draw(spriteBatch);
             btnExit.Draw(spriteBatch);
+            btnHelp.Draw(spriteBatch);
 
             spriteBatch.Draw(myTitle, myTitlePosition, Color.White);
         }

@@ -12,7 +12,8 @@ namespace TargetTapping.Screens
         int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         private Button btnCancel,
-                       btnCreate;
+                       btnCreate, 
+                       btnHelp;
 
         private Button clearDescriptionButton;
         private Button clearNameButton;
@@ -67,6 +68,7 @@ namespace TargetTapping.Screens
 
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             btnCreate = MakeButton(((screenWidth) - 120), 0, "GUI/createButton");
+            btnHelp = MakeButton(((screenWidth) - 55), screenHeight - 55, "HELP/helpIcon");
             delDesc = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 107), "Gui/miniX");
             delName = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 47), "Gui/miniX");
 
@@ -154,10 +156,15 @@ namespace TargetTapping.Screens
                 nameHighlight = false;
                 descriptionByTherapist = "";
             }
+            if (btnHelp.IsClicked())
+            {
+                AddScreenAndChill(new NewHelpScreen());
+            }
             delDesc.Update(mouseState);
             delName.Update(mouseState);
             btnCancel.Update(mouseState);
             btnCreate.Update(mouseState);
+            btnHelp.Update(mouseState);
             clearNameButton.Update(mouseState);
             clearDescriptionButton.Update(mouseState);
             // Update the keyboard and all of its keys.
@@ -168,6 +175,7 @@ namespace TargetTapping.Screens
         {
             btnCancel.Draw(spriteBatch);
             btnCreate.Draw(spriteBatch);
+            btnHelp.Draw(spriteBatch);
             //spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
             clearDescriptionButton.Draw(spriteBatch);
             clearNameButton.Draw(spriteBatch);
