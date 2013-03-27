@@ -207,8 +207,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\openButton.bmp">
-      <Name>openButton</Name>
+    <Compile Include="GUI\openButtonDEP.bmp">
+      <Name>openButtonDEP</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -1107,6 +1107,13 @@
   <ItemGroup>
     <Compile Include="LevelEditorGUI\addLabel.bmp">
       <Name>addLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI\openButton.bmp">
+      <Name>openButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

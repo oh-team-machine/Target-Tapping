@@ -12,17 +12,19 @@ namespace TargetTapping.Screens
 {
     class LoadLevelScreen : AbstractRichScreen
     {
-        
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
         Texture2D myLoadLevelTitle, textBackgorund, magnifyGlass, listBackground;
-        Vector2 magnifyGlassPosition = (new Vector2(175, 85));
-        Vector2 lisBackgroundPosition = (new Vector2(350, 150));
-        Vector2 searchBackground = (new Vector2(200, 85));
-        Vector2 myLoadLevelTitlePosition = (new Vector2(330, 0));
-        Vector2 myCancelButtonPosition = (new Vector2(0, 0));
+        Vector2 magnifyGlassPosition ;
+        Vector2 listBackgroundPosition ;
+        Vector2 searchBackground ;
+        Vector2 myLoadLevelTitlePosition ;
+        //Vector2 myCancelButtonPosition ;
 
         SpriteFont font;
         String searchQuery;
-        Vector2 searchQueryPosition = (new Vector2(200, 90));
+        Vector2 searchQueryPosition ;
         bool loadKeyBoard = false;
         Button btnCancel, btnOpen, delSearch, goSearch;
         Button clearSearchButton;
@@ -33,20 +35,30 @@ namespace TargetTapping.Screens
         public override void LoadContent()
         {
             base.LoadContent();
+            searchQueryPosition = (new Vector2(((screenWidth / 2) - 275), 120));
+            magnifyGlassPosition = (new Vector2(((screenWidth / 2) - 300), 120));
+            listBackgroundPosition = (new Vector2( ((screenWidth / 2) - 300), 200));
+            //searchBackground = (new Vector2( ((screenWidth / 2) - 280), 200));
+
+            myLoadLevelTitlePosition = (new Vector2(((screenWidth / 2) - 300), 0));
+            //myCancelButtonPosition = (new Vector2(0, 0));
+
             font = content.Load<SpriteFont>("font");
             searchQuery = "";
             textBackgorund = content.Load<Texture2D>("GUI/textBackground");
             magnifyGlass = content.Load<Texture2D>("GUI/magnifyGlass");
             listBackground = content.Load<Texture2D>("GUI/listBackground");
             myLoadLevelTitle = content.Load<Texture2D>("GUI/loadGameTitle");
+
             btnCancel = MakeButton(0, 0, "GUI/cancel");
-            btnOpen = MakeButton(1160, 0, "GUI/openButton");
-            delSearch = MakeButton(400, 85, "Gui/miniX");
-            goSearch = MakeButton(425, 85, "Gui/go");
-            clearSearchButton = MakeButton(175, 85, "GUI/nothing2");
-            keyboard = new Keyboard(401, 520, content);
+            btnOpen = MakeButton(((screenWidth) - 120), 0, "GUI/openButton");
+            delSearch = MakeButton( ((screenWidth / 2) - 19), 113, "Gui/miniX");
+            goSearch = MakeButton(  ((screenWidth / 2) + 40), 113, "Gui/go");
+            clearSearchButton = MakeButton( ((screenWidth / 2) - 275), 120, "GUI/nothing2");
+            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), content);
             keyboard.LoadContent();
-            fileList = new List(levelNames.getFileNames(), 600, 15, 20, lisBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
+
+            fileList = new List(levelNames.getFileNames(), 600, 15, 20, listBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
 	    // Load buttons 'n' stuff, yo!
         }
 
@@ -126,7 +138,7 @@ namespace TargetTapping.Screens
                 spriteBatch.DrawString(font, searchQuery, searchQueryPosition, Color.Black);
             }
             spriteBatch.Draw(magnifyGlass, magnifyGlassPosition, Color.White);
-            spriteBatch.Draw(listBackground, lisBackgroundPosition, Color.White);
+            spriteBatch.Draw(listBackground, listBackgroundPosition, Color.White);
             delSearch.Draw(spriteBatch);
 
             fileList.Draw(spriteBatch);
