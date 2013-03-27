@@ -44,7 +44,7 @@ namespace TargetTapping.Screens
         // Title stuff, apparently.
         Texture2D grid, addLabel;
         Vector2 gridPosition = (new Vector2(0, 110));
-        Vector2 addLabelPosition = (new Vector2(985, 27));
+        Vector2 addLabelPosition = (new Vector2(985, 32));
         float rotationAngle = 4.71238898F; // wat.
         Vector2 originForRotation = new Vector2(
              960, //(grid.Width / 2);
@@ -54,26 +54,26 @@ namespace TargetTapping.Screens
         public override void LoadContent()
         {
             base.LoadContent();
-            intUpTimePosition = (new Vector2(520, 45));
-            intHoldTimePosition = (new Vector2(785, 45));
+            intUpTimePosition = (new Vector2(520, 50));
+            intHoldTimePosition = (new Vector2(785, 50));
 
             font = content.Load<SpriteFont>("font");
             // Load all o' dem buttons
-            btns.Add("Home",  MakeButton(30,  30, "LevelEditorGUI/homeButton"));
-            btns.Add("Menu",  MakeButton(95,  30, "LevelEditorGUI/menuButton"));
-            btns.Add("HoldTime",  MakeButton(700,  30, "LevelEditorGUI/holdTimeButton"));
-            btns.Add("Multiple",  MakeButton(355,  30, "LevelEditorGUI/multipleToggleOff"));
-            btns.Add("Play",  MakeButton(290,  30, "LevelEditorGUI/playButton"));
-            btns.Add("Redo",  MakeButton(215,  30, "LevelEditorGUI/redoButton"));
-            btns.Add("Undo",  MakeButton(160,  30, "LevelEditorGUI/undoButton"));
-            btns.Add("UpTime",  MakeButton(440,  30, "LevelEditorGUI/upTimeButton"));
-            btns.Add("MoreUp",  MakeButton(560,  30, "LevelEditorGUI/moreButton"));
-            btns.Add("MoreHold",  MakeButton(820,  30, "LevelEditorGUI/moreButton"));
-            btns.Add("LessUp",  MakeButton(615,  30, "LevelEditorGUI/lessButton"));
-            btns.Add("LessHold",  MakeButton(875,  30, "LevelEditorGUI/lessButton"));
-            btns.Add("AddShape", MakeButton(1040, 30, "LevelEditorGUI/addShapeButton"));
-            btns.Add("AddAlpha", MakeButton(1105, 30, "LevelEditorGUI/addAlphButton"));
-            btns.Add("AddNumbr", MakeButton(1170, 30, "LevelEditorGUI/addNumButton"));
+            btns.Add("Home",  MakeButton(30,  35, "LevelEditorGUI/homeButton"));
+            btns.Add("Menu",  MakeButton(95,  35, "LevelEditorGUI/menuButton"));
+            btns.Add("HoldTime",  MakeButton(700,  35, "LevelEditorGUI/holdTimeButton"));
+            btns.Add("Multiple",  MakeButton(355,  35, "LevelEditorGUI/multipleToggleOff"));
+            btns.Add("Play",  MakeButton(290,  35, "LevelEditorGUI/playButton"));
+            btns.Add("Redo",  MakeButton(215,  35, "LevelEditorGUI/redoButton"));
+            btns.Add("Undo",  MakeButton(160,  35, "LevelEditorGUI/undoButton"));
+            btns.Add("UpTime",  MakeButton(440,  35, "LevelEditorGUI/upTimeButton"));
+            btns.Add("MoreUp",  MakeButton(560,  35, "LevelEditorGUI/moreButton"));
+            btns.Add("MoreHold",  MakeButton(820,  35, "LevelEditorGUI/moreButton"));
+            btns.Add("LessUp",  MakeButton(615,  35, "LevelEditorGUI/lessButton"));
+            btns.Add("LessHold",  MakeButton(875,  35, "LevelEditorGUI/lessButton"));
+            btns.Add("AddShape", MakeButton(1040, 35, "LevelEditorGUI/addShapeButton"));
+            btns.Add("AddAlpha", MakeButton(1105, 35, "LevelEditorGUI/addAlphButton"));
+            btns.Add("AddNumbr", MakeButton(1170, 35, "LevelEditorGUI/addNumButton"));
 
             // Also, the grid.
             grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");

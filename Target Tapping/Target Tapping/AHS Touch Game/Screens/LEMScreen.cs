@@ -22,16 +22,16 @@ namespace TargetTapping.Screens
         {
             //((screenWidth / 2) - 400)
             base.LoadContent();
-            levelEditorMenuPosition = (new Vector2( ((screenWidth / 2) - 200), ((screenHeight / 2) - 175) ) );
-            levelEditorMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 160), ((screenHeight / 2) - 175) ) );
+            levelEditorMenuPosition = (new Vector2( ((screenWidth / 2) - 100), ((screenHeight / 2) - 175) ) );
+            levelEditorMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 60), ((screenHeight / 2) - 175) ) );
 
             levelEditorMenuBackground = content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
-            btnLemBack = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
-            btnLemSave = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
-            btnLemLoad = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
-            btnLemClear = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 185, "LevelEditorMenu/clearButtonGraphic");
-            btnLemExit = MakeButton(((screenWidth / 2) - 160), ((screenHeight / 2) - 150) + 240, "LevelEditorMenu/exitButtonGraphic");
+            btnLemBack = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
+            btnLemSave = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
+            btnLemLoad = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
+            btnLemClear = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 185, "LevelEditorMenu/clearButtonGraphic");
+            btnLemExit = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 240, "LevelEditorMenu/exitButtonGraphic");
 
 	       // Load buttons 'n' stuff, yo!
         }

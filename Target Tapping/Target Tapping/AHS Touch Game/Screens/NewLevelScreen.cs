@@ -33,7 +33,7 @@ namespace TargetTapping.Screens
         private Vector2 myNewLevelPosition;
         private Texture2D myNewLevelTitle;
         private Vector2 nameBackgroundPosition;
-        private bool nameHighlight = true;
+        private bool nameHighlight = false;
         private String nameOfTherapist;
         private Vector2 nameOfTherapistPosition;
         private Texture2D textBackgorund;
@@ -47,13 +47,16 @@ namespace TargetTapping.Screens
         {
             //((screenWidth / 2) - 400)
             base.LoadContent();
-            descriptionBackgroundPosition = (new Vector2(200, 200));
-            descriptionByTherapistPosition = (new Vector2(200, 200));
-            myDescriptionPosition = (new Vector2(0, 200));
-            myNamePosition = (new Vector2(0, 130));
             myNewLevelPosition = (new Vector2(((screenWidth / 2) - 300), 0));
-            nameBackgroundPosition = (new Vector2(200, 130));
-            nameOfTherapistPosition = (new Vector2(200, 130));
+
+            //descriptionBackgroundPosition = (new Vector2 (((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
+            descriptionByTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
+            myDescriptionPosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 100)));
+
+            //nameBackgroundPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
+            nameOfTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
+            myNamePosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 40)));
+           
 
 
             font = content.Load<SpriteFont>("font");
@@ -64,14 +67,14 @@ namespace TargetTapping.Screens
 
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             btnCreate = MakeButton(((screenWidth) - 120), 0, "GUI/createButton");
-            delDesc = MakeButton(500, 200, "Gui/miniX");
-            delName = MakeButton(500, 130, "Gui/miniX");
+            delDesc = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 107), "Gui/miniX");
+            delName = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 47), "Gui/miniX");
 
             myName = content.Load<Texture2D>("GUI/name");
-            clearNameButton = MakeButton(0, 130, "GUI/nothing");
+            clearNameButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 40), "GUI/nothing");
 
             myDescription = content.Load<Texture2D>("GUI/description");
-            clearDescriptionButton = MakeButton(0, 200, "GUI/nothing");
+            clearDescriptionButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 100), "GUI/nothing");
 
             keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), content);
             keyboard.LoadContent();
@@ -165,7 +168,7 @@ namespace TargetTapping.Screens
         {
             btnCancel.Draw(spriteBatch);
             btnCreate.Draw(spriteBatch);
-            spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
+            //spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
             clearDescriptionButton.Draw(spriteBatch);
             clearNameButton.Draw(spriteBatch);
             spriteBatch.Draw(myNewLevelTitle, myNewLevelPosition, Color.White);
