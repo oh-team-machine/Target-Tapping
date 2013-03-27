@@ -1133,12 +1133,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="ButtonPress.mp3">
       <Name>ButtonPress</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
-=======
+    </Compile>
+   </ItemGroup>
+  <ItemGroup>
     <Compile Include="HELP\newLayoutHelp.bmp">
       <Name>newLayoutHelp</Name>
       <Importer>TextureImporter</Importer>
@@ -1171,7 +1172,6 @@
       <Name>answerBackDrop</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
->>>>>>> Working on help
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
