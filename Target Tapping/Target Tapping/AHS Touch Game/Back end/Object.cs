@@ -13,7 +13,6 @@ namespace TargetTapping.Back_end
     {
         private bool bMouseDownInside;
         private bool bIsClicked;
-        private bool shouldIBeDrawn;
 
         //Constructor for this class
         public Object(string objectType, string objectSubname, Rectangle rectanglePassedIn, Color colorPassedIn, ContentManager content, GraphicsDeviceManager graphics)
@@ -25,7 +24,7 @@ namespace TargetTapping.Back_end
             texture = grabObject(graphics, content);
             bMouseDownInside = false;
             bIsClicked = false;
-            this.shouldIBeDrawn = true;
+            this.shouldIbeDrawn = true;
 
         }
 
@@ -62,11 +61,11 @@ namespace TargetTapping.Back_end
             //texture.GetData(data);
             if (Collisions.CollisionWithMouse(rectangle, state))
             {
-                if (state.LeftButton == ButtonState.Released && bMouseDownInside)
+                if (state.LeftButton == ButtonState.Released && bMouseDownInside && this.shouldIbeDrawn)
                 {
                     bIsClicked = true;
                 }
-                if (state.LeftButton == ButtonState.Pressed)
+                if (state.LeftButton == ButtonState.Pressed && this.shouldIbeDrawn)
                     bMouseDownInside = true;
                 else
                     bMouseDownInside = false;
@@ -80,7 +79,7 @@ namespace TargetTapping.Back_end
             
 
             //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
-            if(this.shouldIBeDrawn){
+            if(this.shouldIbeDrawn){
                 //attempt to avoid double clicking it
                 //Thread.Sleep(250);
 

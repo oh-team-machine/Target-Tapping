@@ -27,6 +27,7 @@ namespace TargetTapping
 
         public LevelNames LevelNames { get; private set; }
 
+        public SaveScore SaveScore { get; private set; }
         //added this to store the level once its been made in the level editor and to
         //access its objects while in the gamescreen.
         public Level activeLevel { get; set; }
@@ -44,6 +45,7 @@ namespace TargetTapping
             //instantiate the Level we will be playing
             this.activeLevel = new Level();
             LevelNames = new LevelNames();
+            SaveScore = new SaveScore();
             GlobalInstance = this;
         }
 

@@ -111,6 +111,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public override void Update(MouseState state)
         {
+            // Do not update if the parent is not showing.
+            if (Parent.IsHidden)
+                return;
+
             // Get the button that is clicked and do something specified by the subclass.
             foreach (var pair in ThingButtons.Where(pair => pair.Value.IsClicked())) {
                 if (OnButtonPressed(pair.Key, pair.Value))

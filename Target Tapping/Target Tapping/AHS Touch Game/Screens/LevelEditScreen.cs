@@ -11,7 +11,6 @@ namespace TargetTapping.Screens
 {
     class LevelEditScreen : AbstractRichScreen
     {
-
         //These booleans are used to specify states and what GUI elements should be presented
         bool multiState = false; //for multi button 
         bool levelEditorMenuON = false; //Menu opens with menu button in level editor
@@ -25,8 +24,8 @@ namespace TargetTapping.Screens
 
         int intUpTime = 5;
         int intHoldTime = 1;
-        Vector2 intUpTimePosition = (new Vector2(520, 45));
-        Vector2 intHoldTimePosition = (new Vector2(785, 45));
+        Vector2 intUpTimePosition;
+        Vector2 intHoldTimePosition;
         SpriteFont font;
 
         // The level editor's got a bunch of buttons!
@@ -42,8 +41,9 @@ namespace TargetTapping.Screens
         private Palette palette;
 
         // Title stuff, apparently.
-        Texture2D grid;
+        Texture2D grid, addLabel;
         Vector2 gridPosition = (new Vector2(0, 110));
+        Vector2 addLabelPosition = (new Vector2(985, 32));
         float rotationAngle = 4.71238898F; // wat.
         Vector2 originForRotation = new Vector2(
              960, //(grid.Width / 2);
@@ -53,35 +53,42 @@ namespace TargetTapping.Screens
         public override void LoadContent()
         {
             base.LoadContent();
+            intUpTimePosition = (new Vector2(520, 50));
+            intHoldTimePosition = (new Vector2(785, 50));
 
-            font = content.Load<SpriteFont>("font");
+            font = Content.Load<SpriteFont>("font");
             // Load all o' dem buttons
-            btns.Add("Home",  MakeButton(30,  30, "LevelEditorGUI/homeButton"));
-            btns.Add("Menu",  MakeButton(95,  30, "LevelEditorGUI/menuButton"));
-            btns.Add("HoldTime",  MakeButton(700,  30, "LevelEditorGUI/holdTimeButton"));
-            btns.Add("Multiple",  MakeButton(355,  30, "LevelEditorGUI/multipleToggleOff"));
-            btns.Add("Play",  MakeButton(290,  30, "LevelEditorGUI/playButton"));
-            btns.Add("Redo",  MakeButton(215,  30, "LevelEditorGUI/redoButton"));
-            btns.Add("Undo",  MakeButton(160,  30, "LevelEditorGUI/undoButton"));
-            btns.Add("UpTime",  MakeButton(440,  30, "LevelEditorGUI/upTimeButton"));
-            btns.Add("MoreUp",  MakeButton(560,  30, "LevelEditorGUI/moreButton"));
-            btns.Add("MoreHold",  MakeButton(820,  30, "LevelEditorGUI/moreButton"));
-            btns.Add("LessUp",  MakeButton(615,  30, "LevelEditorGUI/lessButton"));
-            btns.Add("LessHold",  MakeButton(875,  30, "LevelEditorGUI/lessButton"));
+            btns.Add("Home",  MakeButton(30,  35, "LevelEditorGUI/homeButton"));
+            btns.Add("Menu",  MakeButton(95,  35, "LevelEditorGUI/menuButton"));
+            btns.Add("HoldTime",  MakeButton(700,  35, "LevelEditorGUI/holdTimeButton"));
+            btns.Add("Multiple",  MakeButton(355,  35, "LevelEditorGUI/multipleToggleOff"));
+            btns.Add("Play",  MakeButton(290,  35, "LevelEditorGUI/playButton"));
+            btns.Add("Redo",  MakeButton(215,  35, "LevelEditorGUI/redoButton"));
+            btns.Add("Undo",  MakeButton(160,  35, "LevelEditorGUI/undoButton"));
+            btns.Add("UpTime",  MakeButton(440,  35, "LevelEditorGUI/upTimeButton"));
+            btns.Add("MoreUp",  MakeButton(560,  35, "LevelEditorGUI/moreButton"));
+            btns.Add("MoreHold",  MakeButton(820,  35, "LevelEditorGUI/moreButton"));
+            btns.Add("LessUp",  MakeButton(615,  35, "LevelEditorGUI/lessButton"));
+            btns.Add("LessHold",  MakeButton(875,  35, "LevelEditorGUI/lessButton"));
+            btns.Add("AddShape", MakeButton(1040, 35, "LevelEditorGUI/addShapeButton"));
+            btns.Add("AddAlpha", MakeButton(1105, 35, "LevelEditorGUI/addAlphButton"));
+            btns.Add("AddNumbr", MakeButton(1170, 35, "LevelEditorGUI/addNumButton"));
+            btns.Add("HelpBtn", MakeButton(((ScreenWidth) - 55), 35, "HELP/LEhelpIcon"));
 
             // Also, the grid.
-            grid = content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+            grid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
+            addLabel = Content.Load<Texture2D>("LevelEditorGUI/addLabel");
 
             // Place the palette.
-            palette = new Palette(0, 100);
-            palette.LoadContent(content);
+            palette = new Palette((ScreenWidth / 2) - 50 , 100);
+            palette.Hide(); // Keep it hidden!
+            palette.LoadContent(Content);
 
         }
 
         public override void Update(GameTime gameTime)
         {
             
-
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
             {
@@ -89,7 +96,7 @@ namespace TargetTapping.Screens
             }
             if (btns["Menu"].IsClicked())
             {
-                AddScreenAndChill(new LEMScreen());
+                AddScreenAndChill(new LevelEditorMenuScreen());
             }
             if (btns["Play"].IsClicked())
             {
@@ -107,6 +114,7 @@ namespace TargetTapping.Screens
                 if (intUpTime < 30)
                 {
                     intUpTime++;
+                    GameManager.GlobalInstance.activeLevel.upTime = intUpTime;
                 }
             }
             if (btns["LessUp"].IsClicked())
@@ -114,6 +122,7 @@ namespace TargetTapping.Screens
                 if (intUpTime > 1)
                 {
                     intUpTime--;
+                    GameManager.GlobalInstance.activeLevel.upTime = intUpTime;
                 }
             }
             if (btns["MoreHold"].IsClicked())
@@ -121,6 +130,7 @@ namespace TargetTapping.Screens
                 if (intHoldTime < 30)
                 {
                     intHoldTime++;
+                    GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
                 }
             }
             if (btns["LessHold"].IsClicked())
@@ -128,6 +138,7 @@ namespace TargetTapping.Screens
                 if (intHoldTime > 1)
                 {
                     intHoldTime--;
+                    GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
                 }
             }
             if (btns["Redo"].IsClicked())
@@ -138,24 +149,45 @@ namespace TargetTapping.Screens
             {
 
             }
+            if (btns["AddAlpha"].IsClicked())
+            {
+                palette.RequestStateChange("Alph");
+                palette.Show();
+            }
+            if (btns["AddShape"].IsClicked())
+            {
+                palette.RequestStateChange("Shape");
+                palette.Show();
+            }
+            if (btns["AddNumbr"].IsClicked())
+            {
+                palette.RequestStateChange("Num");
+                palette.Show();
+            }
+            if (btns["HelpBtn"].IsClicked())
+            {
+                AddScreenAndChill(new LEHelpScreen());
+            }
             if (btns["Multiple"].IsClicked())
             {
                 if (multiState == true)
                 {
                     multiState = false;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOff");
-                    btns["Multiple"].Update(mouseState);
+                    btns["Multiple"].Update(MouseState);
+                    GameManager.GlobalInstance.activeLevel.multiSelect = false;
                 }
                 else if (multiState == false)
                 {
                     multiState = true;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOn");
-                    btns["Multiple"].Update(mouseState);
+                    btns["Multiple"].Update(MouseState);
+                    GameManager.GlobalInstance.activeLevel.multiSelect = true;
                 }
                 //Call A Method Defined In Another Class
             }
 
-            // Handle the creation of stuff.
+            // Handle the creation of object/entities.
             if (palette.ObjectFactory.IsReady())
             {
                 var fac = palette.ObjectFactory;
@@ -170,7 +202,7 @@ namespace TargetTapping.Screens
                 var rect = new Rectangle(pos.X+1, pos.Y+1, 100, 100);
                 var graphman = GameManager.GlobalInstance.Graphics;
 
-                var entity = new Back_end.Object(type, name, rect, color, content,
+                var entity = new Back_end.Object(type, name, rect, color, Content,
                                                 graphman);
                 myLevel.addObject(entity);
 
@@ -180,10 +212,10 @@ namespace TargetTapping.Screens
             // Update the state of all buttons.
             foreach (var button in btns.Values)
             {
-                button.Update(mouseState);
+                button.Update(MouseState);
             }
             // Update the palette
-            palette.Update(mouseState);
+            palette.Update(MouseState);
 
             // This foreach loop will check if a button in the list of buttonlists
             // is clicked and if it is then we are going to move its position.
@@ -192,7 +224,7 @@ namespace TargetTapping.Screens
                 foreach (var myObject in myListofObjects)
                 {
                     // Update the state of all objects that have been created in this level on the level grid
-                    myObject.Update(mouseState);
+                    myObject.Update(MouseState);
 
                     if (myObject.IsClicked())
                     {
@@ -210,7 +242,7 @@ namespace TargetTapping.Screens
             }
             
             //now were going to test if the mouse has been clicked anywhere on the leveleditor grid
-            if(mouseState.LeftButton == ButtonState.Pressed){
+            if(MouseState.LeftButton == ButtonState.Pressed){
 
                 if (this.objBeingMoved != null)
                 {
@@ -219,7 +251,7 @@ namespace TargetTapping.Screens
                     
                     //set new position of the objectbeingMoved to wherever the mouse was just clicked.
                     //add one pixel so we are not above the shape when we drop it!!!!!!!!!!!!!!!!!!!!
-                    this.objBeingMoved.rectangle = new Rectangle(mouseState.X+1, mouseState.Y+1,
+                    this.objBeingMoved.rectangle = new Rectangle(MouseState.X+1, MouseState.Y+1,
                         this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
 
                     //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
@@ -237,7 +269,8 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-
+            //draw add object label
+            spriteBatch.Draw(addLabel, addLabelPosition, Color.White);
             
             // Draw all of the buttons.
             foreach (var button in btns.Values)
@@ -246,8 +279,11 @@ namespace TargetTapping.Screens
             }
 
             // Draw dat grid, yo.
-            spriteBatch.Draw(grid,
-                   gridPosition, null, Color.White, rotationAngle, originForRotation, 1.0f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(grid,
+              //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(grid, gridPosition, Color.White);
+
+            
 
             // draw the all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)

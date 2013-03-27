@@ -207,8 +207,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI\openButton.bmp">
-      <Name>openButton</Name>
+    <Compile Include="GUI\openButtonDEP.bmp">
+      <Name>openButtonDEP</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -1072,6 +1072,62 @@
   <ItemGroup>
     <Compile Include="GUI\pauseButton.bmp">
       <Name>pauseButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameScreenContent\touchToStart.bmp">
+      <Name>touchToStart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelEditorGUI\addShapeButton.bmp">
+      <Name>addShapeButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelEditorGUI\addNumButton.bmp">
+      <Name>addNumButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelEditorGUI\addAlphButton.bmp">
+      <Name>addAlphButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelEditorGUI\addLabel.bmp">
+      <Name>addLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI\openButton.bmp">
+      <Name>openButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\helpIcon.bmp">
+      <Name>helpIcon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\LEhelpIcon.bmp">
+      <Name>LEhelpIcon</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

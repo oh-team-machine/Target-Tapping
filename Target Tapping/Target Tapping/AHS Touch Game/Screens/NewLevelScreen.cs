@@ -8,8 +8,12 @@ namespace TargetTapping.Screens
 {
     internal class NewLevelScreen : AbstractRichScreen
     {
+        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+
         private Button btnCancel,
-                       btnCreate;
+                       btnCreate, 
+                       btnHelp;
 
         private Button clearDescriptionButton;
         private Button clearNameButton;
@@ -17,22 +21,22 @@ namespace TargetTapping.Screens
         private Button delDesc,
                        delName;
 
-        private Vector2 descriptionBackgroundPosition = (new Vector2(200, 200));
+        private Vector2 descriptionBackgroundPosition;
         private String descriptionByTherapist;
-        private Vector2 descriptionByTherapistPosition = (new Vector2(200, 200));
+        private Vector2 descriptionByTherapistPosition;
         private SpriteFont font;
 
         private Keyboard keyboard;
         private Texture2D myDescription;
-        private Vector2 myDescriptionPosition = (new Vector2(0, 200));
+        private Vector2 myDescriptionPosition;
         private Texture2D myName;
-        private Vector2 myNamePosition = (new Vector2(0, 130));
-        private Vector2 myNewLevelPosition = (new Vector2(300, 0));
+        private Vector2 myNamePosition;
+        private Vector2 myNewLevelPosition;
         private Texture2D myNewLevelTitle;
-        private Vector2 nameBackgroundPosition = (new Vector2(200, 130));
-        private bool nameHighlight = true;
+        private Vector2 nameBackgroundPosition;
+        private bool nameHighlight = false;
         private String nameOfTherapist;
-        private Vector2 nameOfTherapistPosition = (new Vector2(200, 130));
+        private Vector2 nameOfTherapistPosition;
         private Texture2D textBackgorund;
 
         
@@ -42,26 +46,39 @@ namespace TargetTapping.Screens
 
         public override void LoadContent()
         {
+            //((screenWidth / 2) - 400)
             base.LoadContent();
+            myNewLevelPosition = (new Vector2(((screenWidth / 2) - 300), 0));
 
-            font = content.Load<SpriteFont>("font");
-            nameOfTherapist = "Enter Your Name Here...";
-            descriptionByTherapist = "Enter Your Description Here...";
-            textBackgorund = content.Load<Texture2D>("GUI/textBackground");
-            myNewLevelTitle = content.Load<Texture2D>("GUI/newLevel");
+            //descriptionBackgroundPosition = (new Vector2 (((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
+            descriptionByTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
+            myDescriptionPosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 100)));
+
+            //nameBackgroundPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
+            nameOfTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
+            myNamePosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 40)));
+           
+
+
+            font = Content.Load<SpriteFont>("font");
+            nameOfTherapist = "";
+            descriptionByTherapist = "";
+            textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
+            myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
 
             btnCancel = MakeButton(0, 0, "GUI/cancel");
-            btnCreate = MakeButton(1160, 0, "GUI/createButton");
-            delDesc = MakeButton(500, 200, "Gui/miniX");
-            delName = MakeButton(500, 130, "Gui/miniX");
+            btnCreate = MakeButton(((screenWidth) - 120), 0, "GUI/createButton");
+            btnHelp = MakeButton(((screenWidth) - 55), screenHeight - 55, "HELP/helpIcon");
+            delDesc = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 107), "Gui/miniX");
+            delName = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 47), "Gui/miniX");
 
-            myName = content.Load<Texture2D>("GUI/name");
-            clearNameButton = MakeButton(0, 130, "GUI/nothing");
+            myName = Content.Load<Texture2D>("GUI/name");
+            clearNameButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 40), "GUI/nothing");
 
-            myDescription = content.Load<Texture2D>("GUI/description");
-            clearDescriptionButton = MakeButton(0, 200, "GUI/nothing");
+            myDescription = Content.Load<Texture2D>("GUI/description");
+            clearDescriptionButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 100), "GUI/nothing");
 
-            keyboard = new Keyboard(401, 520, content);
+            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), Content);
             keyboard.LoadContent();
         }
 
@@ -114,7 +131,7 @@ namespace TargetTapping.Screens
             {
                 if (nameCreated && descriptionCreated)
                 {
-                    if ((nameOfTherapist.Length > 1) && (descriptionByTherapist.Length > 1))
+                    if ((nameOfTherapist.Length >= 1) && (descriptionByTherapist.Length >= 1))
                     {
                         GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
                         AddScreenAndChill(new LevelEditScreen());
@@ -139,21 +156,27 @@ namespace TargetTapping.Screens
                 nameHighlight = false;
                 descriptionByTherapist = "";
             }
-            delDesc.Update(mouseState);
-            delName.Update(mouseState);
-            btnCancel.Update(mouseState);
-            btnCreate.Update(mouseState);
-            clearNameButton.Update(mouseState);
-            clearDescriptionButton.Update(mouseState);
+            if (btnHelp.IsClicked())
+            {
+                AddScreenAndChill(new NewHelpScreen());
+            }
+            delDesc.Update(MouseState);
+            delName.Update(MouseState);
+            btnCancel.Update(MouseState);
+            btnCreate.Update(MouseState);
+            btnHelp.Update(MouseState);
+            clearNameButton.Update(MouseState);
+            clearDescriptionButton.Update(MouseState);
             // Update the keyboard and all of its keys.
-            keyboard.Update(mouseState);
+            keyboard.Update(MouseState);
         }
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
             btnCancel.Draw(spriteBatch);
             btnCreate.Draw(spriteBatch);
-            spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
+            btnHelp.Draw(spriteBatch);
+            //spriteBatch.Draw(textBackgorund, nameBackgroundPosition, Color.White);
             clearDescriptionButton.Draw(spriteBatch);
             clearNameButton.Draw(spriteBatch);
             spriteBatch.Draw(myNewLevelTitle, myNewLevelPosition, Color.White);

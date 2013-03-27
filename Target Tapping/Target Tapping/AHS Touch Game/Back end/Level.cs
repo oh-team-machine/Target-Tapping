@@ -11,8 +11,8 @@ namespace TargetTapping.Back_end
             objectList = new List<List<TargetTapping.Back_end.Object>>();
             currentPosition = 0;
             multiSelect = false;
-            upTime = 0;
-            holdTime = 0;
+            upTime = 5;
+            holdTime = 1;
         }
 
         public List<List<TargetTapping.Back_end.Object>> objectList { get; set; }
@@ -25,19 +25,31 @@ namespace TargetTapping.Back_end
         public void addObject(TargetTapping.Back_end.Object objectPassed)
         {
             List<TargetTapping.Back_end.Object> placeHolder = new List<TargetTapping.Back_end.Object>();
-            placeHolder.Add(objectPassed);
             if (multiSelect == true)
             {
-                objectList.Add(placeHolder);
-            }
-            else if (currentPosition == 0)
-            {
-                objectList.Add(placeHolder);
+                try
+                {
+                    objectList[currentPosition].Add(objectPassed);
+                }
+                catch
+                {
+                    placeHolder.Add(objectPassed);
+                    objectList.Add(placeHolder);
+                }
             }
             else
             {
-                currentPosition = currentPosition + 1;
-                objectList.Add(placeHolder);
+                placeHolder.Add(objectPassed);
+                if (currentPosition == 0)
+                {
+                    objectList.Add(placeHolder);
+                    currentPosition = currentPosition + 1;
+                }
+                else
+                {
+                    currentPosition = currentPosition + 1;
+                    objectList.Add(placeHolder);
+                }
             }
         }
 

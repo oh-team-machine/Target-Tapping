@@ -28,16 +28,27 @@ namespace TargetTapping.Back_end
 
         public static List<string> filenames;
         private static StorageDevice device;
+
+        private static bool check = true;
+
         public LevelNames()
         {
             device = null;
-            StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
-            filenames = new List<string>();
+            if(check)
+            {
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.loadLevelName, null);
+            }
+            if(check == false)
+            {
+                filenames = new List<string>();
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+            }
         }
 
-        public List<string> getFileNames() {
+        public List<string> getFileNames() 
+        {
             return filenames;
-    }
+        }
 
         void loadLevelName(IAsyncResult result)
         {
@@ -53,6 +64,10 @@ namespace TargetTapping.Back_end
                 filenames = data.filename;
                 stream.Close();
                 container.Dispose();
+            }
+            else
+            {
+                check = false;
             }
         }
 
@@ -78,8 +93,28 @@ namespace TargetTapping.Back_end
 
         public void addFilename(string newFilename)
         {
-            filenames.Add(newFilename);
-            StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+            if (filenames.Count != 0)
+            {
+                bool match = true;
+                foreach (var filename in filenames)
+                {
+                    if (newFilename == filename)
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+                if (match)
+                {
+                    filenames.Add(newFilename);
+                    StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+                }
+            }
+            else
+            {
+                filenames.Add(newFilename);
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+            }
         }
 
         public void removeFilename(string oldFilename)

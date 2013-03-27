@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 
@@ -10,24 +6,27 @@ namespace TargetTapping.Screens
 {
     class PauseScreen : AbstractRichScreen
     {
+
         Button btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
         Texture2D pauseMenuBackground, pauseMenuTitle;
-        Vector2 pauseMenuBackgroundPosition = (new Vector2(500, 200));
-        Vector2 pauseMenuGraphicPosition = (new Vector2(530, 200));
+        Vector2 pauseMenuBackgroundPosition;
+        Vector2 pauseMenuGraphicPosition;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            pauseMenuBackground = content.Load<Texture2D>("GamePauseMenu/menuBackground");
-            pauseMenuTitle = content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
-            btnPauseContinue = MakeButton(530, 255, "GamePauseMenu/continueButtonGraphic");
-            btnPauseEdit = MakeButton(530, 310, "GamePauseMenu/editButtonGraphic");
-            btnPauseLoad = MakeButton(530, 365, "GamePauseMenu/changeLevelButtonGraphic");
-            btnPauseRestart = MakeButton(530, 420, "GamePauseMenu/restartButtonGraphic");
+            pauseMenuBackgroundPosition = (new Vector2(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 175)));
+            pauseMenuGraphicPosition = (new Vector2(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 175)));
+            pauseMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
+            pauseMenuTitle = Content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
+            btnPauseContinue = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 20, "GamePauseMenu/continueButtonGraphic");
+            btnPauseEdit = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 75, "GamePauseMenu/editButtonGraphic");
+            btnPauseLoad = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 130, "GamePauseMenu/changeLevelButtonGraphic");
+            btnPauseRestart = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 185, "GamePauseMenu/restartButtonGraphic");
 	       // Load buttons 'n' stuff, yo!
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 	       // Update stuff here!
             if (btnPauseContinue.IsClicked())
@@ -36,20 +35,42 @@ namespace TargetTapping.Screens
             }
             if (btnPauseEdit.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (btnPauseLoad.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new LoadLevelScreen());
             }
             if (btnPauseRestart.IsClicked())
             {
+                foreach (var myListofObjects in GameManager.GlobalInstance.activeLevel.objectList)
+                {
+                    foreach (var myObject in myListofObjects)
+                    {
+                        myObject.shouldIbeDrawn = true;
+                    }
+                }
                 AddScreenAndChill(new GameScreen());
             }
-            btnPauseContinue.Update(mouseState);
-            btnPauseEdit.Update(mouseState);
-            btnPauseLoad.Update(mouseState);
-            btnPauseRestart.Update(mouseState);
+
+            btnPauseContinue.Update(MouseState);
+            btnPauseEdit.Update(MouseState);
+            btnPauseLoad.Update(MouseState);
+            btnPauseRestart.Update(MouseState);
 
         }
 

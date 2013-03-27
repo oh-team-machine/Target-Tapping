@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework;
 using TargetTapping.FrontEnd;
 
 namespace TargetTapping.Screens
@@ -20,11 +14,13 @@ namespace TargetTapping.Screens
     abstract class AbstractRichScreen : GameLibrary.Screen
     {
         /// The directory for finding content.
-        public const string CONTENT_DIR = "Content";
+        public const string ContentDir = "Content";
 
 
-        protected RichContentManager content;
-        protected MouseState mouseState;
+        protected RichContentManager Content;
+        protected MouseState MouseState;
+        protected readonly int ScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+        protected readonly int ScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         /// IMPORTANT! THIS *MUST* BE CALLED BEFORE ANYTHING HAPPENS
         /// IN THE OVERRIDEN LoadContent. That is, this:
@@ -32,17 +28,17 @@ namespace TargetTapping.Screens
         /// should always be the first line.
         public override void LoadContent()
         {
-            content = new RichContentManager(ScreenManager.Game.Services, CONTENT_DIR);
+            Content = new RichContentManager(ScreenManager.Game.Services, ContentDir);
         }
 
         public override void UnloadContent()
         {
-            content.Unload();
+            Content.Unload();
         }
 
         public override void HandleInput(Microsoft.Xna.Framework.GameTime gameTime, GameLibrary.InputManager input)
         {
-            mouseState = input.MouseState;
+            MouseState = input.MouseState;
 
             base.HandleInput(gameTime, input);
         }
@@ -55,13 +51,13 @@ namespace TargetTapping.Screens
         /// <param name="transform"></param>
         public override void Draw(Microsoft.Xna.Framework.GameTime gameTime, Microsoft.Xna.Framework.Matrix transform)
         {
-            SpriteBatch SpriteBatch = ScreenManager.SpriteBatch;
+            var spriteBatch = ScreenManager.SpriteBatch;
 
-            SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
 
-            PreparedDraw(SpriteBatch);
+            PreparedDraw(spriteBatch);
 
-            SpriteBatch.End();
+            spriteBatch.End();
         }
 
         /// <summary>
@@ -85,7 +81,7 @@ namespace TargetTapping.Screens
 
         protected GameLibrary.UI.Button MakeButton(int x, int y, string resourceName)
         {
-            return content.MakeButton(x, y, resourceName);
+            return Content.MakeButton(x, y, resourceName);
         }
     }
 }
