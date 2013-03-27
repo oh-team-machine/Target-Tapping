@@ -22,7 +22,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
                 Parent.ObjectFactory.Coordinates = new Point(x, y);
 
                 Parent.RequestStateChange("INITIAL");
-                Parent.Unhide();
+                // Don't need this for middle palatte.
+                //Parent.Show();
             }
         }
 

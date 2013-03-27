@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using GameLibrary.UI;
@@ -12,9 +9,6 @@ namespace TargetTapping.Screens
 {
     class LoadLevelScreen : AbstractRichScreen
     {
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
         Texture2D myLoadLevelTitle, textBackgorund, magnifyGlass, listBackground;
         Vector2 magnifyGlassPosition ;
         Vector2 listBackgroundPosition ;
@@ -35,28 +29,28 @@ namespace TargetTapping.Screens
         public override void LoadContent()
         {
             base.LoadContent();
-            searchQueryPosition = (new Vector2(((screenWidth / 2) - 275), 120));
-            magnifyGlassPosition = (new Vector2(((screenWidth / 2) - 300), 120));
-            listBackgroundPosition = (new Vector2( ((screenWidth / 2) - 300), 200));
+            searchQueryPosition = (new Vector2(((ScreenWidth / 2) - 275), 120));
+            magnifyGlassPosition = (new Vector2(((ScreenWidth / 2) - 300), 120));
+            listBackgroundPosition = (new Vector2( ((ScreenWidth / 2) - 300), 200));
             //searchBackground = (new Vector2( ((screenWidth / 2) - 280), 200));
 
-            myLoadLevelTitlePosition = (new Vector2(((screenWidth / 2) - 300), 0));
+            myLoadLevelTitlePosition = (new Vector2(((ScreenWidth / 2) - 300), 0));
             //myCancelButtonPosition = (new Vector2(0, 0));
 
-            font = content.Load<SpriteFont>("font");
+            font = Content.Load<SpriteFont>("font");
             searchQuery = "";
-            textBackgorund = content.Load<Texture2D>("GUI/textBackground");
-            magnifyGlass = content.Load<Texture2D>("GUI/magnifyGlass");
-            listBackground = content.Load<Texture2D>("GUI/listBackground");
-            myLoadLevelTitle = content.Load<Texture2D>("GUI/loadGameTitle");
+            textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
+            magnifyGlass = Content.Load<Texture2D>("GUI/magnifyGlass");
+            listBackground = Content.Load<Texture2D>("GUI/listBackground");
+            myLoadLevelTitle = Content.Load<Texture2D>("GUI/loadGameTitle");
 
-            btnHelp = MakeButton(((screenWidth) - 55), screenHeight - 55, "HELP/helpIcon");
+            btnHelp = MakeButton(((ScreenWidth) - 55), ScreenHeight - 55, "HELP/helpIcon");
             btnCancel = MakeButton(0, 0, "GUI/cancel");
-            btnOpen = MakeButton(((screenWidth) - 120), 0, "GUI/openButton");
-            delSearch = MakeButton( ((screenWidth / 2) - 19), 113, "Gui/miniX");
-            goSearch = MakeButton(  ((screenWidth / 2) + 40), 113, "Gui/go");
-            clearSearchButton = MakeButton( ((screenWidth / 2) - 275), 120, "GUI/nothing2");
-            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), content);
+            btnOpen = MakeButton(((ScreenWidth) - 120), 0, "GUI/openButton");
+            delSearch = MakeButton( ((ScreenWidth / 2) - 19), 113, "Gui/miniX");
+            goSearch = MakeButton(  ((ScreenWidth / 2) + 40), 113, "Gui/go");
+            clearSearchButton = MakeButton( ((ScreenWidth / 2) - 275), 120, "GUI/nothing2");
+            keyboard = new Keyboard(((ScreenWidth / 2) - 250), ((ScreenHeight) - 240), Content);
             keyboard.LoadContent();
 
             fileList = new List(levelNames.getFileNames(), 600, 15, 20, listBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
@@ -95,7 +89,7 @@ namespace TargetTapping.Screens
                 LevelLoad levelL = new LevelLoad();
                 SerializableLevel sLevel = levelL.initiateLoad(fileList.SelectedElement());
                 var graphics = GameManager.GlobalInstance.Graphics;
-                GameManager.GlobalInstance.activeLevel = sLevel.constructLevel(content, graphics);
+                GameManager.GlobalInstance.activeLevel = sLevel.constructLevel(Content, graphics);
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (delSearch.IsClicked())
@@ -111,18 +105,18 @@ namespace TargetTapping.Screens
                 AddScreenAndChill(new LoadHelpScreen());
             }
             // update load screen
-            btnHelp.Update(mouseState);
-            btnCancel.Update(mouseState);
-            btnOpen.Update(mouseState);
-            delSearch.Update(mouseState);
-            clearSearchButton.Update(mouseState);
-            goSearch.Update(mouseState);
+            btnHelp.Update(MouseState);
+            btnCancel.Update(MouseState);
+            btnOpen.Update(MouseState);
+            delSearch.Update(MouseState);
+            clearSearchButton.Update(MouseState);
+            goSearch.Update(MouseState);
             if (loadKeyBoard == true)
             {
-                keyboard.Update(mouseState);
+                keyboard.Update(MouseState);
             }
             
-            fileList.Update(gameTime, mouseState);
+            fileList.Update(gameTime, MouseState);
 
             base.Update(gameTime);
         }

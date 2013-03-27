@@ -60,11 +60,11 @@ namespace TargetTapping.Screens
            
 
 
-            font = content.Load<SpriteFont>("font");
+            font = Content.Load<SpriteFont>("font");
             nameOfTherapist = "";
             descriptionByTherapist = "";
-            textBackgorund = content.Load<Texture2D>("GUI/textBackground");
-            myNewLevelTitle = content.Load<Texture2D>("GUI/newLevel");
+            textBackgorund = Content.Load<Texture2D>("GUI/textBackground");
+            myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
 
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             btnCreate = MakeButton(((screenWidth) - 120), 0, "GUI/createButton");
@@ -72,13 +72,13 @@ namespace TargetTapping.Screens
             delDesc = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 107), "Gui/miniX");
             delName = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 47), "Gui/miniX");
 
-            myName = content.Load<Texture2D>("GUI/name");
+            myName = Content.Load<Texture2D>("GUI/name");
             clearNameButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 40), "GUI/nothing");
 
-            myDescription = content.Load<Texture2D>("GUI/description");
+            myDescription = Content.Load<Texture2D>("GUI/description");
             clearDescriptionButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 100), "GUI/nothing");
 
-            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), content);
+            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), Content);
             keyboard.LoadContent();
         }
 
@@ -160,15 +160,15 @@ namespace TargetTapping.Screens
             {
                 AddScreenAndChill(new NewHelpScreen());
             }
-            delDesc.Update(mouseState);
-            delName.Update(mouseState);
-            btnCancel.Update(mouseState);
-            btnCreate.Update(mouseState);
-            btnHelp.Update(mouseState);
-            clearNameButton.Update(mouseState);
-            clearDescriptionButton.Update(mouseState);
+            delDesc.Update(MouseState);
+            delName.Update(MouseState);
+            btnCancel.Update(MouseState);
+            btnCreate.Update(MouseState);
+            btnHelp.Update(MouseState);
+            clearNameButton.Update(MouseState);
+            clearDescriptionButton.Update(MouseState);
             // Update the keyboard and all of its keys.
-            keyboard.Update(mouseState);
+            keyboard.Update(MouseState);
         }
 
         public override void PreparedDraw(SpriteBatch spriteBatch)

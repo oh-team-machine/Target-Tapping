@@ -14,7 +14,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
         private readonly Dictionary<string, PaletteState> _states =
                 new Dictionary<string, PaletteState>();
 
-        private bool _isHidden;
+        public bool IsHidden { get; private set; }
 
         // Edges of directed state diagram. From state => To State.
         private readonly Dictionary<string, string> _nextStates = new Dictionary
@@ -32,6 +32,8 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public Palette(int x, int y)
         {
+            // Start out hidden.
+            IsHidden = true;
             Position = new Point(x, y);
 
             ObjectFactory = new ShapeCreationState();
@@ -54,7 +56,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             CurrentStateName = InitialStateName;
 
             // Make sure that it's unhidden!
-            Unhide();
+            Show();
         }
 
         public ShapeCreationState ObjectFactory { get; private set; }
@@ -109,7 +111,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (_isHidden)
+            if (IsHidden)
                 return;
 
             // Draw the background first.
@@ -124,18 +126,18 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // GC deal with the old one.
             ObjectFactory = new ShapeCreationState();
 
-            Unhide();
             RequestStateChange("INITIAL");
+            Hide();
         }
 
         public void Hide()
         {
-            _isHidden = true;
+            IsHidden = true;
         }
 
-        public void Unhide()
+        public void Show()
         {
-            _isHidden = false;
+            IsHidden = false;
         }
 
         // Changes the state on next update.

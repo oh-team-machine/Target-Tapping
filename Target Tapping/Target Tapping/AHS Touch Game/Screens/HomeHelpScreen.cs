@@ -11,13 +11,10 @@ namespace TargetTapping.Screens
 {
     class HomeHelpScreen : AbstractRichScreen
     {
-        
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         public override void LoadContent()
         {
-            //((screenWidth / 2) - 400)
+            //((ScreenWidth / 2) - 400)
             base.LoadContent();
             
 	       // Load buttons 'n' stuff, yo!

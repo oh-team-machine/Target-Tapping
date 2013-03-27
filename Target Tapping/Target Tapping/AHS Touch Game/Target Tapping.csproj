@@ -149,7 +149,7 @@
     <Compile Include="Screens\LoadHelpScreen.cs" />
     <Compile Include="Screens\NewHelpScreen.cs" />
     <Compile Include="Screens\HomeHelpScreen.cs" />
-    <Compile Include="Screens\LEMScreen.cs" />
+    <Compile Include="Screens\LevelEditorMenuScreen.cs" />
     <Compile Include="Screens\LevelEditScreen.cs" />
     <Compile Include="Screens\LoadLevelScreen.cs" />
     <Compile Include="Screens\MenuScreen.cs" />

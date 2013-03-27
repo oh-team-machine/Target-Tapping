@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 
@@ -10,28 +6,27 @@ namespace TargetTapping.Screens
 {
     class PauseScreen : AbstractRichScreen
     {
+
         Button btnPauseLoad, btnPauseRestart, btnPauseEdit, btnPauseContinue;
         Texture2D pauseMenuBackground, pauseMenuTitle;
         Vector2 pauseMenuBackgroundPosition;
         Vector2 pauseMenuGraphicPosition;
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            pauseMenuBackgroundPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 175)));
-            pauseMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 60), ((screenHeight / 2) - 175)));
-            pauseMenuBackground = content.Load<Texture2D>("LevelEditorMenu/menuBackground");
-            pauseMenuTitle = content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
-            btnPauseContinue = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 20, "GamePauseMenu/continueButtonGraphic");
-            btnPauseEdit = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 75, "GamePauseMenu/editButtonGraphic");
-            btnPauseLoad = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 130, "GamePauseMenu/changeLevelButtonGraphic");
-            btnPauseRestart = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 185, "GamePauseMenu/restartButtonGraphic");
+            pauseMenuBackgroundPosition = (new Vector2(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 175)));
+            pauseMenuGraphicPosition = (new Vector2(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 175)));
+            pauseMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
+            pauseMenuTitle = Content.Load<Texture2D>("GamePauseMenu/pauseMenuGraphic");
+            btnPauseContinue = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 20, "GamePauseMenu/continueButtonGraphic");
+            btnPauseEdit = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 75, "GamePauseMenu/editButtonGraphic");
+            btnPauseLoad = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 130, "GamePauseMenu/changeLevelButtonGraphic");
+            btnPauseRestart = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 185, "GamePauseMenu/restartButtonGraphic");
 	       // Load buttons 'n' stuff, yo!
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 	       // Update stuff here!
             if (btnPauseContinue.IsClicked())
@@ -71,10 +66,11 @@ namespace TargetTapping.Screens
                 }
                 AddScreenAndChill(new GameScreen());
             }
-            btnPauseContinue.Update(mouseState);
-            btnPauseEdit.Update(mouseState);
-            btnPauseLoad.Update(mouseState);
-            btnPauseRestart.Update(mouseState);
+
+            btnPauseContinue.Update(MouseState);
+            btnPauseEdit.Update(MouseState);
+            btnPauseLoad.Update(MouseState);
+            btnPauseRestart.Update(MouseState);
 
         }
 

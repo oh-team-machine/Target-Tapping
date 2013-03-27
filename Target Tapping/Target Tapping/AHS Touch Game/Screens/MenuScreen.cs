@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 
@@ -11,26 +7,24 @@ namespace TargetTapping.Screens
     class MenuScreen : AbstractRichScreen
     {
 
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
         private Button btnNew, btnLoad, btnExit, btnHelp;
         Texture2D myTitle;
         Vector2 myTitlePosition;
-       
+
 
         public override void LoadContent()
         {
             base.LoadContent();
-            myTitlePosition = new Vector2(((screenWidth / 2) - 400), 0);
-            btnNew = MakeButton(((screenWidth/2)-300), ((screenHeight/3)), "GUI/newButton");
-            btnLoad = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+150), "GUI/loadButton");
-            btnExit = MakeButton(((screenWidth / 2) - 300), ((screenHeight / 3)+300), "GUI/exitButton");
-            btnHelp = MakeButton(((screenWidth) - 55), screenHeight-55, "HELP/helpIcon");
-            myTitle = content.Load<Texture2D>("GUI/targetTappingGame");
-            System.Diagnostics.Debug.WriteLine(((screenWidth / 2) - 300));
+            myTitlePosition = new Vector2(((ScreenWidth / 2) - 400), 0);
+            btnNew = MakeButton(((ScreenWidth/2)-300), ((ScreenHeight/3)), "GUI/newButton");
+            btnLoad = MakeButton(((ScreenWidth / 2) - 300), ((ScreenHeight / 3)+150), "GUI/loadButton");
+            btnExit = MakeButton(((ScreenWidth / 2) - 300), ((ScreenHeight / 3)+300), "GUI/exitButton");
+            btnHelp = MakeButton(((ScreenWidth) - 55), ScreenHeight-55, "HELP/helpIcon");
+            myTitle = Content.Load<Texture2D>("GUI/targetTappingGame");
+            System.Diagnostics.Debug.WriteLine(((ScreenWidth / 2) - 300));
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 	    
@@ -53,10 +47,10 @@ namespace TargetTapping.Screens
             ScreenManager.Exit();
 	    }
 
-            btnNew.Update(mouseState);
-            btnLoad.Update(mouseState);
-            btnExit.Update(mouseState);
-            btnHelp.Update(mouseState);
+            btnNew.Update(MouseState);
+            btnLoad.Update(MouseState);
+            btnExit.Update(MouseState);
+            btnHelp.Update(MouseState);
 
         }
         

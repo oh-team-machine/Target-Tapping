@@ -48,7 +48,7 @@ namespace TargetTapping.Screens
             //initialize the score
             this.score = 0;
             //load the spritefount to print the scroe to
-            this.font = content.Load<SpriteFont>("Font");
+            this.font = Content.Load<SpriteFont>("Font");
 
             float scoreLength = (font.MeasureString("999/999")).X;
             //double check this position
@@ -97,7 +97,7 @@ namespace TargetTapping.Screens
             }
             if (hasTouchedToStart == false)
             {
-                btnTouchToStart.Update(mouseState);
+                btnTouchToStart.Update(MouseState);
             }
 
             //This all happens after touch to start!
@@ -107,13 +107,13 @@ namespace TargetTapping.Screens
                 {
                     AddScreenAndChill(new PauseScreen());
                 }
-                btnPause.Update(mouseState);
+                btnPause.Update(MouseState);
 
 
                 foreach (var myObject in playingLevel.objectList[currentListNumber])
                 {
                     // Update the state of all objects that have been brought over from the leveleditor screen
-                    myObject.Update(mouseState);
+                    myObject.Update(MouseState);
                 }
                 // This foreach loop will check if a button in the list of buttonlists
                 // is clicked and if it is then we are going to move its position.

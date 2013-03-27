@@ -1,42 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
 
 namespace TargetTapping.Screens
 {
-    class LEMScreen : AbstractRichScreen
+    class LevelEditorMenuScreen : AbstractRichScreen
     {
         Button btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
         Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
         Vector2 levelEditorMenuPosition;
         Vector2 levelEditorMenuGraphicPosition;
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
 
         public override void LoadContent()
         {
             //((screenWidth / 2) - 400)
             base.LoadContent();
-            levelEditorMenuPosition = (new Vector2( ((screenWidth / 2) - 100), ((screenHeight / 2) - 175) ) );
-            levelEditorMenuGraphicPosition = (new Vector2(((screenWidth / 2) - 60), ((screenHeight / 2) - 175) ) );
+            levelEditorMenuPosition = (new Vector2( ((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 175) ) );
+            levelEditorMenuGraphicPosition = (new Vector2(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 175) ) );
 
-            levelEditorMenuBackground = content.Load<Texture2D>("LevelEditorMenu/menuBackground");
-            levelEditorMenuTitle = content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
-            btnLemBack = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
-            btnLemSave = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
-            btnLemLoad = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
-            btnLemClear = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 185, "LevelEditorMenu/clearButtonGraphic");
-            btnLemExit = MakeButton(((screenWidth / 2) - 60), ((screenHeight / 2) - 150) + 240, "LevelEditorMenu/exitButtonGraphic");
+            levelEditorMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
+            levelEditorMenuTitle = Content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
+            btnLemBack = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
+            btnLemSave = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
+            btnLemLoad = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
+            btnLemClear = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 185, "LevelEditorMenu/clearButtonGraphic");
+            btnLemExit = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 240, "LevelEditorMenu/exitButtonGraphic");
 
 	       // Load buttons 'n' stuff, yo!
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 	       // Update stuff here!
             if (btnLemBack.IsClicked())
@@ -47,7 +41,7 @@ namespace TargetTapping.Screens
             if (btnLemSave.IsClicked())
             {
                 GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
-                SerializableLevel sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
+                var sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
                 new SaveLevel().initiateSave(sLevel);
 
                 AddScreenAndChill(new LevelEditScreen());
@@ -64,11 +58,11 @@ namespace TargetTapping.Screens
             {
                 ScreenManager.Exit();
             }
-            btnLemSave.Update(mouseState);
-            btnLemLoad.Update(mouseState);
-            btnLemExit.Update(mouseState);
-            btnLemClear.Update(mouseState);
-            btnLemBack.Update(mouseState);
+            btnLemSave.Update(MouseState);
+            btnLemLoad.Update(MouseState);
+            btnLemExit.Update(MouseState);
+            btnLemClear.Update(MouseState);
+            btnLemBack.Update(MouseState);
 
         }
 
