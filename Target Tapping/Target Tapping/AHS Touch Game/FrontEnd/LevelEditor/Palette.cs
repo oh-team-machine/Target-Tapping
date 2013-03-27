@@ -107,6 +107,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
                 statesLoaded.Add(state);
                 state.LoadContent(content);
             }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

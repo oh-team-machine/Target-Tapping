@@ -81,7 +81,7 @@ namespace TargetTapping.Screens
 
             // Place the palette.
             palette = new Palette((ScreenWidth / 2) - 50 , 100);
-            palette.Show();
+            palette.Hide(); // Keep it hidden!
             palette.LoadContent(Content);
 
         }
@@ -89,7 +89,6 @@ namespace TargetTapping.Screens
         public override void Update(GameTime gameTime)
         {
             
-
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
             {
@@ -152,15 +151,18 @@ namespace TargetTapping.Screens
             }
             if (btns["AddAlpha"].IsClicked())
             {
-
+                palette.RequestStateChange("Alph");
+                palette.Show();
             }
             if (btns["AddShape"].IsClicked())
             {
-
+                palette.RequestStateChange("Shape");
+                palette.Show();
             }
             if (btns["AddNumbr"].IsClicked())
             {
-
+                palette.RequestStateChange("Num");
+                palette.Show();
             }
             if (btns["HelpBtn"].IsClicked())
             {
@@ -185,7 +187,7 @@ namespace TargetTapping.Screens
                 //Call A Method Defined In Another Class
             }
 
-            // Handle the creation of stuff.
+            // Handle the creation of object/entities.
             if (palette.ObjectFactory.IsReady())
             {
                 var fac = palette.ObjectFactory;
