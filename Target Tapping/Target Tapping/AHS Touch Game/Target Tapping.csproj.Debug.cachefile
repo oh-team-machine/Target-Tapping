@@ -165,5 +165,13 @@ Content\LevelEditorGUI\addLabel.xnb
 Content\GUI\openButtonDEP.xnb
 Content\HELP\helpIcon.xnb
 Content\HELP\LEhelpIcon.xnb
+<<<<<<< HEAD
 Content\ButtonPress.xnb
 Content\ButtonPress.wma
+=======
+Content\HELP\newLayoutHelp.xnb
+Content\HELP\loadLayoutHelp.xnb
+Content\HELP\exitHelp.xnb
+Content\HELP\gameBreakDownHelp.xnb
+Content\HELP\answerBackDrop.xnb
+>>>>>>> Working on help

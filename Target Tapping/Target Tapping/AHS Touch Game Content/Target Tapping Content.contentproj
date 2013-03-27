@@ -1133,10 +1133,45 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="ButtonPress.mp3">
       <Name>ButtonPress</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
+=======
+    <Compile Include="HELP\newLayoutHelp.bmp">
+      <Name>newLayoutHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\loadLayoutHelp.bmp">
+      <Name>loadLayoutHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\exitHelp.bmp">
+      <Name>exitHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\gameBreakDownHelp.bmp">
+      <Name>gameBreakDownHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\answerBackDrop.bmp">
+      <Name>answerBackDrop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+>>>>>>> Working on help
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
