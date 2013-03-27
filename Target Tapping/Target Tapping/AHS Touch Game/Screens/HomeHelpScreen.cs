@@ -25,7 +25,7 @@ namespace TargetTapping.Screens
         {
             
             base.LoadContent();
-            answerPosition = (new Vector2(((ScreenWidth / 2) - 300), 0));
+            answerPosition = (new Vector2(((ScreenWidth / 2) - 398), 112));
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             newLayoutHelp = MakeButton(0, 120, "HELP/newLayoutHelp");
             loadLayoutHelp = MakeButton(0, 170, "HELP/loadLayoutHelp");
