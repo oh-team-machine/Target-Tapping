@@ -93,17 +93,26 @@ namespace TargetTapping.Back_end
 
         public void addFilename(string newFilename)
         {
-            foreach (var filename in filenames)
+            if (filenames.Count != 0)
             {
-                if (newFilename == filename)
-                {
 
-                }
-                else
+                foreach (var filename in filenames)
                 {
-                    filenames.Add(newFilename);
-                    StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+                    if (newFilename == filename)
+                    {
+
+                    }
+                    else
+                    {
+                        filenames.Add(newFilename);
+                        StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
+                    }
                 }
+            }
+            else
+            {
+                filenames.Add(newFilename);
+                StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
             }
         }
 
