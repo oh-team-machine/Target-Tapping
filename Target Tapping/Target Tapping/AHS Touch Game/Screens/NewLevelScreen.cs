@@ -8,9 +8,6 @@ namespace TargetTapping.Screens
 {
     internal class NewLevelScreen : AbstractRichScreen
     {
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
         private Button btnCancel,
                        btnCreate, 
                        btnHelp;
@@ -48,15 +45,15 @@ namespace TargetTapping.Screens
         {
             //((screenWidth / 2) - 400)
             base.LoadContent();
-            myNewLevelPosition = (new Vector2(((screenWidth / 2) - 300), 0));
+            myNewLevelPosition = (new Vector2(((ScreenWidth / 2) - 300), 0));
 
             //descriptionBackgroundPosition = (new Vector2 (((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
-            descriptionByTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 100))) ;
-            myDescriptionPosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 100)));
+            descriptionByTherapistPosition = (new Vector2(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 100))) ;
+            myDescriptionPosition = (new Vector2(((ScreenWidth / 2) - 300), ((ScreenHeight / 2) - 100)));
 
             //nameBackgroundPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
-            nameOfTherapistPosition = (new Vector2(((screenWidth / 2) - 100), ((screenHeight / 2) - 40)));
-            myNamePosition = (new Vector2(((screenWidth / 2) - 300), ((screenHeight / 2) - 40)));
+            nameOfTherapistPosition = (new Vector2(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 40)));
+            myNamePosition = (new Vector2(((ScreenWidth / 2) - 300), ((ScreenHeight / 2) - 40)));
            
 
 
@@ -67,18 +64,18 @@ namespace TargetTapping.Screens
             myNewLevelTitle = Content.Load<Texture2D>("GUI/newLevel");
 
             btnCancel = MakeButton(0, 0, "GUI/cancel");
-            btnCreate = MakeButton(((screenWidth) - 120), 0, "GUI/createButton");
-            btnHelp = MakeButton(((screenWidth) - 55), screenHeight - 55, "HELP/helpIcon");
-            delDesc = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 107), "Gui/miniX");
-            delName = MakeButton(((screenWidth / 2) + 301), ((screenHeight / 2) - 47), "Gui/miniX");
+            btnCreate = MakeButton(((ScreenWidth) - 120), 0, "GUI/createButton");
+            btnHelp = MakeButton(((ScreenWidth) - 55), ScreenHeight - 55, "HELP/helpIcon");
+            delDesc = MakeButton(((ScreenWidth / 2) + 301), ((ScreenHeight / 2) - 107), "Gui/miniX");
+            delName = MakeButton(((ScreenWidth / 2) + 301), ((ScreenHeight / 2) - 47), "Gui/miniX");
 
             myName = Content.Load<Texture2D>("GUI/name");
-            clearNameButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 40), "GUI/nothing");
+            clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothing");
 
             myDescription = Content.Load<Texture2D>("GUI/description");
-            clearDescriptionButton = MakeButton(((screenWidth / 2) - 200), ((screenHeight / 2) - 100), "GUI/nothing");
+            clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothing");
 
-            keyboard = new Keyboard(((screenWidth / 2) - 250), ((screenHeight) - 240), Content);
+            keyboard = new Keyboard(((ScreenWidth / 2) - 250), ((ScreenHeight) - 240), Content);
             keyboard.LoadContent();
         }
 
