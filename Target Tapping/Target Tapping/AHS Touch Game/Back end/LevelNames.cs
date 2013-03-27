@@ -95,18 +95,19 @@ namespace TargetTapping.Back_end
         {
             if (filenames.Count != 0)
             {
-
+                bool match = true;
                 foreach (var filename in filenames)
                 {
                     if (newFilename == filename)
                     {
-
+                        match = false;
+                        break;
                     }
-                    else
-                    {
-                        filenames.Add(newFilename);
-                        StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
-                    }
+                }
+                if (match)
+                {
+                    filenames.Add(newFilename);
+                    StorageDevice.BeginShowSelector(PlayerIndex.One, this.saveLevelName, null);
                 }
             }
             else

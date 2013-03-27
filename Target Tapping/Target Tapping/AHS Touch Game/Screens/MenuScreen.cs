@@ -36,15 +36,16 @@ namespace TargetTapping.Screens
 	    // Check if any of the buttons have been clicked.
 	    if (btnNew.IsClicked())
 	    {
-                AddScreenAndChill(new NewLevelScreen());
+            GameManager.GlobalInstance.activeLevel = new Back_end.Level();
+            AddScreenAndChill(new NewLevelScreen());
 	    }
 	    else if (btnLoad.IsClicked())
 	    {
-                AddScreenAndChill(new LoadLevelScreen());
+            AddScreenAndChill(new LoadLevelScreen());
 	    }
 	    else if (btnExit.IsClicked())
 	    {
-                ScreenManager.Exit();
+            ScreenManager.Exit();
 	    }
 
             btnNew.Update(mouseState);
