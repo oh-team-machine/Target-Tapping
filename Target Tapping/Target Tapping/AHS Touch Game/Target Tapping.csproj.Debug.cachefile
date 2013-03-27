@@ -48,7 +48,6 @@ Content\OSK\bButton.xnb
 Content\OSK\cButton.xnb
 Content\OSK\clear.xnb
 Content\OSK\dButton.xnb
-Content\OSK\0Button.xnb
 Content\OSK\eButton.xnb
 Content\OSK\fButton.xnb
 Content\OSK\gButton.xnb
@@ -65,7 +64,6 @@ Content\OSK\pButton.xnb
 Content\OSK\qButton.xnb
 Content\OSK\rButton.xnb
 Content\OSK\sButton.xnb
-Content\OSK\_Button.xnb
 Content\OSK\tButton.xnb
 Content\OSK\uButton.xnb
 Content\OSK\vButton.xnb
@@ -143,10 +141,12 @@ Content\Numbers\number6.xnb
 Content\Numbers\number7.xnb
 Content\Numbers\number8.xnb
 Content\Numbers\number9.xnb
-Content\GUI\nothing2.xnb
-Content\GUI\pauseButton.xnb
 Content\Font.xnb
 Content\WinFont.xnb
+Content\OSK\0Button.xnb
+Content\OSK\_Button.xnb
+Content\GUI\nothing2.xnb
+Content\GUI\pauseButton.xnb
 Content\ShapePallet\8Btn.xnb
 Content\ShapePallet\5Btn.xnb
 Content\ShapePallet\4Btn.xnb
@@ -165,3 +165,5 @@ Content\LevelEditorGUI\addLabel.xnb
 Content\GUI\openButtonDEP.xnb
 Content\HELP\helpIcon.xnb
 Content\HELP\LEhelpIcon.xnb
+Content\ButtonPress.xnb
+Content\ButtonPress.wma
