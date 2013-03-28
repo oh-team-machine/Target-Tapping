@@ -27,7 +27,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public override void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
             base.Update(state);
-            Console.Beep();
         }
 
         protected override int MaxInRow()
