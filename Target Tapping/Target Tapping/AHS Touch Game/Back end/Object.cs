@@ -26,6 +26,8 @@ namespace TargetTapping.Back_end
             bIsClicked = false;
             this.shouldIbeDrawn = true;
 
+            this.frameDelay = 60;
+
         }
 
         //Creates Buttons on the screen.
@@ -56,22 +58,39 @@ namespace TargetTapping.Back_end
 
         public void Update(MouseState state)
         {
-            //Used for perPixelCollison at later date
-            //Color[] data = new Color[texture.Width * texture.Height];
-            //texture.GetData(data);
-            if (Collisions.CollisionWithMouse(rectangle, state))
+            if (this.frameDelay == 0)
             {
-                if (state.LeftButton == ButtonState.Released && bMouseDownInside && this.shouldIbeDrawn)
+                //Used for perPixelCollison at later date
+                //Color[] data = new Color[texture.Width * texture.Height];
+                //texture.GetData(data);
+                if (Collisions.CollisionWithMouse(rectangle, state))
                 {
-                    bIsClicked = true;
+                    if (state.LeftButton == ButtonState.Released && bMouseDownInside && this.shouldIbeDrawn)
+                    {
+                        bIsClicked = true;
+                        //since this object was just clicked try and delay it from being updated again for a while to avoid couble clicking
+                        //due to the rally fast polling rate of the game loop, which registers a mouse click 5-7 times.
+                        this.frameDelay = 50;
+                    }
+                    if (state.LeftButton == ButtonState.Pressed && this.shouldIbeDrawn)
+                    {
+                        bMouseDownInside = true;
+                    }
+                    else
+                    {
+                        bMouseDownInside = false;
+                    }
+
                 }
-                if (state.LeftButton == ButtonState.Pressed && this.shouldIbeDrawn)
-                    bMouseDownInside = true;
                 else
+                {
                     bMouseDownInside = false;
+                }
             }
             else
-                bMouseDownInside = false;
+            {
+                this.frameDelay--;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -80,8 +99,6 @@ namespace TargetTapping.Back_end
 
             //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
             if(this.shouldIbeDrawn){
-                //attempt to avoid double clicking it
-                //Thread.Sleep(250);
 
                 if (bMouseDownInside)
                 {
@@ -111,5 +128,7 @@ namespace TargetTapping.Back_end
         public string shapeType { get; set; }
         private Texture2D texture { get; set; }
         public bool shouldIbeDrawn { get; set; }
+        public int frameDelay { get; set; }
+
     }
 }

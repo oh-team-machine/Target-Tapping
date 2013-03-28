@@ -27,6 +27,16 @@ namespace TargetTapping.Screens
         Vector2 intUpTimePosition;
         Vector2 intHoldTimePosition;
         SpriteFont font;
+        
+
+        //counter for debugging mouse clicksint
+        private int mouseClickCounter = 0;
+        //counter for debugging number of times a object is clicked
+        private int shapeClickCounter = 0;
+
+        //to handle the multiple number of clicks that occur
+        MouseState mouseStateCurrent, mouseStatePrevious;
+
 
         // The level editor's got a bunch of buttons!
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
@@ -197,9 +207,7 @@ namespace TargetTapping.Screens
                 var name = fac.Name;
                 var pos = fac.Coordinates;
                 // TODO: Not a hardcoded size!
-                //need to fix this, currently incrementing pos.x and pos.y by 1 to avoid the double click error thats going on.
-                //need to remove this and find a proper fix.
-                var rect = new Rectangle(pos.X+1, pos.Y+1, 100, 100);
+               var rect = new Rectangle(pos.X-50, pos.Y-50, 100, 100);
                 var graphman = GameManager.GlobalInstance.Graphics;
 
                 var entity = new Back_end.Object(type, name, rect, color, Content,
@@ -217,15 +225,15 @@ namespace TargetTapping.Screens
             // Update the palette
             palette.Update(MouseState);
 
+
+
             // This foreach loop will check if a button in the list of buttonlists
-            // is clicked and if it is then we are going to move its position.
+            // is clicked and if it is then we are going assign a reference to it via this.objBeingMoved
+            // and when the next mouse click is registered put the object at the new coordinates.
             foreach (var myListofObjects in myLevel.objectList)
             {
                 foreach (var myObject in myListofObjects)
                 {
-                    // Update the state of all objects that have been created in this level on the level grid
-                    myObject.Update(MouseState);
-
                     if (myObject.IsClicked())
                     {
                         //now were going to set the current clicked object on the leveleditor grid 
@@ -235,23 +243,27 @@ namespace TargetTapping.Screens
                         //new mouse click anywhere on the level editor grid we set the reference to
                         //have the new coordinates and put its shouldIBeDrawn property back to true;
                         this.objBeingMoved = myObject;
-                        //Console.WriteLine("Stuff");
-
                     }
                 }
             }
-            
-            //now were going to test if the mouse has been clicked anywhere on the leveleditor grid
-            if(MouseState.LeftButton == ButtonState.Pressed){
 
+            
+           
+            //now we test if the mouse has been clickd and if it has move the current selected object to the coordinates clicked.
+            //also only register one mouse click with the initial if statement
+            this.mouseStateCurrent = MouseState;
+            if (this.mouseStateCurrent.LeftButton == ButtonState.Pressed && this.mouseStatePrevious.LeftButton == ButtonState.Released)
+            {
                 if (this.objBeingMoved != null)
                 {
+                    Console.WriteLine("Object is not null, starting moving it.");
                     //need to implement a check to see if the spot we are clicking in intersects within the
                     //rectangle of the grid.
-                    
+
                     //set new position of the objectbeingMoved to wherever the mouse was just clicked.
-                    //add one pixel so we are not above the shape when we drop it!!!!!!!!!!!!!!!!!!!!
-                    this.objBeingMoved.rectangle = new Rectangle(MouseState.X+1, MouseState.Y+1,
+                    int newXcoord = MouseState.X - (this.objBeingMoved.rectangle.Width / 2);
+                    int newYcoord = MouseState.Y - (this.objBeingMoved.rectangle.Height / 2);
+                    this.objBeingMoved.rectangle = new Rectangle(newXcoord, newYcoord,
                         this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
 
                     //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
@@ -260,10 +272,25 @@ namespace TargetTapping.Screens
 
                     //now remove the reference so we no long change the actual object in the list.
                     this.objBeingMoved = null;
+                    Console.WriteLine("Object now had new coordinates set it to null.");
+
                 }
-            
             }
-            
+            mouseStatePrevious = mouseStateCurrent;
+
+
+            //update the mousestate of each object (ie. test if its been clicked)
+            foreach (var myListofObjects in myLevel.objectList)
+            {
+                foreach (var myObject in myListofObjects)
+                {
+                   myObject.Update(MouseState);
+                }
+            }
+
+
+
+
             base.Update(gameTime);
         }
 
@@ -291,6 +318,7 @@ namespace TargetTapping.Screens
                 foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
                 {
                     myObject.Draw(spriteBatch);
+
                 }
             }
             spriteBatch.DrawString(font, intHoldTime.ToString(), intHoldTimePosition, Color.Black);

@@ -31,8 +31,7 @@ namespace TargetTapping
             //Shawn is using this for setting up new resolution.
             graphics = new GraphicsDeviceManager(this);
             screenResolution = new Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-            //
-
+            
 
             Content.RootDirectory = "Content";
 
