@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using GameLibrary.UI;
 using TargetTapping.Back_end;
+using Microsoft.Xna.Framework.Media;
 
 namespace TargetTapping.Screens
 {
@@ -23,6 +24,9 @@ namespace TargetTapping.Screens
 
         //Here were going to get the current level that we built in the leveleditor
         Level playingLevel = GameManager.GlobalInstance.activeLevel;
+
+        //Song to play on button press
+        Song song;
 
         //keep track of the score
         private int score;
@@ -51,6 +55,9 @@ namespace TargetTapping.Screens
             this.font = Content.Load<SpriteFont>("Font");
 
             float scoreLength = (font.MeasureString("999/999")).X;
+            //Load audio for button press
+            song = Content.Load<Song>("ButtonPress");
+            
             //double check this position
             scorePosition = new Vector2(this.ScreenManager.ScaleXPosition((this.ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth / 2.0f) - (scoreLength / 2.0f)), this.ScreenManager.ScaleYPosition(20.0f));
 
@@ -122,6 +129,10 @@ namespace TargetTapping.Screens
                     if (myObject.IsClicked())
                     {
                         this.score++;
+
+                        //Play a sound
+                        MediaPlayer.Play(song);
+
                         //now were going to set the current clicked object on the gamescree 
                         //to have its property shouldIbeDrawn = false. Because its been clicked
                         //Lets also update the score

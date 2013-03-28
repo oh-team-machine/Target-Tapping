@@ -13,14 +13,8 @@ namespace TargetTapping.Screens
     {
         //These booleans are used to specify states and what GUI elements should be presented
         bool multiState = false; //for multi button 
+        // wat.
         bool levelEditorMenuON = false; //Menu opens with menu button in level editor
-        bool shapePalletVisible = true; // Showing the pallet
-        // This should be replacedC:\Users\Patrick\Documents\Visual Studio 2010\Projects\Target-Tapping\Target Tapping\Target Tapping\AHS Touch Game\Screens\LevelEditScreen.cs by FSM
-        bool sizeChoosing = false; // Choosing the size of an object in the pallet
-        bool colorChoosing = false; // Color choosing for an object in the pallet
-        bool showingShapes = true; //Choosing between shapes in the pallet
-        bool showingNumbers = false; //Choosing between numerical object in the pallet
-        bool showingAlpha = false; //CHoosing alpha objets in the pallet
 
         int intUpTime = 5;
         int intHoldTime = 1;
@@ -54,11 +48,6 @@ namespace TargetTapping.Screens
         Texture2D grid, addLabel;
         Vector2 gridPosition = (new Vector2(0, 110));
         Vector2 addLabelPosition = (new Vector2(985, 32));
-        float rotationAngle = 4.71238898F; // wat.
-        Vector2 originForRotation = new Vector2(
-             960, //(grid.Width / 2);
-             485  //(grid.Height + 110) / 2;
-        );
 
         public override void LoadContent()
         {
@@ -98,7 +87,7 @@ namespace TargetTapping.Screens
 
         public override void Update(GameTime gameTime)
         {
-            
+
 	        // Update stuff here!
             if (btns["Home"].IsClicked())
             {
@@ -112,7 +101,7 @@ namespace TargetTapping.Screens
             {
                 //going to set the gameManager to have a reference to myLevel so that we can access
                 //all the objects that we've created and now want to display on the gamescreen.
-                GameManager.GlobalInstance.activeLevel = this.myLevel;
+                GameManager.GlobalInstance.activeLevel = myLevel;
                 AddScreenAndChill(new GameScreen());
             }
             if (btns["UpTime"].IsClicked() )
@@ -180,14 +169,14 @@ namespace TargetTapping.Screens
             }
             if (btns["Multiple"].IsClicked())
             {
-                if (multiState == true)
+                if (multiState)
                 {
                     multiState = false;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOff");
                     btns["Multiple"].Update(MouseState);
                     GameManager.GlobalInstance.activeLevel.multiSelect = false;
                 }
-                else if (multiState == false)
+                else
                 {
                     multiState = true;
                     btns["Multiple"] = MakeButton(355, 30, "LevelEditorGUI/multipleToggleOn");
@@ -200,18 +189,8 @@ namespace TargetTapping.Screens
             // Handle the creation of object/entities.
             if (palette.ObjectFactory.IsReady())
             {
-                var fac = palette.ObjectFactory;
+                var entity = palette.ObjectFactory.Make(Content);
 
-                var color = fac.Color;
-                var type = fac.Type;
-                var name = fac.Name;
-                var pos = fac.Coordinates;
-                // TODO: Not a hardcoded size!
-               var rect = new Rectangle(pos.X-50, pos.Y-50, 100, 100);
-                var graphman = GameManager.GlobalInstance.Graphics;
-
-                var entity = new Back_end.Object(type, name, rect, color, Content,
-                                                graphman);
                 myLevel.addObject(entity);
 
                 palette.Reset();

@@ -8,9 +8,6 @@ namespace TargetTapping.Screens
 {
     internal class NewLevelScreen : AbstractRichScreen
     {
-        //int ScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-       //int ScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
         private Button btnCancel,
                        btnCreate, 
                        btnHelp;

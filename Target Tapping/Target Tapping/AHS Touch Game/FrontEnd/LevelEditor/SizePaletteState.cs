@@ -22,8 +22,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         protected override bool OnButtonPressed(string name, Button button)
         {
-            // TODO: DETERMINE THE SIZE FROM THE NAME OF THE SIZE
-            Parent.ObjectFactory.Size = 1;
+            Parent.ObjectFactory.SetSizeFromName(name);
 
             // Go to the next state.
             return true;

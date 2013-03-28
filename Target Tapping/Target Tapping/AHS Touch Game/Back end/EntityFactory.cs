@@ -1,33 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace TargetTapping.Back_end
 {
-    internal class ShapeCreationState
+    internal class EntityFactory
     {
         //Put private class variables here.
+
         //int i = 123;      // a value type 
         //object o = i;     // boxing 
         //int j = (int)o;   // unboxing
 
-        // "Shape", "Letter", "Number"
+        private static readonly Dictionary<string, Rectangle> SizeNameToRect =  new Dictionary<string, Rectangle>
+        {
+            {"Tiny", new Rectangle(0, 0, 32, 32) },
+            {"Small", new Rectangle(0, 0, 64, 64) } ,
+            {"Medium", new Rectangle(0, 0, 128, 128) },
+            {"Large", new Rectangle(0, 0, 192, 192)  },
+            {"XLarge", new Rectangle(0, 0, 256, 256) },
+        };
 
-        // Colour
+        // Colour as a Color
         private object _colorObj; // this needs to be unboxed later
 
-        // Size as an int
-
-        // Position as a point
+        // Position as a Point
         private object _coordinatesObj; // this needs to be unboxed later
+
+        // Size as a rect, minus the position.
+        private object _sizeObj;
 
         // "Circle", "A", "1"
         private string _objName;
-        private object _sizeObj; // this needs to be unboxed later
         private String _type;
 
 
         //Constructor for this class just make a blank object
-        public ShapeCreationState()
+        public EntityFactory()
         {
             _type = null;
             _colorObj = null;
@@ -39,6 +49,34 @@ namespace TargetTapping.Back_end
         //if it returns true then an actual object can be created based on the properites
         //of this object.
 
+        public bool IsReady()
+        {
+            return ((_type != null)
+                    && (_colorObj != null)
+                    && (_sizeObj != null)
+                    && (_coordinatesObj != null)
+                    && (_objName != null));
+        }
+
+        public Object Make(ContentManager content)
+        {
+            //need to fix this, currently incrementing pos.x and pos.y by 1 to avoid the double click error thats going on.
+            //need to remove this and find a proper fix.
+            var rect = Size;
+
+            // I think this creates a copy...
+            rect.Location = Coordinates;
+
+            var graphman = GameManager.GlobalInstance.Graphics;
+
+            var entity = new Object(Type, Name, rect, Color,
+               content, graphman);
+
+            return entity;
+
+        }
+
+        #region Public properties
 
         //The following block is the getter and setters for the actual values 
 
@@ -68,12 +106,12 @@ namespace TargetTapping.Back_end
         }
 
         //getter and setter for size
-        public int Size
+        public Rectangle Size
         {
             //set the shape type 
             set { _sizeObj = value; }
             //get the shape type  
-            get { return (int) _sizeObj; }
+            get { return (Rectangle) _sizeObj; }
         }
 
         //getter and setter for coordinates
@@ -85,15 +123,9 @@ namespace TargetTapping.Back_end
             get { return (Point) _coordinatesObj; }
         }
 
-        public bool IsReady()
-        {
-            return ((_type != null)
-                    && (_colorObj != null)
-                    && (_sizeObj != null)
-                    && (_coordinatesObj != null)
-                    && (_objName != null));
-        }
+        #endregion
 
+        #region Shape setters
 
         internal void SetNumber()
         {
@@ -109,5 +141,13 @@ namespace TargetTapping.Back_end
         {
             Type = "Letter";
         }
+
+        #endregion
+
+        public void SetSizeFromName(string name)
+        {
+            Size = SizeNameToRect[name];
+        }
+
     }
 }
