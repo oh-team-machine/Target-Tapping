@@ -170,7 +170,6 @@ Content\HELP\loadLayoutHelp.xnb
 Content\HELP\exitHelp.xnb
 Content\HELP\gameBreakDownHelp.xnb
 Content\HELP\answerBackDrop.xnb
-Content\ButtonPress.xnb
 Content\HELP\cancelAndCreateHelp.xnb
 Content\HELP\descriptionAndNameHelp.xnb
 Content\HELP\littleXHelp.xnb
@@ -180,4 +179,5 @@ Content\HELP\searchHelp.xnb
 Content\HELP\listHelp.xnb
 Content\HELP\searchKeyboardHelp.xnb
 Content\HELP\title.xnb
+Content\ButtonPress.xnb
 Content\ButtonPress.wma
