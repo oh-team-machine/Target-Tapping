@@ -64,8 +64,13 @@ namespace TargetTapping.Back_end
             //need to remove this and find a proper fix.
             var rect = Size;
 
+            //create a new point with the x and y coordinates to be adjusted to center the shape
+            //about to be created over the mouse instead of drawying it from the top left corner.
+            Point adjustedCoord;
+            adjustedCoord.X = Coordinates.X - (rect.Width / 2);
+            adjustedCoord.Y = Coordinates.Y - (rect.Height / 2);
             // I think this creates a copy...
-            rect.Location = Coordinates;
+            rect.Location = adjustedCoord;
 
             var graphman = GameManager.GlobalInstance.Graphics;
 

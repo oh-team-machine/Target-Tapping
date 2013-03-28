@@ -26,7 +26,7 @@ namespace TargetTapping.Back_end
             bIsClicked = false;
             this.shouldIbeDrawn = true;
 
-            this.frameDelay = 60;
+            this.frameDelay = 80;
 
         }
 
@@ -70,7 +70,7 @@ namespace TargetTapping.Back_end
                         bIsClicked = true;
                         //since this object was just clicked try and delay it from being updated again for a while to avoid couble clicking
                         //due to the rally fast polling rate of the game loop, which registers a mouse click 5-7 times.
-                        this.frameDelay = 50;
+                        this.frameDelay = 80;
                     }
                     if (state.LeftButton == ButtonState.Pressed && this.shouldIbeDrawn)
                     {
