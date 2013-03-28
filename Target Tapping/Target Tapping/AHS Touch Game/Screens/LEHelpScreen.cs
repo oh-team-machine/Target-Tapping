@@ -19,8 +19,8 @@ namespace TargetTapping.Screens
         Vector2 answerPosition;
         private int whichAnswer = 3;
 
-        Texture2D answerBackDrop;
-        Vector2 answerBackDropPosition;
+        Texture2D answerBackDrop, title;
+        Vector2 answerBackDropPosition, titlePosition;
 
         public override void LoadContent()
         {
@@ -34,6 +34,8 @@ namespace TargetTapping.Screens
             gameBreakDownHelp = MakeButton(0, 270, "HELP/gameBreakDownHelp");
             answerBackDrop = Content.Load<Texture2D>("HELP/answerBackDrop");
             answerBackDropPosition = (new Vector2(((ScreenWidth / 2) - 400), 110));
+            title = Content.Load<Texture2D>("HELP/title");
+            titlePosition = (new Vector2(((ScreenWidth / 2) - 150), 0));
 
             font = Content.Load<SpriteFont>("font");
             newLayoutHelpAnswer = "Choose new layout if you would like to ";
@@ -82,6 +84,8 @@ namespace TargetTapping.Screens
             exitHelp.Draw(spriteBatch);
             gameBreakDownHelp.Draw(spriteBatch);
             spriteBatch.Draw(answerBackDrop, answerBackDropPosition, Color.White);
+            spriteBatch.Draw(title, titlePosition, Color.White);
+
             if (whichAnswer == 0)
             {
                 spriteBatch.DrawString(font, newLayoutHelpAnswer, answerPosition, Color.White);

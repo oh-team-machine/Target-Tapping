@@ -1138,7 +1138,7 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>
-   </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="HELP\newLayoutHelp.bmp">
       <Name>newLayoutHelp</Name>
@@ -1170,6 +1170,69 @@
   <ItemGroup>
     <Compile Include="HELP\answerBackDrop.bmp">
       <Name>answerBackDrop</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\cancelAndCreateHelp.bmp">
+      <Name>cancelAndCreateHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\descriptionAndNameHelp.bmp">
+      <Name>descriptionAndNameHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\littleXHelp.bmp">
+      <Name>littleXHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\keyboardHelp.bmp">
+      <Name>keyboardHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\cancelAndOpenHelp.bmp">
+      <Name>cancelAndOpenHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\searchHelp.bmp">
+      <Name>searchHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\listHelp.bmp">
+      <Name>listHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\searchKeyboardHelp.bmp">
+      <Name>searchKeyboardHelp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HELP\title.bmp">
+      <Name>title</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
