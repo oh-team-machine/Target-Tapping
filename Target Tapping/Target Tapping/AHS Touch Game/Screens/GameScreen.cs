@@ -16,6 +16,8 @@ namespace TargetTapping.Screens
         #region Variables
 
         //Stuff to draw objects on screen in order.
+        int countFramesForEntity = 0;
+        int countFramesForTime = 0;
         int time = 0;
         int currentListNumber = 0;
 
@@ -34,6 +36,7 @@ namespace TargetTapping.Screens
         private SpriteFont font;
         //position to put the score at
         private Vector2 scorePosition;
+        private Vector2 timePosition;
 
         //This boolean say whether the game has been started
         private bool hasTouchedToStart = false;
@@ -60,7 +63,7 @@ namespace TargetTapping.Screens
             
             //double check this position
             scorePosition = new Vector2(this.ScreenManager.ScaleXPosition((this.ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth / 2.0f) - (scoreLength / 2.0f)), this.ScreenManager.ScaleYPosition(20.0f));
-
+            timePosition = new Vector2(screenWidth - 120, this.ScreenManager.ScaleYPosition(20.0f));
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -71,7 +74,12 @@ namespace TargetTapping.Screens
             }
             else 
             {
-                if (time == (playingLevel.upTime * 60))
+                if (countFramesForTime == 60)
+                {
+                    time = time + 1;
+                    countFramesForTime = 0;
+                }
+                if (countFramesForEntity == (playingLevel.upTime * 60))
                 {
                     if (currentListNumber == playingLevel.objectList.Count - 1)
                     {
@@ -88,12 +96,10 @@ namespace TargetTapping.Screens
                     {
                         currentListNumber = currentListNumber + 1;
                     }
-                    time = 0;
+                    countFramesForEntity = 0;
                 }
-                else
-                {
-                    time = time + 1;
-                }
+                countFramesForTime = countFramesForTime + 1;
+                countFramesForEntity = countFramesForEntity + 1;
             }
             
             //Touch to Start functionality.
@@ -164,6 +170,7 @@ namespace TargetTapping.Screens
                 }
                 //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
                 spriteBatch.DrawString(font, "Score: " + score.ToString(), scorePosition, Color.White);
+                spriteBatch.DrawString(font, "Time: " + time.ToString(), timePosition, Color.White);
                 //SpriteBatch.End();
 
             }
