@@ -292,7 +292,7 @@ namespace TargetTapping.Screens
             // Draw dat grid, yo.
             //spriteBatch.Draw(grid,
               //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
-            spriteBatch.Draw(grid, gridPosition, Color.White);
+            spriteBatch.Draw(grid,new Rectangle(0, 110, ScreenWidth, ScreenHeight), Color.White);
 
             
 
