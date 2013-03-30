@@ -11,7 +11,7 @@ namespace TargetTapping.Back_end
 {
     public class Object
     {
-        private bool bMouseDownInside;
+        public bool bMouseDownInside;
         private bool bIsClicked;
 
         //Constructor for this class
@@ -24,6 +24,7 @@ namespace TargetTapping.Back_end
             texture = grabObject(graphics, content);
             bMouseDownInside = false;
             bIsClicked = false;
+            holdCount = 0;
             this.shouldIbeDrawn = true;
 
             this.frameDelay = 80;
@@ -129,6 +130,7 @@ namespace TargetTapping.Back_end
         private Texture2D texture { get; set; }
         public bool shouldIbeDrawn { get; set; }
         public int frameDelay { get; set; }
+        public int holdCount { get; set; }
 
     }
 }
