@@ -26,7 +26,7 @@ namespace TargetTapping.Screens
         {
 
             base.LoadContent();
-            answerPosition = (new Vector2(((ScreenWidth / 2) - 398), 112));
+            answerPosition = (new Vector2(((ScreenWidth / 2) - 498), 112));
             btnCancel = MakeButton(0, 0, "GUI/cancel");
             toolbarHelp = MakeButton(0, 120, "HELP/toolbarHelp");
             addObjectHelp = MakeButton(0, 170, "HELP/addObjectHelp");
@@ -139,7 +139,7 @@ namespace TargetTapping.Screens
             addObjectHelp.Draw(spriteBatch);
             designHelp.Draw(spriteBatch);
             saveHelp.Draw(spriteBatch);
-            spriteBatch.Draw(answerBackDrop, answerBackDropPosition, Color.White);
+            spriteBatch.Draw(answerBackDrop, new Rectangle(((ScreenWidth / 2) - 500), 110, 1000, 1000), Color.White);
             spriteBatch.Draw(title, titlePosition, Color.White);
 
             if (whichAnswer == 0)

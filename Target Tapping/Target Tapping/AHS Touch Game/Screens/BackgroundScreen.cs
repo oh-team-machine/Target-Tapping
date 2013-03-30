@@ -28,7 +28,7 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Background, new Rectangle(0, 0, 1920, 110), Color.White);
+            spriteBatch.Draw(Background, new Rectangle(0, 0, 2560, 110), Color.White);
             //spriteBatch.Draw(Background, ScreenSize, Color.White);
         }
     }

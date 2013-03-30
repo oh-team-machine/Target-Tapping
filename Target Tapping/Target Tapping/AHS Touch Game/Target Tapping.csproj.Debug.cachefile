@@ -48,7 +48,6 @@ Content\OSK\bButton.xnb
 Content\OSK\cButton.xnb
 Content\OSK\clear.xnb
 Content\OSK\dButton.xnb
-Content\OSK\0Button.xnb
 Content\OSK\eButton.xnb
 Content\OSK\fButton.xnb
 Content\OSK\gButton.xnb
@@ -65,7 +64,6 @@ Content\OSK\pButton.xnb
 Content\OSK\qButton.xnb
 Content\OSK\rButton.xnb
 Content\OSK\sButton.xnb
-Content\OSK\_Button.xnb
 Content\OSK\tButton.xnb
 Content\OSK\uButton.xnb
 Content\OSK\vButton.xnb
@@ -86,21 +84,31 @@ Content\ShapePallet\demoCircle.xnb
 Content\ShapePallet\demoSquare.xnb
 Content\ShapePallet\demoStar.xnb
 Content\ShapePallet\demoTriangle.xnb
+Content\ShapePallet\8Btn.xnb
+Content\ShapePallet\5Btn.xnb
+Content\ShapePallet\4Btn.xnb
 Content\ShapePallet\greenColor.xnb
 Content\ShapePallet\greyColor.xnb
 Content\ShapePallet\hidePallet.xnb
 Content\ShapePallet\lightBlueColor.xnb
 Content\ShapePallet\lightGreenColor.xnb
+Content\ShapePallet\9Btn.xnb
+Content\ShapePallet\1Btn.xnb
 Content\ShapePallet\orangeColor.xnb
 Content\ShapePallet\pinkColor.xnb
 Content\ShapePallet\redColor.xnb
+Content\ShapePallet\7Btn.xnb
 Content\ShapePallet\shapePalletBackground.xnb
+Content\ShapePallet\6Btn.xnb
 Content\ShapePallet\sizeLarge.xnb
 Content\ShapePallet\sizeMedium.xnb
 Content\ShapePallet\sizeSmall.xnb
 Content\ShapePallet\sizeTiny.xnb
 Content\ShapePallet\sizeXLarge.xnb
+Content\ShapePallet\3Btn.xnb
+Content\ShapePallet\2Btn.xnb
 Content\ShapePallet\yellowColor.xnb
+Content\ShapePallet\0Btn.xnb
 Content\GamePauseMenu\changeLevelButtonGraphic.xnb
 Content\GamePauseMenu\continueButtonGraphic.xnb
 Content\GamePauseMenu\editButtonGraphic.xnb
@@ -143,8 +151,11 @@ Content\Numbers\number6.xnb
 Content\Numbers\number7.xnb
 Content\Numbers\number8.xnb
 Content\Numbers\number9.xnb
+<<<<<<< HEAD
 Content\Font.xnb
 Content\WinFont.xnb
+Content\OSK\0Button.xnb
+Content\OSK\_Button.xnb
 Content\GUI\nothing2.xnb
 Content\GUI\pauseButton.xnb
 Content\ShapePallet\8Btn.xnb
@@ -159,12 +170,21 @@ Content\ShapePallet\2Btn.xnb
 Content\ShapePallet\0Btn.xnb
 Content\GUI\openButtonDEP.xnb
 Content\GameScreenContent\touchToStart.xnb
+=======
+Content\GUI\nothing2.xnb
+Content\GUI\pauseButton.xnb
+Content\GameScreenContent\touchToStart.xnb
+Content\Font.xnb
+Content\WinFont.xnb
+Content\GUI\openButtonDEP.xnb
+>>>>>>> 3dd6bbdc431a93698ed00abafff15516d0b744de
 Content\LevelEditorGUI\addShapeButton.xnb
 Content\LevelEditorGUI\addNumButton.xnb
 Content\LevelEditorGUI\addAlphButton.xnb
 Content\LevelEditorGUI\addLabel.xnb
 Content\HELP\helpIcon.xnb
 Content\HELP\LEhelpIcon.xnb
+Content\ButtonPress.xnb
 Content\HELP\newLayoutHelp.xnb
 Content\HELP\loadLayoutHelp.xnb
 Content\HELP\exitHelp.xnb
@@ -185,4 +205,5 @@ Content\HELP\addObjectHelp.xnb
 Content\HELP\designHelp.xnb
 Content\HELP\saveHelp.xnb
 Content\LevelEditorGUI\editButton.xnb
+Content\ButtonPress.xnb
 Content\ButtonPress.wma

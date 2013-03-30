@@ -19,6 +19,7 @@ namespace TargetTapping.Screens
         int countFramesForEntity = 0;
         int countFramesForTime = 0;
         int time = 0;
+        int totalTimeAllowed = 0;
         int currentListNumber = 0;
 
         // Stuff 'em in here, boss!
@@ -32,6 +33,7 @@ namespace TargetTapping.Screens
 
         //keep track of the score
         private int score;
+        private int finalScore;
         //the font to prit the score too
         private SpriteFont font;
         //position to put the score at
@@ -81,22 +83,32 @@ namespace TargetTapping.Screens
                 }
                 if (countFramesForEntity == (playingLevel.upTime * 60))
                 {
-                    if (currentListNumber == playingLevel.objectList.Count - 1)
+                    totalTimeAllowed = totalTimeAllowed + playingLevel.upTime;
+                    currentListNumber = currentListNumber + 1;
+                    countFramesForEntity = 0;
+                }
+                else
+                {
+                    bool check = true;
+                    foreach (var myObject in playingLevel.objectList[currentListNumber])
                     {
-                        foreach (var myListofObjects in playingLevel.objectList)
+                        if (myObject.shouldIbeDrawn)
                         {
-                            foreach (var myObject in myListofObjects)
-                            {
-                                myObject.shouldIbeDrawn = true;
-                            }
+                            check = false;
                         }
-                        //TO DO: add end level screen.
                     }
-                    else
+                    if (check)
                     {
                         currentListNumber = currentListNumber + 1;
+                        countFramesForEntity = 0;
                     }
-                    countFramesForEntity = 0;
+                }
+                if (currentListNumber == playingLevel.objectList.Count)
+                {
+                    finalScore = this.score - (time - totalTimeAllowed);
+                    //TO DO: Add Score Screen
+                    //Until then hack to ignore stepping over list boundry and running for infinity
+                    currentListNumber = currentListNumber - 1;
                 }
                 countFramesForTime = countFramesForTime + 1;
                 countFramesForEntity = countFramesForEntity + 1;
@@ -144,6 +156,23 @@ namespace TargetTapping.Screens
                         //Lets also update the score
                         //playingLevel.objectList[currentListNumber][position].shouldIbeDrawn = false;
                         myObject.shouldIbeDrawn = false;
+                    }
+                    if (myObject.bMouseDownInside)
+                    {
+                        myObject.holdCount = myObject.holdCount + 1;
+                        if (myObject.holdCount == playingLevel.holdTime * 40)
+                        {
+                            this.score = this.score + (playingLevel.holdTime * 2);
+
+                            //Play a sound
+                            MediaPlayer.Play(song);
+
+                            myObject.shouldIbeDrawn = false;
+                        }
+                    }
+                    else
+                    {
+                        myObject.holdCount = 0;
                     }
                 }
             }
