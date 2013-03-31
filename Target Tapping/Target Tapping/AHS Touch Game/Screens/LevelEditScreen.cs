@@ -79,6 +79,23 @@ namespace TargetTapping.Screens
             grid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
             addLabel = Content.Load<Texture2D>("LevelEditorGUI/addLabel");
 
+            // Sets upTime and holdTime if already been set
+            if (myLevel.upTime > 0)
+            {
+                intUpTime = myLevel.upTime;
+            }
+            else
+            {
+                intUpTime = 5;
+            }
+            if (myLevel.holdTime > 0)
+            {
+                intHoldTime = myLevel.holdTime;
+            }
+            else
+            {
+                intHoldTime = 1;
+            }
             // Place the palette.
             palette = new Palette((ScreenWidth / 2) - 50 , 100);
             palette.Hide(); // Keep it hidden!
