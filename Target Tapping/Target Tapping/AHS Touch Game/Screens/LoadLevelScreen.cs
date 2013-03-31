@@ -53,7 +53,7 @@ namespace TargetTapping.Screens
             keyboard = new Keyboard(((ScreenWidth / 2) - 250), ((ScreenHeight) - 240), Content);
             keyboard.LoadContent();
 
-            fileList = new List(levelNames.getFileNames(), 600, 15, 20, listBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
+            fileList = new List(levelNames.getFileNames(), 600, 15, 25, listBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
 	    // Load buttons 'n' stuff, yo!
         }
 

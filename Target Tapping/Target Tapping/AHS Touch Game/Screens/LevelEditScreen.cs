@@ -127,7 +127,7 @@ namespace TargetTapping.Screens
             }
             if (btns["MoreHold"].IsClicked())
             {
-                if (intHoldTime < 30)
+                if ((intHoldTime < 30) && (intHoldTime < intUpTime))
                 {
                     intHoldTime++;
                     GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
