@@ -106,7 +106,15 @@ namespace TargetTapping.Screens
         public override void Update(GameTime gameTime)
         {
 
-	        // Update stuff here!
+            // Update the palette -- and make sure the rest should be updated.
+            palette.Update(MouseState);
+
+            if (palette.ShouldBeModal)
+            {
+                return;
+            }
+
+            // Update stuff here!
             if (btns["Home"].IsClicked())
             {
                 AddScreenAndChill(new MenuScreen());
@@ -223,8 +231,6 @@ namespace TargetTapping.Screens
             {
                 button.Update(MouseState);
             }
-            // Update the palette
-            palette.Update(MouseState);
 
 
 

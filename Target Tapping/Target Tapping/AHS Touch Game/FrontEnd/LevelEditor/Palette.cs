@@ -11,11 +11,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
     {
         private const string InitialStateName = "Alph";
 
-        private readonly Dictionary<string, PaletteState> _states =
-                new Dictionary<string, PaletteState>();
-
-        public bool IsHidden { get; private set; }
-
         // Edges of directed state diagram. From state => To State.
         private readonly Dictionary<string, string> _nextStates = new Dictionary
                 <string, string>
@@ -27,6 +22,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
                     {"Color", "Position"},
                     {"Position", "INITIAL"}
             };
+
+        private readonly Dictionary<string, PaletteState> _states =
+                new Dictionary<string, PaletteState>();
 
         private Texture2D _shapePalletBackground;
 
@@ -50,14 +48,16 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
             // Setup the initial, and next states.
             _states.Add("INITIAL", _states[InitialStateName]);
-                    // First is always Shape
+            // First is always Shape
             CurrentState = _states["INITIAL"];
-                    // Set the current state to the initial state.
+            // Set the current state to the initial state.
             CurrentStateName = InitialStateName;
 
             // Make sure that it's unhidden!
             Show();
         }
+
+        public bool IsHidden { get; private set; }
 
         public EntityFactory ObjectFactory { get; private set; }
 
@@ -85,6 +85,12 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public PaletteState CurrentState { get; private set; }
         public String CurrentStateName { get; private set; }
 
+        /** Kind of hacky. Should be modal when it's shown and when it's in position mode. */
+        public bool ShouldBeModal
+        {
+            get { return (!IsHidden) || (CurrentStateName == "Position"); }
+        }
+
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
             CurrentState.Update(state);
@@ -92,7 +98,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
         public void LoadContent(RichContentManager content)
         {
-
             // Load the background.
             _shapePalletBackground =
                     content.Load<Texture2D>("ShapePallet/shapePalletBackground");
@@ -103,11 +108,14 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
             // LoadContent for all palette states; do not LoadContent more than once.
             var statesLoaded = new List<PaletteState>();
-            foreach (var state in _states.Values.Where(state => !statesLoaded.Contains(state))) {
+            foreach (
+                    var state in
+                            _states.Values.Where(
+                                    state => !statesLoaded.Contains(state)))
+            {
                 statesLoaded.Add(state);
                 state.LoadContent(content);
             }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -166,7 +174,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
             else
             {
                 throw new NotSupportedException(
-                    string.Format("State '{0}' does not exist.", stateName));
+                        string.Format("State '{0}' does not exist.", stateName));
             }
         }
     }
