@@ -128,7 +128,7 @@ namespace TargetTapping.Screens
             {
                 if (nameCreated && descriptionCreated)
                 {
-                    if ((nameOfTherapist.Length >= 1) && (descriptionByTherapist.Length >= 1))
+                    if ((nameOfTherapist.Length >= 3) && (descriptionByTherapist.Length >= 3))
                     {
                         GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
                         AddScreenAndChill(new LevelEditScreen());

@@ -23,7 +23,7 @@ namespace TargetTapping.Screens
         int currentListNumber = 0;
 
         // Stuff 'em in here, boss!
-        Button btnPause, btnTouchToStart;
+        Button btnPause, btnTouchToStart, youFinished;
 
         //Here were going to get the current level that we built in the leveleditor
         Level playingLevel = GameManager.GlobalInstance.activeLevel;
@@ -42,6 +42,7 @@ namespace TargetTapping.Screens
 
         //This boolean say whether the game has been started
         private bool hasTouchedToStart = false;
+        private bool gameFinished = false;
 
         int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
         int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -52,6 +53,7 @@ namespace TargetTapping.Screens
         {
             base.LoadContent();
             btnTouchToStart = MakeButton(((screenWidth / 2) - 100), ((screenHeight / 2) - 100), "GameScreenContent/touchToStart");
+            youFinished = MakeButton(((screenWidth / 2) - 150), ((screenHeight / 2) - 100), "GameScreenContent/gameFinished");
 
             btnPause = MakeButton(0, 0, "GUI/pauseButton");
             //initialize the score
@@ -64,8 +66,8 @@ namespace TargetTapping.Screens
             song = Content.Load<Song>("ButtonPress");
             
             //double check this position
-            scorePosition = new Vector2(this.ScreenManager.ScaleXPosition((this.ScreenManager.GraphicsDevice.PresentationParameters.BackBufferWidth / 2.0f) - (scoreLength / 2.0f)), this.ScreenManager.ScaleYPosition(20.0f));
-            timePosition = new Vector2(screenWidth - 120, this.ScreenManager.ScaleYPosition(20.0f));
+            scorePosition = new Vector2(screenWidth - 240, 30);
+            timePosition = new Vector2(screenWidth - 120, 30);
         }
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
@@ -186,6 +188,9 @@ namespace TargetTapping.Screens
             if (hasTouchedToStart == false)
             {
                 btnTouchToStart.Draw(spriteBatch);
+            }else if (gameFinished == true)
+            {
+                youFinished.Draw(spriteBatch);
             }
             else
             {

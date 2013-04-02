@@ -42,7 +42,7 @@ namespace TargetTapping.Screens
             cancelAndCreateHelpAnswer = 
                 "Cancel: This button will bring you back to the previous screen.\n"+
                 "Create: This button will advance you to the environment edditing screen\n"+
-                "Note, in order to create a level, the name and description must be 2 or\n"+
+                "Note, in order to create a level, the name and description must be 3 or\n"+
                 "more characters.";
 
             descriptionAndNameHelpAnswer = 
