@@ -48,7 +48,7 @@ namespace TargetTapping.Screens
             }
             if (btnLemLoad.IsClicked())
             {
-                AddScreenAndChill(new LevelEditScreen());
+                AddScreenAndChill(new LoadLevelScreen());
             }
             if (btnLemClear.IsClicked())
             {
