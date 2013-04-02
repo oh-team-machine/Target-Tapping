@@ -9,7 +9,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
 {
     internal class Palette : Updatable
     {
-        private const string InitialStateName = "Alph";
+        private const string InitialStateName = "Shape";
+
+        #region  Palette states
 
         // Edges of directed state diagram. From state => To State.
         private readonly Dictionary<string, string> _nextStates = new Dictionary
@@ -57,6 +59,11 @@ namespace TargetTapping.FrontEnd.LevelEditor
             Show();
         }
 
+
+        #endregion
+
+        #region Mad props, yo
+
         public bool IsHidden { get; private set; }
 
         public EntityFactory ObjectFactory { get; private set; }
@@ -86,10 +93,14 @@ namespace TargetTapping.FrontEnd.LevelEditor
         public String CurrentStateName { get; private set; }
 
         /** Kind of hacky. Should be modal when it's shown and when it's in position mode. */
+
         public bool ShouldBeModal
         {
             get { return (!IsHidden) || (CurrentStateName == "Position"); }
         }
+
+
+        #endregion
 
         public void Update(Microsoft.Xna.Framework.Input.MouseState state)
         {
