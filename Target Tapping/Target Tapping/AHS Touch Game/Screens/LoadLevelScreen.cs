@@ -76,10 +76,18 @@ namespace TargetTapping.Screens
                     searchQuery = searchQuery + keyboard.CurrentKey;
                 }
             }
-            //if (goSearch.IsClicked())
-            //{
-
-            //}
+            if (goSearch.IsClicked())
+            {
+                var temporaryList = new System.Collections.Generic.List<string> ();
+                foreach (var item in levelNames.getFileNames())
+                {
+                    if (item.Contains(searchQuery))
+                    {
+                        temporaryList.Add(item);
+                    }
+                }
+                fileList = new List(temporaryList, 600, 15, 25, listBackgroundPosition, listBackground, font, Color.Black, Color.Yellow);
+            }
             if (btnCancel.IsClicked())
             {
                 AddScreenAndChill(new MenuScreen());
