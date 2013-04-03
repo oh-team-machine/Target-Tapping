@@ -86,11 +86,18 @@ namespace TargetTapping.Screens
             }
             if (btnOpen.IsClicked())
             {
-                LevelLoad levelL = new LevelLoad();
-                SerializableLevel sLevel = levelL.initiateLoad(fileList.SelectedElement());
-                var graphics = GameManager.GlobalInstance.Graphics;
-                GameManager.GlobalInstance.activeLevel = sLevel.constructLevel(Content, graphics);
-                AddScreenAndChill(new LevelEditScreen());
+                if (fileList.SelectedElement() == "")
+                {
+
+                }
+                else
+                {
+                    LevelLoad levelL = new LevelLoad();
+                    SerializableLevel sLevel = levelL.initiateLoad(fileList.SelectedElement());
+                    var graphics = GameManager.GlobalInstance.Graphics;
+                    GameManager.GlobalInstance.activeLevel = sLevel.constructLevel(Content, graphics);
+                    AddScreenAndChill(new LevelEditScreen());
+                }
             }
             if (delSearch.IsClicked())
             {
@@ -117,7 +124,7 @@ namespace TargetTapping.Screens
             }
             
             fileList.Update(gameTime, MouseState);
-
+            
             base.Update(gameTime);
         }
 
