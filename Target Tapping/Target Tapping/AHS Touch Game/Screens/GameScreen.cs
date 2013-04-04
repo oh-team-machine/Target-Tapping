@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
 using GameLibrary.UI;
 using TargetTapping.Back_end;
 using Microsoft.Xna.Framework.Media;
@@ -44,20 +39,17 @@ namespace TargetTapping.Screens
         private bool hasTouchedToStart = false;
         private bool gameFinished = false;
 
-        int screenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-        int screenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
         #endregion Variables
 
         public override void LoadContent()
         {
             base.LoadContent();
-            btnTouchToStart = MakeButton(((screenWidth / 2) - 100), ((screenHeight / 2) - 100), "GameScreenContent/touchToStart");
-            youFinished = MakeButton(((screenWidth / 2) - 150), ((screenHeight / 2) - 100), "GameScreenContent/gameFinished");
+            btnTouchToStart = MakeButton(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 100), "GameScreenContent/touchToStart");
+            youFinished = MakeButton(((ScreenWidth / 2) - 150), ((ScreenHeight / 2) - 100), "GameScreenContent/gameFinished");
 
             btnPause = MakeButton(0, 0, "GUI/pauseButton");
             //initialize the score
-            this.score = 0;
+            score = 0;
             //load the spritefount to print the scroe to
             this.font = Content.Load<SpriteFont>("Font");
 
@@ -66,17 +58,13 @@ namespace TargetTapping.Screens
             song = Content.Load<Song>("ButtonPress");
             
             //double check this position
-            scorePosition = new Vector2(screenWidth - 240, 30);
-            timePosition = new Vector2(screenWidth - 120, 30);
+            scorePosition = new Vector2(ScreenWidth - 240, 30);
+            timePosition = new Vector2(ScreenWidth - 120, 30);
         }
 
-        public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-            if (hasTouchedToStart == false)
-            {
-
-            }
-            else 
+            if (hasTouchedToStart)
             {
                 if (countFramesForTime == 60)
                 {
@@ -107,7 +95,7 @@ namespace TargetTapping.Screens
                 }
                 if (currentListNumber == playingLevel.objectList.Count)
                 {
-                    finalScore = this.score - (time - totalTimeAllowed);
+                    finalScore = score - (time - totalTimeAllowed);
                     //TO DO: Add Score Screen
                     //Until then hack to ignore stepping over list boundry and running for infinity
                     currentListNumber = currentListNumber - 1;
@@ -115,7 +103,7 @@ namespace TargetTapping.Screens
                 countFramesForTime = countFramesForTime + 1;
                 countFramesForEntity = countFramesForEntity + 1;
             }
-            
+
             //Touch to Start functionality.
             if (btnTouchToStart.IsClicked())
             {
@@ -128,7 +116,7 @@ namespace TargetTapping.Screens
             }
 
             //This all happens after touch to start!
-            if (hasTouchedToStart == true)
+            if (hasTouchedToStart)
             {
                 if (btnPause.IsClicked())
                 {
@@ -148,7 +136,7 @@ namespace TargetTapping.Screens
                 {
                     if (myObject.IsClicked())
                     {
-                        this.score++;
+                        score++;
 
                         //Play a sound
                         MediaPlayer.Play(song);
@@ -164,7 +152,7 @@ namespace TargetTapping.Screens
                         myObject.holdCount = myObject.holdCount + 1;
                         if (myObject.holdCount == playingLevel.holdTime * 40)
                         {
-                            this.score = this.score + (playingLevel.holdTime * 2);
+                            score = score + (playingLevel.holdTime * 2);
 
                             //Play a sound
                             MediaPlayer.Play(song);
@@ -185,11 +173,13 @@ namespace TargetTapping.Screens
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
-            if (hasTouchedToStart == false)
+            if (!hasTouchedToStart)
             {
                 btnTouchToStart.Draw(spriteBatch);
-            }else if (gameFinished == true)
+            }
+            else if (gameFinished)
             {
+                // Send to end screen?
                 youFinished.Draw(spriteBatch);
             }
             else
@@ -202,10 +192,9 @@ namespace TargetTapping.Screens
                 {
                     myObject.Draw(spriteBatch);
                 }
-                //SpriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, transform);
+
                 spriteBatch.DrawString(font, "Score: " + score.ToString(), scorePosition, Color.White);
                 spriteBatch.DrawString(font, "Time: " + time.ToString(), timePosition, Color.White);
-                //SpriteBatch.End();
 
             }
         }

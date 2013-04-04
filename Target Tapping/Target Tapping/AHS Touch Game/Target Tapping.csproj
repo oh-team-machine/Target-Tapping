@@ -144,6 +144,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Screens\AbstractRichScreen.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
+    <Compile Include="Screens\EndLevel.cs" />
     <Compile Include="Screens\LEHelpScreen.cs" />
     <Compile Include="Screens\LoadHelpScreen.cs" />
     <Compile Include="Screens\NewHelpScreen.cs" />
