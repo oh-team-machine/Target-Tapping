@@ -12,6 +12,9 @@ namespace TargetTapping.Screens
         Vector2 levelEditorMenuPosition;
         Vector2 levelEditorMenuGraphicPosition;
 
+        //Here were going to get the current level that we built in the leveleditor
+        Level playingLevel = GameManager.GlobalInstance.activeLevel;
+
         public override void LoadContent()
         {
             //((screenWidth / 2) - 400)
@@ -52,6 +55,10 @@ namespace TargetTapping.Screens
             }
             if (btnLemClear.IsClicked())
             {
+                //Clear the current level that you have been building and go to the level 
+                //editor screen with a blank level.
+                this.playingLevel.clearAllObjects();
+
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (btnLemExit.IsClicked())

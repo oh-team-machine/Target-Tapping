@@ -35,7 +35,7 @@ namespace TargetTapping.Screens
         // The level editor's got a bunch of buttons!
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
 
-        // Declare a new level object for the level editor screen to load in loadContent
+        // Declare a new local reference to level object for the level editor screen to load in loadContent
         Level myLevel = GameManager.GlobalInstance.activeLevel;
 
         // Declare a new object that will be used to reference an object that we are moving
@@ -127,7 +127,10 @@ namespace TargetTapping.Screens
             {
                 //going to set the gameManager to have a reference to myLevel so that we can access
                 //all the objects that we've created and now want to display on the gamescreen.
-                GameManager.GlobalInstance.activeLevel = myLevel;
+                //GameManager.GlobalInstance.activeLevel = myLevel; //commented out as were just re referencing, didn't seem to break anything.
+
+
+
                 AddScreenAndChill(new GameScreen());
             }
             if (btns["UpTime"].IsClicked() )

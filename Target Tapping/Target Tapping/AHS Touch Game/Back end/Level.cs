@@ -70,5 +70,12 @@ namespace TargetTapping.Back_end
                 objectList[currentPosition].RemoveAt(lastObjectPosition);
             }
         }
+        //this method clears out all the object from the list
+        public void clearAllObjects()
+        {
+            objectList.Clear();
+        }
+
+
     }
 }
