@@ -2,15 +2,19 @@
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
+using System.Threading;
 
 namespace TargetTapping.Screens
 {
     class LevelEditorMenuScreen : AbstractRichScreen
     {
         Button btnLemBack, btnLemClear, btnLemExit, btnLemLoad, btnLemSave;
-        Texture2D levelEditorMenuBackground, levelEditorMenuTitle;
+        Texture2D levelEditorMenuBackground, levelEditorMenuTitle, savedPopUp;
         Vector2 levelEditorMenuPosition;
         Vector2 levelEditorMenuGraphicPosition;
+        Vector2 savedPopUpPosition;
+        bool wasSaveSuccess = false;
+        bool switchToLoad = false;
 
         //Here were going to get the current level that we built in the leveleditor
         Level playingLevel = GameManager.GlobalInstance.activeLevel;
@@ -19,11 +23,13 @@ namespace TargetTapping.Screens
         {
             //((screenWidth / 2) - 400)
             base.LoadContent();
+            savedPopUpPosition = (new Vector2(((ScreenWidth / 2) - 100), ((ScreenHeight / 2) + 175)));
             levelEditorMenuPosition = (new Vector2( ((ScreenWidth / 2) - 100), ((ScreenHeight / 2) - 175) ) );
             levelEditorMenuGraphicPosition = (new Vector2(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 175) ) );
 
             levelEditorMenuBackground = Content.Load<Texture2D>("LevelEditorMenu/menuBackground");
             levelEditorMenuTitle = Content.Load<Texture2D>("LevelEditorMenu/levelEditorMenuGraphic");
+            savedPopUp = Content.Load<Texture2D>("LevelEditorMenu/saveSuccessful");
             btnLemBack = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150)+20, "LevelEditorMenu/backButtonGraphic");
             btnLemSave = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 75, "LevelEditorMenu/saveButtonGraphic");
             btnLemLoad = MakeButton(((ScreenWidth / 2) - 60), ((ScreenHeight / 2) - 150) + 130, "LevelEditorMenu/loadButtonGraphic");
@@ -36,6 +42,12 @@ namespace TargetTapping.Screens
         public override void Update(GameTime gameTime)
         {
 	       // Update stuff here!
+            if (switchToLoad == true)
+            {
+                switchToLoad = false;
+                AddScreenAndChill(new LevelEditScreen());
+
+            }
             if (btnLemBack.IsClicked())
             {
                 AddScreenAndChill(new LevelEditScreen());
@@ -46,8 +58,8 @@ namespace TargetTapping.Screens
                 GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
                 var sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
                 new SaveLevel().initiateSave(sLevel);
-
-                AddScreenAndChill(new LevelEditScreen());
+                wasSaveSuccess = true;
+                //AddScreenAndChill(new LevelEditScreen());
             }
             if (btnLemLoad.IsClicked())
             {
@@ -83,6 +95,12 @@ namespace TargetTapping.Screens
             btnLemExit.Draw(spriteBatch);
             btnLemLoad.Draw(spriteBatch);
             btnLemSave.Draw(spriteBatch);
+            if (wasSaveSuccess == true)
+            {
+                System.Windows.Forms.MessageBox.Show("Save Successful");
+                wasSaveSuccess = false;
+                switchToLoad = true;
+            }
         }
 
     }

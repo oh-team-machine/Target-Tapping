@@ -133,6 +133,14 @@ namespace TargetTapping.Screens
                         GameManager.GlobalInstance.activeLevel.levelName = nameOfTherapist + "_" + descriptionByTherapist;
                         AddScreenAndChill(new LevelEditScreen());
                     }
+                    else
+                    {
+                        System.Windows.Forms.MessageBox.Show("Name Field and Description Field Must Be Larger Than 3 Characters.");
+                    }
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Name Field and Description Field Must Be Larger Than 3 Characters.");
                 }
             }
             if (clearNameButton.IsClicked())
