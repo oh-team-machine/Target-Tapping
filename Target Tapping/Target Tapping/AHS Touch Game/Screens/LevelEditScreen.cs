@@ -127,7 +127,17 @@ namespace TargetTapping.Screens
                 //going to set the gameManager to have a reference to myLevel so that we can access
                 //all the objects that we've created and now want to display on the gamescreen.
                 //GameManager.GlobalInstance.activeLevel = myLevel; //commented out as were just re referencing, didn't seem to break anything.
-                AddScreenAndChill(new GameScreen());
+                //also we want to check to make sure that there are objects on the playing field. if there are not then dont allow
+                //transfer to the gameScreen.
+                if(myLevel.objectList.Count == 0){
+                    //show popup saying that you need to add at least 1 object to the level
+                    System.Windows.Forms.MessageBox.Show("A minimum of 1 object must be added prior to playing the level.");
+                }
+                else{
+                    //otherwise go to the gamescreen and play the level.
+                    AddScreenAndChill(new GameScreen());
+                }
+                
             }
             if (btns["UpTime"].IsClicked() )
             {
