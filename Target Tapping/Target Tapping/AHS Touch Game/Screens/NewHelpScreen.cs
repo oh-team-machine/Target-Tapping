@@ -41,7 +41,7 @@ namespace TargetTapping.Screens
             /////////////////////////////////////////////////////////////////////////////
             cancelAndCreateHelpAnswer = 
                 "Cancel: This button will bring you back to the previous screen.\n"+
-                "Create: This button will advance you to the environment edditing screen\n"+
+                "Create: This button will advance you to the environment editing screen.\n"+
                 "Note, in order to create a level, the name and description must be 3 or\n"+
                 "more characters.";
 
@@ -58,7 +58,7 @@ namespace TargetTapping.Screens
                 " 'Joe_40_Blue_Squares'. \n";
 
             xHelpAnswer = 
-                "The little ' X ' located next to the textboxes will delete the text box's\n" +
+                "The little ' X ' located next to the textboxes will delete the textbox's\n" +
                 "content completely. This is a great way to start clean, rather than\n" +
                 "having to backspace 15 times.\n";
 

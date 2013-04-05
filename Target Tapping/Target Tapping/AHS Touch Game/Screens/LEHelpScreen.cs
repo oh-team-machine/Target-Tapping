@@ -41,7 +41,7 @@ namespace TargetTapping.Screens
             /////////////////////////////////////////////////////////////////////////////
             toolbarHelpAnswer = 
                 "TOOLBAR BUTTONS:\n"+
-                "Home: The home button will take you to the games start screen, from there\n"+
+                "Home: The home button will take you to the games' start screen, from there\n"+
                 "      you can choose to create a new environment, load an existing\n"+ 
                 "      environment, or quit the game and return to Windows.\n"+
                 "Menu: The menu button will open a menu screen that allows you to save\n"+
@@ -50,20 +50,24 @@ namespace TargetTapping.Screens
                 "Undo/Redo: Undo and Redo allow you to revert actions you recently made.\n"+
                 "Play: Pressing play will take you to the patient game, where the environment\n"+
                 "      will be loaded and the patient can begin their rehabilitation. In the\n"+
-                "      game screen the patient will have tap on the objects as they appear,\n"+
+                "      game screen the patient will have to tap on the objects as they appear,\n"+
                 "      as well the therapist can pause the game with the button in the upper\n"+
                 "      left corner of the screen.\n"+
                 "Multi: This is a button that allows you to tell the game creator that two or\n"+
                 "      more objects should appear on screen in the game at a time. Once you\n"+
                 "      turn on multi all objects placed until multi is turned off will appear\n"+
                 "      simultanously in the game screen.\n"+
+                "      To make two seperate multi events, place your first set of multi\n"+
+                "      objets, then turn multi off, place the first object of the second\n" +
+                "      multi event, turn multi back on, and continue placing objects in\n"+
+                "      that multi event until you are satisfied.\n"+
                 "Up Time: This is the amount of time each object in the game should last for,\n"+
                 "      if the object is not tapped within this amount of time it will\n"+
                 "      dissapear.\n"+
-                "Hold Time: This is the amount of time a object must be held for inorder for it\n"+
+                "Hold Time: This is the amount of time a object must be held for in order for it\n"+
                 "      to dissapear.\n"+
                 "Add Label: You will notice inside the box that says add, there are shapes,\n"+
-                "      numbers, and letters. Tap on which ever one you would like to\n"+
+                "      numbers, and letters. Tap on whichever one you would like to\n"+
                 "      place on the grid, select the prefered size and color, then tap on the\n"+
                 "      screen where you would like to place the object.\n";
 
@@ -93,7 +97,7 @@ namespace TargetTapping.Screens
                 "One of the most important features this game offers you as a therapist, is the\n"+
                 "ability to save the environments you create. This allows you to have quick access\n"+
                 "to a broad range of environments and makes sessions with patients more productive.\n"+
-                "To save an environment, tap MENU in the tool bar, then tap save, its that simple!.\n"+
+                "To save an environment, tap MENU in the tool bar, then tap save, its that simple!\n"+
                 "Your environment will be saved with the name and description you gave when you\n"+
                 "initially filled out the new environment screen. If you loaded a environment,\n"+
                 "saving will overwrite the environment you initially loaded.\n";

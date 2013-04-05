@@ -53,27 +53,27 @@ namespace TargetTapping.Screens
                 "future you will be able to identify the 'tapping environment'. In\n" +
                 "addition associate a name to the tapping environment. Name can be yours'\n" +
                 "as the therapist, or it could be the patients name that the environment\n" +
-                "is is intended for. Either way just name and describe your environments\n" +
+                "is intended for. Either way just name and describe your environments\n" +
                 "in a way that will allow them to be identified in upcoming sessions.\n\n" +
                 "E.G. Description: forty_blue_squares\n"+
                 "     Name:        sydney_crosby\n" +
                 "This will be saved as sydney_crosby_forty_blue_squares.\n" +
                 "The important thing to note is for productivity make new environments \n" + 
                 "when a current like-environment does not already exist. When \n" +
-                "like-environments you may want to load them, instead of making a new\n" + 
-                "environment.\n";
+                "like-environments do exist you may want to load them,\n" +
+                "instead of making a new environments from scratch.\n";
 
             loadLayoutHelpAnswer = //////////////////////////////////////////////////////
-                "QUICK ANSWER:\nTap load layout if you would like to start playing a game\n" +
-                "or change to a game that has already been designed. The game does not\n"+
+                "QUICK ANSWER:\nTap 'load layout' if you would like to start playing a game\n" +
+                "or change to a game that has already been designed. This game does not\n"+
                 "come with any pre-created games, thus if you or another therapist have\n" +
                 "not already created a 'target tapping environment' you will first have\n"+
                 "to create one, which you will be able to load everytime afterwards.\n\n" +
                 "LONG ANSWER:\nAs a therapist you may want to create environments that\n"+
                 "accomplish different tasks, or have different features. For this reason\n"+
-                "we allow you to retrive levels you have previosuly saved that have been\n" +
+                "we allow you to retrieve levels you have previosuly saved that have been\n" +
                 "designed with certain goals in mind. An example may be that JOE's\n" +
-                "rehabilitation is is currently best suited with a game that requires\n" +
+                "rehabilitation is currently best suited with a game that requires\n" +
                 "him to use both his hands at once.\n"+
                 "Therefore, you have created and saved an environment that uses the\n" +
                 "'multi' on every tapping event. JOE may also benefit from a environment\n"+
@@ -98,7 +98,7 @@ namespace TargetTapping.Screens
                 "environments they find match a patient or a group of patients needs best.\n"+
                 "The patient interface is presented as a game. Patients will have to tap\n"+
                 "objects as they appear on the screen, and will recieve a score depending\n"+
-                "the number of times they tapped a object correctly. This allows for a more\n" +
+                "on the number of times they tapped objects correctly. This provides a more\n" +
                 "engaging experience for the patient.\n"+
                 "\nAVAILABLE TOOLS:\n"+
                 "As a therapist you will have the option to design many great environments\n"+
@@ -106,14 +106,14 @@ namespace TargetTapping.Screens
                 "your patients. The therapist interface is broken down into 4 main screens.\n"+
                 "The first is the main-menu, here you can choose to create new environments\n" +
                 "or choose to load previously created environments. From here you may also\n"+
-                "exit to Windows\n"+
+                "exit to Windows.\n"+
                 "The second and third interfaces are the 'new layout' and 'load layout'\n"+
                 "screens. These screens repectively allow you to name a layout you are\n"+
                 "about to create for the first time, or load a layout that has previously\n"+
                 "been created by you or another therapist.\n"+
                 "The last therepist interface is the environment editor. This screen allows\n"+
-                "you as the thereapist to design your environment from scratch, or edit a\n"+
-                "previously created environment that you have loaded.\n"+
+                "you as the thereapist to design your environment from scratch, or edit\n"+
+                "previously created environments that you have loaded.\n"+
                 "On the patients side they have the game interface. The game interface is\n"+
                 "where the patient will play the game that has been designed to aid in their\n"+
                 "rehabilitation. The patients role is to tap on the objects as they appear\n"+

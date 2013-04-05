@@ -44,7 +44,7 @@ namespace TargetTapping.Screens
                 "Note: You must first select the environment you would like to load\n"+
                 "from the list before you can proceed to the editor.\n";
             searchHelpAnswer = 
-                "Tap inside the text box to open the keyboard, once the keyboard\n"+
+                "Tap inside the textbox to open the keyboard, once the keyboard\n"+
                 "has appearded you can type in your search query. If you would like\n"+
                 "to clear your search query press the ' X ' next to the text box.\n"+
                 "Once you have typed in your search query press ' GO ' to search the "+ 
@@ -57,7 +57,7 @@ namespace TargetTapping.Screens
                 "this list. If the list is to long you may want to search a \n"+
                 "environment in the search bar above the list.\n";
             keyboardHelpAnswer = 
-                "The keyboard is not visible until you have tapped on the search\n"+
+                "The keyboard is not visible until you have tapped on the search.\n"+
                 "To open the keyboard simply tap inside the seach text box. From\n"+
                 "here you can type in your search query and press ' GO ' to search.\n";
             // Load buttons 'n' stuff, yo!
