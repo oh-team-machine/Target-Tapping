@@ -29,6 +29,10 @@ namespace TargetTapping.Screens
         //keep track of the score
         private int score;
         private int finalScore;
+
+        //to record the final time it took to complete the level.
+        private string finalTime = null;
+
         //the font to prit the score too
         private SpriteFont font;
         //position to put the score at
@@ -201,8 +205,24 @@ namespace TargetTapping.Screens
             }
             else if (gameFinished)
             {
+                btnPause.Draw(spriteBatch);
+
                 // Send to end screen?
                 youFinished.Draw(spriteBatch);
+
+                int scoreX = youFinished.Rect.X + (youFinished.Rect.Width / 2) - 40;
+                int scoreY = youFinished.Rect.Y + youFinished.Rect.Height + 15;
+
+                //Set the final time and dont change it anymore
+                if (this.finalTime == null)
+                {
+                    this.finalTime = time.ToString();
+                }
+               
+                spriteBatch.DrawString(font, "Score: " + score.ToString(), new Vector2(scoreX, scoreY), Color.White);
+                spriteBatch.DrawString(font, "Time: " + this.finalTime, new Vector2(scoreX, scoreY + 30), Color.White);
+
+                
             }
             else
             {
