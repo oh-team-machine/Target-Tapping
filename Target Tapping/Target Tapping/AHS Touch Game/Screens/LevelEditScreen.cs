@@ -260,6 +260,7 @@ namespace TargetTapping.Screens
             this.mouseStateCurrent = MouseState;
             if (this.mouseStateCurrent.LeftButton == ButtonState.Pressed && this.mouseStatePrevious.LeftButton == ButtonState.Released)
             {
+                Console.WriteLine("Ive been clicked");
                 if (this.objBeingMoved != null)
                 {
                     Console.WriteLine("Object is not null, starting moving it.");
@@ -281,21 +282,81 @@ namespace TargetTapping.Screens
                     //click inside the grid.
                     if(this.gridRect.Contains(newObjectBeingMovedPosition)){
 
-
-                        //TODO: now we need to check if the object we are about to re-draw to a new position 
-                        //overlaps with any of the current objects.
                         Console.WriteLine("Good: New position was inside the grid");
 
-                        this.objBeingMoved.rectangle = new Rectangle(newXcoord, newYcoord,
-                        this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
+                        //TODO: now we need to check if the object we are about to re-draw to a new position 
+                        //overlaps with any of the current objects. 
+                        
+                            //if there is only one object in the entire list then we can assume we are comparing
+                            //the object being moved to itself. so we can just ignore intersection checking and 
+                            //set the new position of the object.
+                            if (myLevel.objectList.Count == 1 && this.myLevel.objectList.Count == 1)
+                            {
+                                Console.WriteLine("Good: Only one object in the list.");
 
-                        //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
-                        //So this will now redraw the object at the new position.
-                        this.objBeingMoved.shouldIbeDrawn = true;
+                                this.objBeingMoved.rectangle = newObjectBeingMovedPosition;
 
-                        //now remove the reference so we no long change the actual object in the list.
-                        this.objBeingMoved = null;
-                        Console.WriteLine("Object now has new coordinates, set it to null so we no longer move it.");
+                                //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
+                                //So this will now redraw the object at the new position.
+                                this.objBeingMoved.shouldIbeDrawn = true;
+
+                                //now remove the reference so we no long change the actual object in the list.
+                                this.objBeingMoved = null;
+                                Console.WriteLine("Object now has new coordinates, set it to null so we no longer move it.");
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Good: Multile objects in the list.");
+
+                                //bool to keep track if there was an intersect
+                                bool isThereAnIntersect = false;
+                                foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
+                                {
+                                    //check if the object being moved doesnt intersect with any other objects
+                                    foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                                    {
+                                        //if were comparing the object being redrawn to its self in the list just ignore it 
+                                        //and skip this iteration of the loop.
+                                        if(this.objBeingMoved.Equals(myObject)){
+                                            Console.WriteLine("It's equal to itself, skipping this iteration.");
+                                            continue;
+                                        }
+                                        //check a intersect with a specific object
+                                        if (newObjectBeingMovedPosition.Intersects(myObject.rectangle))
+                                        {
+                                            Console.WriteLine("collided with another");
+                                            isThereAnIntersect = true;
+                                        }
+  
+                                    }
+                                }
+
+                                //now see if there was an intersect tell the user to pick a new spot else just draw it to 
+                                //the new location.
+                                if (isThereAnIntersect)
+                                {
+                                    Console.WriteLine("Bad: there was an intersect with another object in the list, pick a new spot");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Good: multiple objects in list but no intersects.");
+
+                                    this.objBeingMoved.rectangle = newObjectBeingMovedPosition;
+
+                                    //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
+                                    //So this will now redraw the object at the new position.
+                                    this.objBeingMoved.shouldIbeDrawn = true;
+
+                                    //now remove the reference so we no long change the actual object in the list.
+                                    this.objBeingMoved = null;
+                                    Console.WriteLine("Object now has new coordinates, set it to null so we no longer move it.");
+
+                                }
+
+
+                            }
+     
                     }
                     else{
 
