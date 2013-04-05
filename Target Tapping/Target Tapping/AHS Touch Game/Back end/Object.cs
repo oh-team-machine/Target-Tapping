@@ -13,6 +13,8 @@ namespace TargetTapping.Back_end
     {
         public bool bMouseDownInside;
         private bool bIsClicked;
+        //old position to test if we have updated the position.
+        private Rectangle previousRect;
 
         //Constructor for this class
         public Object(string objectType, string objectSubname, Rectangle rectanglePassedIn, Color colorPassedIn, ContentManager content, GraphicsDeviceManager graphics)
@@ -28,6 +30,9 @@ namespace TargetTapping.Back_end
             this.shouldIbeDrawn = true;
 
             this.frameDelay = 80;
+
+            this.previousRect = this.rectangle;
+            
 
         }
 
@@ -71,7 +76,7 @@ namespace TargetTapping.Back_end
                         bIsClicked = true;
                         //since this object was just clicked try and delay it from being updated again for a while to avoid couble clicking
                         //due to the rally fast polling rate of the game loop, which registers a mouse click 5-7 times.
-                        this.frameDelay = 80;
+                        //this.frameDelay = 80;
                     }
                     if (state.LeftButton == ButtonState.Pressed && this.shouldIbeDrawn)
                     {
@@ -96,7 +101,11 @@ namespace TargetTapping.Back_end
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+            if(this.previousRect != this.rectangle){
+                this.frameDelay = 80;
+                this.previousRect = this.rectangle;
+            }
+
 
             //Only if the property shouldIbeDrawn is set to true should this object be drawn on screen\
             if(this.shouldIbeDrawn){

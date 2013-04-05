@@ -170,6 +170,25 @@ namespace TargetTapping.Screens
                 }
             }
 
+
+            //now lets test if the game has ended, we do this by going through the entire list of 
+            //objects in the level and seeing if there shouldIbeDrawn property if false.
+            //if they are all set to false then the game is over 
+            foreach (var myListofObjects in playingLevel.objectList)
+            {
+                foreach (var myObject in myListofObjects)
+                {
+                    if (myObject.shouldIbeDrawn == false)
+                    {
+                        this.gameFinished = true;
+                    }
+                    else if(myObject.shouldIbeDrawn == true)
+                    {
+                        this.gameFinished = false;
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
 

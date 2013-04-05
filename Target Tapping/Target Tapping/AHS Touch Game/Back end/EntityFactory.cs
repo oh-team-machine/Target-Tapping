@@ -74,8 +74,7 @@ namespace TargetTapping.Back_end
 
             var graphman = GameManager.GlobalInstance.Graphics;
 
-            var entity = new Object(Type, Name, rect, Color,
-               content, graphman);
+            var entity = new Object(Type, Name, rect, Color, content, graphman);
 
             return entity;
 
