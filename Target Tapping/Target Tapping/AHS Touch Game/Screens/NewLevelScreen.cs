@@ -73,7 +73,7 @@ namespace TargetTapping.Screens
             clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothing");
 
             myDescription = Content.Load<Texture2D>("GUI/description");
-            clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothing");
+            clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothingHighlight");
 
             keyboard = new Keyboard(((ScreenWidth / 2) - 250), ((ScreenHeight) - 240), Content);
             keyboard.LoadContent();
@@ -146,20 +146,28 @@ namespace TargetTapping.Screens
             if (clearNameButton.IsClicked())
             {
                 nameHighlight = true;
+                clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothingHighlight");
+                clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothing");
             }
             if (clearDescriptionButton.IsClicked())
             {
                 nameHighlight = false;
+                clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothing");
+                clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothingHighlight");
             }
             if (delName.IsClicked())
             {
                 nameHighlight = true;
                 nameOfTherapist = "";
+                clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothingHighlight");
+                clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothing");
             }
             if (delDesc.IsClicked())
             {
                 nameHighlight = false;
                 descriptionByTherapist = "";
+                clearNameButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 40), "GUI/nothing");
+                clearDescriptionButton = MakeButton(((ScreenWidth / 2) - 200), ((ScreenHeight / 2) - 100), "GUI/nothingHighlight");
             }
             if (btnHelp.IsClicked())
             {
@@ -193,6 +201,7 @@ namespace TargetTapping.Screens
                 spriteBatch.DrawString(font, descriptionByTherapist,
                                        descriptionByTherapistPosition,
                                        Color.DarkGray);
+                
             }
             else
             {
@@ -201,6 +210,7 @@ namespace TargetTapping.Screens
                 spriteBatch.DrawString(font, descriptionByTherapist,
                                        descriptionByTherapistPosition,
                                        Color.Black);
+                
             }
 
             spriteBatch.Draw(myName, myNamePosition, Color.White);
