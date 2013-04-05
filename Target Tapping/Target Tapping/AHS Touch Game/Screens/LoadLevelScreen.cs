@@ -110,10 +110,13 @@ namespace TargetTapping.Screens
             if (delSearch.IsClicked())
             {
                 searchQuery = "";
+                clearSearchButton = MakeButton(((ScreenWidth / 2) - 275), 120, "GUI/nothing2Highlight");
             }
             if (clearSearchButton.IsClicked())
             {
                 if (loadKeyBoard == false) { loadKeyBoard = true; } //else { loadKeyBoard = false; }
+                clearSearchButton = MakeButton(((ScreenWidth / 2) - 275), 120, "GUI/nothing2Highlight");
+
             }
             if (btnHelp.IsClicked())
             {
