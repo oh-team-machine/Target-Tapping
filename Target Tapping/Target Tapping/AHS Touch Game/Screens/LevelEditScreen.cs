@@ -87,7 +87,7 @@ namespace TargetTapping.Screens
             {
                 intUpTime = 5;
             }
-            if (myLevel.holdTime > 0)
+            if (myLevel.holdTime >= 0)
             {
                 intHoldTime = myLevel.holdTime;
             }

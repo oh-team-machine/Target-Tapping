@@ -12,7 +12,7 @@ namespace TargetTapping.Back_end
             currentPosition = 0;
             multiSelect = false;
             upTime = 5;
-            holdTime = 1;
+            holdTime = 0;
         }
 
         public List<List<TargetTapping.Back_end.Object>> objectList { get; set; }

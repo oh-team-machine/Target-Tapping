@@ -134,7 +134,10 @@ namespace TargetTapping.Screens
                 // is clicked and if it is then we are going to move its position.
                 foreach (var myObject in playingLevel.objectList[currentListNumber])
                 {
-                    if (myObject.IsClicked())
+                    //edited: pboutet Apr 5, 2013: also test to see if it has a hold count. Because we want to
+                    //only have quick single clicks score objects if they don't have a hold time.
+                    //&& playingLevel.holdTime == 0
+                    if (myObject.IsClicked() && playingLevel.holdTime == 0)
                     {
                         score++;
 
@@ -147,7 +150,7 @@ namespace TargetTapping.Screens
                         //playingLevel.objectList[currentListNumber][position].shouldIbeDrawn = false;
                         myObject.shouldIbeDrawn = false;
                     }
-                    if (myObject.bMouseDownInside)
+                    if (myObject.bMouseDownInside && playingLevel.holdTime != 0)
                     {
                         myObject.holdCount = myObject.holdCount + 1;
                         if (myObject.holdCount == playingLevel.holdTime * 40)
@@ -160,7 +163,7 @@ namespace TargetTapping.Screens
                             myObject.shouldIbeDrawn = false;
                         }
                     }
-                    else
+                    else//why are we setting the hold count to 0 here?
                     {
                         myObject.holdCount = 0;
                     }
