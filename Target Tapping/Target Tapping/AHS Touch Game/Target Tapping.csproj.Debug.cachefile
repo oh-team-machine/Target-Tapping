@@ -143,10 +143,10 @@ Content\Numbers\number6.xnb
 Content\Numbers\number7.xnb
 Content\Numbers\number8.xnb
 Content\Numbers\number9.xnb
-Content\Font.xnb
-Content\WinFont.xnb
 Content\GUI\nothing2.xnb
 Content\GUI\pauseButton.xnb
+Content\Font.xnb
+Content\WinFont.xnb
 Content\ShapePallet\8Btn.xnb
 Content\ShapePallet\5Btn.xnb
 Content\ShapePallet\4Btn.xnb
@@ -170,6 +170,7 @@ Content\HELP\loadLayoutHelp.xnb
 Content\HELP\exitHelp.xnb
 Content\HELP\gameBreakDownHelp.xnb
 Content\HELP\answerBackDrop.xnb
+Content\ButtonPress.xnb
 Content\HELP\cancelAndCreateHelp.xnb
 Content\HELP\descriptionAndNameHelp.xnb
 Content\HELP\littleXHelp.xnb
@@ -186,4 +187,6 @@ Content\HELP\designHelp.xnb
 Content\HELP\saveHelp.xnb
 Content\LevelEditorGUI\editButton.xnb
 Content\GameScreenContent\gameFinished.xnb
+Content\LevelEditorMenu\saveSuccessful.xnb
+Content\GUI\nothingHighlight.xnb
 Content\ButtonPress.wma
