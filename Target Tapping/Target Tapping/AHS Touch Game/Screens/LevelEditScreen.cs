@@ -21,17 +21,10 @@ namespace TargetTapping.Screens
         Vector2 intUpTimePosition;
         Vector2 intHoldTimePosition;
         SpriteFont font;
-        
-
-        //counter for debugging mouse clicksint
-        private int mouseClickCounter = 0;
-        //counter for debugging number of times a object is clicked
-        private int shapeClickCounter = 0;
 
         //to handle the multiple number of clicks that occur
         MouseState mouseStateCurrent, mouseStatePrevious;
-
-
+        
         // The level editor's got a bunch of buttons!
         Dictionary<String, Button> btns = new Dictionary<string,Button>();
 
@@ -48,6 +41,9 @@ namespace TargetTapping.Screens
         Texture2D grid, addLabel;
         Vector2 gridPosition = (new Vector2(0, 110));
         Vector2 addLabelPosition = (new Vector2(985, 32));
+
+        //rectangle that represents the boundaries of the placement grid
+        Rectangle gridRect;
 
         public override void LoadContent()
         {
@@ -78,6 +74,9 @@ namespace TargetTapping.Screens
             // Also, the grid.
             grid = Content.Load<Texture2D>("LevelEditorGUI/placementGrid");
             addLabel = Content.Load<Texture2D>("LevelEditorGUI/addLabel");
+
+            //setup the rectangle for the grid
+            this.gridRect = new Rectangle(0, 110, ScreenWidth, ScreenHeight);
 
             // Sets upTime and holdTime if already been set
             if (myLevel.upTime > 0)
@@ -128,9 +127,6 @@ namespace TargetTapping.Screens
                 //going to set the gameManager to have a reference to myLevel so that we can access
                 //all the objects that we've created and now want to display on the gamescreen.
                 //GameManager.GlobalInstance.activeLevel = myLevel; //commented out as were just re referencing, didn't seem to break anything.
-
-
-
                 AddScreenAndChill(new GameScreen());
             }
             if (btns["UpTime"].IsClicked() )
@@ -273,18 +269,41 @@ namespace TargetTapping.Screens
                     //set new position of the objectbeingMoved to wherever the mouse was just clicked.
                     int newXcoord = MouseState.X - (this.objBeingMoved.rectangle.Width / 2);
                     int newYcoord = MouseState.Y - (this.objBeingMoved.rectangle.Height / 2);
-                    this.objBeingMoved.rectangle = new Rectangle(newXcoord, newYcoord,
+                    //set the new width and height of the objectBeingMoved
+                    int newWidth = this.objBeingMoved.rectangle.Width;
+                    int newHeight = this.objBeingMoved.rectangle.Height;
+
+                    //create a new rectangle based on the above coordinates and width,height.
+                    Rectangle newObjectBeingMovedPosition = new Rectangle(newXcoord, newYcoord, newWidth, newHeight);
+
+                    //Test if the rectangle is contained in the gridRect
+                    //if it is set it to the new position else dont allow it to be drawn, notify the user somehow that they need to
+                    //click inside the grid.
+                    if(this.gridRect.Contains(newObjectBeingMovedPosition)){
+
+
+                        //TODO: now we need to check if the object we are about to re-draw to a new position 
+                        //overlaps with any of the current objects.
+                        Console.WriteLine("Good: New position was inside the grid");
+
+                        this.objBeingMoved.rectangle = new Rectangle(newXcoord, newYcoord,
                         this.objBeingMoved.rectangle.Width, this.objBeingMoved.rectangle.Height);
 
-                    //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
-                    //So this will now redraw the object at the new position.
-                    this.objBeingMoved.shouldIbeDrawn = true;
+                        //Now set it so that the object being moved property of shouldIBeDrawn is set back to true
+                        //So this will now redraw the object at the new position.
+                        this.objBeingMoved.shouldIbeDrawn = true;
 
-                    //now remove the reference so we no long change the actual object in the list.
-                    this.objBeingMoved = null;
-                    Console.WriteLine("Object now had new coordinates set it to null.");
+                        //now remove the reference so we no long change the actual object in the list.
+                        this.objBeingMoved = null;
+                        Console.WriteLine("Object now has new coordinates, set it to null so we no longer move it.");
+                    }
+                    else{
 
-                }
+                        Console.WriteLine("Bad: New position was outside the grid");
+
+                    }
+
+                 }
             }
             mouseStatePrevious = mouseStateCurrent;
 
@@ -318,9 +337,7 @@ namespace TargetTapping.Screens
             // Draw dat grid, yo.
             //spriteBatch.Draw(grid,
               //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
-            spriteBatch.Draw(grid,new Rectangle(0, 110, ScreenWidth, ScreenHeight), Color.White);
-
-            
+            spriteBatch.Draw(grid,this.gridRect, Color.White);
 
             // draw the all objects that have been created in this level on the level grid
             foreach (List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
