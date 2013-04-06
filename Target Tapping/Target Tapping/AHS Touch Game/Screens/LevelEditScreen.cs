@@ -169,7 +169,7 @@ namespace TargetTapping.Screens
             }
             if (btns["LessHold"].IsClicked())
             {
-                if (intHoldTime > 1)
+                if (intHoldTime > 0)
                 {
                     intHoldTime--;
                     GameManager.GlobalInstance.activeLevel.holdTime = intHoldTime;
@@ -405,9 +405,7 @@ namespace TargetTapping.Screens
                 button.Draw(spriteBatch);
             }
 
-            // Draw dat grid, yo.
-            //spriteBatch.Draw(grid,
-              //     gridPosition, null, Color.White, null, null, 1.0f, SpriteEffects.None, 0f);
+            // Draw the grid
             spriteBatch.Draw(grid,this.gridRect, Color.White);
 
             // draw the all objects that have been created in this level on the level grid

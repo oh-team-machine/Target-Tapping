@@ -14,6 +14,7 @@ namespace TargetTapping.Screens
         int countFramesForEntity = 0;
         int countFramesForTime = 0;
         int time = 0;
+        //int totalTimeAllowed = 0;
         int totalTimeAllowed = 0;
         int currentListNumber = 0;
 
@@ -28,7 +29,7 @@ namespace TargetTapping.Screens
 
         //keep track of the score
         private int score;
-        private int finalScore;
+        private int finalScore = -1;
 
         //to record the final time it took to complete the level.
         private string finalTime = null;
@@ -60,6 +61,9 @@ namespace TargetTapping.Screens
             float scoreLength = (font.MeasureString("999/999")).X;
             //Load audio for button press
             song = Content.Load<Song>("ButtonPress");
+
+            //set the score fnal
+            this.totalTimeAllowed = this.playingLevel.objectList.Count * this.playingLevel.upTime;
             
             //double check this position
             scorePosition = new Vector2(ScreenWidth - 240, 30);
@@ -77,7 +81,7 @@ namespace TargetTapping.Screens
                 }
                 if (countFramesForEntity == (playingLevel.upTime * 60))
                 {
-                    totalTimeAllowed = totalTimeAllowed + playingLevel.upTime;
+                    //totalTimeAllowed = totalTimeAllowed + playingLevel.upTime;
                     currentListNumber = currentListNumber + 1;
                     countFramesForEntity = 0;
                 }
@@ -99,8 +103,21 @@ namespace TargetTapping.Screens
                 }
                 if (currentListNumber == playingLevel.objectList.Count)
                 {
-                    finalScore = score - (time - totalTimeAllowed);
-                    //TO DO: Add Score Screen
+                    //we set the final score and time in this if so that we only enter it once. because once
+                    //these are set we dont want them to change due to the continued polling of the loops.
+                    if (this.finalScore == -1)
+                    {
+                        //set the final score and dont change it anymore
+                        this.finalScore = score - (time - totalTimeAllowed);
+                        //Set the final time and dont change it anymore
+                        this.finalTime = time.ToString();
+                        //put the level played, time and score to be saved.
+                        GameManager.GlobalInstance.SaveScore.saveScore(this.playingLevel.levelName, this.time, this.score);
+                        //indicate the game is finished, so that in the draw method we will draw the game finished texture and the final score and time.
+                        this.gameFinished = true;
+                        
+                    }
+
                     //Until then hack to ignore stepping over list boundry and running for infinity
                     currentListNumber = currentListNumber - 1;
                 }
@@ -174,56 +191,36 @@ namespace TargetTapping.Screens
                 }
             }
 
-
-            //now lets test if the game has ended, we do this by going through the entire list of 
-            //objects in the level and seeing if there shouldIbeDrawn property if false.
-            //if they are all set to false then the game is over 
-            foreach (var myListofObjects in playingLevel.objectList)
-            {
-                foreach (var myObject in myListofObjects)
-                {
-                    if (myObject.shouldIbeDrawn == false)
-                    {
-                        this.gameFinished = true;
-                    }
-                    else if(myObject.shouldIbeDrawn == true)
-                    {
-                        this.gameFinished = false;
-                    }
-                }
-            }
-
             base.Update(gameTime);
         }
 
 
         public override void PreparedDraw(SpriteBatch spriteBatch)
         {
+                 //draw onl the start to play button
             if (!hasTouchedToStart)
             {
                 btnTouchToStart.Draw(spriteBatch);
             }
+                 //Draw only the finished game texture and the final score and time.
             else if (gameFinished)
             {
                 btnPause.Draw(spriteBatch);
 
-                // Send to end screen?
+                //draw the game finished texture
                 youFinished.Draw(spriteBatch);
 
+                //positions for the final score and time.
                 int scoreX = youFinished.Rect.X + (youFinished.Rect.Width / 2) - 40;
                 int scoreY = youFinished.Rect.Y + youFinished.Rect.Height + 15;
 
-                //Set the final time and dont change it anymore
-                if (this.finalTime == null)
-                {
-                    this.finalTime = time.ToString();
-                }
-               
-                spriteBatch.DrawString(font, "Score: " + score.ToString(), new Vector2(scoreX, scoreY), Color.White);
+                //draw the final score and time.
+                spriteBatch.DrawString(font, "Score: " + this.finalScore.ToString(), new Vector2(scoreX, scoreY), Color.White);
                 spriteBatch.DrawString(font, "Time: " + this.finalTime, new Vector2(scoreX, scoreY + 30), Color.White);
 
                 
             }
+                //Draw stuff to play the game as normal.
             else
             {
 
