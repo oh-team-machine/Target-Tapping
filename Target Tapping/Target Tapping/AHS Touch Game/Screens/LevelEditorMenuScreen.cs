@@ -63,18 +63,53 @@ namespace TargetTapping.Screens
             }
             if (btnLemLoad.IsClicked())
             {
+                var confirmResult = System.Windows.Forms.MessageBox.Show("Do you want to save the level before loading?", "Confirm Save!", System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (confirmResult.ToString() == "Yes")
+                {
+                    // if 'Yes' do something here 
+                    GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
+                    var sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
+                    new SaveLevel().initiateSave(sLevel);
+                    System.Windows.Forms.MessageBox.Show("Save Successful");
+                }
+                else
+                {
+                    // if 'No' do something here
+                    System.Windows.Forms.MessageBox.Show("Level Changes Discarded!");
+                }
                 AddScreenAndChill(new LoadLevelScreen());
             }
             if (btnLemClear.IsClicked())
             {
                 //Clear the current level that you have been building and go to the level 
                 //editor screen with a blank level.
-                this.playingLevel.clearAllObjects();
-
+                var confirmResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to clear all objects?", "Confirm Clear!", System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (confirmResult.ToString() == "Yes")
+                {
+                    this.playingLevel.clearAllObjects(); 
+                }
+                else
+                {
+                    
+                }
                 AddScreenAndChill(new LevelEditScreen());
             }
             if (btnLemExit.IsClicked())
             {
+                var confirmResult = System.Windows.Forms.MessageBox.Show("Do you want to save the level before exiting?", "Confirm Save!", System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (confirmResult.ToString() == "Yes")
+                {
+                    // if 'Yes' do something here 
+                    GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
+                    var sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
+                    new SaveLevel().initiateSave(sLevel);
+                    System.Windows.Forms.MessageBox.Show("Save Successful");
+                }
+                else
+                {
+                    // if 'No' do something here
+                    System.Windows.Forms.MessageBox.Show("Level Changes Discarded!");
+                }
                 ScreenManager.Exit();
             }
             btnLemSave.Update(MouseState);
