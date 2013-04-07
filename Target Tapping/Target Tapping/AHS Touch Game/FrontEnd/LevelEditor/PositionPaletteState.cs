@@ -52,10 +52,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
                     Console.WriteLine("Good: New position was inside the grid");
 
-                    //if there is only one object in the entire list then we can assume we are comparing
-                    //the object being moved to itself. so we can just ignore intersection checking and 
-                    //set the new position of the object.
-                    if (myLevel.objectList.Count == 1 && myLevel.objectList[0].Count == 1)
+                    //if there is no object in the entire list then we can assume the grid is empty and we can place 
+                    //the new object anywhere.
+                    if (myLevel.objectList.Count == 0)
                     {
                         Console.WriteLine("Good: Only one object in the list.");
                         Console.WriteLine("Good: Proceed with creating a new object.");
