@@ -135,12 +135,12 @@ namespace TargetTapping.Screens
                     }
                     else
                     {
-                        System.Windows.Forms.MessageBox.Show("Name Field and Description Field Must Be Larger Than 3 Characters.");
+                        System.Windows.Forms.MessageBox.Show("Name and Description fields must have a minimum of 3 characters.");
                     }
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("Name Field and Description Field Must Be Larger Than 3 Characters.");
+                    System.Windows.Forms.MessageBox.Show("Name and Description fields must have a minimum of 3 characters.");
                 }
             }
             if (clearNameButton.IsClicked())
