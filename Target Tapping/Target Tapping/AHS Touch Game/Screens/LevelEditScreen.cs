@@ -78,6 +78,9 @@ namespace TargetTapping.Screens
             //setup the rectangle for the grid
             this.gridRect = new Rectangle(0, 110, ScreenWidth, ScreenHeight);
 
+            //register this gridRect with the game manager
+            GameManager.GlobalInstance.gridRectangle = this.gridRect;
+
             // Sets upTime and holdTime if already been set
             if (myLevel.upTime > 0)
             {
@@ -300,7 +303,7 @@ namespace TargetTapping.Screens
                             //if there is only one object in the entire list then we can assume we are comparing
                             //the object being moved to itself. so we can just ignore intersection checking and 
                             //set the new position of the object.
-                            if (myLevel.objectList.Count == 1 && this.myLevel.objectList.Count == 1)
+                            if (myLevel.objectList.Count == 1 && this.myLevel.objectList[0].Count == 1)
                             {
                                 Console.WriteLine("Good: Only one object in the list.");
 

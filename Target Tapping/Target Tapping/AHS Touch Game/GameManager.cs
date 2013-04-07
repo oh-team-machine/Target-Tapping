@@ -32,6 +32,10 @@ namespace TargetTapping
         //access its objects while in the gamescreen.
         public Level activeLevel { get; set; }
 
+        //added this grid rectangle to allow the pallet to know where the grid on the 
+        //levelEditor is so that it can make sure new objects its making are placed inside the grid and
+        public Rectangle gridRectangle { get; set; }
+
 
         public GraphicsDeviceManager Graphics { get; set; }
 
