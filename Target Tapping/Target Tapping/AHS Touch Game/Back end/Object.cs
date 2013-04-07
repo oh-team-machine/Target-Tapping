@@ -113,7 +113,7 @@ namespace TargetTapping.Back_end
                 if (bMouseDownInside)
                 {
                     spriteBatch.Draw(texture, new Vector2(rectangle.X + rectangle.Width / 2, rectangle.Y + rectangle.Height / 2), 
-                        null, Color.DarkViolet, 0.0f, new Vector2(rectangle.Width / 2f, rectangle.Height / 2f), 0.8f, SpriteEffects.None, 0);
+                        null, Color.DarkViolet, 0.0f, new Vector2(rectangle.Width / 2f, rectangle.Height / 2f), 0.4f, SpriteEffects.None, 0);
                 }
                 else{
 
