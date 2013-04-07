@@ -170,7 +170,6 @@ Content\HELP\loadLayoutHelp.xnb
 Content\HELP\exitHelp.xnb
 Content\HELP\gameBreakDownHelp.xnb
 Content\HELP\answerBackDrop.xnb
-Content\ButtonPress.xnb
 Content\HELP\cancelAndCreateHelp.xnb
 Content\HELP\descriptionAndNameHelp.xnb
 Content\HELP\littleXHelp.xnb
@@ -186,6 +185,7 @@ Content\HELP\designHelp.xnb
 Content\HELP\saveHelp.xnb
 Content\LevelEditorGUI\editButton.xnb
 Content\GameScreenContent\gameFinished.xnb
+Content\ButtonPress.xnb
 Content\LevelEditorMenu\saveSuccessful.xnb
 Content\GUI\nothingHighlight.xnb
 Content\GUI\nothing2Highlight.xnb

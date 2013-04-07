@@ -71,10 +71,10 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
                         //bool to keep track if there was an intersect
                         bool isThereAnIntersect = false;
-                        foreach (System.Collections.Generic.List<TargetTapping.Back_end.Object> myListofObjects in myLevel.objectList)
+                        foreach (var myListofObjects in myLevel.objectList)
                         {
                             //check if the object being moved doesnt intersect with any other objects
-                            foreach (TargetTapping.Back_end.Object myObject in myListofObjects)
+                            foreach (var myObject in myListofObjects)
                             {
                                 //if were comparing the object being redrawn to its self in the list just ignore it 
                                 //and skip this iteration of the loop.

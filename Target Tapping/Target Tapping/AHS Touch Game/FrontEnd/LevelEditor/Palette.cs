@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameLibrary.UI;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using TargetTapping.Back_end;
 
@@ -28,6 +30,7 @@ namespace TargetTapping.FrontEnd.LevelEditor
         private readonly Dictionary<string, PaletteState> _states =
                 new Dictionary<string, PaletteState>();
 
+        private Button _cancelButton;
         private Texture2D _shapePalletBackground;
 
         public Palette(int x, int y)
@@ -59,7 +62,6 @@ namespace TargetTapping.FrontEnd.LevelEditor
             Show();
         }
 
-
         #endregion
 
         #region Mad props, yo
@@ -85,6 +87,14 @@ namespace TargetTapping.FrontEnd.LevelEditor
                 {
                     state.Position = value;
                 }
+
+                // Move the cancel button
+                if (_cancelButton != null)
+                    _cancelButton.Rect = new Rectangle(
+                            BoundingBox.Center.X - (120/2),
+                            BoundingBox.Bottom,
+                            0, 0
+                        );
             }
         }
 
@@ -99,12 +109,24 @@ namespace TargetTapping.FrontEnd.LevelEditor
             get { return (!IsHidden) || (CurrentStateName == "Position"); }
         }
 
-
         #endregion
 
-        public void Update(Microsoft.Xna.Framework.Input.MouseState state)
+        public void Update(MouseState state)
         {
             CurrentState.Update(state);
+
+            if (IsHidden)
+                return;
+
+            if (_cancelButton.IsClicked())
+            {
+                // To cancel, we must reset.
+                Reset();
+                Hide();
+            }
+
+            // Update everything with the mouse state.
+            _cancelButton.Update(state);
         }
 
         public void LoadContent(RichContentManager content)
@@ -112,17 +134,21 @@ namespace TargetTapping.FrontEnd.LevelEditor
             // Load the background.
             _shapePalletBackground =
                     content.Load<Texture2D>("ShapePallet/shapePalletBackground");
+
             BoundingBox = new Rectangle(
                     Position.X, Position.Y,
                     _shapePalletBackground.Width,
                     _shapePalletBackground.Height);
 
+            // And the cancel button to the bottom of the palette.
+            _cancelButton = content.MakeButton(
+                    BoundingBox.Center.X - (120/2),
+                    BoundingBox.Bottom,
+                    "GUI/cancel");
+
             // LoadContent for all palette states; do not LoadContent more than once.
             var statesLoaded = new List<PaletteState>();
-            foreach (
-                    var state in
-                            _states.Values.Where(
-                                    state => !statesLoaded.Contains(state)))
+            foreach (var state in _states.Values.Where( state => !statesLoaded.Contains(state)))
             {
                 statesLoaded.Add(state);
                 state.LoadContent(content);
@@ -136,6 +162,9 @@ namespace TargetTapping.FrontEnd.LevelEditor
 
             // Draw the background first.
             spriteBatch.Draw(_shapePalletBackground, BoundingBox, Color.White);
+
+            // Next, draw the cancel button.
+            _cancelButton.Draw(spriteBatch);
 
             CurrentState.Draw(spriteBatch);
         }
