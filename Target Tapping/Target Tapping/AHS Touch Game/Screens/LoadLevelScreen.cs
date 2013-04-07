@@ -96,7 +96,7 @@ namespace TargetTapping.Screens
             {
                 if (fileList.SelectedElement() == "")
                 {
-
+                    System.Windows.Forms.MessageBox.Show("Please select a level to load from the list.");
                 }
                 else
                 {
