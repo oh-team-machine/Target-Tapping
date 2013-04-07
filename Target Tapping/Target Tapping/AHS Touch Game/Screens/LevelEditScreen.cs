@@ -119,6 +119,20 @@ namespace TargetTapping.Screens
             // Update stuff here!
             if (btns["Home"].IsClicked())
             {
+                var confirmResult = System.Windows.Forms.MessageBox.Show("Do you want to save the level before going home?", "Confirm Save!", System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (confirmResult.ToString() == "Yes")
+                {
+                    // if 'Yes' do something here 
+                    GameManager.GlobalInstance.LevelNames.addFilename(GameManager.GlobalInstance.activeLevel.levelName);
+                    var sLevel = new SerializableLevel(GameManager.GlobalInstance.activeLevel);
+                    new SaveLevel().initiateSave(sLevel);
+                    System.Windows.Forms.MessageBox.Show("Save Successful");
+                }
+                else
+                {
+                    // if 'No' do something here
+                    System.Windows.Forms.MessageBox.Show("Level Changes Discarded!");
+                }
                 AddScreenAndChill(new MenuScreen());
             }
             if (btns["Menu"].IsClicked())
