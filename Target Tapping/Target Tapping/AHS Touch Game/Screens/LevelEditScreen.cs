@@ -69,7 +69,7 @@ namespace TargetTapping.Screens
             btns.Add("AddShape", MakeButton(1040, 35, "LevelEditorGUI/addShapeButton"));
             btns.Add("AddAlpha", MakeButton(1105, 35, "LevelEditorGUI/addAlphButton"));
             btns.Add("AddNumbr", MakeButton(1170, 35, "LevelEditorGUI/addNumButton"));
-            btns.Add("Edit", MakeButton(1230, 35, "LevelEditorGUI/editButton"));
+            //btns.Add("Edit", MakeButton(1230, 35, "LevelEditorGUI/editButton"));
             btns.Add("HelpBtn", MakeButton(((ScreenWidth) - 55), 35, "HELP/LEhelpIcon"));
 
             // Also, the grid.
@@ -222,10 +222,10 @@ namespace TargetTapping.Screens
                 palette.RequestStateChange("Num");
                 palette.Show();
             }
-            if (btns["Edit"].IsClicked())
-            {
+            //if (btns["Edit"].IsClicked())
+            //{
                 
-            }
+            //}
             if (btns["HelpBtn"].IsClicked())
             {
                 AddScreenAndChill(new LEHelpScreen());
