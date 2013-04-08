@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
+using TargetTapping.Back_end.Command;
 using Microsoft.Xna.Framework.Input;
 using TargetTapping.FrontEnd.LevelEditor;
 
@@ -194,10 +195,16 @@ namespace TargetTapping.Screens
             }
             if (btns["Redo"].IsClicked())
             {
+                //get the command manager to redo
+                CommandManager commandManager = CommandManager.getInstance();
+                commandManager.redo();
 
             }
             if (btns["Undo"].IsClicked())
             {
+                //get the command manager to undo
+                CommandManager commandManager = CommandManager.getInstance();
+                commandManager.undo();
 
             }
             if (btns["AddAlpha"].IsClicked())
@@ -247,7 +254,11 @@ namespace TargetTapping.Screens
             {
                 var entity = palette.ObjectFactory.Make(Content);
 
-                myLevel.addObject(entity);
+                //will call the commandManager to add a new object to the level (ie. our model)
+                CommandManager commandManager = CommandManager.getInstance();
+                CommandInterface command = new ChangeLevelCommand(this.myLevel, entity);
+                commandManager.invokeCommand(command);
+                //myLevel.addObject(entity);
 
                 palette.Reset();
             }
@@ -267,6 +278,7 @@ namespace TargetTapping.Screens
             {
                 foreach (var myObject in myListofObjects)
                 {
+                   
                     if (myObject.IsClicked())
                     {
                         //now were going to set the current clicked object on the leveleditor grid 
