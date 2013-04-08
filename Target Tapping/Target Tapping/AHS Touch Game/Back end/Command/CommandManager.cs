@@ -65,6 +65,12 @@ namespace TargetTapping.Back_end.Command
             }
 
         }
+        //clear the history and redo list.
+        public void clearUndoRedo()
+        {
+            this.historyList.Clear();
+            this.redoList.Clear();
+        }
 
         public static CommandManager getInstance()
         {

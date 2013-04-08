@@ -17,7 +17,7 @@ namespace TargetTapping.Back_end.Command
         private Tuple<int, int> location = Tuple.Create(-1, -1);
 
         //old object data
-        //private Back_end.Object oldObjectEntry;
+        private Back_end.Object oldObjectEntry;
 
 
 
@@ -29,21 +29,7 @@ namespace TargetTapping.Back_end.Command
             //set the new object being added to the level.
             this.newObjectEntry = myObject;
 
-
-
-            //set the old object by getting the last object currently in the model
-            //if (this.ChangeLevelCommandsLevel.objectList.Count == 0)
-            //{
-            //    //string last = fruits.LastOrDefault();
-            //    //Console.WriteLine(
-            //    //    String.IsNullOrEmpty(last) ? "<string is null or empty>" : last);
-            //    // this.oldObjectEntry = this.ChangeLevelCommandsLevel.objectList.Last().Last();
-            //}
-            //else
-            //{
-            //    this.oldObjectEntry = this.ChangeLevelCommandsLevel.objectList.Last().Last();
-            //}
-            
+            ///this.oldObjectEntry = myObject;
 
         }
 
@@ -52,6 +38,7 @@ namespace TargetTapping.Back_end.Command
         {
             this.ChangeLevelCommandsLevel.addObject(this.newObjectEntry);
 
+            
             //get the location of the object we just added in our list of lists
             for (int x = 0; x < this.ChangeLevelCommandsLevel.objectList.Count; ++x)
             {
@@ -64,6 +51,7 @@ namespace TargetTapping.Back_end.Command
                 }
             }
             Console.WriteLine("added at: "+this.location.ToString());
+            
             
         }
 

@@ -2,6 +2,7 @@
 using GameLibrary.UI;
 using Microsoft.Xna.Framework;
 using TargetTapping.Back_end;
+using TargetTapping.Back_end.Command;
 using System.Threading;
 
 namespace TargetTapping.Screens
@@ -86,7 +87,12 @@ namespace TargetTapping.Screens
                 var confirmResult = System.Windows.Forms.MessageBox.Show("Are you sure you want to clear all objects?", "Confirm Clear!", System.Windows.Forms.MessageBoxButtons.YesNo);
                 if (confirmResult.ToString() == "Yes")
                 {
+                    //clear the levlel of all object
                     this.playingLevel.clearAllObjects(); 
+                    //clear the undo/redo history
+                    CommandManager commandManager = CommandManager.getInstance();
+                    commandManager.clearUndoRedo();
+
                 }
                 else
                 {
