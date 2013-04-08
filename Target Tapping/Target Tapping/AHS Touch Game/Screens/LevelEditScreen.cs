@@ -171,7 +171,7 @@ namespace TargetTapping.Screens
             }
             if (btns["LessUp"].IsClicked())
             {
-                if (intUpTime > 1)
+                if (intUpTime > 1 && intUpTime > intHoldTime)
                 {
                     intUpTime--;
                     GameManager.GlobalInstance.activeLevel.upTime = intUpTime;
